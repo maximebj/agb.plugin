@@ -1,0 +1,1 @@
+import './notice/index.js';

@@ -1,0 +1,11 @@
+@import 'vars';
+
+.edit-post-visual-editor {
+	.wp-block-gutenblock-notice__title {
+		font-size: $size-title;
+	}
+}
+
+.wp-block-gutenblock-notice select {
+	margin-bottom: 14px;
+}

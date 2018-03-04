@@ -1,0 +1,18 @@
+{
+  "name": "gutenberg-blocks-cgb-guten-block",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "cgb-scripts start",
+    "build": "cgb-scripts build",
+    "eject": "cgb-scripts eject"
+  },
+  "dependencies": {
+    "cgb-scripts": "1.9.5",
+    "lodash": "^4.17.5",
+    "throttle-debounce": "^1.0.1"
+  },
+  "devDependencies": {
+    "classnames": "^2.2.5"
+  }
+}

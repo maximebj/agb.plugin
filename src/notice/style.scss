@@ -1,0 +1,49 @@
+@import 'vars';
+
+.wp-block-gutenblock-notice {
+  margin: 1.5em 0;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+
+	&__title {
+	  margin: 0 0 8px 0;
+	  font-size: $size-title;
+	}
+
+	&__content {
+		margin-bottom: 0;
+	}
+
+	&--advice {
+	  border-top: 3px solid $color-advice;
+
+	  .wp-block-gutenblock-notice__title {
+	    color: $color-advice;
+		}
+	}
+
+	&--avoid {
+	  border-top: 3px solid $color-avoid;
+
+	  .wp-block-gutenblock-notice__title {
+	    color: $color-avoid;
+		}
+	}
+
+	&--warning {
+	  border-top: 3px solid $color-warning;
+
+	  .wp-block-gutenblock-notice__title {
+	    color: $color-warning;
+		}
+	}
+
+	&--info {
+	  border-top: 3px solid $color-info;
+
+	  .wp-block-gutenblock-notice__title {
+	    color: $color-info;
+		}
+	}
+}
