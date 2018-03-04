@@ -14,15 +14,13 @@ Here are the current available blocks
 
 Display a simple notice : Info (blue), Advice (green), Warning (yellow), Avoid (red).
 
-![Gutenberg Blocks : Notice]
-(https://dha4w82d62smt.cloudfront.net/items/0L1y2t0p1f220t2t0s0C/notice.jpg?X-CloudApp-Visitor-Id=464056&v=5585bdfc =300x)
+![Gutenberg Blocks : Notice](https://dha4w82d62smt.cloudfront.net/items/0L1y2t0p1f220t2t0s0C/notice.jpg?X-CloudApp-Visitor-Id=464056&v=5585bdfc)
 
 ## Plugin
 
 Search and display plugin information from the WordPress Plugin Repository. Uses the official WP Plugin API.
 
-![Gutenberg Blocks : Plugin]
-(https://dha4w82d62smt.cloudfront.net/items/2G281x2E320p1s0r3k1J/plugin.jpg?X-CloudApp-Visitor-Id=464056&v=e3e54e8a =300x)
+![Gutenberg Blocks : Plugin](https://dha4w82d62smt.cloudfront.net/items/2G281x2E320p1s0r3k1J/plugin.jpg?X-CloudApp-Visitor-Id=464056&v=e3e54e8a)
 
 
 # Requirements
