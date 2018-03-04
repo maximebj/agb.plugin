@@ -2,7 +2,7 @@
 
 namespace GutenbergBlocks\Blocks;
 
-class Notice {
+class Ad {
 
   public function run() {
     $this->register_hooks();
@@ -17,8 +17,8 @@ class Notice {
 
 	public function register_block($blocks) {
 		$blocks[] = array(
-			'name' => __( 'Notice', 'gutenblocks' ),
-			'icon' => 'dashicons-warning',
+			'name' => __('Advertisement', 'gutenblocks') ,
+			'icon' => 'dashicons-megaphone',
 			'category' => 'others',
 			'options_callback' => array( $this, 'settings' )
 		);
@@ -29,6 +29,5 @@ class Notice {
 	public function settings() {
 		echo '<input type="text" value="je suis une option" />';
 	}
-
 
 }

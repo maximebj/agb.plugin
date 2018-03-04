@@ -15,11 +15,6 @@ defined('ABSPATH') or die('Cheatin&#8217; uh?');
 class Blocks {
 
 	protected $registered_blocks;
-	// name =>
-	// category => [ , , ]
-	// options_callback =>
-	//
-
 
 	public function __construct() {
 		$this->register_blocks();
@@ -28,9 +23,10 @@ class Blocks {
 	/**
 	* Register blocks
 	*
-	*  name : (String) Name of the block
-	*  category : [api] category to display block
-	*	 options_callback : (Function) Callback method to display block settings
+	*  name: (String) Name of the block
+  *  icon: (String) Dashicon class
+	*  category: (String) [api, ... ] category to display block
+	*	 options_callback: (Function) Callback method to display block settings
 	*
 	*/
 	public function register_blocks() {
@@ -49,21 +45,24 @@ class Blocks {
 		return array(
 			'subhead' => array(
 				'name' => __( 'Subhead' , 'gutenblocks'),
+				'icon' => 'dashicons-text',
 				'id' => 'core/subhead',
 			),
 			'audio' => array(
 				'name' => __( 'Audio' , 'gutenblocks'),
+				'icon' => 'dashicons-format-audio',
 				'id' => 'core/audio',
 			),
 			'code' => array(
 				'name' => __( 'Code' , 'gutenblocks'),
+				'icon' => 'dashicons-editor-code',
 				'id' => 'core/code',
 			),
 		);
 	}
 
 	public function get_disabled_native_blocks() {
-		return get_option('gutenberg-native-blocks-disabled');
+		return get_option('gutenberg-native-blocks-disabled', array());
 	}
 
 

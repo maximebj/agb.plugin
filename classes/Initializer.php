@@ -15,6 +15,7 @@ use GutenbergBlocks\Services\Blocks;
 
 use GutenbergBlocks\Blocks\Notice;
 use GutenbergBlocks\Blocks\Plugin;
+use GutenbergBlocks\Blocks\Ad;
 
 
 /**
@@ -43,6 +44,7 @@ class Initializer {
 
 		require_once $path.'classes/Blocks/Notice.php';
 		require_once $path.'classes/Blocks/Plugin.php';
+		require_once $path.'classes/Blocks/Ad.php';
 
 		// Init Classes and Hooks
 		$class_admin = new Admin();
@@ -62,6 +64,9 @@ class Initializer {
 
 		$class_blocks_notice = new Notice();
 		$class_blocks_notice->register_hooks();
+
+		$class_blocks_ad = new Ad();
+		$class_blocks_ad->register_hooks();
 
 	}
 

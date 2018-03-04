@@ -19,7 +19,8 @@ class Plugin {
 
 	public function register_block($blocks) {
 		$blocks[] = array(
-			'name' => 'Plugin',
+			'name' => __( 'Plugin', 'gutenblocks' ),
+			'icon' => 'dashicons-admin-plugins',
 			'category' => 'API',
 			'options_callback' => array( $this, 'settings' )
 		);
@@ -28,7 +29,7 @@ class Plugin {
 	}
 
 	public function settings() {
-		echo 'je suis les settings';
+		echo '<input type="text" value="je suis une option" />';
 	}
 
 

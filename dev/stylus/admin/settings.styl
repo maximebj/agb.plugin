@@ -41,8 +41,38 @@
 	border 1px solid border-color
 	margin-bottom 3rem
 
-.gutenblocks-list__item
+.gutenblocks-block
 	padding pad-s
+	margin 0
 
 	&:not(:last-child)
 		border-bottom 1px solid border-color
+
+.gutenblocks-block__head
+	display flex
+
+.gutenblocks-block__icon
+	position relative
+	padding-right 8px
+
+.gutenblocks-block.is-active
+	.gutenblocks-block__icon:after
+		content ''
+		display block
+		position absolute
+		top -3px
+		left -3px
+		width 8px
+		height 8px
+		border-radius 50%
+		background #8cc44b
+
+.gutenblocks-block__title
+	flex 1
+	font-weight bold
+
+.gutenblocks-block__actions
+	text-align right
+
+.gutenblocks-block__settings
+	display none

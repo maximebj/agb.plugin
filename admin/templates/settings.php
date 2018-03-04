@@ -27,36 +27,66 @@
 
 		<h2><?php _e('Gutenberg Blocks'); ?></h2>
 
+		<p class="description"><?php _e("Disable the blocks you don't want to deal with for a smoother experience.", 'gutenblocks'); ?></p>
+
 		<ul class="gutenblocks-list">
 			<?php foreach($registered_blocks as $block): ?>
-			<li class="gutenblocks-list__item">
-				<?php echo $block['name']; ?>
-				---
+			<li class="gutenblocks-block is-active">
+				<header class="gutenblocks-block__head">
+					<div class="gutenblocks-block__icon">
+						<span class="dashicons <?php echo $block['icon']; ?>"></span>
+					</div>
+					<div class="gutenblocks-block__title">
+						<?php echo $block['name']; ?>
+					</div>
+					<div class="gutenblocks-block__actions">
+						<button class="js-gutenblocks-show-settings"><?php _e('Settings', 'gutenblocks'); ?></button>
+						<button class=""><?php _e('Enable', 'gutenblocks'); ?></button>
+					</div>
+				</header>
 
-				<?php call_user_func( $block['options_callback'] ); ?>
+				<div class="gutenblocks-block__settings">
+					<?php call_user_func( $block['options_callback'] ); ?>
+				</div>
+
 			</li>
 			<?php endforeach; ?>
 		</ul>
 
 
-		<h2><?php _e('Default WordPress blocks'); ?></h2>
+		<h2><?php _e('Default WordPress blocks', 'gutenblocks'); ?></h2>
+
+		<p class="description"><?php _e("Disable the blocks you don't want to deal with for a smoother experience.", 'gutenblocks'); ?></p>
 
 		<ul class="gutenblocks-list">
 			<?php
 				foreach($native_blocks as $key => $block):
 			?>
-			<li class="gutenblocks-list__item">
-				<p>
+			<li class="gutenblocks-block">
+				<header class="gutenblocks-block__head">
+					<div class="gutenblocks-block__icon">
+						<span class="dashicons <?php echo $block['icon']; ?>"></span>
+					</div>
+					<div class="gutenblocks-block__title">
+						<?php echo $block['name']; ?>
+					</div>
+					<div class="gutenblocks-block__actions">
+						<button class="js-gutenblocks-show-settings"><?php _e('Settings', 'gutenblocks'); ?></button>
+						<button class=""><?php _e('Enable', 'gutenblocks'); ?></button>
+					</div>
+				</header>
+
+				<div class="gutenblocks-block__settings">
+
 					<input
 						type="checkbox"
 						name="gutenberg-native-blocks-disabled[]"
 						id="blocks-<?php echo $key; ?>"
 						value="<?php echo $block['id']; ?>"
 						<?php if( in_array( $block['id'], $disabled_natives_blocks ) ) { echo 'checked'; } ?>
-
+						<label for="blocks-<?php echo $key; ?>"><?php echo $block['name']; ?></label>
 					>
-					<label for="blocks-<?php echo $key; ?>"><?php echo $block['name']; ?></label>
-				</p>
+				</div>
 			</li>
 			<?php
 				endforeach;

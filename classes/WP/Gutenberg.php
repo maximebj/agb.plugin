@@ -37,6 +37,7 @@ class Gutenberg {
 			'gutenblocks-block',
 			Consts::get_url() . '/dist/blocks.build.js',
 			[ 'wp-blocks', 'wp-i18n', 'wp-element' ],
+			'1.0',
 			true
 		);
 
@@ -45,7 +46,7 @@ class Gutenberg {
       'gutenblocksGlobals',
       array(
         'ajaxurl' => admin_url('admin-ajax.php'),
-				'deactivatedBlocks' => get_option('gutenberg-native-blocks-disabled'),
+				'deactivatedBlocks' => get_option('gutenberg-native-blocks-disabled', array()),
       )
     );
 
