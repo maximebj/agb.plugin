@@ -23,20 +23,30 @@ class Admin {
 
 	public function enqueue_assets($hook) {
 
+		if($hook != 'toplevel_page_gutenberg-blocks') {
+			return;
+		}
 
+		wp_enqueue_style(
+			Consts::PLUGIN_NAME,
+			Consts::get_url().'admin/css/gutenberg-blocks-admin.css',
+			array(),
+			Consts::VERSION,
+			'all'
+		);
+
+		wp_enqueue_script(
+			Consts::PLUGIN_NAME.'-settings',
+			Consts::get_url().'admin/js/gutenberg-blocks-settings.js',
+			array('jquery'),
+			Consts::VERSION,
+			false
+		);
 	}
 
 	public function add_admin_menu() {
 
-		add_menu_page(
-			__( 'Gutenberg Blocks' , 'gutenblocks'),
-			__( 'Gutenberg Blocks' , 'gutenblocks'),
-			'edit_posts',
-			Consts::PLUGIN_NAME,
-			null,
-			'dashicons-screenoptions',
-			100
-		);
+		// For now in Settings.php
 	}
 
 }

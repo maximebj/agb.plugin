@@ -24,9 +24,9 @@ class Gutenberg {
 
 	public function blocks_assets() {
 		wp_enqueue_style(
-			'gutenberg_blocks-cgb-style-css',
+			'gutenblocks-style-css',
 			Consts::get_url() . 'dist/blocks.style.build.css',
-			array( 'wp-blocks' )
+			[ 'wp-blocks' ]
 		);
 	}
 
@@ -34,16 +34,25 @@ class Gutenberg {
 	public function editor_assets() {
 
 		wp_enqueue_script(
-			'gutenberg_blocks-cgb-block-js',
+			'gutenblocks-block',
 			Consts::get_url() . '/dist/blocks.build.js',
-			array( 'wp-blocks', 'wp-i18n', 'wp-element' )
+			[ 'wp-blocks', 'wp-i18n', 'wp-element' ],
+			true
 		);
 
+		wp_localize_script(
+      'gutenblocks-block',
+      'gutenblocksGlobals',
+      array(
+        'ajaxurl' => admin_url('admin-ajax.php'),
+				'deactivatedBlocks' => get_option('gutenberg-native-blocks-disabled'),
+      )
+    );
 
 		wp_enqueue_style(
-			'gutenberg_blocks-cgb-block-editor-css',
+			'gutenblocks-block-editor',
 			Consts::get_url() . 'dist/blocks.editor.build.css',
-			array( 'wp-edit-blocks' )
+			[ 'wp-edit-blocks' ]
 		);
 	}
 

@@ -23,23 +23,24 @@ class Settings {
 
 	public function add_admin_menu() {
 
-		add_submenu_page(
-			Consts::PLUGIN_NAME,
-			__('Settings', 'fitness-planning'),
-			__('Settings', 'fitness-planning'),
+		add_menu_page(
+			__( 'Gutenberg Blocks' , 'gutenblocks'),
+			__( 'Gutenberg Blocks' , 'gutenblocks'),
 			'edit_posts',
 			Consts::PLUGIN_NAME,
-			array($this, 'settings_page')
+			array($this, 'settings_page'),
+			'dashicons-screenoptions',
+			100
 		);
 	}
 
-	public function register_settings() {
-		register_setting('fitness-planning-settings', 'fitplan_workout_archive');
-		register_setting('fitness-planning-settings', 'fitplan_coach_archive');
-	}
-
-
 	public function settings_page(){
-    require_once Consts::get_path().'admin/templates/settings/settings.php';
+    require_once Consts::get_path().'admin/templates/settings.php';
 	}
+
+	public function register_settings() {
+		register_setting('gutenberg-blocks-settings', 'gutenberg-native-blocks-disabled');
+	}
+
+
 }

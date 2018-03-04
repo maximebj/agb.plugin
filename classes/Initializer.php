@@ -11,6 +11,12 @@ use GutenbergBlocks\WP\Front;
 use GutenbergBlocks\WP\Gutenberg;
 use GutenbergBlocks\WP\Settings;
 
+use GutenbergBlocks\Services\Blocks;
+
+use GutenbergBlocks\Blocks\Notice;
+use GutenbergBlocks\Blocks\Plugin;
+
+
 /**
  * Initialize all the needed plugin classes
  *
@@ -33,6 +39,11 @@ class Initializer {
 		require_once $path.'classes/WP/Gutenberg.php';
 		require_once $path.'classes/WP/Settings.php';
 
+		require_once $path.'classes/Services/Blocks.php';
+
+		require_once $path.'classes/Blocks/Notice.php';
+		require_once $path.'classes/Blocks/Plugin.php';
+
 		// Init Classes and Hooks
 		$class_admin = new Admin();
     $class_admin->register_hooks();
@@ -45,6 +56,12 @@ class Initializer {
 
 		$class_settings = new Settings();
 		$class_settings->register_hooks();
+
+		$class_blocks_plugin = new Plugin();
+		$class_blocks_plugin->register_hooks();
+
+		$class_blocks_notice = new Notice();
+		$class_blocks_notice->register_hooks();
 
 	}
 
