@@ -1,10 +1,18 @@
-# Work In Progress
+# New Awesome Blocks for Gutenberg
 
 This project is about creating some new blocks for the new WordPress visual editor (codename: Gutenberg)
 
 A settings page is available to choose which blocks to activate/deactivate and add a default configuration
 
+__Work in progress__
 Not yet suitable for production...
+
+## Features
+
+- Add new awesome blocks for the new WordPress editor
+- clean up blocks list by disabling unwanted ones
+- improves defaults blocks with more options
+
 
 # Blocks
 
