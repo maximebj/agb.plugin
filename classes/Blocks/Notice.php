@@ -2,6 +2,8 @@
 
 namespace GutenbergBlocks\Blocks;
 
+use GutenbergBlocks\Helpers\Consts;
+
 class Notice {
 
   public function run() {
@@ -20,6 +22,7 @@ class Notice {
 			'name' => __( 'Notice', 'gutenblocks' ),
 			'icon' => 'dashicons-warning',
 			'category' => 'others',
+			'preview_image' => Consts::get_url().'admin/img/blocks/notice.jpg',
 			'options_callback' => array( $this, 'settings' )
 		);
 

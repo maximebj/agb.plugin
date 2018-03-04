@@ -27,26 +27,38 @@
 
 		<h2><?php _e('Gutenberg Blocks'); ?></h2>
 
-		<p class="description"><?php _e("Disable the blocks you don't want to deal with for a smoother experience.", 'gutenblocks'); ?></p>
+		<p class="description"><?php _e("Check out these awesome blocks to improve your WordPress experience.", 'gutenblocks'); ?></p>
 
 		<ul class="gutenblocks-list">
-			<?php foreach($registered_blocks as $block): ?>
+			<?php
+				foreach($registered_blocks as $block):
+					$active = true;  // TODO
+			?>
 			<li class="gutenblocks-block is-active">
 				<header class="gutenblocks-block__head">
-					<div class="gutenblocks-block__icon">
+					<div class="gutenblocks-block__icon js-gutenblocks-show-settings">
 						<span class="dashicons <?php echo $block['icon']; ?>"></span>
 					</div>
-					<div class="gutenblocks-block__title">
+					<div class="gutenblocks-block__title js-gutenblocks-show-settings">
 						<?php echo $block['name']; ?>
 					</div>
 					<div class="gutenblocks-block__actions">
-						<button class="js-gutenblocks-show-settings"><?php _e('Settings', 'gutenblocks'); ?></button>
-						<button class=""><?php _e('Enable', 'gutenblocks'); ?></button>
+						<?php if ( $active ) : ?>
+							<a href="" class="gutenblocks-block__button js-gutenblocks-show-preview"><?php _e( 'Preview', 'gutenblocks' ); ?></a>
+							<a href="" class="gutenblocks-block__button js-gutenblocks-show-settings"><?php _e( 'Settings', 'gutenblocks' ); ?></a>
+							<a href="" class="gutenblocks-block__button js-gutenblocks-toggle-state"><?php _e( 'Disable', 'gutenblocks' ); ?></a>
+						<?php else: ?>
+							<a href="" class="gutenblocks-block__button js-gutenblocks-toggle-state"><?php _e( 'Enable', 'gutenblocks' ); ?></a>
+						<?php endif; ?>
 					</div>
 				</header>
 
 				<div class="gutenblocks-block__settings">
 					<?php call_user_func( $block['options_callback'] ); ?>
+
+          <hr>
+
+          <img src="<?php echo $block['preview_image']; ?>" alt="<?php sprintf( __( '%s example', 'gutenblocks' ), $block['name'] ); ?>">
 				</div>
 
 			</li>
@@ -56,13 +68,14 @@
 
 		<h2><?php _e('Default WordPress blocks', 'gutenblocks'); ?></h2>
 
-		<p class="description"><?php _e("Disable the blocks you don't want to deal with for a smoother experience.", 'gutenblocks'); ?></p>
+		<p class="description"><?php _e("Disable the blocks you don't want to deal with for a lighter user interface.", 'gutenblocks'); ?></p>
 
 		<ul class="gutenblocks-list">
 			<?php
 				foreach($native_blocks as $key => $block):
+					$active = false; //!in_array( $block['id'], $disabled_natives_blocks );
 			?>
-			<li class="gutenblocks-block">
+			<li class="gutenblocks-block<?php if ( $active ) : ?> is-active<?php endif; ?>">
 				<header class="gutenblocks-block__head">
 					<div class="gutenblocks-block__icon">
 						<span class="dashicons <?php echo $block['icon']; ?>"></span>
@@ -71,8 +84,12 @@
 						<?php echo $block['name']; ?>
 					</div>
 					<div class="gutenblocks-block__actions">
-						<button class="js-gutenblocks-show-settings"><?php _e('Settings', 'gutenblocks'); ?></button>
-						<button class=""><?php _e('Enable', 'gutenblocks'); ?></button>
+						<?php if ( $active ) : ?>
+							<a href="" class="gutenblocks-block__button js-gutenblocks-show-settings"><?php _e( 'Settings', 'gutenblocks' ); ?></a>
+							<a href="" class="gutenblocks-block__button js-gutenblocks-toggle-state"><?php _e( 'Disable', 'gutenblocks' ); ?></a>
+						<?php else: ?>
+							<a href="" class="gutenblocks-block__button js-gutenblocks-toggle-state"><?php _e( 'Enable', 'gutenblocks' ); ?></a>
+						<?php endif; ?>
 					</div>
 				</header>
 
@@ -83,7 +100,7 @@
 						name="gutenberg-native-blocks-disabled[]"
 						id="blocks-<?php echo $key; ?>"
 						value="<?php echo $block['id']; ?>"
-						<?php if( in_array( $block['id'], $disabled_natives_blocks ) ) { echo 'checked'; } ?>
+						<?php if( true ) { echo 'checked'; } ?>
 						<label for="blocks-<?php echo $key; ?>"><?php echo $block['name']; ?></label>
 					>
 				</div>

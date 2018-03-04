@@ -1,10 +1,8 @@
 // Deactivate native Blocks
 
-if(Array.isArray(gutenblocksGlobals.deactivatedBlocks)) {
-	gutenblocksGlobals.deactivatedBlocks.forEach( block => {
-		wp.blocks.unregisterBlockType(block)
-	})
-}
+gutenblocksGlobals.deactivatedBlocks.forEach( block => {
+	wp.blocks.unregisterBlockType(block)
+})
 
 // Blocks
 
