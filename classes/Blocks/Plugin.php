@@ -19,6 +19,7 @@ class Plugin {
 
 	public function register_block($blocks) {
 		$blocks[] = array(
+			'id' => 'gutenblock/plugin',
 			'name' => __( 'Plugin', 'gutenblocks' ),
 			'icon' => 'dashicons-admin-plugins',
 			'category' => 'API',

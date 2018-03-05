@@ -69,6 +69,7 @@
 		width 8px
 		height 8px
 		border-radius 50%
+		transition .4s background ease-out
 
 .gutenblocks-block.is-active
 	.gutenblocks-block__icon:after
@@ -103,6 +104,9 @@
 	&:hover
 		border-color #454545
 		color #454545
+
+	&:focus
+		box-shadow none
 
 .gutenblocks-block__button + .gutenblocks-block__button
 	margin-left 8px

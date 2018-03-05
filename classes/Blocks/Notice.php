@@ -19,6 +19,7 @@ class Notice {
 
 	public function register_block($blocks) {
 		$blocks[] = array(
+			'id' => 'gutenblock/notice',
 			'name' => __( 'Notice', 'gutenblocks' ),
 			'icon' => 'dashicons-warning',
 			'category' => 'others',

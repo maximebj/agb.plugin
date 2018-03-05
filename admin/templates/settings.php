@@ -5,7 +5,7 @@
 
 	$blocks = new Blocks();
 	$native_blocks = $blocks->get_native_blocks();
-	$disabled_natives_blocks = $blocks->get_disabled_native_blocks();
+	$disabled_blocks = $blocks->get_disabled_blocks();
 
 	$registered_blocks = $blocks->get_registered_blocks();
 
@@ -32,9 +32,9 @@
 		<ul class="gutenblocks-list">
 			<?php
 				foreach($registered_blocks as $block):
-					$active = true;  // TODO
+					$active = !in_array( $block['id'], $disabled_blocks );
 			?>
-			<li class="gutenblocks-block is-active">
+			<li class="gutenblocks-block<?php if( $active ): ?> is-active<?php endif; ?>">
 				<header class="gutenblocks-block__head">
 					<div class="gutenblocks-block__icon js-gutenblocks-show-settings">
 						<span class="dashicons <?php echo $block['icon']; ?>"></span>
@@ -43,13 +43,18 @@
 						<?php echo $block['name']; ?>
 					</div>
 					<div class="gutenblocks-block__actions">
-						<?php if ( $active ) : ?>
 							<a href="" class="gutenblocks-block__button js-gutenblocks-show-preview"><?php _e( 'Preview', 'gutenblocks' ); ?></a>
 							<a href="" class="gutenblocks-block__button js-gutenblocks-show-settings"><?php _e( 'Settings', 'gutenblocks' ); ?></a>
-							<a href="" class="gutenblocks-block__button js-gutenblocks-toggle-state"><?php _e( 'Disable', 'gutenblocks' ); ?></a>
-						<?php else: ?>
-							<a href="" class="gutenblocks-block__button js-gutenblocks-toggle-state"><?php _e( 'Enable', 'gutenblocks' ); ?></a>
-						<?php endif; ?>
+							<a
+								href="#"
+								class="gutenblocks-block__button js-gutenblocks-toggle-state"
+								data-block="<?php echo $block['id']; ?>"
+								data-command=<?php echo ( $active ) ? 'disable' : 'enable'; ?>
+								data-invert-command=<?php echo ( !$active ) ? 'disable' : 'enable'; ?>
+								data-invert-label=<?php echo ( !$active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
+							>
+								<?php echo ( $active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
+							</a>
 					</div>
 				</header>
 
@@ -73,7 +78,7 @@
 		<ul class="gutenblocks-list">
 			<?php
 				foreach($native_blocks as $key => $block):
-					$active = false; //!in_array( $block['id'], $disabled_natives_blocks );
+					$active = !in_array( $block['id'], $disabled_blocks );
 			?>
 			<li class="gutenblocks-block<?php if ( $active ) : ?> is-active<?php endif; ?>">
 				<header class="gutenblocks-block__head">
@@ -84,33 +89,30 @@
 						<?php echo $block['name']; ?>
 					</div>
 					<div class="gutenblocks-block__actions">
-						<?php if ( $active ) : ?>
-							<a href="" class="gutenblocks-block__button js-gutenblocks-show-settings"><?php _e( 'Settings', 'gutenblocks' ); ?></a>
-							<a href="" class="gutenblocks-block__button js-gutenblocks-toggle-state"><?php _e( 'Disable', 'gutenblocks' ); ?></a>
-						<?php else: ?>
-							<a href="" class="gutenblocks-block__button js-gutenblocks-toggle-state"><?php _e( 'Enable', 'gutenblocks' ); ?></a>
-						<?php endif; ?>
+						<a href="" class="gutenblocks-block__button js-gutenblocks-show-settings"><?php _e( 'Settings', 'gutenblocks' ); ?></a>
+
+            <?php if( $block['can_disable'] ): ?>
+						<a
+							href="#"
+							class="gutenblocks-block__button js-gutenblocks-toggle-state"
+							data-block="<?php echo $block['id']; ?>"
+							data-command=<?php echo ( $active ) ? 'disable' : 'enable'; ?>
+							data-invert-command=<?php echo ( !$active ) ? 'disable' : 'enable'; ?>
+							data-invert-label=<?php echo ( !$active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
+						>
+							<?php echo ( $active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
+						</a>
+            <?php endif; ?>
 					</div>
 				</header>
 
 				<div class="gutenblocks-block__settings">
-
-					<input
-						type="checkbox"
-						name="gutenberg-native-blocks-disabled[]"
-						id="blocks-<?php echo $key; ?>"
-						value="<?php echo $block['id']; ?>"
-						<?php if( true ) { echo 'checked'; } ?>
-						<label for="blocks-<?php echo $key; ?>"><?php echo $block['name']; ?></label>
-					>
 				</div>
 			</li>
 			<?php
 				endforeach;
 			?>
 		</ul>
-
-		<input type="submit" value="Save" class="">
 
 	</main>
 

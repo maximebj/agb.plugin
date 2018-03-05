@@ -17,6 +17,7 @@ class Ad {
 
 	public function register_block($blocks) {
 		$blocks[] = array(
+			'id' => 'gutenblock/ad',
 			'name' => __('Advertisement', 'gutenblocks') ,
 			'icon' => 'dashicons-megaphone',
 			'category' => 'others',

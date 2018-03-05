@@ -6,6 +6,8 @@ defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
 use GutenbergBlocks\Helpers\Consts;
 
+use GutenbergBlocks\Services\Blocks;
+
 /**
  * Gutenberg Editor enqueue styles, scripts
  *
@@ -41,12 +43,14 @@ class Gutenberg {
 			true
 		);
 
+		$blocks = new Blocks();
+
 		wp_localize_script(
       'gutenblocks-block',
       'gutenblocksGlobals',
       array(
         'ajaxurl' => admin_url('admin-ajax.php'),
-				'deactivatedBlocks' => get_option('gutenberg-native-blocks-disabled', array()),
+				'deactivatedBlocks' => $blocks->get_disabled_blocks_js(),
       )
     );
 

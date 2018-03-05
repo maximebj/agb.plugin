@@ -23,6 +23,7 @@ class Blocks {
 	/**
 	* Register blocks
 	*
+	*  id: (String) block identifier (from JS. Eg: gutenblock/plugin)
 	*  name: (String) Name of the block
   *  icon: (String) Dashicon class
 	*  preview_image: (String) Image URL
@@ -42,14 +43,24 @@ class Blocks {
 		return $this->registered_blocks;
 	}
 
-	public function get_disabled_native_blocks() {
-		$blocks = get_option('gutenberg-native-blocks-disabled');
+	public function get_disabled_blocks() {
+		$blocks = get_option('gutenberg-blocks-disabled');
 
 		if ( $blocks == "" ) {
 			return array();
 		}
 
 		return $blocks;
+	}
+
+	public function get_disabled_blocks_js() {
+
+		$blocks = $this->get_disabled_blocks();
+		return implode( ', ', $blocks );
+	}
+
+	public function set_disabled_blocks($blocks) {
+		update_option('gutenberg-blocks-disabled', $blocks);
 	}
 
 	public function get_native_blocks() {
@@ -70,6 +81,12 @@ class Blocks {
 				'id' => 'core/code',
 				'name' => __( 'Code' , 'gutenblocks'),
 				'icon' => 'dashicons-editor-code',
+				'can_disable' => true,
+			),
+			'shortcode' => array(
+				'id' => 'core/shortcode',
+				'name' => __( 'Shortcode' , 'gutenblocks'),
+				'icon' => 'dashicons-editor-code', // dashicons-shortcode
 				'can_disable' => true,
 			),
 		);
