@@ -47,6 +47,15 @@ class Settings {
 			array( $this, 'block_install' )
 		);
 
+		add_submenu_page(
+			Consts::PLUGIN_NAME,
+			__( 'Import/Export' , 'gutenblocks' ),
+			__( 'Import/Export' , 'gutenblocks' ),
+			'edit_posts',
+			Consts::PLUGIN_NAME.'-import',
+			array( $this, 'import_export' )
+		);
+
 		// Remove default submenu
 		unset( $submenu[Consts::PLUGIN_NAME][0] );
 	}
@@ -56,9 +65,9 @@ class Settings {
 	public function settings_page(){
 
 		$blocks = new Blocks();
+
 		$native_blocks = $blocks->get_native_blocks();
 		$disabled_blocks = $blocks->get_disabled_blocks();
-
 		$registered_blocks = $blocks->get_registered_blocks();
 		$categories = $blocks->get_categories();
 
@@ -84,8 +93,13 @@ class Settings {
 
 		// Remove block from disabled list
 		} else {
-			$key = array_search( $block_type, $disabled_blocks );
-			unset( $disabled_blocks[ $key ] );
+
+			$keys = array_keys( $disabled_blocks, $block_type );
+
+			foreach( $keys as $key ) {
+				unset( $disabled_blocks[ $key ] );
+			}
+
 		}
 
 		$blocks->set_disabled_blocks($disabled_blocks);
@@ -95,7 +109,11 @@ class Settings {
 
 
 	public function block_install() {
-		echo '<h1>Soon... </h1>';
+		echo '<h1>Blocks MarketPlace</h1> <p>Soon...</p>';
+	}
+
+	public function import_export() {
+		echo '<h1>Import / Export Settings</h1> <p>Soon...</p';
 	}
 
 
