@@ -27,17 +27,31 @@ class Settings {
 	}
 
 	public function add_admin_menu() {
+		global $submenu;
 
-		add_menu_page(
-			__( 'Gutenberg Blocks' , 'gutenblocks' ),
-			__( 'Gutenberg Blocks' , 'gutenblocks' ),
-			'edit_posts',
+		add_submenu_page(
 			Consts::PLUGIN_NAME,
-			array( $this, 'settings_page' ),
-			'dashicons-screenoptions',
-			100
+			__( 'Installed Blocks' , 'gutenblocks' ),
+			__( 'Installed Blocks' , 'gutenblocks' ),
+			'edit_posts',
+			Consts::PLUGIN_NAME.'-installed',
+			array( $this, 'settings_page' )
 		);
+
+		add_submenu_page(
+			Consts::PLUGIN_NAME,
+			__( 'Add Block' , 'gutenblocks' ),
+			__( 'Add Block' , 'gutenblocks' ),
+			'edit_posts',
+			Consts::PLUGIN_NAME.'-install',
+			array( $this, 'block_install' )
+		);
+
+		// Remove default submenu
+		unset( $submenu[Consts::PLUGIN_NAME][0] );
 	}
+
+
 
 	public function settings_page(){
 
@@ -77,6 +91,11 @@ class Settings {
 		$blocks->set_disabled_blocks($disabled_blocks);
 
 		die;
+	}
+
+
+	public function block_install() {
+		echo '<h1>Soon... </h1>';
 	}
 
 

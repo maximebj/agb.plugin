@@ -23,7 +23,7 @@ class Admin {
 
 	public function enqueue_assets($hook) {
 
-		if($hook != 'toplevel_page_gutenberg-blocks') {
+		if( strpos( $hook,  'blocks_page_gutenberg-blocks' ) === false ) {
 			return;
 		}
 
@@ -46,7 +46,16 @@ class Admin {
 
 	public function add_admin_menu() {
 
-		// For now in Settings.php
+		add_menu_page(
+			__( 'Blocks' , 'gutenblocks' ),
+			__( 'Blocks' , 'gutenblocks' ),
+			'edit_posts',
+			Consts::PLUGIN_NAME,
+			null,
+			'dashicons-screenoptions',
+			65
+		);
+
 	}
 
 }
