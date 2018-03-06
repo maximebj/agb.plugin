@@ -29,7 +29,7 @@ class Blocks {
 		$categories = array(
 			'common' => __( 'Common', 'gutenblobks' ),
 			'woo' 	 => __( 'WooCommerce', 'gutenblobks' ),
-			'apis' 	 => __( 'Distant content', 'gutenblobks' ),
+			'apis' 	 => __( 'External content', 'gutenblobks' ),
 		);
 
 		$categories = apply_filters( 'gutenberg-blocks/register-block', $categories );

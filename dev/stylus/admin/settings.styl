@@ -51,7 +51,7 @@
 	font-weight 400
 	color #9AA5B1
 	font-size 1.2em
-	text-transform uppercase
+	letter-spacing .02em
 	padding pad-s
 	margin 0
 	border-bottom 1px solid border-color
@@ -103,6 +103,9 @@
 	font-weight bold
 	cursor pointer
 
+	small
+		opacity .5
+
 .gutenblocks-block__actions
 	text-align right
 
@@ -126,5 +129,36 @@
 .gutenblocks-block__button + .gutenblocks-block__button
 	margin-left 8px
 
-.gutenblocks-block__settings
+.gutenblocks-block__panel
 	display none
+
+.gutenblocks-block__panel__title
+	position relative
+	font-weight bold
+	margin 2em 0 1em
+
+	&:before
+		content ''
+		display block
+		position absolute
+		height 1px
+		width 80px
+		background border-color
+		top -8px
+		left 0
+
+
+.gutenblocks-block__description
+	margin 1.5em 0
+
+	p:last-child
+		margin 0
+		color #999
+		font-style italic
+
+.gutenblocks-block__preview
+	img
+		display block
+		max-width 400px
+
+// .gutenblocks-block__settings

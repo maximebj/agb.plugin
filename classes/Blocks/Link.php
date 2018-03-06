@@ -10,7 +10,7 @@ class Link {
 		$args = array(
 			'icon' => 'dashicons-admin-links',
 			'category' => 'apis',
-			'options_callback' => array( $this, 'settings' )
+			'description' => __( 'Do you like how Facebook, Twitter or Slack display link preview? We have the same for you!', 'gutenblocks' ),
 		);
 
 		gutenberg_blocks_register_blocks( 'gutenblock/link', __( 'Link with Preview', 'gutenblocks' ), $args );

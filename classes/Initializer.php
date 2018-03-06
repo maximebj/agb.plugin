@@ -19,6 +19,8 @@ use GutenbergBlocks\Blocks\Ad;
 use GutenbergBlocks\Blocks\Products;
 use GutenbergBlocks\Blocks\Link;
 use GutenbergBlocks\Blocks\AddToCart;
+use GutenbergBlocks\Blocks\Posts;
+use GutenbergBlocks\Blocks\Testimonial;
 
 
 /**
@@ -66,6 +68,12 @@ class Initializer {
 
 		$class_blocks_addtocart = new AddToCart();
 		$class_blocks_addtocart->run();
+
+		$class_blocks_posts = new Posts();
+		$class_blocks_posts->run();
+
+		$class_blocks_testimonial = new Testimonial();
+		$class_blocks_testimonial->run();
 
 
 	}

@@ -33,35 +33,55 @@
 				?>
 				<li class="gutenblocks-block<?php if( $active ): ?> is-active<?php endif; ?>">
 					<header class="gutenblocks-block__head">
-						<div class="gutenblocks-block__icon js-gutenblocks-show-settings">
+						<div class="gutenblocks-block__icon js-gutenblocks-show-panel">
 							<span class="dashicons <?php echo $block['icon']; ?>"></span>
 						</div>
-						<div class="gutenblocks-block__title js-gutenblocks-show-settings">
+						<div class="gutenblocks-block__title js-gutenblocks-show-panel">
 							<?php echo $block['name']; ?>
+							<?php if( !$block['available'] ): ?>
+								<small><?php _e( '[Soon]', 'gutenblocks' ); ?></small>
+							<?php endif; ?>
 						</div>
 						<div class="gutenblocks-block__actions">
-								<a href="" class="gutenblocks-block__button js-gutenblocks-show-preview"><?php _e( 'Preview', 'gutenblocks' ); ?></a>
-								<a href="" class="gutenblocks-block__button js-gutenblocks-show-settings"><?php _e( 'Settings', 'gutenblocks' ); ?></a>
-								<a
-									href="#"
-									class="gutenblocks-block__button js-gutenblocks-toggle-state"
-									data-block="<?php echo $block['id']; ?>"
-									data-command=<?php echo ( $active ) ? 'disable' : 'enable'; ?>
-									data-invert-command=<?php echo ( !$active ) ? 'disable' : 'enable'; ?>
-									data-invert-label=<?php echo ( !$active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
-								>
-									<?php echo ( $active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
-								</a>
+							<a href="" class="gutenblocks-block__button js-gutenblocks-show-panel"><?php _e( 'Settings', 'gutenblocks' ); ?></a>
+							<a
+								href="#"
+								class="gutenblocks-block__button js-gutenblocks-toggle-state"
+								data-block="<?php echo $block['id']; ?>"
+								data-command=<?php echo ( $active ) ? 'disable' : 'enable'; ?>
+								data-invert-command=<?php echo ( !$active ) ? 'disable' : 'enable'; ?>
+								data-invert-label=<?php echo ( !$active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
+							>
+								<?php echo ( $active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
+							</a>
 						</div>
 					</header>
 
-					<div class="gutenblocks-block__settings">
-						<?php call_user_func( $block['options_callback'] ); ?>
+					<div class="gutenblocks-block__panel">
+						<?php if( $block['description'] ): ?>
+							<div class="gutenblocks-block__description">
+								<p class="gutenblocks-block__panel__title"><?php _e( 'Description', 'gutenblocks' ); ?></p>
+								<p><?php echo $block['description']; ?></p>
+							</div>
+						<?php endif; ?>
 
-	          <hr>
+						<?php if( $block['preview_image'] ): ?>
+							<div class="gutenblocks-block__preview">
+								<p class="gutenblocks-block__panel__title"><?php _e( 'Preview', 'gutenblocks'); ?></p>
+								<img src="<?php echo $block['preview_image']; ?>" alt="<?php sprintf( __( '%s example', 'gutenblocks' ), $block['name'] ); ?>">
+							</div>
+						<?php endif; ?>
 
-	          <img src="<?php echo $block['preview_image']; ?>" alt="<?php sprintf( __( '%s example', 'gutenblocks' ), $block['name'] ); ?>">
-					</div>
+						<div class="gutenblocks-block__settings">
+							<p class="gutenblocks-block__panel__title"><?php _e( 'Settings', 'gutenblocks'); ?></p>
+							<?php if( $block['options_callback'] ): ?>
+								<?php call_user_func( $block['options_callback'] ); ?>
+							<?php else: ?>
+							<p><?php _e( 'No settings for this block.', 'gutenblocks'); ?></p>
+							<?php endif; ?>
+						</div>
+
+					</div> <!-- .gutenblocks-block__panel -->
 
 				</li>
 				<?php endforeach; ?>
@@ -88,7 +108,7 @@
 						<?php echo $block['name']; ?>
 					</div>
 					<div class="gutenblocks-block__actions">
-						<a href="" class="gutenblocks-block__button js-gutenblocks-show-settings"><?php _e( 'Settings', 'gutenblocks' ); ?></a>
+						<a href="" class="gutenblocks-block__button js-gutenblocks-show-panel"><?php _e( 'Settings', 'gutenblocks' ); ?></a>
 
             <?php if( $block['can_disable'] ): ?>
 						<a

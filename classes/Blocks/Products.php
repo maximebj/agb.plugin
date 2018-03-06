@@ -10,7 +10,9 @@ class Products {
 		$args = array(
 			'icon' => 'dashicons-products',
 			'category' => 'woo',
-			'options_callback' => array( $this, 'settings' )
+			//'options_callback' => array( $this, 'settings' ),
+			'description' => __( 'Display WooCommerce Product(s) in your post', 'gutenblocks' ),
+			'available' => false,
 		);
 
 		gutenberg_blocks_register_blocks( 'gutenblock/products', __( 'Woo Products', 'gutenblocks' ), $args );

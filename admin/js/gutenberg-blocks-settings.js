@@ -4,10 +4,10 @@
 
 		// Show / Hide settings panel
 
-		$('.js-gutenblocks-show-settings').click( function(e) {
+		$('.js-gutenblocks-show-panel').click( function(e) {
 			e.preventDefault();
 			var $parent = $(this).parents('.gutenblocks-block');
-			$parent.find('.gutenblocks-block__settings').slideToggle();
+			$parent.find('.gutenblocks-block__panel').slideToggle();
 		});
 
 
@@ -15,7 +15,7 @@
 		$('.js-gutenblocks-toggle-state').click( function(e) {
 			e.preventDefault();
 
-			var $parent = $(this).parent('.gutenblocks-block');
+			var $parent = $(this).parents('.gutenblocks-block');
 			var $button = $(this);
 			$parent.toggleClass('is-active');
 

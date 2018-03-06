@@ -32,6 +32,7 @@ $gutenblocks_registered_blocks = array();
 *  category: (String) [Common, API, Woo ... ] category to display block
 *  preview_image: (String) Image URL
 *	 options_callback: (Function) Callback method to display block settings
+*  available: (Boolean) Set to False to tease a not yet available block
 *
 */
 function gutenberg_blocks_register_blocks($id, $name, $args) {
@@ -42,8 +43,10 @@ function gutenberg_blocks_register_blocks($id, $name, $args) {
 		'name' => $name,
 		'icon' => 'dashicons-slides',
 		'category' => 'common',
+		'description' => false,
 		'preview_image' => false,
 		'options_callback' => false,
+		'available' => true,
 	);
 
 	$args = array_merge($defaults, $args);

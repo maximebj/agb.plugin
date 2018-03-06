@@ -10,7 +10,8 @@ class Ad {
 		$args = array(
 			'icon' => 'dashicons-megaphone',
 			'category' => 'common',
-			'options_callback' => array( $this, 'settings' )
+			'options_callback' => array( $this, 'settings' ),
+			'description' => __( 'Monetize your website by inserting Ads in your content', 'gutenblocks' ),
 		);
 
 		gutenberg_blocks_register_blocks( 'gutenblock/ad', __( 'Advertisement', 'gutenblocks' ), $args );

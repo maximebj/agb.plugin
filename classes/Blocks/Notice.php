@@ -13,7 +13,7 @@ class Notice {
 			'icon' => 'dashicons-warning',
 			'category' => 'common',
 			'preview_image' => Consts::get_url().'admin/img/blocks/notice.jpg',
-			'options_callback' => array( $this, 'settings' )
+			'description' => __( 'Display a sweet Info/Advice/Warning/Avoid/ notice', 'gutenblocks' ),
 		);
 
 		gutenberg_blocks_register_blocks( 'gutenblock/notice', __( 'Notice', 'gutenblocks' ), $args );
