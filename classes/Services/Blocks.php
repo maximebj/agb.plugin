@@ -303,13 +303,13 @@ class Blocks {
 				'soundcloud' => array(
 					'id' => 'core-embed/soundcloud',
 					'name' => __( 'SoundCloud' , 'gutenblocks' ),
-					'svg' => Dashicons::EMBED_AUDIO,,
+					'svg' => Dashicons::EMBED_AUDIO,
 					'can_disable' => true,
 				),
 				'spotify' => array(
 					'id' => 'core-embed/spotify',
 					'name' => __( 'Spotify' , 'gutenblocks' ),
-					'svg' => Dashicons::EMBED_AUDIO,,
+					'svg' => Dashicons::EMBED_AUDIO,
 					'can_disable' => true,
 				),
 				'flickr' => array(
