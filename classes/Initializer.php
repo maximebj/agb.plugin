@@ -5,6 +5,7 @@ namespace GutenbergBlocks;
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
 use GutenbergBlocks\Helpers\Consts;
+use GutenbergBlocks\Helpers\Dashicons;
 
 use GutenbergBlocks\WP\Admin;
 use GutenbergBlocks\WP\Front;

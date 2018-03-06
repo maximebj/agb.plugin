@@ -29,6 +29,7 @@ $gutenblocks_registered_blocks = array();
 *  id: (String) block identifier (from JS. Eg: gutenblock/plugin)
 *  name: (String) Name of the block
 *  icon: (String) Dashicon class
+*  svg: (String) SVG image instead of Dashicon
 *  category: (String) [Common, API, Woo ... ] category to display block
 *  preview_image: (String) Image URL
 *	 options_callback: (Function) Callback method to display block settings
@@ -42,6 +43,7 @@ function gutenberg_blocks_register_blocks($id, $name, $args) {
 		'id' => $id,
 		'name' => $name,
 		'icon' => 'dashicons-slides',
+		'svg' => false,
 		'category' => 'common',
 		'description' => false,
 		'preview_image' => false,
@@ -57,9 +59,10 @@ function gutenberg_blocks_register_blocks($id, $name, $args) {
 
 // Auto load classes
 spl_autoload_register(function($class) {
+
 	$class = str_replace('GutenbergBlocks', '', $class);
 
-	require __DIR__ . '/classes/' . str_replace('\\', '/', $class) . '.php';
+	require __DIR__ . '/classes' . str_replace('\\', '/', $class) . '.php';
 });
 
 

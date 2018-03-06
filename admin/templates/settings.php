@@ -94,41 +94,50 @@
 
 		<p class="description"><?php _e("Disable the blocks you don't want to deal with for a lighter user interface.", 'gutenblocks'); ?></p>
 
-		<ul class="gutenblocks-list">
+		<div class="gutenblocks-list">
 			<?php
-				foreach($native_blocks as $key => $block):
-					$active = !in_array( $block['id'], $disabled_blocks );
+				foreach($native_blocks as $cat => $blocks):
 			?>
-			<li class="gutenblocks-block<?php if ( $active ) : ?> is-active<?php endif; ?>">
-				<header class="gutenblocks-block__head">
-					<div class="gutenblocks-block__icon">
-						<span class="dashicons <?php echo $block['icon']; ?>"></span>
-					</div>
-					<div class="gutenblocks-block__title">
-						<?php echo $block['name']; ?>
-					</div>
-					<div class="gutenblocks-block__actions">
-						<a href="" class="gutenblocks-block__button js-gutenblocks-show-panel"><?php _e( 'Settings', 'gutenblocks' ); ?></a>
+				<p class="gutenblocks-list__title"><?php echo $cat; ?></p>
+				<ul>
+				<?php foreach($blocks as $block):
+					$active = !in_array( $block['id'], $disabled_blocks );
+				?>
+					<li class="gutenblocks-block<?php if ( $active ) : ?> is-active<?php endif; ?>">
+						<header class="gutenblocks-block__head">
+							<div class="gutenblocks-block__icon">
+								<?php if ( $block['icon'] ): ?>
+									<span class="dashicons <?php echo $block['icon']; ?>"></span>
+								<?php elseif( $block['svg'] ): ?>
+									<?php echo $block['svg']; ?>
+								<?php endif; ?>
+							</div>
+							<div class="gutenblocks-block__title">
+								<?php echo $block['name']; ?>
+							</div>
+							<div class="gutenblocks-block__actions">
+								<?php /*<a href="" class="gutenblocks-block__button js-gutenblocks-show-panel"><?php _e( 'Settings', 'gutenblocks' ); ?></a> */ ?>
 
-            <?php if( $block['can_disable'] ): ?>
-						<a
-							href="#"
-							class="gutenblocks-block__button js-gutenblocks-toggle-state"
-							data-block="<?php echo $block['id']; ?>"
-							data-command=<?php echo ( $active ) ? 'disable' : 'enable'; ?>
-							data-invert-command=<?php echo ( !$active ) ? 'disable' : 'enable'; ?>
-							data-invert-label=<?php echo ( !$active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
-						>
-							<?php echo ( $active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
-						</a>
-            <?php endif; ?>
-					</div>
-				</header>
+		            <?php if( $block['can_disable'] ): ?>
+								<a
+									href="#"
+									class="gutenblocks-block__button js-gutenblocks-toggle-state"
+									data-block="<?php echo $block['id']; ?>"
+									data-command=<?php echo ( $active ) ? 'disable' : 'enable'; ?>
+									data-invert-command=<?php echo ( !$active ) ? 'disable' : 'enable'; ?>
+									data-invert-label=<?php echo ( !$active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
+								>
+									<?php echo ( $active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
+								</a>
+		            <?php endif; ?>
+							</div>
+						</header>
 
-				<div class="gutenblocks-block__settings">
-				</div>
-			</li>
+						<div class="gutenblocks-block__settings">
+						</div>
+					</li>
 			<?php
+					endforeach;
 				endforeach;
 			?>
 		</ul>
