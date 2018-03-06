@@ -9,7 +9,7 @@ class Ad {
 
 		$args = array(
 			'icon' => 'dashicons-megaphone',
-			'category' => 'others',
+			'category' => 'common',
 			'options_callback' => array( $this, 'settings' )
 		);
 

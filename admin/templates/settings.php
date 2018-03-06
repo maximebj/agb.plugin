@@ -26,6 +26,9 @@
 			<ul>
 				<?php
 					foreach( $registered_blocks as $block ):
+						if( $block['category'] != $key ) {
+							continue;
+						}
 						$active = !in_array( $block['id'], $disabled_blocks );
 				?>
 				<li class="gutenblocks-block<?php if( $active ): ?> is-active<?php endif; ?>">

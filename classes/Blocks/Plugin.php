@@ -9,11 +9,11 @@ class Plugin {
 
 		$args = array(
 			'icon' => 'dashicons-admin-plugins',
-			'category' => 'API',
+			'category' => 'apis',
 			'options_callback' => array( $this, 'settings' )
 		);
 
-		gutenberg_blocks_register_blocks( 'gutenblock/plugin', __( 'Plugin', 'gutenblocks' ), $args );
+		gutenberg_blocks_register_blocks( 'gutenblock/plugin', __( 'Plugin WordPress', 'gutenblocks' ), $args );
   }
 
   public function register_hooks() {

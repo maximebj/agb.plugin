@@ -9,7 +9,7 @@ class Products {
 
 		$args = array(
 			'icon' => 'dashicons-products',
-			'category' => 'woocommerce',
+			'category' => 'woo',
 			'options_callback' => array( $this, 'settings' )
 		);
 

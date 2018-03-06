@@ -9,7 +9,7 @@ class AddToCart {
 
 		$args = array(
 			'icon' => 'dashicons-cart',
-			'category' => 'woocommerce',
+			'category' => 'woo',
 			'options_callback' => array( $this, 'settings' )
 		);
 

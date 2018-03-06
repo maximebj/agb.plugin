@@ -11,7 +11,7 @@ class Notice {
 
 		$args = array(
 			'icon' => 'dashicons-warning',
-			'category' => 'others',
+			'category' => 'common',
 			'preview_image' => Consts::get_url().'admin/img/blocks/notice.jpg',
 			'options_callback' => array( $this, 'settings' )
 		);
