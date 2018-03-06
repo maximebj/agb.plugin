@@ -2,22 +2,24 @@
 
 namespace GutenbergBlocks\Blocks;
 
-class Ad {
+class Products {
 
   public function run() {
     $this->register_hooks();
 
 		$args = array(
-			'icon' => 'dashicons-megaphone',
-			'category' => 'others',
+			'icon' => 'dashicons-products',
+			'category' => 'woocommerce',
 			'options_callback' => array( $this, 'settings' )
 		);
 
-		gutenberg_blocks_register_blocks( 'gutenblock/ad', __( 'Advertisement', 'gutenblocks' ), $args );
+		gutenberg_blocks_register_blocks( 'gutenblock/products', __( 'Woo Products', 'gutenblocks' ), $args );
   }
 
   public function register_hooks() {
+
   }
+
 
 	public function settings() {
 		echo '<input type="text" value="je suis une option" />';

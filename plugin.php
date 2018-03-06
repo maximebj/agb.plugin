@@ -1,11 +1,5 @@
 <?php
 
-defined('ABSPATH') or die('Cheatin&#8217; uh?');
-
-use GutenbergBlocks\Initializer;
-use GutenbergBlocks\WP\Activator;
-use GutenbergBlocks\WP\Deactivator;
-
 /**
  * Plugin Name: Gutenberg Blocks
  * Plugin URI: #
@@ -17,25 +11,56 @@ use GutenbergBlocks\WP\Deactivator;
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-if (!defined('WPINC')) {
- 	die;
+defined('ABSPATH') or die('Cheatin&#8217; uh?');
+
+use GutenbergBlocks\Initializer;
+
+
+// Languages
+load_plugin_textdomain( 'gutenblocks', false, basename( __DIR__ ) . '/languages' );
+
+
+// List the registered blocks in WP Admin Gutenberg Blocks settings page
+$gutenblocks_registered_blocks = array();
+
+/**
+*  Register blocks
+*
+*  id: (String) block identifier (from JS. Eg: gutenblock/plugin)
+*  name: (String) Name of the block
+*  icon: (String) Dashicon class
+*  category: (String) [Common, API, Woo ... ] category to display block
+*  preview_image: (String) Image URL
+*	 options_callback: (Function) Callback method to display block settings
+*
+*/
+function gutenberg_blocks_register_blocks($id, $name, $args) {
+	global $gutenblocks_registered_blocks;
+
+	$defaults = array(
+		'id' => $id,
+		'name' => $name,
+		'icon' => 'dashicons-slides',
+		'category' => 'common',
+		'preview_image' => false,
+		'options_callback' => false,
+	);
+
+	$args = array_merge($defaults, $args);
+
+	$gutenblocks_registered_blocks[] = $args;
 }
 
-function activate_gutenberg_blocks() {
- 	require_once plugin_dir_path(__FILE__).'classes/WP/Activator.php';
- 	Activator::activate();
-}
 
- function deactivate_gutenberg_blocks() {
- 	require_once plugin_dir_path(__FILE__).'classes/WP/Deactivator.php';
- 	Deactivator::deactivate();
-}
+// Auto load classes
+spl_autoload_register(function($class) {
+	$class = str_replace('GutenbergBlocks', '', $class);
 
-register_activation_hook(__FILE__, 'activate_gutenberg_blocks' );
-register_deactivation_hook(__FILE__, 'deactivate_gutenberg_blocks' );
+	require __DIR__ . '/classes/' . str_replace('\\', '/', $class) . '.php';
+});
 
-load_plugin_textdomain('gutenblocks', false, basename(__DIR__).'/languages');
 
-require plugin_dir_path(__FILE__).'classes/Initializer.php';
+// Launch Plugin
+// Plugin Core encapsulation
 $gutenblocks = new Initializer();
 $gutenblocks->run();

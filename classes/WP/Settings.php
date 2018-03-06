@@ -40,6 +40,14 @@ class Settings {
 	}
 
 	public function settings_page(){
+
+		$blocks = new Blocks();
+		$native_blocks = $blocks->get_native_blocks();
+		$disabled_blocks = $blocks->get_disabled_blocks();
+
+		$registered_blocks = $blocks->get_registered_blocks();
+		$categories = $blocks->get_categories();
+
     require_once Consts::get_path() . 'admin/templates/settings.php';
 	}
 

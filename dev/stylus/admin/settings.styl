@@ -44,12 +44,27 @@
 	border 1px solid border-color
 	margin-bottom 3rem
 
+	ul
+		margin 0
+
+.gutenblocks-list__title
+	font-weight 400
+	color #9AA5B1
+	font-size 1.2em
+	text-transform uppercase
+	padding pad-s
+	margin 0
+	border-bottom 1px solid border-color
+	background #fbfbfb
+
+	&:before
+		content '— '
+		color border-color
+
 .gutenblocks-block
 	padding pad-s
 	margin 0
-
-	&:not(:last-child)
-		border-bottom 1px solid border-color
+	border-bottom 1px solid border-color
 
 .gutenblocks-block__head
 	display flex

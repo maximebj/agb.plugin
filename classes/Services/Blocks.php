@@ -14,10 +14,32 @@ defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
 class Blocks {
 
+	// Blocks that need to be in the settings page
 	protected $registered_blocks;
 
+	// Blocks are ranked in categories
+	protected $categories;
+
 	public function __construct() {
+		$this->set_categories();
 		$this->register_blocks();
+	}
+
+	public function set_categories() {
+		$categories = array(
+			'common' => __( 'Common', 'gutenblobks' ),
+			'woo' 	 => __( 'WooCommerce', 'gutenblobks' ),
+			'apis' 	 => __( 'Distant content', 'gutenblobks' ),
+		);
+
+		$categories = apply_filters( 'gutenberg-blocks/register-block', $categories );
+
+		$this->categories = $categories;
+	}
+
+
+	public function get_categories() {
+		return $this->categories;
 	}
 
 	/**
@@ -32,7 +54,9 @@ class Blocks {
 	*
 	*/
 	public function register_blocks() {
-		$blocks = array();
+		global $gutenblocks_registered_blocks;
+
+		$blocks = $gutenblocks_registered_blocks;
 
 		$blocks = apply_filters( 'gutenberg-blocks/register-block', $blocks );
 

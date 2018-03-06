@@ -16,6 +16,9 @@ use GutenbergBlocks\Services\Blocks;
 use GutenbergBlocks\Blocks\Notice;
 use GutenbergBlocks\Blocks\Plugin;
 use GutenbergBlocks\Blocks\Ad;
+use GutenbergBlocks\Blocks\Products;
+use GutenbergBlocks\Blocks\Link;
+use GutenbergBlocks\Blocks\AddToCart;
 
 
 /**
@@ -30,22 +33,6 @@ class Initializer {
 
 	public function run() {
 
-		$path = plugin_dir_path(dirname(__FILE__));
-
-		// Load Classes
-		require_once $path.'classes/Helpers/Consts.php';
-
-		require_once $path.'classes/WP/Admin.php';
-		require_once $path.'classes/WP/Front.php';
-		require_once $path.'classes/WP/Gutenberg.php';
-		require_once $path.'classes/WP/Settings.php';
-
-		require_once $path.'classes/Services/Blocks.php';
-
-		require_once $path.'classes/Blocks/Notice.php';
-		require_once $path.'classes/Blocks/Plugin.php';
-		require_once $path.'classes/Blocks/Ad.php';
-
 		// Init Classes and Hooks
 		$class_admin = new Admin();
     $class_admin->register_hooks();
@@ -59,14 +46,27 @@ class Initializer {
 		$class_settings = new Settings();
 		$class_settings->register_hooks();
 
+
+		// Blocks
+
 		$class_blocks_plugin = new Plugin();
-		$class_blocks_plugin->register_hooks();
+		$class_blocks_plugin->run();
 
 		$class_blocks_notice = new Notice();
-		$class_blocks_notice->register_hooks();
+		$class_blocks_notice->run();
 
 		$class_blocks_ad = new Ad();
-		$class_blocks_ad->register_hooks();
+		$class_blocks_ad->run();
+
+		$class_blocks_products = new Products();
+		$class_blocks_products->run();
+
+		$class_blocks_link = new Link();
+		$class_blocks_link->run();
+
+		$class_blocks_addtocart = new AddToCart();
+		$class_blocks_addtocart->run();
+
 
 	}
 

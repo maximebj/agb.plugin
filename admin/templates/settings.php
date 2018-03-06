@@ -1,14 +1,5 @@
 <?php
-	use GutenbergBlocks\Services\Blocks;
-
 	use GutenbergBlocks\Helpers\Consts;
-
-	$blocks = new Blocks();
-	$native_blocks = $blocks->get_native_blocks();
-	$disabled_blocks = $blocks->get_disabled_blocks();
-
-	$registered_blocks = $blocks->get_registered_blocks();
-
 ?>
 <form method="post" action="options.php" class="gutenblocks-settings">
 	<?php settings_fields('gutenberg-blocks-settings'); ?>
@@ -29,46 +20,51 @@
 
 		<p class="description"><?php _e("Check out these awesome blocks to improve your WordPress experience.", 'gutenblocks'); ?></p>
 
-		<ul class="gutenblocks-list">
-			<?php
-				foreach($registered_blocks as $block):
-					$active = !in_array( $block['id'], $disabled_blocks );
-			?>
-			<li class="gutenblocks-block<?php if( $active ): ?> is-active<?php endif; ?>">
-				<header class="gutenblocks-block__head">
-					<div class="gutenblocks-block__icon js-gutenblocks-show-settings">
-						<span class="dashicons <?php echo $block['icon']; ?>"></span>
+		<div class="gutenblocks-list">
+			<?php foreach( $categories as $key => $cat ): ?>
+			<p class="gutenblocks-list__title"><?php echo $cat; ?></p>
+			<ul>
+				<?php
+					foreach( $registered_blocks as $block ):
+						$active = !in_array( $block['id'], $disabled_blocks );
+				?>
+				<li class="gutenblocks-block<?php if( $active ): ?> is-active<?php endif; ?>">
+					<header class="gutenblocks-block__head">
+						<div class="gutenblocks-block__icon js-gutenblocks-show-settings">
+							<span class="dashicons <?php echo $block['icon']; ?>"></span>
+						</div>
+						<div class="gutenblocks-block__title js-gutenblocks-show-settings">
+							<?php echo $block['name']; ?>
+						</div>
+						<div class="gutenblocks-block__actions">
+								<a href="" class="gutenblocks-block__button js-gutenblocks-show-preview"><?php _e( 'Preview', 'gutenblocks' ); ?></a>
+								<a href="" class="gutenblocks-block__button js-gutenblocks-show-settings"><?php _e( 'Settings', 'gutenblocks' ); ?></a>
+								<a
+									href="#"
+									class="gutenblocks-block__button js-gutenblocks-toggle-state"
+									data-block="<?php echo $block['id']; ?>"
+									data-command=<?php echo ( $active ) ? 'disable' : 'enable'; ?>
+									data-invert-command=<?php echo ( !$active ) ? 'disable' : 'enable'; ?>
+									data-invert-label=<?php echo ( !$active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
+								>
+									<?php echo ( $active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
+								</a>
+						</div>
+					</header>
+
+					<div class="gutenblocks-block__settings">
+						<?php call_user_func( $block['options_callback'] ); ?>
+
+	          <hr>
+
+	          <img src="<?php echo $block['preview_image']; ?>" alt="<?php sprintf( __( '%s example', 'gutenblocks' ), $block['name'] ); ?>">
 					</div>
-					<div class="gutenblocks-block__title js-gutenblocks-show-settings">
-						<?php echo $block['name']; ?>
-					</div>
-					<div class="gutenblocks-block__actions">
-							<a href="" class="gutenblocks-block__button js-gutenblocks-show-preview"><?php _e( 'Preview', 'gutenblocks' ); ?></a>
-							<a href="" class="gutenblocks-block__button js-gutenblocks-show-settings"><?php _e( 'Settings', 'gutenblocks' ); ?></a>
-							<a
-								href="#"
-								class="gutenblocks-block__button js-gutenblocks-toggle-state"
-								data-block="<?php echo $block['id']; ?>"
-								data-command=<?php echo ( $active ) ? 'disable' : 'enable'; ?>
-								data-invert-command=<?php echo ( !$active ) ? 'disable' : 'enable'; ?>
-								data-invert-label=<?php echo ( !$active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
-							>
-								<?php echo ( $active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
-							</a>
-					</div>
-				</header>
 
-				<div class="gutenblocks-block__settings">
-					<?php call_user_func( $block['options_callback'] ); ?>
-
-          <hr>
-
-          <img src="<?php echo $block['preview_image']; ?>" alt="<?php sprintf( __( '%s example', 'gutenblocks' ), $block['name'] ); ?>">
-				</div>
-
-			</li>
+				</li>
+				<?php endforeach; ?>
+			</ul>
 			<?php endforeach; ?>
-		</ul>
+		</div>
 
 
 		<h2><?php _e('Default WordPress blocks', 'gutenblocks'); ?></h2>

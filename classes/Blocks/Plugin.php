@@ -6,28 +6,22 @@ class Plugin {
 
   public function run() {
     $this->register_hooks();
-  }
 
-  public function register_hooks() {
-
-		// Register block in settings
-		add_filter('gutenberg-blocks/register-block', array( $this, 'register_block' ));
-
-    // Ajax Search Plugin on wp.org
-    add_action('wp_ajax_search_plugins', array( $this, 'search_plugins' ));
-  }
-
-	public function register_block($blocks) {
-		$blocks[] = array(
-			'id' => 'gutenblock/plugin',
-			'name' => __( 'Plugin', 'gutenblocks' ),
+		$args = array(
 			'icon' => 'dashicons-admin-plugins',
 			'category' => 'API',
 			'options_callback' => array( $this, 'settings' )
 		);
 
-		return $blocks;
-	}
+		gutenberg_blocks_register_blocks( 'gutenblock/plugin', __( 'Plugin', 'gutenblocks' ), $args );
+  }
+
+  public function register_hooks() {
+
+    // Ajax Search Plugin on wp.org
+    add_action('wp_ajax_search_plugins', array( $this, 'search_plugins' ));
+  }
+
 
 	public function settings() {
 		echo '<input type="text" value="je suis une option" />';
