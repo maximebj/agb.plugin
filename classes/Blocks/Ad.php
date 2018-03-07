@@ -8,6 +8,9 @@ class Ad {
 
   public function run() {
 
+		// Register hooks
+		add_action( 'init', array( $this, 'register_render' ) );
+
 		// Register Block in the Gutenblocks settings page
 		$args = array(
 			'icon' => 'dashicons-megaphone',
@@ -21,12 +24,6 @@ class Ad {
 
 		// Register settings
 		gutenblocks_register_setting( 'gutenblocks-ad-script' );
-
-		// PHP Rendering of the block
-		register_block_type(
-      'gutenblocks/ad',
-      [ 'render_callback' => array( $this, render_block ) ]
-    );
   }
 
 	public function settings() {
@@ -41,6 +38,15 @@ class Ad {
 			</div>
 		</div>
 		';
+	}
+
+	public function register_render() {
+
+		// PHP Rendering of the block
+		register_block_type(
+      'gutenblocks/ad',
+      [ 'render_callback' => array( $this, render_block ) ]
+    );
 	}
 
 	public function render_block() {
