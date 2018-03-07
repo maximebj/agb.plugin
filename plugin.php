@@ -15,6 +15,7 @@ defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
 use GutenbergBlocks\Initializer;
 
+require plugin_dir_path( __FILE__ ) . 'classes/Initializer.php';
 
 // Languages
 load_plugin_textdomain( 'gutenblocks', false, basename( __DIR__ ) . '/languages' );
@@ -55,15 +56,6 @@ function gutenberg_blocks_register_blocks($id, $name, $args) {
 
 	$gutenblocks_registered_blocks[] = $args;
 }
-
-
-// Auto load classes
-spl_autoload_register(function($class) {
-
-	$class = str_replace('GutenbergBlocks', '', $class);
-
-	require __DIR__ . '/classes' . str_replace('\\', '/', $class) . '.php';
-});
 
 
 // Launch Plugin

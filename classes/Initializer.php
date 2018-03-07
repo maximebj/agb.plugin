@@ -36,6 +36,29 @@ class Initializer {
 
 	public function run() {
 
+		$path = plugin_dir_path( dirname( __FILE__ ) );
+
+		// Load Classes
+		require_once $path.'classes/Helpers/Consts.php';
+		require_once $path.'classes/Helpers/Dashicons.php';
+
+		require_once $path.'classes/WP/Admin.php';
+		require_once $path.'classes/WP/Front.php';
+		require_once $path.'classes/WP/Gutenberg.php';
+		require_once $path.'classes/WP/Settings.php';
+
+		require_once $path.'classes/Services/Blocks.php';
+
+		require_once $path.'classes/Blocks/Notice.php';
+		require_once $path.'classes/Blocks/Plugin.php';
+		require_once $path.'classes/Blocks/Ad.php';
+		require_once $path.'classes/Blocks/Products.php';
+		require_once $path.'classes/Blocks/Link.php';
+		require_once $path.'classes/Blocks/AddToCart.php';
+		require_once $path.'classes/Blocks/Posts.php';
+		require_once $path.'classes/Blocks/Testimonial.php';
+
+
 		// Init Classes and Hooks
 		$class_admin = new Admin();
     $class_admin->register_hooks();
