@@ -30,11 +30,11 @@ class AdText {
 		echo '
 		<div class="gutenblocks-block__settings__option">
 			<div class="gutenblocks-block__settings__label">
-				<label for="gutenblocks-ad-script"> ' . __( 'Js script', 'gutenblocks' ) . '</label>
+				<label for="gutenblocks-adtext-script"> ' . __( 'Js script', 'gutenblocks' ) . '</label>
 			</div>
 
 			<div class="gutenblocks-block__settings__field">
-				<textarea name="gutenblocks-ad-script" rows="4">' . get_option('gutenblocks-adtext-script') . '</textarea>
+				<textarea name="gutenblocks-adtext-script" rows="4">' . get_option('gutenblocks-adtext-script') . '</textarea>
 			</div>
 		</div>
 		';
