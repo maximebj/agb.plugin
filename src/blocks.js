@@ -5,6 +5,8 @@ import './plugin/index.js';
 
 
 // Deactivate Blocks
-gutenblocksGlobals.deactivatedBlocks.split(',').forEach( block => {
+let deactivatedBlocks = JSON.parse(gutenblocksGlobals.deactivatedBlocks)
+
+deactivatedBlocks.forEach( block => {
 	wp.blocks.unregisterBlockType(block)
 })

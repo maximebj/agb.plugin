@@ -82,7 +82,13 @@ class Blocks {
 	public function get_disabled_blocks_js() {
 
 		$blocks = $this->get_disabled_blocks();
-		return implode( ', ', $blocks );
+
+		// if( !empty($blocks) ) {
+		// 	return implode( ', ', $blocks );
+		// }
+
+		return json_encode($blocks);
+
 	}
 
 	public function set_disabled_blocks($blocks) {

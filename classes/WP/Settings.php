@@ -99,7 +99,6 @@ class Settings {
 			foreach( $keys as $key ) {
 				unset( $disabled_blocks[ $key ] );
 			}
-
 		}
 
 		$blocks->set_disabled_blocks($disabled_blocks);
