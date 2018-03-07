@@ -1,4 +1,5 @@
 // Blocks
 
-import './notice/index.js';
-import './plugin/index.js';
+import './notice';
+import './plugin';
+import './ad';

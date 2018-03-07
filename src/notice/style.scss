@@ -1,7 +1,7 @@
 @import 'vars';
 
 .wp-block-gutenblocks-notice {
-  margin: 1.5em 0;
+  margin: $margin-default;
   padding: 12px;
   border: 1px solid $color-neutral;
   border-radius: 4px;

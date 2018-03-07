@@ -48,9 +48,8 @@ class Ad {
 	}
 
 	public function render_block() {
-		$script = get_option('gutenblocks-ad-script');
 
-		return "youou";
+		return '<div class="wp-block-gutenblocks-ad">' . get_option('gutenblocks-ad-script') . '</div>';
 	}
 
 }

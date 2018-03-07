@@ -32,7 +32,7 @@ export default registerBlockType(
 		edit: props => {
       return (
         <div className='wp-block-gutenblocks-ad'>
-          __( 'This will display an ad' )
+          { __( 'An ad will be displayed here in front' ) }
         </div>
       );
     },

@@ -1,7 +1,7 @@
 .wp-block-gutenblocks-notice {
   margin: 1.5em 0;
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid #DDD;
   border-radius: 4px; }
   .wp-block-gutenblocks-notice__title {
     margin: 0 0 8px 0;
@@ -25,8 +25,9 @@
     .wp-block-gutenblocks-notice--info .wp-block-gutenblocks-notice__title {
       color: #48ADD8; }
 .wp-block-gutenblocks-plugin {
+  margin: 1.5em 0;
   background: white;
-  border: 1px solid #ddd; }
+  border: 1px solid #DDD; }
   .wp-block-gutenblocks-plugin__content {
     display: -ms-flexbox;
     display: flex;
@@ -83,3 +84,5 @@
     .wp-block-gutenblocks-plugin__button:hover {
       background-color: #8bc1df;
       color: white; }
+.wp-block-gutenblocks-ad {
+  margin: 1.5em 0; }
