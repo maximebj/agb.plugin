@@ -17,6 +17,7 @@ use GutenbergBlocks\Services\Blocks;
 use GutenbergBlocks\Blocks\Notice;
 use GutenbergBlocks\Blocks\Plugin;
 use GutenbergBlocks\Blocks\Ad;
+use GutenbergBlocks\Blocks\AdText;
 use GutenbergBlocks\Blocks\Products;
 use GutenbergBlocks\Blocks\Link;
 use GutenbergBlocks\Blocks\AddToCart;
@@ -52,6 +53,7 @@ class Initializer {
 		require_once $path.'classes/Blocks/Notice.php';
 		require_once $path.'classes/Blocks/Plugin.php';
 		require_once $path.'classes/Blocks/Ad.php';
+		require_once $path.'classes/Blocks/AdText.php';
 		require_once $path.'classes/Blocks/Products.php';
 		require_once $path.'classes/Blocks/Link.php';
 		require_once $path.'classes/Blocks/AddToCart.php';
@@ -83,6 +85,9 @@ class Initializer {
 
 		$class_blocks_ad = new Ad();
 		$class_blocks_ad->run();
+
+		$class_blocks_adtext = new AdText();
+		$class_blocks_adtext->run();
 
 		$class_blocks_products = new Products();
 		$class_blocks_products->run();

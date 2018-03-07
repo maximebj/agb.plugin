@@ -23,7 +23,7 @@ class Admin {
 
 	public function enqueue_assets($hook) {
 
-		if( strpos( $hook,  'blocks_page_gutenblocks' ) === false ) {
+		if( strpos( $hook, 'blocks_page_gutenberg-blocks' ) === false ) {
 			return;
 		}
 

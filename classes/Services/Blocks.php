@@ -29,9 +29,10 @@ class Blocks {
 
 	public function set_categories() {
 		$categories = array(
-			'common' => __( 'Common', 'gutenblobks' ),
-			'woo' 	 => __( 'WooCommerce', 'gutenblobks' ),
-			'apis' 	 => __( 'External content', 'gutenblobks' ),
+			'common'    => __( 'Common', 'gutenblobks' ),
+			'woo' 	    => __( 'WooCommerce', 'gutenblobks' ),
+			'marketing' => __( 'Marketing', 'gutenblobks' ),
+			'apis' 	    => __( 'External content', 'gutenblobks' ),
 		);
 
 		$categories = apply_filters( 'gutenberg-blocks/register-block', $categories );

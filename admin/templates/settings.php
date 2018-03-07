@@ -18,7 +18,7 @@
 
 		<h2><?php _e( 'Gutenberg Blocks', 'gutenblocks' ); ?></h2>
 
-		<p class="description"><?php _e( "Check out these awesome blocks to improve your WordPress experience.", 'gutenblocks' ); ?></p>
+		<p class="gutenblocks-settings__description"><?php _e( "Check out these awesome blocks to improve your WordPress experience.", 'gutenblocks' ); ?></p>
 
 		<div class="gutenblocks-list">
 			<?php foreach( $categories as $key => $cat ): ?>
@@ -95,7 +95,7 @@
 
 		<h2><?php _e('Default WordPress blocks', 'gutenblocks'); ?></h2>
 
-		<p class="description"><?php _e("Disable the blocks you don't want to deal with for a lighter user interface.", 'gutenblocks'); ?></p>
+		<p class="gutenblocks-settings__description"><?php _e("Disable the blocks you don't want to deal with for a lighter user interface.", 'gutenblocks'); ?></p>
 
 		<div class="gutenblocks-list">
 			<?php

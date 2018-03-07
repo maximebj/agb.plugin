@@ -14,7 +14,7 @@ defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
 abstract class Consts {
 
-	const PLUGIN_NAME = 'gutenblocks';
+	const PLUGIN_NAME = 'gutenberg-blocks';
 	const VERSION = '1.0';
 	const SETTINGS_GROUP = 'gutenblocks-settings';
 

@@ -4,7 +4,7 @@ namespace GutenbergBlocks\Blocks;
 
 use GutenbergBlocks\Helpers\Consts;
 
-class Ad {
+class AdText {
 
   public function run() {
 
@@ -13,17 +13,17 @@ class Ad {
 
 		// Register Block in the Gutenblocks settings page
 		$args = array(
-			'icon' => 'dashicons-megaphone',
+			'icon' => 'dashicons-align-right',
 			'category' => 'marketing',
 			'preview_image' => Consts::get_url().'admin/img/blocks/ad.jpg',
-			'description' => __( 'Monetize your website by inserting Ads in your content. All you need is to grab a script from Google Adsense or other and paste it below. Best use for banner ads.', 'gutenblocks' ),
+			'description' => __( 'Monetize your website by inserting Ads in your content. All you need is to grab a script from Google Adsense or other and paste it below. Best use for Rectangle ads.', 'gutenblocks' ),
 			'options_callback' => array( $this, 'settings' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/ad', __( 'Banner Ad', 'gutenblocks' ), $args );
+		gutenblocks_register_blocks( 'gutenblocks/adtext', __( 'Text + Rectangle Ad', 'gutenblocks' ), $args );
 
 		// Register settings
-		gutenblocks_register_setting( 'gutenblocks-ad-script' );
+		gutenblocks_register_setting( 'gutenblocks-adtext-script' );
   }
 
 	public function settings() {
@@ -34,7 +34,7 @@ class Ad {
 			</div>
 
 			<div class="gutenblocks-block__settings__field">
-				<textarea name="gutenblocks-ad-script" rows="4">' . get_option('gutenblocks-ad-script') . '</textarea>
+				<textarea name="gutenblocks-ad-script" rows="4">' . get_option('gutenblocks-adtext-script') . '</textarea>
 			</div>
 		</div>
 		';
@@ -44,14 +44,14 @@ class Ad {
 
 		// PHP Rendering of the block
 		register_block_type(
-      'gutenblocks/ad',
+      'gutenblocks/adtext',
       [ 'render_callback' => array( $this, render_block ) ]
     );
 	}
 
 	public function render_block() {
 
-		return '<div class="wp-block-gutenblocks-ad">' . get_option('gutenblocks-ad-script') . '</div>';
+		return '<div class="wp-block-gutenblocks-ad">' . get_option('gutenblocks-adtext-script') . '</div>';
 	}
 
 }

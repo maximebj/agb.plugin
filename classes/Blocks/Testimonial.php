@@ -11,7 +11,7 @@ class Testimonial {
 
 		$args = array(
 			'icon' => 'dashicons-format-status',
-			'category' => 'common',
+			'category' => 'marketing',
 			'description' => __( "Display a customer testimonial. It's good for the thurst but don't lie to your visitors!", 'gutenblocks' ),
 			'available' => false,
 		);
