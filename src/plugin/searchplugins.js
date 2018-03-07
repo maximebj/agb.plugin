@@ -65,7 +65,7 @@ export default class SearchPlugins extends Component {
           onChange={ this.onSearch }
         />
 
-        <div className="captain-results">
+			<div className="gutenblocks-panel-results">
 
           { this.state.status===true ?
             (

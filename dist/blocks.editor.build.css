@@ -3,3 +3,44 @@
 
 .wp-block-gutenblocks-notice select {
   margin-bottom: 14px; }
+.edit-post-visual-editor .wp-block-gutenblocks-plugin__desc,
+.edit-post-visual-editor .wp-block-gutenblocks-plugin__author,
+.edit-post-visual-editor .wp-block-gutenblocks-plugin__meta p {
+  font-size: .9em; }
+
+.edit-post-visual-editor .wp-block-gutenblocks-plugin__author {
+  margin-bottom: 0; }
+
+.edit-post-visual-editor .wp-block-gutenblocks-plugin__meta p {
+  line-height: 1.5; }
+
+.gutenblocks-block-message {
+  text-align: center;
+  font-style: italic;
+  color: #ccc; }
+
+.gutenblocks-panel-results p {
+  margin: 10px 0;
+  text-align: center; }
+
+.gutenblocks-panel-results ul {
+  margin-top: 10px;
+  list-style-type: none;
+  border: 1px solid #E3E4E7; }
+
+.gutenblocks-panel-results li {
+  overflow: auto;
+  margin: 0;
+  padding: 10px; }
+  .gutenblocks-panel-results li:not(:first-child) {
+    border-top: 1px solid #E3E4E7; }
+  .gutenblocks-panel-results li:hover {
+    background: #efefef;
+    cursor: pointer; }
+
+.gutenblocks-panel-results img {
+  display: inline-block;
+  float: left;
+  margin-right: 4px;
+  width: 32px;
+  height: 32px; }

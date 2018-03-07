@@ -1,3 +1,5 @@
+import icons from './icons'
+
 const { Component } = wp.element;
 
 const { __ } = wp.i18n;
@@ -8,19 +10,29 @@ export default class Preview extends Component {
     super( props )
 
     this.state = {
-      stars: false
+      stars: false,
+			installs: ''
     }
   }
 
   componentWillMount() {
     this.setStars()
+		this.formatInstallsNumber()
+		this.extractAuthor()
   }
 
   componentDidUpdate(lastProps, lastStates) {
-    console.log(lastProps.attributes.rating)
     if(lastProps.attributes.rating != this.props.attributes.rating) {
       this.setStars()
     }
+
+		if(lastProps.attributes.activeInstalls != this.props.attributes.activeInstalls) {
+			this.formatInstallsNumber()
+		}
+
+		if(lastProps.attributes.author != this.props.attributes.author) {
+			this.extractAuthor()
+		}
   }
 
   setStars() {
@@ -34,49 +46,92 @@ export default class Preview extends Component {
 
     for(let i=0; i < floor; i++) {
       stars.push(
-        <span class="dashicons dashicons-star-filled"></span>
+        icons.starFilled
       )
       last++;
     }
 
     if(floor != rating) {
       stars.push(
-        <span class="dashicons dashicons-star-half"></span>
+        icons.starHalf
       )
       last++;
     }
 
     for (let i = last; i < max; i++) {
       stars.push(
-        <span class="dashicons dashicons-star-empty"></span>
+        icons.starEmpty
       )
     }
 
     this.setState( { stars: stars } )
-
   }
+
+	formatInstallsNumber() {
+		if ( this.props.attributes.activeInstalls > 1000000 ) {
+			this.setState( { installs: __( '1+ Million' ) } )
+		}
+		else if( this.props.attributes.activeInstalls < 10 ) {
+			this.setState( { installs: __( 'Less than 10' ) } )
+		}
+		else {
+			this.setState( { installs: this.props.attributes.activeInstalls+'+' } )
+		}
+	}
+
+	extractAuthor() {
+		this.setState( { author: this.props.attributes.author.replace(/<(?:.|\n)*?>/gm, '') } )
+	}
 
   render() {
     return (
-      <div className="plugin">
-        <div className="plugin__picture">
-          <img src={this.props.attributes.image} alt={this.props.attributes.title} />
-        </div>
-        <div className="plugin__content">
-          <div className="plugin__main">
-            <p className="plugin__title"><a href={this.props.attributes.downloadLink}>{this.props.attributes.title}</a></p>
-            <p className="plugin__desc">{this.props.attributes.description}</p>
+      <div className="wp-block-gutenblocks-plugin">
+				<div className="wp-block-gutenblocks-plugin__content">
+	        <a href={this.props.attributes.downloadLink} className="wp-block-gutenblocks-plugin__picture">
+	          <img src={this.props.attributes.image} alt={this.props.attributes.title} />
+	        </a>
+
+          <div className="wp-block-gutenblocks-plugin__main">
+            <p className="wp-block-gutenblocks-plugin__title">
+							<a href={this.props.attributes.downloadLink}>{this.props.attributes.title}</a>
+						</p>
+            <p className="wp-block-gutenblocks-plugin__desc">{this.props.attributes.description}</p>
+						<p className="wp-block-gutenblocks-plugin__author">
+							{ __( 'By' ) }
+							&nbsp;
+							<a href={this.props.attributes.homepage} target='_blank'>
+								{this.state.author}
+							</a>
+						</p>
           </div>
-          <div className="plugin__meta">
-            <a href={this.props.attributes.downloadLink} target="_blank" className="plugin__button button button--main">Télécharger</a>
-            <p className="plugin__meta__active">Installations actives : <span>{this.props.attributes.activeInstalls}</span></p>
-            <p>Note :
-              <span className="plugin__rating" data-note={this.props.attributes.rating}>
-                {this.state.stars}
-              </span>
-            </p>
-          </div>
         </div>
+
+				<footer className="wp-block-gutenblocks-plugin__footer">
+					<div className="wp-block-gutenblocks-plugin__meta">
+						<p className="wp-block-gutenblocks-plugin__rating">
+							<span className="wp-block-gutenblocks-plugin__stars" data-note={this.props.attributes.rating}>
+								{this.state.stars}
+							</span>
+							&nbsp;
+							<span className="wp-block-gutenblocks-plugin__num-rating">
+								{this.props.attributes.numRatings}
+							</span>
+						</p>
+						<p className="wp-block-gutenblocks-plugin__active" data-installs={this.props.attributes.activeInstalls}>
+							<span>{this.state.installs}</span>
+							&nbsp;
+							{ __( 'Active Installations' ) }
+						</p>
+					</div>
+					<div className="wp-block-gutenblocks-plugin__download">
+						<a
+							href={this.props.attributes.downloadLink}
+							target="_blank"
+							className="wp-block-gutenblocks-plugin__button">
+								{ __('Plugin page') }
+							</a>
+					</div>
+				</footer>
       </div>
     )
   }

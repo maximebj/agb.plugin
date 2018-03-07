@@ -1,3 +1,12 @@
+/**
+ * BLOCK: Plugin
+ *
+ * Display informations from a WordPress plugin
+ */
+
+import './style.scss'
+import './editor.scss'
+
 import Inspector from './inspect'
 import Preview from './preview'
 
@@ -20,31 +29,45 @@ export default registerBlockType(
     attributes: {
       title: {
         source: 'text',
-        selector: '.plugin__title a',
+        selector: '.wp-block-gutenblocks-plugin__title a',
       },
       description: {
         source: 'text',
-        selector: '.plugin__desc',
+        selector: '.wp-block-gutenblocks-plugin__desc',
       },
       image: {
         source: 'attribute',
-        selector: '.plugin__picture img',
+        selector: '.wp-block-gutenblocks-plugin__picture img',
         attribute: 'src',
       },
       activeInstalls: {
-        source: 'text',
-        selector: '.plugin__meta__active span',
+        source: 'attribute',
+        selector: '.wp-block-gutenblocks-plugin__active',
+				attribute: 'data-installs',
       },
       downloadLink: {
         source: 'attribute',
-        selector: '.plugin__meta .button',
+        selector: '.wp-block-gutenblocks-plugin__download a',
         attribute: 'href',
       },
       rating: {
         source: 'attribute',
-        selector: '.plugin__rating',
+        selector: '.wp-block-gutenblocks-plugin__stars',
         attribute: 'data-note',
       },
+			numRatings: {
+				souce: 'text',
+				selector: '.wp-block-gutenblocks-plugin__num-rating',
+			},
+			author: {
+				source: 'text',
+				selector: '.wp-block-gutenblocks-plugin__author a',
+			},
+			homepage: {
+				source: 'attribute',
+				selector: '.wp-block-gutenblocks-plugin__author a',
+				attribute: 'href',
+			},
     },
     edit: props => {
 
@@ -57,6 +80,9 @@ export default registerBlockType(
           downloadLink: `https://fr.wordpress.org/plugins/${plugin.slug}`,
           activeInstalls: plugin.active_installs,
           rating: plugin.rating,
+					author: plugin.author,
+					homepage: plugin.homepage,
+					numRatings: plugin.num_ratings,
         } )
       };
 
@@ -70,6 +96,7 @@ export default registerBlockType(
         }
       }
 
+
       return [
         !! props.focus && (
           <Inspector onChangePlugin={onChangePlugin} />
@@ -78,7 +105,7 @@ export default registerBlockType(
         !! props.attributes.title ? (
           <Preview {...props} />
         ) : (
-          <p class="captain-choose">{ __( 'Search for a plugin in the inspector' ) }</p>
+          <p class="gutenblocks-block-message">{ __( 'Search for a plugin in the inspector' ) }</p>
         )
       ]
     },
