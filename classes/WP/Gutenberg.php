@@ -35,9 +35,27 @@ class Gutenberg {
 
 	public function editor_assets() {
 
+		// Custom blocks
 		wp_enqueue_script(
 			'gutenblocks-block',
 			Consts::get_url() . '/dist/blocks.build.js',
+			[ 'wp-blocks', 'wp-i18n', 'wp-element' ],
+			'1.0'
+		);
+
+		wp_localize_script(
+      'gutenblocks-block-deactivator',
+      'gutenblocksGlobals',
+      array(
+        'ajaxurl' => admin_url('admin-ajax.php'),
+      )
+    );
+
+		// Blocks deactivator
+
+		wp_enqueue_script(
+			'gutenblocks-block-deactivator',
+			Consts::get_url() . '/dist/deactivator.build.js',
 			[ 'wp-blocks', 'wp-i18n', 'wp-element' ],
 			'1.0',
 			true
@@ -46,12 +64,9 @@ class Gutenberg {
 		$blocks = new Blocks();
 
 		wp_localize_script(
-      'gutenblocks-block',
-      'gutenblocksGlobals',
-      array(
-        'ajaxurl' => admin_url('admin-ajax.php'),
-				'deactivatedBlocks' => $blocks->get_disabled_blocks_js(),
-      )
+      'gutenblocks-block-deactivator',
+      'gutenblocksDeactivated',
+      $blocks->get_disabled_blocks_js()
     );
 
 		wp_enqueue_style(

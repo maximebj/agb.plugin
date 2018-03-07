@@ -25,7 +25,7 @@ const types = {
 }
 
 export default registerBlockType(
-  'gutenblock/notice',
+  'gutenblocks/notice',
   {
     title: __( 'Notice' ),
     description: __( 'Put forward a tips or a warning' ),
@@ -39,20 +39,20 @@ export default registerBlockType(
     attributes: {
       type: {
         source: 'attribute',
-        selector: '.wp-block-gutenblock-notice',
+        selector: '.wp-block-gutenblocks-notice',
         attribute: 'data-type',
         default: Object.keys(types)[0],
       },
 			title: {
         source: 'text',
         type: 'string',
-        selector: '.wp-block-gutenblock-notice__title',
+        selector: '.wp-block-gutenblocks-notice__title',
 				default: types.advice,
       },
       content: {
         type: 'array',
         source: 'children',
-        selector: '.wp-block-gutenblock-notice__content',
+        selector: '.wp-block-gutenblocks-notice__content',
       },
     },
     edit: props => {
@@ -83,7 +83,7 @@ export default registerBlockType(
 							{options}
             </select>
             ) : (
-            <p className='wp-block-gutenblock-notice__title'>{ props.attributes.title }</p>
+            <p className='wp-block-gutenblocks-notice__title'>{ props.attributes.title }</p>
             )
           }
 
@@ -91,7 +91,7 @@ export default registerBlockType(
             tagName="p"
             placeholder={ __('Your tip/warning content') }
             value={ props.attributes.content }
-            className='wp-block-gutenblock-notice__content'
+            className='wp-block-gutenblocks-notice__content'
             onChange={ onChangeContent }
             focus={ props.focus }
   				/>
@@ -100,9 +100,9 @@ export default registerBlockType(
     },
     save: props => {
       return (
-        <div className={ `wp-block-gutenblock-notice--${ props.attributes.type }` } data-type={ props.attributes.type }>
-          <p className='wp-block-gutenblock-notice__title'>{ props.attributes.title }</p>
-          <p className='wp-block-gutenblock-notice__content'>{ props.attributes.content }</p>
+        <div className={ `wp-block-gutenblocks-notice--${ props.attributes.type }` } data-type={ props.attributes.type }>
+          <p className='wp-block-gutenblocks-notice__title'>{ props.attributes.title }</p>
+          <p className='wp-block-gutenblocks-notice__content'>{ props.attributes.content }</p>
         </div>
       );
     },

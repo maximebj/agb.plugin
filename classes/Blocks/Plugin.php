@@ -14,7 +14,7 @@ class Plugin {
 			'description' => __( 'Display a Plugin informations from the official WordPress repository', 'gutenblocks' ),
 		);
 
-		gutenberg_blocks_register_blocks( 'gutenblock/plugin', __( 'Plugin WordPress', 'gutenblocks' ), $args );
+		gutenberg_blocks_register_blocks( 'gutenblocks/plugin', __( 'Plugin WordPress', 'gutenblocks' ), $args );
   }
 
   public function register_hooks() {

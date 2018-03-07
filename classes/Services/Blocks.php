@@ -83,10 +83,6 @@ class Blocks {
 
 		$blocks = $this->get_disabled_blocks();
 
-		// if( !empty($blocks) ) {
-		// 	return implode( ', ', $blocks );
-		// }
-
 		return json_encode($blocks);
 
 	}

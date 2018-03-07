@@ -16,7 +16,7 @@ class Notice {
 			'description' => __( 'Display a sweet Info/Advice/Warning/Avoid/ notice', 'gutenblocks' ),
 		);
 
-		gutenberg_blocks_register_blocks( 'gutenblock/notice', __( 'Notice', 'gutenblocks' ), $args );
+		gutenberg_blocks_register_blocks( 'gutenblocks/notice', __( 'Notice', 'gutenblocks' ), $args );
   }
 
   public function register_hooks() {

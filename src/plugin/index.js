@@ -8,7 +8,7 @@ const {
 const { __ } = wp.i18n;
 
 export default registerBlockType(
-  'gutenblock/plugin',
+  'gutenblocks/plugin',
   {
     title: __( 'Plugin' ),
     description: __( 'Display informations from a WordPress plugin' ),

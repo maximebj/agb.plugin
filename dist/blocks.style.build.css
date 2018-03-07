@@ -1,26 +1,26 @@
-.wp-block-gutenblock-notice {
+.wp-block-gutenblocks-notice {
   margin: 1.5em 0;
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 4px; }
-  .wp-block-gutenblock-notice__title {
+  .wp-block-gutenblocks-notice__title {
     margin: 0 0 8px 0;
     font-size: 1.2em; }
-  .wp-block-gutenblock-notice__content {
+  .wp-block-gutenblocks-notice__content {
     margin-bottom: 0; }
-  .wp-block-gutenblock-notice--advice {
+  .wp-block-gutenblocks-notice--advice {
     border-top: 3px solid #83BD71; }
-    .wp-block-gutenblock-notice--advice .wp-block-gutenblock-notice__title {
+    .wp-block-gutenblocks-notice--advice .wp-block-gutenblocks-notice__title {
       color: #83BD71; }
-  .wp-block-gutenblock-notice--avoid {
+  .wp-block-gutenblocks-notice--avoid {
     border-top: 3px solid #B54D4D; }
-    .wp-block-gutenblock-notice--avoid .wp-block-gutenblock-notice__title {
+    .wp-block-gutenblocks-notice--avoid .wp-block-gutenblocks-notice__title {
       color: #B54D4D; }
-  .wp-block-gutenblock-notice--warning {
+  .wp-block-gutenblocks-notice--warning {
     border-top: 3px solid #FFC334; }
-    .wp-block-gutenblock-notice--warning .wp-block-gutenblock-notice__title {
+    .wp-block-gutenblocks-notice--warning .wp-block-gutenblocks-notice__title {
       color: #FFC334; }
-  .wp-block-gutenblock-notice--info {
+  .wp-block-gutenblocks-notice--info {
     border-top: 3px solid #48ADD8; }
-    .wp-block-gutenblock-notice--info .wp-block-gutenblock-notice__title {
+    .wp-block-gutenblocks-notice--info .wp-block-gutenblocks-notice__title {
       color: #48ADD8; }
