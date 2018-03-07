@@ -10,11 +10,18 @@
 	img
 		max-width 100%
 
+.gutenblocks-settings
+	padding-top 53px
 
 .gutenblocks-settings__header
 	background white
 	border-bottom 1px solid border-color
 	padding 10px
+	position fixed
+	top 32px
+	left 160px
+	right 0
+	z-index 100
 
 .gutenblocks-settings__header__inner
 	max-width 50rem
@@ -33,6 +40,24 @@
 		width 32px
 		height 32px
 		margin-right 6px
+
+.gutenblocks-settings__header__menu
+	display flex
+	justify-content flex-end
+	margin 0
+	flex 1
+
+	li
+		margin-bottom 0
+
+	a
+		display block
+		line-height 32px
+		text-decoration none
+		padding 0 10px
+
+	li + li
+		border-left 1px solid border-color
 
 .gutenblocks-settings__content
 	max-width 50rem

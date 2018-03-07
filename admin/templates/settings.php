@@ -11,12 +11,16 @@
 			<h1>
 				<?php _e('Gutenberg Blocks Settings'); ?>
 			</h1>
+      <ul class="gutenblocks-settings__header__menu">
+        <li><a href="#my-blocks"><?php _e( 'My Blocks', 'gutenblocks' ); ?></a></li>
+        <li><a href="#wp-blocks"><?php _e( 'WordPress Blocks', 'gutenblocks' ); ?></a></li>
+      </ul>
 		</div>
 	</header>
 
 	<main class="gutenblocks-settings__content">
 
-		<h2><?php _e( 'Gutenberg Blocks', 'gutenblocks' ); ?></h2>
+		<h2 id="my-blocks"><?php _e( 'My Blocks', 'gutenblocks' ); ?></h2>
 
 		<p class="gutenblocks-settings__description"><?php _e( "Check out these awesome blocks to improve your WordPress experience.", 'gutenblocks' ); ?></p>
 
@@ -93,7 +97,7 @@
 		</div>
 
 
-		<h2><?php _e('Default WordPress blocks', 'gutenblocks'); ?></h2>
+		<h2 id="wp-blocks"><?php _e('Default WordPress blocks', 'gutenblocks'); ?></h2>
 
 		<p class="gutenblocks-settings__description"><?php _e("Disable the blocks you don't want to deal with for a lighter user interface.", 'gutenblocks'); ?></p>
 

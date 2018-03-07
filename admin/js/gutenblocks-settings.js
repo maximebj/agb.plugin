@@ -2,8 +2,15 @@
 	'use strict';
 	$(document).ready(function() {
 
-		// Show / Hide settings panel
+		// Smooth Scroll
+	  $('body').on('click', 'a[href^=\\#]:not([href=\\#])', function(e){
+	    e.preventDefault();
+	    var anchor = $(this).attr('href');
+	    $('html,body').animate({scrollTop: $(anchor).offset().top - 120 }, 300);
+	  });
 
+
+		// Show / Hide settings panel
 		$('.js-gutenblocks-show-panel').click( function(e) {
 			e.preventDefault();
 			var $parent = $(this).parents('.gutenblocks-block');

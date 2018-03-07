@@ -14,7 +14,6 @@ gulp.task("stylus-admin-css", function() {
         compress: true
       })
     )
-    .pipe(autoprefixer({ browsers: ["last 2 versions"] }))
     .pipe(gulp.dest("../admin/css"))
     .pipe(bs.reload({ stream: true }))
 })
