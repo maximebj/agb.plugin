@@ -7,8 +7,8 @@ use GutenbergBlocks\Helpers\Consts;
 class Notice {
 
   public function run() {
-    $this->register_hooks();
 
+		// Register Block in the Gutenblocks settings page
 		$args = array(
 			'icon' => 'dashicons-warning',
 			'category' => 'common',
@@ -16,12 +16,8 @@ class Notice {
 			'description' => __( 'Display a sweet Info/Advice/Warning/Avoid/ notice', 'gutenblocks' ),
 		);
 
-		gutenberg_blocks_register_blocks( 'gutenblocks/notice', __( 'Notice', 'gutenblocks' ), $args );
+		gutenblocks_register_blocks( 'gutenblocks/notice', __( 'Notice', 'gutenblocks' ), $args );
   }
-
-  public function register_hooks() {
-  }
-
 
 	public function settings() {
 		echo '<input type="text" value="je suis une option" />';

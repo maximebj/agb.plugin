@@ -20,7 +20,6 @@ class Settings {
 
 	public function register_hooks() {
 		add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
-		add_action( 'admin_init', array( $this, 'register_settings' ) );
 
 		// Toggle block status
     add_action( 'wp_ajax_toggle_block', array( $this, 'toggle_block' ) );
@@ -60,8 +59,6 @@ class Settings {
 		unset( $submenu[Consts::PLUGIN_NAME][0] );
 	}
 
-
-
 	public function settings_page(){
 
 		$blocks = new Blocks();
@@ -72,10 +69,6 @@ class Settings {
 		$categories = $blocks->get_categories();
 
     require_once Consts::get_path() . 'admin/templates/settings.php';
-	}
-
-	public function register_settings() {
-		register_setting( 'gutenberg-blocks-settings', 'gutenberg-blocks-disabled' );
 	}
 
 	public function toggle_block() {

@@ -23,13 +23,13 @@ class Admin {
 
 	public function enqueue_assets($hook) {
 
-		if( strpos( $hook,  'blocks_page_gutenberg-blocks' ) === false ) {
+		if( strpos( $hook,  'blocks_page_gutenblocks' ) === false ) {
 			return;
 		}
 
 		wp_enqueue_style(
 			Consts::PLUGIN_NAME,
-			Consts::get_url().'admin/css/gutenberg-blocks-admin.css',
+			Consts::get_url().'admin/css/gutenblocks-admin.css',
 			array(),
 			Consts::VERSION,
 			'all'
@@ -37,7 +37,7 @@ class Admin {
 
 		wp_enqueue_script(
 			Consts::PLUGIN_NAME.'-settings',
-			Consts::get_url().'admin/js/gutenberg-blocks-settings.js',
+			Consts::get_url().'admin/js/gutenblocks-settings.js',
 			array('jquery'),
 			Consts::VERSION,
 			false

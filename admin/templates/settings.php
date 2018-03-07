@@ -2,12 +2,12 @@
 	use GutenbergBlocks\Helpers\Consts;
 ?>
 <form method="post" action="options.php" class="gutenblocks-settings">
-	<?php settings_fields('gutenberg-blocks-settings'); ?>
-  <?php do_settings_sections('gutenberg-blocks-settings'); ?>
+	<?php settings_fields('gutenblocks-settings'); ?>
+  <?php do_settings_sections('gutenblocks-settings'); ?>
 
 	<header class="gutenblocks-settings__header">
 		<div class="gutenblocks-settings__header__inner">
-			<img src="<?php echo Consts::get_url().'admin/img/gutenberg-blocks-logo.svg' ?>" alt="Gutenberg Blocks Logo">
+			<img src="<?php echo Consts::get_url().'admin/img/gutenblocks-logo.svg' ?>" alt="Gutenberg Blocks Logo">
 			<h1>
 				<?php _e('Gutenberg Blocks Settings'); ?>
 			</h1>
@@ -57,7 +57,7 @@
 						</div>
 					</header>
 
-					<div class="gutenblocks-block__panel">
+					<div class="gutenblocks-block__panel" style="display:block">
 						<?php if( $block['description'] ): ?>
 							<div class="gutenblocks-block__description">
 								<p class="gutenblocks-block__panel__title"><?php _e( 'Description', 'gutenblocks' ); ?></p>
@@ -76,6 +76,9 @@
 							<p class="gutenblocks-block__panel__title"><?php _e( 'Settings', 'gutenblocks'); ?></p>
 							<?php if( $block['options_callback'] ): ?>
 								<?php call_user_func( $block['options_callback'] ); ?>
+								<p>
+									<input type="submit" class="button button-primary" value="<?php _e( 'Save Changes' ); ?>">
+								</p>
 							<?php else: ?>
 							<p><?php _e( 'No settings for this block.', 'gutenblocks'); ?></p>
 							<?php endif; ?>

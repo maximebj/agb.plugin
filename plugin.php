@@ -25,19 +25,20 @@ load_plugin_textdomain( 'gutenblocks', false, basename( __DIR__ ) . '/languages'
 $gutenblocks_registered_blocks = array();
 
 /**
-*  Register blocks
-*
-*  id: (String) block identifier (from JS. Eg: gutenblock/plugin)
-*  name: (String) Name of the block
-*  icon: (String) Dashicon class
-*  svg: (String) SVG image instead of Dashicon
-*  category: (String) [Common, API, Woo ... ] category to display block
-*  preview_image: (String) Image URL
-*	 options_callback: (Function) Callback method to display block settings
-*  available: (Boolean) Set to False to tease a not yet available block
-*
-*/
-function gutenberg_blocks_register_blocks($id, $name, $args) {
+ *  Register blocks
+ *
+ *  id: (String) block identifier (from JS. Eg: gutenblock/plugin)
+ *  name: (String) Name of the block
+ *  icon: (String) Dashicon class
+ *  svg: (String) SVG image instead of Dashicon
+ *  category: (String) [Common, API, Woo ... ] category to display block
+ *  preview_image: (String) Image URL
+ *	 options_callback: (Function) Callback method to display block settings
+ *  available: (Boolean) Set to False to tease a not yet available block
+ *
+ */
+
+function gutenblocks_register_blocks($id, $name, $args) {
 	global $gutenblocks_registered_blocks;
 
 	$defaults = array(
@@ -57,6 +58,15 @@ function gutenberg_blocks_register_blocks($id, $name, $args) {
 	$gutenblocks_registered_blocks[] = $args;
 }
 
+/**
+ * Register a setting for the Gutenblocks settings page
+ *
+ * name: (String) Setting slug
+ */
+
+function gutenblocks_register_setting( $setting ) {
+	register_setting( 'gutenblocks-settings', $setting );
+}
 
 // Launch Plugin
 // Plugin Core encapsulation

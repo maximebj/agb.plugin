@@ -2,32 +2,26 @@
 
 namespace GutenbergBlocks\Blocks;
 
+use GutenbergBlocks\Helpers\Consts;
+
 class Plugin {
 
   public function run() {
-    $this->register_hooks();
 
+		// Ajax Search Plugin on wp.org
+    add_action('wp_ajax_search_plugins', array( $this, 'search_plugins' ));
+
+
+		// Register Block in the Gutenblocks settings page
 		$args = array(
 			'icon' => 'dashicons-admin-plugins',
 			'category' => 'apis',
-			//'options_callback' => array( $this, 'settings' ),
+			'preview_image' => Consts::get_url().'admin/img/blocks/plugin.jpg',
 			'description' => __( 'Display a Plugin informations from the official WordPress repository', 'gutenblocks' ),
 		);
 
-		gutenberg_blocks_register_blocks( 'gutenblocks/plugin', __( 'Plugin WordPress', 'gutenblocks' ), $args );
+		gutenblocks_register_blocks( 'gutenblocks/plugin', __( 'Plugin WordPress', 'gutenblocks' ), $args );
   }
-
-  public function register_hooks() {
-
-    // Ajax Search Plugin on wp.org
-    add_action('wp_ajax_search_plugins', array( $this, 'search_plugins' ));
-  }
-
-
-	public function settings() {
-
-	}
-
 
   public function search_plugins()
   {

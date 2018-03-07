@@ -2,29 +2,25 @@
 
 namespace GutenbergBlocks\Blocks;
 
+use GutenbergBlocks\Helpers\Consts;
+
 class Products {
 
   public function run() {
-    $this->register_hooks();
 
+		// Register Block in the Gutenblocks settings page
 		$args = array(
 			'icon' => 'dashicons-products',
 			'category' => 'woo',
-			//'options_callback' => array( $this, 'settings' ),
 			'description' => __( 'Display WooCommerce Product(s) in your post', 'gutenblocks' ),
 			'available' => false,
 		);
 
-		gutenberg_blocks_register_blocks( 'gutenblock/products', __( 'Woo Products', 'gutenblocks' ), $args );
+		gutenblocks_register_blocks( 'gutenblocks/products', __( 'Woo Products', 'gutenblocks' ), $args );
   }
-
-  public function register_hooks() {
-
-  }
-
 
 	public function settings() {
-		echo '<input type="text" value="je suis une option" />';
+
 	}
 
 }
