@@ -20,6 +20,7 @@ class Settings {
 
 	public function register_hooks() {
 		add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
+		add_action( 'admin_init', array( $this, 'register_settings' ) );
 
 		// Toggle block status
     add_action( 'wp_ajax_toggle_block', array( $this, 'toggle_block' ) );
@@ -37,26 +38,35 @@ class Settings {
 			array( $this, 'settings_page' )
 		);
 
-		add_submenu_page(
-			Consts::PLUGIN_NAME,
-			__( 'Add Block' , 'gutenblocks' ),
-			__( 'Add Block' , 'gutenblocks' ),
-			'edit_posts',
-			Consts::PLUGIN_NAME.'-install',
-			array( $this, 'block_install' )
-		);
+		// add_submenu_page(
+		// 	Consts::PLUGIN_NAME,
+		// 	__( 'Add Block' , 'gutenblocks' ),
+		// 	__( 'Add Block' , 'gutenblocks' ),
+		// 	'edit_posts',
+		// 	Consts::PLUGIN_NAME.'-install',
+		// 	array( $this, 'block_install' )
+		// );
 
-		add_submenu_page(
-			Consts::PLUGIN_NAME,
-			__( 'Import/Export' , 'gutenblocks' ),
-			__( 'Import/Export' , 'gutenblocks' ),
-			'edit_posts',
-			Consts::PLUGIN_NAME.'-import',
-			array( $this, 'import_export' )
-		);
+		// add_submenu_page(
+		// 	Consts::PLUGIN_NAME,
+		// 	__( 'Import/Export' , 'gutenblocks' ),
+		// 	__( 'Import/Export' , 'gutenblocks' ),
+		// 	'edit_posts',
+		// 	Consts::PLUGIN_NAME.'-import',
+		// 	array( $this, 'import_export' )
+		// );
 
 		// Remove default submenu
 		unset( $submenu[Consts::PLUGIN_NAME][0] );
+	}
+
+	public function register_settings() {
+		global $gutenblocks_registered_settings;
+
+		// Register blocks settings
+		foreach( $gutenblocks_registered_settings as $setting ) {
+			register_setting( Consts::SETTINGS_GROUP, $setting['name'] );
+		}
 	}
 
 	public function settings_page(){

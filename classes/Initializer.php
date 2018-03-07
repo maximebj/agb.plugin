@@ -99,7 +99,6 @@ class Initializer {
 		$class_blocks_testimonial = new Testimonial();
 		$class_blocks_testimonial->run();
 
-
 	}
 
 	public function get_plugin_name() {

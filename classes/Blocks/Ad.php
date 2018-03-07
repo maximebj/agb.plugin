@@ -8,19 +8,19 @@ class Ad {
 
   public function run() {
 
-		// Register hooks
-    add_action( 'admin_init', array( $this, 'register_settings' ) );
-
-
 		// Register Block in the Gutenblocks settings page
 		$args = array(
 			'icon' => 'dashicons-megaphone',
 			'category' => 'common',
-			'options_callback' => array( $this, 'settings' ),
+			'preview_image' => Consts::get_url().'admin/img/blocks/ad.jpg',
 			'description' => __( 'Monetize your website by inserting Ads in your content. All you need is to grab a script from Google Adsense or other and paste it below.', 'gutenblocks' ),
+			'options_callback' => array( $this, 'settings' ),
 		);
 
 		gutenblocks_register_blocks( 'gutenblocks/ad', __( 'Advertisement', 'gutenblocks' ), $args );
+
+		// Register settings
+		gutenblocks_register_setting( 'gutenblocks-ad-script' );
 
 		// PHP Rendering of the block
 		register_block_type(
@@ -28,10 +28,6 @@ class Ad {
       [ 'render_callback' => array( $this, render_block ) ]
     );
   }
-
-	public function register_settings() {
-		gutenblocks_register_setting( 'gutenblocks-ad-script' );
-	}
 
 	public function settings() {
 		echo '

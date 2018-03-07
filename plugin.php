@@ -53,19 +53,30 @@ function gutenblocks_register_blocks($id, $name, $args) {
 		'available' => true,
 	);
 
-	$args = array_merge($defaults, $args);
+	$args = wp_parse_args($args, $defaults);
 
 	$gutenblocks_registered_blocks[] = $args;
 }
+
+
+// List the registered blocks in WP Admin Gutenberg Blocks settings page
+$gutenblocks_registered_settings = array();
 
 /**
  * Register a setting for the Gutenblocks settings page
  *
  * name: (String) Setting slug
+ * load_on_editor: (Boolean) define if the option value will be sent to the admin editor
  */
 
-function gutenblocks_register_setting( $setting ) {
-	register_setting( 'gutenblocks-settings', $setting );
+function gutenblocks_register_setting( $setting, $load_on_editor = false ) {
+	global $gutenblocks_registered_settings;
+
+	$gutenblocks_registered_settings[] = array(
+		'name' => $setting,
+		'editor' => $load_on_editor,
+	);
+
 }
 
 // Launch Plugin

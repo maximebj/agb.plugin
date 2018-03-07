@@ -2,12 +2,12 @@
 	use GutenbergBlocks\Helpers\Consts;
 ?>
 <form method="post" action="options.php" class="gutenblocks-settings">
-	<?php settings_fields('gutenblocks-settings'); ?>
-  <?php do_settings_sections('gutenblocks-settings'); ?>
+	<?php settings_fields( Consts::SETTINGS_GROUP ); ?>
+  <?php do_settings_sections( Consts::SETTINGS_GROUP ); ?>
 
 	<header class="gutenblocks-settings__header">
 		<div class="gutenblocks-settings__header__inner">
-			<img src="<?php echo Consts::get_url().'admin/img/gutenblocks-logo.svg' ?>" alt="Gutenberg Blocks Logo">
+			<img src="<?php echo Consts::get_url() . 'admin/img/gutenblocks-logo.svg' ?>" alt="Gutenberg Blocks Logo">
 			<h1>
 				<?php _e('Gutenberg Blocks Settings'); ?>
 			</h1>
@@ -16,9 +16,9 @@
 
 	<main class="gutenblocks-settings__content">
 
-		<h2><?php _e('Gutenberg Blocks'); ?></h2>
+		<h2><?php _e( 'Gutenberg Blocks', 'gutenblocks' ); ?></h2>
 
-		<p class="description"><?php _e("Check out these awesome blocks to improve your WordPress experience.", 'gutenblocks'); ?></p>
+		<p class="description"><?php _e( "Check out these awesome blocks to improve your WordPress experience.", 'gutenblocks' ); ?></p>
 
 		<div class="gutenblocks-list">
 			<?php foreach( $categories as $key => $cat ): ?>
@@ -57,7 +57,7 @@
 						</div>
 					</header>
 
-					<div class="gutenblocks-block__panel" style="display:block">
+					<div class="gutenblocks-block__panel">
 						<?php if( $block['description'] ): ?>
 							<div class="gutenblocks-block__description">
 								<p class="gutenblocks-block__panel__title"><?php _e( 'Description', 'gutenblocks' ); ?></p>
