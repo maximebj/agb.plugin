@@ -59,3 +59,20 @@
   line-height: 248px;
   width: 250px;
   color: #999; }
+.gutenblocks-panel-buttons {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 10px; }
+  .gutenblocks-panel-buttons span {
+    display: block;
+    margin: 5px;
+    -webkit-transition: .2s transform ease-in;
+    -o-transition: .2s transform ease-in;
+    transition: .2s transform ease-in; }
+    .gutenblocks-panel-buttons span:hover {
+      cursor: pointer;
+      -webkit-transform: scale(1.02);
+          -ms-transform: scale(1.02);
+              transform: scale(1.02); }

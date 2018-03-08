@@ -23,9 +23,7 @@ export default class Inspector extends Component {
       <InspectorControls key="inspector">
 
         <PanelBody title={ __('Search plugin' ) }>
-
-          <SearchPlugins onChangePlugin={this.props.onChangePlugin} plugins={this.props.plugins} />
-
+          <SearchPlugins onChangePlugin={this.props.onChangePlugin} />
         </PanelBody>
 
       </InspectorControls>

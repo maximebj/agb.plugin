@@ -1,0 +1,20 @@
+@import 'vars';
+
+// Inspector buttons
+
+.gutenblocks-panel-buttons {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+
+  span {
+    display: block;
+    margin: 5px;
+    transition: .2s transform ease-in;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.02);
+		}
+	}
+}

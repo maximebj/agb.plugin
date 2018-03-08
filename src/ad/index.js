@@ -7,9 +7,9 @@
 import './style.scss';
 import './editor.scss';
 
-const { __ } = wp.i18n;
-
 import classnames from 'classnames'
+
+const { __ } = wp.i18n;
 
 const {
   registerBlockType,
@@ -36,7 +36,7 @@ export default registerBlockType(
       );
     },
     save() {
-      return null;
+      return null
     },
 	},
 );
