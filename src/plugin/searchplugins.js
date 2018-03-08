@@ -10,8 +10,7 @@ export default class SearchPlugins extends Component {
     super( props )
 
     this.state = {
-      status: false,
-      plugins: {},
+      results: false,
     };
 
     this.onSearch = this.onSearch.bind(this)
@@ -28,7 +27,7 @@ export default class SearchPlugins extends Component {
       return
     }
 
-    this.setState( { status: __('Loading...') } )
+    this.setState( { results: __('Loading...') } )
 
     fetch(gutenblocksGlobals.ajaxurl, {
       method: 'POST',
@@ -41,17 +40,18 @@ export default class SearchPlugins extends Component {
       .then(response => response.json() )
       .then(response => {
 
-        if(response.info.results == 0 ) {
-          this.setState( { status: __( 'No result') } )
-        } else {
-          this.setState( { plugins: response.plugins, status: true } )
-        }
+				if(response.info.results == 0 ) {
+	        results = __( 'No result' )
+					this.setState( { results: __( 'No result' ) } )
+	      } else {
+					this.setState( { results: response.plugins } )
+				}
       }
     )
   }
 
   getPluginSlug(slug) {
-    this.props.onChangePlugin(_.find(this.state.plugins, { slug: slug}) )
+    this.props.onChangePlugin(_.find(this.state.results, { slug: slug}) )
   }
 
   render() {
@@ -67,15 +67,15 @@ export default class SearchPlugins extends Component {
 
 			<div className="gutenblocks-panel-results">
 
-          { this.state.status===true ?
+          { this.state.results && Array.isArray(this.state.results) ?
             (
               <ul>
-                { this.state.plugins.map( plugin => {
+                { this.state.results.map( plugin => {
 
                   let icon = (!! plugin.icons['1x']) ? plugin.icons['1x'] : plugin.icons.default
 
                   return (
-                    <li onClick={() => this.getPluginSlug(plugin.slug) } >
+                    <li onClick={ () => this.getPluginSlug(plugin.slug) } >
                       <img src={icon} alt={ plugin.name } />
                       <span>{ plugin.name }</span>
                     </li>
@@ -83,7 +83,7 @@ export default class SearchPlugins extends Component {
                 })}
               </ul>
             ) : (
-              <p>{this.state.status}</p>
+              <p>{ this.state.results }</p>
             )
           }
         </div>
