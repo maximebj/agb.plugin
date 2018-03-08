@@ -5,7 +5,7 @@
   border-radius: 4px; }
   .wp-block-gutenblocks-notice__title {
     margin: 0 0 8px 0;
-    font-size: 1.2em; }
+    font-size: 1.1em; }
   .wp-block-gutenblocks-notice__content {
     margin-bottom: 0; }
   .wp-block-gutenblocks-notice--advice {
@@ -86,3 +86,9 @@
       color: white; }
 .wp-block-gutenblocks-ad {
   margin: 1.5em 0; }
+.wp-block-gutenblocks-adtext {
+  overflow: auto; }
+
+.wp-block-gutenblocks-adtext__ad {
+  float: right;
+  margin: 0 0 20px 20px; }

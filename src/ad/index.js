@@ -13,7 +13,6 @@ import classnames from 'classnames'
 
 const {
   registerBlockType,
-  RichText,
 } = wp.blocks;
 
 

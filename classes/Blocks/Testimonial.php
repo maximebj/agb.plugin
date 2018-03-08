@@ -8,7 +8,6 @@ class Testimonial {
 
   public function run() {
 
-
 		$args = array(
 			'icon' => 'dashicons-format-status',
 			'category' => 'marketing',

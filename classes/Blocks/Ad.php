@@ -15,7 +15,7 @@ class Ad {
 		$args = array(
 			'icon' => 'dashicons-megaphone',
 			'category' => 'marketing',
-			'preview_image' => Consts::get_url().'admin/img/blocks/ad.jpg',
+			'preview_image' => Consts::get_url() . 'admin/img/blocks/banner.jpg',
 			'description' => __( 'Monetize your website by inserting Ads in your content. All you need is to grab a script from Google Adsense or other and paste it below. Best use for banner ads.', 'gutenblocks' ),
 			'options_callback' => array( $this, 'settings' ),
 		);

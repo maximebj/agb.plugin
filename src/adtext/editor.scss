@@ -1,0 +1,11 @@
+@import 'vars';
+
+.wp-block-gutenblocks-adtext__ad {
+	padding: 0;
+	border: 1px solid $color-neutral;
+	background: $color-light;
+	text-align: center;
+	line-height: 248px;
+	width: 250px;
+	color: #999;
+}
