@@ -92,3 +92,23 @@
 .wp-block-gutenblocks-adtext__ad {
   float: right;
   margin: 0 0 20px 20px; }
+.wp-block-gutenblocks-addtocart {
+  text-align: center; }
+
+.wp-block-gutenblocks-addtocart__button {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  padding: .5em 1em;
+  -ms-flex-align: center;
+      align-items: center; }
+  .wp-block-gutenblocks-addtocart__button:hover {
+    color: white; }
+  .wp-block-gutenblocks-addtocart__button .dashicons {
+    margin-right: 8px; }
+
+.wp-block-gutenblocks-addtocart__label {
+  -ms-flex: 1;
+      flex: 1; }

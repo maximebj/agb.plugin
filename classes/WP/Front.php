@@ -22,6 +22,9 @@ class Front {
 
 	public function enqueue_assets() {
 
+		// Required for som blocks like buttons
+		// TODO : improve by checking if the block is in the content
+		wp_enqueue_style( 'dashicons' );
 	}
 
 }

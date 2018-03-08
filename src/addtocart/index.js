@@ -96,7 +96,7 @@ export default registerBlockType(
 						style={ {
 	            backgroundColor: props.attributes.backgroundColor
 	          } }
-						className={ classnames('editor-button', `button--${props.attributes.buttonClass}`) }
+						className="wp-block-gutenblocks-addtocart__button"
 					>
             { !! props.attributes.hasIcon && (
               <span className={ classnames('dashicons', `dashicons-${props.attributes.icon}`) }></span>
@@ -104,9 +104,9 @@ export default registerBlockType(
             }
             <RichText
               tagName="span"
+							className="wp-block-gutenblocks-addtocart__label"
               value={ props.attributes.label }
               onChange={ onChangeLabel }
-              focus = { props.focus }
             />
 					</a>
 				</p>
@@ -119,8 +119,8 @@ export default registerBlockType(
 						style={ {
 	            backgroundColor: props.attributes.backgroundColor
 	          } }
+						className="wp-block-gutenblocks-addtocart__button"
             href={ props.attributes.url }
-            className={ classnames('button', `button--${props.attributes.buttonClass}`) }
             data-type={ props.attributes.buttonClass }
           >
             { !! props.attributes.hasIcon && (
@@ -131,7 +131,7 @@ export default registerBlockType(
               </span>
               )
             }
-            <span>{ props.attributes.label }</span>
+            <span className="wp-block-gutenblocks-addtocart__label">{ props.attributes.label }</span>
           </a>
         </p>
       )

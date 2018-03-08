@@ -1,1 +1,26 @@
 @import 'vars';
+
+.wp-block-gutenblocks-addtocart {
+	text-align: center;
+}
+
+.wp-block-gutenblocks-addtocart__button {
+	display: inline-flex;
+	border-radius: 50px;
+	color: white;
+	text-decoration: none;
+	padding: .5em 1em;
+	align-items: center;
+
+	&:hover {
+		color: white;
+	}
+
+	.dashicons {
+		margin-right: 8px;
+	}
+}
+
+.wp-block-gutenblocks-addtocart__label {
+	flex: 1;
+}

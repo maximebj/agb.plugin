@@ -59,6 +59,9 @@
   line-height: 248px;
   width: 250px;
   color: #999; }
+.wp-block-gutenblocks-addtocart__label {
+  display: inline-block; }
+
 .gutenblocks-panel-buttons {
   display: -ms-inline-flexbox;
   display: inline-flex;
