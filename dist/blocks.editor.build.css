@@ -79,3 +79,10 @@
       -webkit-transform: scale(1.02);
           -ms-transform: scale(1.02);
               transform: scale(1.02); }
+.wp-block-gutenblocks-ad {
+  padding: 0;
+  border: 1px solid #DDD;
+  background: #FAFAFA;
+  text-align: center;
+  line-height: 90px;
+  color: #999; }
