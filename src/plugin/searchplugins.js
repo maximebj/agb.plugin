@@ -37,17 +37,18 @@ export default class SearchPlugins extends Component {
       body: 'action=search_plugins&search='+encodeURIComponent(search),
       credentials: 'same-origin'
     })
-      .then(response => response.json() )
-      .then(response => {
+    .then(response => response.json() )
+    .then(response => {
 
-				if(response.info.results == 0 ) {
-	        results = __( 'No result' )
-					this.setState( { results: __( 'No result' ) } )
-	      } else {
-					this.setState( { results: response.plugins } )
-				}
-      }
-    )
+			if(response.info.results == 0 ) {
+				this.setState( { results: __( 'No result' ) } )
+      } else {
+				this.setState( { results: response.plugins } )
+			}
+    })
+		.catch(error => {
+			this.setState( { results: __( "Error: Couldn't reach wp.org" ) } )
+		})
   }
 
   getPluginSlug(slug) {
