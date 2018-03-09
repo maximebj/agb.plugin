@@ -52,6 +52,7 @@ export default class URLFetcher extends Component {
 			<form
         key="form-link"
         onSubmit={ this.onSubmitForm }
+				className="wp-block-gutenblocks-linkpreview__urlfetcher"
       >
 				<Dashicon icon='admin-links' />
 				<input

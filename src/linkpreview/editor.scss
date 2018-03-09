@@ -1,10 +1,18 @@
 @import 'vars';
 
-.wp-block-gutenblocks-ad {
-	padding: 0;
-	border: 1px solid $color-neutral;
-	background: $color-light;
-	text-align: center;
-	line-height: 90px;
-	color: #999;
+.wp-block-gutenblocks-linkpreview__urlfetcher {
+	display: flex;
+	align-items: center;
+
+	input {
+		padding: 10px;
+		width: 220px;
+		border: none;
+		outline: none;
+		box-shadow: none;
+	}
+
+	input:focus {
+		box-shadow: none;
+	}
 }

@@ -72,7 +72,6 @@ export default registerBlockType(
     edit: props => {
 
       const onChangePlugin = (plugin) => {
-
         props.setAttributes( {
           title: plugin.name,
           description: plugin.short_description,
@@ -95,7 +94,6 @@ export default registerBlockType(
           return icons.default
         }
       }
-
 
       return [
         !! props.focus && (

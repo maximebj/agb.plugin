@@ -66,7 +66,7 @@ export default class SearchPlugins extends Component {
           onChange={ this.onSearch }
         />
 
-			<div className="gutenblocks-panel-results">
+			  <div className="gutenblocks-panel-results">
 
           { this.state.results && Array.isArray(this.state.results) ?
             (
