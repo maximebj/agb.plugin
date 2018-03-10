@@ -1,23 +1,11 @@
 <p class="wp-block-gutenblocks-addtocart">
-  <a
-    style={ {
-      backgroundColor: props.attributes.backgroundColor
-    } }
-    class="wp-block-gutenblocks-addtocart__button"
-    href={ props.attributes.url }
-    data-type={ props.attributes.buttonClass }
-  >
-    { !! props.attributes.hasIcon && (
-      <span
-        class={ classnames('dashicons', `dashicons-${props.attributes.icon}`) }
-        data-icon={ props.attributes.icon }
-      >
-      </span>
-      )
-    }
-    <span class="wp-block-gutenblocks-addtocart__label">{ props.attributes.label }</span>
+  <a style="background-color:" class="wp-block-gutenblocks-addtocart__button" href={ props.attributes.url }>
+    <?php if ( $attributes['has_icon'] ): ?>
+      <span class="dashicons dashicons-<?php echo $attributes['icon']; ?>" ></span>
+    <?php endif; ?>
+    <span class="wp-block-gutenblocks-addtocart__label"><?php echo $attributes['label']; ?></span>
     •
-    <span class="wp-block-gutenblocks-addtocart__price">{ props.attributes.price }</span>
-    <span class="wp-block-gutenblocks-addtocart__sale-price">{ props.attributes.salePrice }</span>
+    <span class="wp-block-gutenblocks-addtocart__price"><?php echo $product['price']; ?></span>
+    <span class="wp-block-gutenblocks-addtocart__sale-price"><?php echo $product['regular_price']; ?></span>
   </a>
 </p>

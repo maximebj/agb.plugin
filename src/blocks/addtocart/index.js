@@ -43,11 +43,9 @@ export default registerBlockType(
       },
       icon: {
         type: 'string',
-        default: 'cart',
       },
       backgroundColor: {
 				type: 'string',
-        default: '#9B6794',
       },
       label: {
         type: 'string',
@@ -61,6 +59,17 @@ export default registerBlockType(
 				} : false
 
       } ) ( ( { product, focus, attributes, setAttributes } ) => {
+
+				// Set default values
+				// keep here to save them in html
+				if ( ! attributes.icon ) {
+					setAttributes( { icon: 'cart' } )
+				}
+
+				if ( ! attributes.backgroundColor ) {
+					setAttributes( { backgroundColor: '#9B6794' } )
+				}
+
 
 				const onChangeProduct = product => {
 	        setAttributes( {
