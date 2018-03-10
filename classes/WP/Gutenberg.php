@@ -39,8 +39,7 @@ class Gutenberg {
 		wp_enqueue_script(
 			'gutenblocks-block',
 			Consts::get_url() . '/dist/blocks.build.js',
-			[ 'wp-blocks', 'wp-i18n', 'wp-element' ],
-			'1.0'
+			[ 'wp-blocks', 'wp-i18n', 'wp-element' ]
 		);
 
 		wp_localize_script(

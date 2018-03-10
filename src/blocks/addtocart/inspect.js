@@ -1,4 +1,4 @@
-import SearchProducts from './searchproducts'
+import SearchProducts from '../../components/searchproducts'
 import IconList from './iconlist';
 
 const { Component } = wp.element;

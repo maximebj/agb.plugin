@@ -42,15 +42,25 @@ export default registerBlockType(
         selector: 'a',
 				default: '#',
       },
+			price: {
+				type: 'string',
+        source: 'text',
+        selector: '.wp-block-gutenblocks-addtocart__price',
+			},
+			salePrice: {
+				type: 'string',
+				source: 'text',
+				selector: '.wp-block-gutenblocks-addtocart__sale-price',
+			},
+			hasIcon: {
+        type: 'boolean',
+        default: true,
+      },
       icon: {
         source: 'attribute',
         attribute: 'data-icon',
         selector: '.dashicons',
         default: 'download',
-      },
-      hasIcon: {
-        type: 'boolean',
-        default: true,
       },
       backgroundColor: {
 				type: 'string',
@@ -60,9 +70,12 @@ export default registerBlockType(
     edit: props => {
 
 			const onChangeProduct = product => {
+
         props.setAttributes( {
 					label: __( 'Add ' ) + product.title.rendered + __( ' to cart' ),
 					url: `/?add-to-cart=${product.id}`,
+					price: product.price,
+					salePrice: product.sale_price
 				} )
       }
 
@@ -108,6 +121,8 @@ export default registerBlockType(
               value={ props.attributes.label }
               onChange={ onChangeLabel }
             />
+						<span className="wp-block-gutenblocks-addtocart__price">{ props.attributes.price }</span>
+            <span className="wp-block-gutenblocks-addtocart__sale-price">{ props.attributes.salePrice }</span>
 					</a>
 				</p>
       ]
@@ -132,6 +147,9 @@ export default registerBlockType(
               )
             }
             <span className="wp-block-gutenblocks-addtocart__label">{ props.attributes.label }</span>
+						•
+            <span className="wp-block-gutenblocks-addtocart__price">{ props.attributes.price }</span>
+            <span className="wp-block-gutenblocks-addtocart__sale-price">{ props.attributes.salePrice }</span>
           </a>
         </p>
       )

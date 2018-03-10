@@ -1,8 +1,9 @@
 // Blocks
 
-import './notice';
-import './plugin';
-import './ad';
-import './adtext';
-import './addtocart';
-import './linkpreview';
+import './blocks/notice';
+import './blocks/plugin';
+import './blocks/ad';
+import './blocks/adtext';
+import './blocks/addtocart';
+import './blocks/linkpreview';
+import './blocks/product';
