@@ -15,6 +15,7 @@ class AddToCart {
 		$args = array(
 			'icon' => 'dashicons-cart',
 			'category' => 'woo',
+			'preview_image' => Consts::get_url() . 'admin/img/blocks/addtocart.jpg',
 			'description' => __( 'An add to cart button to quickly purchase a WooCommerce product', 'gutenblocks' ),
 		);
 
@@ -22,15 +23,25 @@ class AddToCart {
   }
 
 	public function register_render() {
+		if ( class_exists( 'WooCommerce' ) ) {
 
-		// PHP Rendering of the block
-		register_block_type(
-      'gutenblocks/addtocart',
-      [ 'render_callback' => array( $this, render_block ) ]
-    );
+			// PHP Rendering of the block
+			register_block_type(
+	      'gutenblocks/addtocart',
+	      [ 'render_callback' => array( $this, render_block ) ]
+	    );
+		}
 	}
 
-	public function render_block() {
+	public function render_block( $attributes ) {
+
+		$product = wc_get_product($attributes['productID']);
+
+		$url = get_site_url() . '?add-to-cart=' . $attributes['productID'];
+
+		$currency = get_woocommerce_currency_symbol();
+		$cb = ( $currency == "$" ) ? $currency : '';
+		$ca = ( $currency != "$" ) ? $currency : '';
 
 		ob_start();
 		include Consts::get_path() . '/admin/templates/addtocart.php';

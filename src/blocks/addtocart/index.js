@@ -39,7 +39,6 @@ export default registerBlockType(
       },
 			hasIcon: {
         type: 'boolean',
-        default: true,
       },
       icon: {
         type: 'string',
@@ -62,14 +61,8 @@ export default registerBlockType(
 
 				// Set default values
 				// keep here to save them in html
-				if ( ! attributes.icon ) {
-					setAttributes( { icon: 'cart' } )
-				}
-
-				if ( ! attributes.backgroundColor ) {
-					setAttributes( { backgroundColor: '#9B6794' } )
-				}
-
+				! attributes.icon && setAttributes( { icon: 'cart' } )
+				! attributes.backgroundColor && setAttributes( { backgroundColor: '#9B6794' } )
 
 				const onChangeProduct = product => {
 	        setAttributes( {
@@ -126,7 +119,7 @@ export default registerBlockType(
 	              value={ attributes.label }
 	              onChange={ onChangeLabel }
 	            />
-							<span>&nbsp; • &nbsp;</span>
+							<span class="wp-block-gutenblocks-addtocart__separator"> • </span>
 
 							{ !! product && typeof product.data !== "undefined" ? (
 								<div className="wp-block-gutenblocks-addtocart__price">
@@ -134,7 +127,6 @@ export default registerBlockType(
 									{ !! product.data.sale_price != "" ? (
 										<span>
 											<span>{ cb }{ product.data.sale_price }{ ca }</span>
-											&nbsp;
 											<del className="wp-block-gutenblocks-addtocart__sale">{ cb }{ product.data.regular_price }{ ca }</del>
 										</span>
 										) : (
