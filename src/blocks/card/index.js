@@ -19,14 +19,15 @@ const {
 } = wp.blocks;
 
 export default registerBlockType(
-  'gutenblocks/linkpreview',
+  'gutenblocks/card',
   {
-    title: __( 'Link Preview' ),
-    description: __( 'turn a simple url in a pretty preview' ),
+    title: __( 'Website card preview' ),
+    description: __( 'Turn a simple url in a pretty card preview' ),
     category: 'common',
     icon: 'admin-links',
     keywords: [
-      __('url'),
+      __( 'url' ),
+      __( 'link' ),
     ],
 		attributes: {
 			title: {
@@ -78,9 +79,9 @@ export default registerBlockType(
 				<div>
 					{
 						!! props.attributes.title == '' ? (
-		          <URLFetcher onURLFetched={onURLFetched} />
+		          <URLFetcher onURLFetched={ onURLFetched } />
 		        ) : (
-							<Preview {...props} />
+							<Preview { ...props } />
 	        	)
 					}
 				</div>
@@ -88,7 +89,7 @@ export default registerBlockType(
     },
 		save: props => {
       return (
-        <Preview {...props} />
+        <Preview { ...props } />
       )
     },
 	},

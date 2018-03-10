@@ -20,7 +20,7 @@ class Notice {
   }
 
 	public function settings() {
-		echo '<input type="text" value="je suis une option" />';
+		
 	}
 
 

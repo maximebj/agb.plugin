@@ -19,7 +19,7 @@ use GutenbergBlocks\Blocks\Plugin;
 use GutenbergBlocks\Blocks\Ad;
 use GutenbergBlocks\Blocks\AdText;
 use GutenbergBlocks\Blocks\Products;
-use GutenbergBlocks\Blocks\Link;
+use GutenbergBlocks\Blocks\Card;
 use GutenbergBlocks\Blocks\AddToCart;
 use GutenbergBlocks\Blocks\Posts;
 use GutenbergBlocks\Blocks\Testimonial;
@@ -55,7 +55,7 @@ class Initializer {
 		require_once $path.'classes/Blocks/Ad.php';
 		require_once $path.'classes/Blocks/AdText.php';
 		require_once $path.'classes/Blocks/Products.php';
-		require_once $path.'classes/Blocks/Link.php';
+		require_once $path.'classes/Blocks/Card.php';
 		require_once $path.'classes/Blocks/AddToCart.php';
 		require_once $path.'classes/Blocks/Posts.php';
 		require_once $path.'classes/Blocks/Testimonial.php';
@@ -92,8 +92,8 @@ class Initializer {
 		$class_blocks_products = new Products();
 		$class_blocks_products->run();
 
-		$class_blocks_link = new Link();
-		$class_blocks_link->run();
+		$class_blocks_card = new Card();
+		$class_blocks_card->run();
 
 		$class_blocks_addtocart = new AddToCart();
 		$class_blocks_addtocart->run();

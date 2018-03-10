@@ -18,6 +18,12 @@ Not yet suitable for production...
 
 Here are the current available blocks
 
+## Card preview
+
+Transform a link in a card preview like Twitter, Facebook and Slack do
+
+![Gutenberg Blocks : Card](https://dha4w82d62smt.cloudfront.net/items/2X2T2818311f013I270h/Image%202018-03-10%20at%207.14.38%20PM.jpg?X-CloudApp-Visitor-Id=464056&v=4c25a7eb)
+
 ## Notice
 
 Display a simple notice : Info (blue), Advice (green), Warning (yellow), Avoid (red).
@@ -30,6 +36,11 @@ Search and display plugin information from the WordPress Plugin Repository. Uses
 
 ![Gutenberg Blocks : Plugin](https://dha4w82d62smt.cloudfront.net/items/2G281x2E320p1s0r3k1J/plugin.jpg?X-CloudApp-Visitor-Id=464056&v=e3e54e8a)
 
+## Woo Commerce Add To Cart Buttons
+
+Display a customizable add to card action button showing the price and discount
+
+![Gutenberg Blocks : Add To Cart](https://dha4w82d62smt.cloudfront.net/items/450m3p2k1c160g3G1d20/addtocart.jpg?X-CloudApp-Visitor-Id=464056&v=9b1da892)
 
 # Requirements
 

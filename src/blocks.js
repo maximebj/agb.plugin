@@ -5,5 +5,5 @@ import './blocks/plugin';
 import './blocks/ad';
 import './blocks/adtext';
 import './blocks/addtocart';
-import './blocks/linkpreview';
+import './blocks/card';
 import './blocks/product';
