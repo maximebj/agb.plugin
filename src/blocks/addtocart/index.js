@@ -39,6 +39,7 @@ export default registerBlockType(
       },
 			hasIcon: {
         type: 'boolean',
+				default: true,
       },
       icon: {
         type: 'string',
@@ -59,8 +60,7 @@ export default registerBlockType(
 
       } ) ( ( { product, focus, attributes, setAttributes } ) => {
 
-				// Set default values
-				// keep here to save them in html
+				// Set default values (keep here to save them in html
 				! attributes.icon && setAttributes( { icon: 'cart' } )
 				! attributes.backgroundColor && setAttributes( { backgroundColor: '#9B6794' } )
 
