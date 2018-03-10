@@ -46,12 +46,24 @@ class Gutenberg {
       'gutenblocks-block',
       'gutenblocksGlobals',
       array(
-        'ajaxurl' => admin_url('admin-ajax.php'), // TODO WooCommerce money
+        'ajaxurl' => admin_url('admin-ajax.php'),
       )
     );
 
-		// Blocks deactivator
+		// For the WooCommerce blocks
+		if ( class_exists( 'WooCommerce' ) ) {
 
+			wp_localize_script(
+	      'gutenblocks-block',
+	      'gutenblocksWooGlobals',
+	      array(
+	        'currency' => get_woocommerce_currency_symbol(),
+	      )
+	    );
+		}
+
+
+		// Blocks deactivator
 		$blocks = new Blocks();
 
 		wp_enqueue_script(

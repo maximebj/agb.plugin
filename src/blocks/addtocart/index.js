@@ -89,6 +89,12 @@ export default registerBlockType(
 	        setAttributes( { hasIcon: ! attributes.hasIcon } )
 	      }
 
+				const currency = gutenblocksWooGlobals.currency
+
+				// Currency before / after
+				const cb = ( currency == "$" ) ? currency : ''
+				const ca = ( currency != "$" ) ? currency : ''
+
 	      return [
 	        !! focus && (
 	          <Inspector { ...{ onChangeIcon, onChangeURL, toggleHasIcon, onChangeProduct, onChangeBackgroundColor , attributes } } />
@@ -118,16 +124,17 @@ export default registerBlockType(
 
 									{ !! product.data.sale_price != "" ? (
 										<span>
-											<span>{ product.data.sale_price } € </span>
-											<del className="wp-block-gutenblocks-addtocart__sale">{ product.data.price }€</del>
+											<span>{ cb }{ product.data.sale_price }{ ca }</span>
+											&nbsp;
+											<del className="wp-block-gutenblocks-addtocart__sale">{ cb }{ product.data.regular_price }{ ca }</del>
 										</span>
 										) : (
-											<span>{ product.data.price } €</span>
+											<span>{ cb }{ product.data.price }{ ca }</span>
 										)
 									}
 								</div>
 							) : (
-								<span>0€</span>
+								<span>{ cb }0{ ca }</span>
 							) }
 						</a>
 					</p>
