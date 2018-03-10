@@ -32,7 +32,12 @@ class AddToCart {
 
 	public function render_block() {
 
-		return ( include Consts::get_path() . '/admin/templates/addtocart.php' );
+		ob_start();
+		include Consts::get_path() . '/admin/templates/addtocart.php';
+		$output = ob_get_contents();
+		ob_end_clean();
+
+		return $output;
 	}
 
 }

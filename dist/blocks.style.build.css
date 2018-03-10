@@ -112,6 +112,10 @@
 .wp-block-gutenblocks-addtocart__label {
   -ms-flex: 1;
       flex: 1; }
+
+.wp-block-gutenblocks-addtocart__sale {
+  font-size: .85em;
+  opacity: .7; }
 .wp-block-gutenblocks-linkpreview {
   position: relative;
   display: block;

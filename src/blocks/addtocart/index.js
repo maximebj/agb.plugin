@@ -37,23 +37,21 @@ export default registerBlockType(
 			productID: {
         type: 'string',
       },
-      label: {
-        type: 'string',
-        source: 'text',
-        selector: 'a',
-				default: __( 'Add to cart' ),
-      },
 			hasIcon: {
         type: 'boolean',
         default: true,
       },
       icon: {
-        source: 'string',
-        default: 'download',
+        type: 'string',
+        default: 'cart',
       },
       backgroundColor: {
 				type: 'string',
         default: '#9B6794',
+      },
+      label: {
+        type: 'string',
+				default: __( 'Add to cart' ),
       },
     },
 		edit: withAPIData( ( { attributes } ) => {
@@ -121,7 +119,7 @@ export default registerBlockType(
 									{ !! product.data.sale_price != "" ? (
 										<span>
 											<span>{ product.data.sale_price } € </span>
-											<del>{ product.data.price }€</del>
+											<del className="wp-block-gutenblocks-addtocart__sale">{ product.data.price }€</del>
 										</span>
 										) : (
 											<span>{ product.data.price } €</span>
