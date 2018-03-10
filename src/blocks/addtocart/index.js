@@ -18,6 +18,10 @@ const {
   RichText,
 } = wp.blocks;
 
+const {
+	withAPIData,
+} = wp.components
+
 
 export default registerBlockType(
   'gutenblocks/addtocart',
@@ -30,36 +34,21 @@ export default registerBlockType(
       __( 'purchase' ),
     ],
     attributes: {
+			productID: {
+        type: 'string',
+      },
       label: {
         type: 'string',
         source: 'text',
         selector: 'a',
 				default: __( 'Add to cart' ),
       },
-      url: {
-        source: 'attribute',
-        attribute: 'href',
-        selector: 'a',
-				default: '#',
-      },
-			price: {
-				type: 'string',
-        source: 'text',
-        selector: '.wp-block-gutenblocks-addtocart__price',
-			},
-			salePrice: {
-				type: 'string',
-				source: 'text',
-				selector: '.wp-block-gutenblocks-addtocart__sale-price',
-			},
 			hasIcon: {
         type: 'boolean',
         default: true,
       },
       icon: {
-        source: 'attribute',
-        attribute: 'data-icon',
-        selector: '.dashicons',
+        source: 'string',
         default: 'download',
       },
       backgroundColor: {
@@ -67,92 +56,88 @@ export default registerBlockType(
         default: '#9B6794',
       },
     },
-    edit: props => {
+		edit: withAPIData( ( { attributes } ) => {
 
-			const onChangeProduct = product => {
+				return ( attributes.productID ) ? {
+					product: '/wc/v2/products/' + attributes.productID
+				} : false
 
-        props.setAttributes( {
-					label: __( 'Add ' ) + product.title.rendered + __( ' to cart' ),
-					url: `/?add-to-cart=${product.id}`,
-					price: product.price,
-					salePrice: product.sale_price
-				} )
-      }
+      } ) ( ( { product, focus, attributes, setAttributes } ) => {
 
-			const onChangeLabel = value => {
-        props.setAttributes( { label: value } )
-      }
+				const onChangeProduct = product => {
+	        setAttributes( {
+						productID: product.id,
+						label: __( 'Add' ) + ' ' + product.title.rendered + ' ' + __( 'to cart' )
+					} )
+	      }
 
-      const onChangeURL = value => {
-        props.setAttributes( { url: value } )
-      }
+				const onChangeLabel = value => {
+	        setAttributes( { label: value } )
+	      }
 
-			const onChangeBackgroundColor = value => {
-        props.setAttributes( { backgroundColor: value } )
-      }
+	      const onChangeURL = value => {
+	        setAttributes( { url: value } )
+	      }
 
-      const onChangeIcon = value => {
-        props.setAttributes( { icon: value } )
-      };
+				const onChangeBackgroundColor = value => {
+	        setAttributes( { backgroundColor: value } )
+	      }
 
-      const toggleHasIcon = () => {
-        props.setAttributes( { hasIcon: ! props.attributes.hasIcon } )
-      }
+	      const onChangeIcon = value => {
+	        setAttributes( { icon: value } )
+	      };
 
-      return [
-        !! props.focus && (
-          <Inspector { ...{ onChangeIcon, onChangeURL, toggleHasIcon, onChangeProduct, onChangeBackgroundColor, ...props } } />
-        )
-				,
-        <p className={ props.className }>
-          <a
-						style={ {
-	            backgroundColor: props.attributes.backgroundColor
-	          } }
-						className="wp-block-gutenblocks-addtocart__button"
-					>
-            { !! props.attributes.hasIcon && (
-              <span className={ classnames('dashicons', `dashicons-${props.attributes.icon}`) }></span>
-              )
-            }
-            <RichText
-              tagName="span"
-							className="wp-block-gutenblocks-addtocart__label"
-              value={ props.attributes.label }
-              onChange={ onChangeLabel }
-            />
-						<span className="wp-block-gutenblocks-addtocart__price">{ props.attributes.price }</span>
-            <span className="wp-block-gutenblocks-addtocart__sale-price">{ props.attributes.salePrice }</span>
-					</a>
-				</p>
-      ]
-    },
-    save: props => {
-      return (
-        <p>
-          <a
-						style={ {
-	            backgroundColor: props.attributes.backgroundColor
-	          } }
-						className="wp-block-gutenblocks-addtocart__button"
-            href={ props.attributes.url }
-            data-type={ props.attributes.buttonClass }
-          >
-            { !! props.attributes.hasIcon && (
-              <span
-                className={ classnames('dashicons', `dashicons-${props.attributes.icon}`) }
-                data-icon={ props.attributes.icon }
-              >
-              </span>
-              )
-            }
-            <span className="wp-block-gutenblocks-addtocart__label">{ props.attributes.label }</span>
-						•
-            <span className="wp-block-gutenblocks-addtocart__price">{ props.attributes.price }</span>
-            <span className="wp-block-gutenblocks-addtocart__sale-price">{ props.attributes.salePrice }</span>
-          </a>
-        </p>
-      )
+	      const toggleHasIcon = () => {
+	        setAttributes( { hasIcon: ! attributes.hasIcon } )
+	      }
+
+	      return [
+	        !! focus && (
+	          <Inspector { ...{ onChangeIcon, onChangeURL, toggleHasIcon, onChangeProduct, onChangeBackgroundColor , attributes } } />
+	        )
+					,
+	        <p className="wp-block-gutenblocks-addtocart">
+	          <a
+							style={ {
+		            backgroundColor: attributes.backgroundColor
+		          } }
+							className="wp-block-gutenblocks-addtocart__button"
+						>
+	            { !! attributes.hasIcon && (
+	              <span className={ classnames('dashicons', `dashicons-${attributes.icon}`) }></span>
+	              )
+	            }
+	            <RichText
+	              tagName="span"
+								className="wp-block-gutenblocks-addtocart__label"
+	              value={ attributes.label }
+	              onChange={ onChangeLabel }
+	            />
+							<span>&nbsp; • &nbsp;</span>
+
+							{ !! product && typeof product.data !== "undefined" ? (
+								<div className="wp-block-gutenblocks-addtocart__price">
+
+									{ !! product.data.sale_price != "" ? (
+										<span>
+											<span>{ product.data.sale_price } € </span>
+											<del>{ product.data.price }€</del>
+										</span>
+										) : (
+											<span>{ product.data.price } €</span>
+										)
+									}
+								</div>
+							) : (
+								<span>0€</span>
+							) }
+						</a>
+					</p>
+	      ]
+			} )
+  	,
+		save: () => {
+      return null
     },
   },
 );

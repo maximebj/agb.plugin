@@ -46,7 +46,7 @@ class Gutenberg {
       'gutenblocks-block',
       'gutenblocksGlobals',
       array(
-        'ajaxurl' => admin_url('admin-ajax.php'),
+        'ajaxurl' => admin_url('admin-ajax.php'), // TODO WooCommerce money
       )
     );
 

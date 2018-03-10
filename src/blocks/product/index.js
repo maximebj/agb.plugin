@@ -44,10 +44,6 @@ export default registerBlockType(
 
       } ) ( ( { product, focus, attributes, setAttributes } ) => {
 
-				if(product && product.data) {
-					console.log(product.data)
-				}
-
 				const onChangeProduct = product => {
 	        setAttributes( { productID: product.id } )
 	      }

@@ -8,6 +8,9 @@ class AddToCart {
 
   public function run() {
 
+		// Register hooks
+		add_action( 'init', array( $this, 'register_render' ) );
+
 		// Register Block in the Gutenblocks settings page
 		$args = array(
 			'icon' => 'dashicons-cart',
@@ -18,8 +21,18 @@ class AddToCart {
 		gutenblocks_register_blocks( 'gutenblocks/addtocart', __( 'Add to cart button', 'gutenblocks' ), $args );
   }
 
-	public function settings() {
-		echo '<input type="text" value="je suis une option" />';
+	public function register_render() {
+
+		// PHP Rendering of the block
+		register_block_type(
+      'gutenblocks/addtocart',
+      [ 'render_callback' => array( $this, render_block ) ]
+    );
+	}
+
+	public function render_block() {
+
+		return ( include Consts::get_path() . '/admin/templates/addtocart.php' );
 	}
 
 }
