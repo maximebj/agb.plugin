@@ -18,7 +18,7 @@ const {
 	withAPIData,
 } = wp.components
 
-const { __ } = wp.i18n;
+const { __ } = wp.i18n
 
 export default registerBlockType(
   'gutenblocks/product',
@@ -83,4 +83,4 @@ export default registerBlockType(
       return null
     },
   },
-);
+)
