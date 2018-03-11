@@ -34,9 +34,9 @@ export default class Preview extends Component {
 						</a>
 					) }
 					<div className="wp-block-gutenblocks-product__content">
-						<h2 className="wp-block-gutenblocks-product__title">
+						<p className="wp-block-gutenblocks-product__title">
 							<a href={ product.permalink }>{ product.name }</a>
-						</h2>
+						</p>
 						<p
 							className="wp-block-gutenblocks-product__price"
 							style={ {
@@ -57,7 +57,7 @@ export default class Preview extends Component {
 							className="wp-block-gutenblocks-product__description"
 							dangerouslySetInnerHTML={ getDescription() }>
 						</div>
-						<p>
+						<p class="wp-block-gutenblocks-product__actions">
 							<a
 								className="wp-block-gutenblocks-product__button"
 								href={ '/?add-to-cart=' + product.id }

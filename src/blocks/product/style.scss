@@ -11,9 +11,11 @@
 
 .wp-block-gutenblocks-product__image {
 	flex: 1;
+	text-decoration: none;
 
 	img {
 		display: block;
+		margin: 0 auto;
 	}
 }
 
@@ -24,6 +26,8 @@
 
 .wp-block-gutenblocks-product__title {
 	margin: 0;
+	font-size: 1.1em;
+	font-weight: bold;
 
 	a {
 		text-decoration: none;
@@ -47,6 +51,10 @@
 	p {
 		font-size: .9em;
 	}
+}
+
+.wp-block-gutenblocks-product__actions {
+	margin-bottom: 0;
 }
 
 .wp-block-gutenblocks-product__button {

@@ -1,5 +1,5 @@
 <p class="wp-block-gutenblocks-addtocart">
-  <a style="background-color: <?php echo $attributes['backgroundColor']; ?>" class="wp-block-gutenblocks-addtocart__button" href="<?php echo $url; ?>">
+  <a style="background-color: <?php echo $attributes['backgroundColor']; ?>" class="wp-block-gutenblocks-addtocart__button" href="<?php echo $add_to_cart_url; ?>">
     <?php if ( $attributes['hasIcon'] !== false ): ?>
       <span class="dashicons dashicons-<?php echo $attributes['icon']; ?>" ></span>
     <?php endif; ?>

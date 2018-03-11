@@ -36,13 +36,20 @@ class Product {
 
 	public function render_block( $attributes ) {
 
-		if( !isset( $attribute['productID'] ) ) {
+		if( ! isset( $attributes['productID'] ) ) {
 			return;
 		}
 
 		$product = wc_get_product($attributes['productID']);
 
-		$url = get_site_url() . '?add-to-cart=' . $attributes['productID'];
+		$description = $product->get_short_description();
+
+		if( $description == "" ) {
+			$description = $product->get_description();
+		}
+
+		$url = get_permalink($attributes['productID']);
+		$add_to_cart_url = get_site_url() . '?add-to-cart=' . $attributes['productID'];
 
 		$currency = get_woocommerce_currency_symbol();
 		$cb = ( $currency == "$" ) ? $currency : '';

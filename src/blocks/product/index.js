@@ -1,7 +1,7 @@
 /**
  * BLOCK: Product
  *
- * Display WooCommerce Product(s) in your post
+ * Display WooCommerce Product in your post
  */
 
 import './style.scss'

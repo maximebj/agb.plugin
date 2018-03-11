@@ -167,9 +167,11 @@
 
 .wp-block-gutenblocks-product__image {
   -ms-flex: 1;
-      flex: 1; }
+      flex: 1;
+  text-decoration: none; }
   .wp-block-gutenblocks-product__image img {
-    display: block; }
+    display: block;
+    margin: 0 auto; }
 
 .wp-block-gutenblocks-product__content {
   -ms-flex: 2;
@@ -177,7 +179,9 @@
   padding: 12px; }
 
 .wp-block-gutenblocks-product__title {
-  margin: 0; }
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: bold; }
   .wp-block-gutenblocks-product__title a {
     text-decoration: none;
     color: #444; }
@@ -194,6 +198,9 @@
 
 .wp-block-gutenblocks-product__description p {
   font-size: .9em; }
+
+.wp-block-gutenblocks-product__actions {
+  margin-bottom: 0; }
 
 .wp-block-gutenblocks-product__button {
   display: -ms-inline-flexbox;
