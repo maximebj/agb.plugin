@@ -3,7 +3,7 @@ import {debounce} from 'throttle-debounce'
 const { Component } = wp.element
 const { __ } = wp.i18n
 
-export default class SearchProducts extends Component {
+export default class SearchProduct extends Component {
 
   constructor( props ) {
     super( props )

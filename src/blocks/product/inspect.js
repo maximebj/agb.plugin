@@ -1,4 +1,4 @@
-import SearchProducts from '../../components/searchproducts'
+import SearchProduct from '../../components/searchproduct'
 
 const { Component } = wp.element
 
@@ -25,7 +25,7 @@ export default class Inspector extends Component {
       <InspectorControls key="inspector">
 
         <PanelBody title={ __('Choose a product') }>
-          <SearchProducts onChangeProduct={ this.props.onChangeProduct } />
+          <SearchProduct onChangeProduct={ this.props.onChangeProduct } />
         </PanelBody>
 
 				{ !! this.props.attributes.productID && (
@@ -51,9 +51,7 @@ export default class Inspector extends Component {
 		        </PanelColor>
 					</span>
 				) }
-
       </InspectorControls>
-    );
+    )
   }
-
 }

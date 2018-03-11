@@ -1,4 +1,4 @@
-import SearchProducts from '../../components/searchproducts'
+import SearchProduct from '../../components/searchproduct'
 import IconList from './iconlist'
 
 const { Component } = wp.element
@@ -25,7 +25,7 @@ export default class Inspector extends Component {
     return (
       <InspectorControls key="inspector">
 				<PanelBody title={ __( 'Search Product' ) }>
-          <SearchProducts onChangeProduct={this.props.onChangeProduct} />
+          <SearchProduct onChangeProduct={this.props.onChangeProduct} />
         </PanelBody>
 
 				<PanelColor
