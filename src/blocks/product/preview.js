@@ -13,7 +13,6 @@ export default class Preview extends Component {
   render() {
 
 		const product = this.props.product.data
-		console.log(product)
 
 		const getDescription = () => {
 			const description = ( product.short_description !='' ) ? product.short_description : product.description;
@@ -38,7 +37,12 @@ export default class Preview extends Component {
 						<h2 className="wp-block-gutenblocks-product__title">
 							<a href={ product.permalink }>{ product.name }</a>
 						</h2>
-						<p className="wp-block-gutenblocks-product__price">
+						<p
+							className="wp-block-gutenblocks-product__price"
+							style={ {
+								color: this.props.attributes.priceColor
+							} }
+						>
 							{ !! product.sale_price != "" ? (
 								<span>
 									<span>{ cb }{ product.sale_price }{ ca }</span>
@@ -54,7 +58,13 @@ export default class Preview extends Component {
 							dangerouslySetInnerHTML={ getDescription() }>
 						</div>
 						<p>
-							<a className="wp-block-gutenblocks-product__button" href={ '/?add-to-cart=' + product.id }>
+							<a
+								className="wp-block-gutenblocks-product__button"
+								href={ '/?add-to-cart=' + product.id }
+								style={ {
+									backgroundColor: this.props.attributes.buttonBackgroundColor
+								} }
+							>
 								<span className="dashicons dashicons-cart"></span>
 								{ __( 'Add to cart' ) }
 							</a>

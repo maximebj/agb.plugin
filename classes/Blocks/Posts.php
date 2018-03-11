@@ -11,8 +11,8 @@ class Posts {
 		$args = array(
 			'icon' => 'dashicons-exerpt-view',
 			'category' => 'common',
+			'preview_image' => Consts::get_url() . 'admin/img/blocks/post.jpg',
 			'description' => __( 'Display pretty posts links (from any post type)', 'gutenblocks' ),
-			'available' => false,
 		);
 
 		gutenblocks_register_blocks( 'gutenblocks/posts', __( 'Posts', 'gutenblocks' ), $args );

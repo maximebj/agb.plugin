@@ -35,6 +35,12 @@ export default registerBlockType(
         type: 'string',
 				default: false,
       },
+			priceColor: {
+        type: 'string',
+      },
+			buttonBackgroundColor: {
+        type: 'string',
+      },
     },
     edit: withAPIData( ( { attributes } ) => {
 
@@ -44,17 +50,29 @@ export default registerBlockType(
 
       } ) ( ( { product, focus, attributes, setAttributes } ) => {
 
+				// Default values
+				! attributes.priceColor && setAttributes( { priceColor: '#dd1e35' } )
+				! attributes.buttonBackgroundColor && setAttributes( { buttonBackgroundColor: '#444' } )
+
 				const onChangeProduct = product => {
 	        setAttributes( { productID: product.id } )
 	      }
 
+				const onChangePriceColor = value => {
+	        setAttributes( { priceColor: value } )
+	      }
+
+				const onChangeButtonBackgroundColor = value => {
+	        setAttributes( { buttonBackgroundColor: value } )
+	      }
+
 	      return [
 	        !! focus && (
-	          <Inspector onChangeProduct={ onChangeProduct } />
+	          <Inspector { ...{ onChangeProduct, onChangePriceColor, onChangeButtonBackgroundColor, attributes } } />
 	        )
 					,
 	        !! attributes.productID ? (
-						<Preview product={ product } />
+						<Preview { ...{ product, attributes } } />
 	        ) : (
 	          <p class="gutenblocks-block-message">{ __( 'Search for a product in the inspector' ) }</p>
 	        )
