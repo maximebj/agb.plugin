@@ -21,7 +21,7 @@ use GutenbergBlocks\Blocks\AdText;
 use GutenbergBlocks\Blocks\Product;
 use GutenbergBlocks\Blocks\Card;
 use GutenbergBlocks\Blocks\AddToCart;
-use GutenbergBlocks\Blocks\Posts;
+use GutenbergBlocks\Blocks\Post;
 use GutenbergBlocks\Blocks\Testimonial;
 use GutenbergBlocks\Blocks\Gmap;
 
@@ -58,7 +58,7 @@ class Gutenblocks {
 		require_once $path.'classes/Blocks/Product.php';
 		require_once $path.'classes/Blocks/Card.php';
 		require_once $path.'classes/Blocks/AddToCart.php';
-		require_once $path.'classes/Blocks/Posts.php';
+		require_once $path.'classes/Blocks/Post.php';
 		require_once $path.'classes/Blocks/Testimonial.php';
 		require_once $path.'classes/Blocks/Gmap.php';
 
@@ -100,8 +100,8 @@ class Gutenblocks {
 		$class_blocks_addtocart = new AddToCart();
 		$class_blocks_addtocart->run();
 
-		$class_blocks_posts = new Posts();
-		$class_blocks_posts->run();
+		$class_blocks_post = new Post();
+		$class_blocks_post->run();
 
 		$class_blocks_testimonial = new Testimonial();
 		$class_blocks_testimonial->run();
