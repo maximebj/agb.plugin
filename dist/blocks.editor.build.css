@@ -79,18 +79,18 @@
       -webkit-transform: scale(1.02);
           -ms-transform: scale(1.02);
               transform: scale(1.02); }
-.wp-block-gutenblocks-linkpreview__urlfetcher {
+.wp-block-gutenblocks-card__urlfetcher {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
       align-items: center; }
-  .wp-block-gutenblocks-linkpreview__urlfetcher input {
+  .wp-block-gutenblocks-card__urlfetcher input {
     padding: 10px;
     width: 220px;
     border: none;
     outline: none;
     -webkit-box-shadow: none;
             box-shadow: none; }
-  .wp-block-gutenblocks-linkpreview__urlfetcher input:focus {
+  .wp-block-gutenblocks-card__urlfetcher input:focus {
     -webkit-box-shadow: none;
             box-shadow: none; }

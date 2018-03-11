@@ -1,13 +1,13 @@
 import {debounce} from 'throttle-debounce'
 
-const { Component } = wp.element;
+const { Component } = wp.element
 
-const { __ } = wp.i18n;
+const { __ } = wp.i18n
 
 const {
   Dashicon,
 	IconButton,
-} = wp.components;
+} = wp.components
 
 export default class URLFetcher extends Component {
 
@@ -43,8 +43,8 @@ export default class URLFetcher extends Component {
 			const OG = response.openGraph
 
 			console.log(OG)
-			this.props.onURLFetched( OG );
-		})
+			this.props.onURLFetched( OG )
+		} )
 	}
 
   render() {
@@ -52,7 +52,7 @@ export default class URLFetcher extends Component {
 			<form
         key="form-link"
         onSubmit={ this.onSubmitForm }
-				className="wp-block-gutenblocks-linkpreview__urlfetcher"
+				className="wp-block-gutenblocks-card__urlfetcher"
       >
 				<Dashicon icon='admin-links' />
 				<input
@@ -68,7 +68,6 @@ export default class URLFetcher extends Component {
           type="submit"
         />
 			</form>
-    );
+    )
   }
-
 }

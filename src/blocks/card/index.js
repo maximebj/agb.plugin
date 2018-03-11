@@ -32,12 +32,12 @@ export default registerBlockType(
 		attributes: {
 			title: {
 				source: 'text',
-        selector: '.wp-block-gutenblocks-linkpreview__title',
+        selector: '.wp-block-gutenblocks-card__title',
 				default: '',
       },
 			description: {
 				source: 'text',
-        selector: '.wp-block-gutenblocks-linkpreview__description',
+        selector: '.wp-block-gutenblocks-card__description',
       },
 			image: {
         type: 'string',
@@ -53,7 +53,7 @@ export default registerBlockType(
       },
 			siteUrl: {
 				source: 'text',
-        selector: '.wp-block-gutenblocks-linkpreview__url',
+        selector: '.wp-block-gutenblocks-card__url',
       },
     },
 		edit: props => {
@@ -70,7 +70,6 @@ export default registerBlockType(
 			}
 
 			const getSiteURL = url => {
-
 				const parts = url.split('/')
 				return parts[0]+'//'+parts[2]
 			}

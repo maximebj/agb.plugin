@@ -1,6 +1,6 @@
 @import 'vars';
 
-.wp-block-gutenblocks-linkpreview {
+.wp-block-gutenblocks-card {
 	position: relative;
 	display: block;
 	color: #444;
@@ -15,7 +15,7 @@
 	}
 }
 
-.wp-block-gutenblocks-linkpreview__link {
+.wp-block-gutenblocks-card__link {
 	position: absolute;
 	z-index: 1;
 	top: 0;
@@ -25,25 +25,25 @@
 	text-decoration: none;
 }
 
-.wp-block-gutenblocks-linkpreview__image {
+.wp-block-gutenblocks-card__image {
 	display: block;
 	margin: 0 auto;
 }
 
-.wp-block-gutenblocks-linkpreview__content {
+.wp-block-gutenblocks-card__content {
 	padding: .75em 1em;
 	border-top: 1px solid $color-neutral;
 }
 
-.wp-block-gutenblocks-linkpreview__title {
+.wp-block-gutenblocks-card__title {
 	margin-top: 0 !important;
 }
 
-.wp-block-gutenblocks-linkpreview__desc {
+.wp-block-gutenblocks-card__desc {
 
 }
 
-.wp-block-gutenblocks-linkpreview__url {
+.wp-block-gutenblocks-card__url {
 	color: $color-neutral;
 	margin-bottom: 0;
 }
