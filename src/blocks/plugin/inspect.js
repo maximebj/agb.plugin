@@ -1,21 +1,21 @@
 import SearchPlugins from './searchplugins'
 
-const { Component } = wp.element;
+const { Component } = wp.element
 
 const {
   InspectorControls,
-} = wp.blocks;
+} = wp.blocks
 
 const {
   PanelBody,
-} = wp.components;
+} = wp.components
 
-const { __ } = wp.i18n;
+const { __ } = wp.i18n
 
 export default class Inspector extends Component {
 
   constructor( props ) {
-    super( ...arguments )
+    super( props )
   }
 
   render() {

@@ -1,7 +1,7 @@
 import {debounce} from 'throttle-debounce'
 
-const { Component } = wp.element;
-const { __ } = wp.i18n;
+const { Component } = wp.element
+const { __ } = wp.i18n
 
 export default class SearchProducts extends Component {
 
@@ -10,7 +10,7 @@ export default class SearchProducts extends Component {
 
     this.state = {
       results: false,
-    };
+    }
 
     this.onSearch = this.onSearch.bind(this)
     this.performSearch = debounce(300, this.performSearch)
@@ -34,14 +34,14 @@ export default class SearchProducts extends Component {
         per_page: 20,
         search: search,
       },
-    })
+    } )
     .then( results => {
 
       if(results.length == 0 ) {
         results = __( 'No result' )
       }
       this.setState( { results: results } )
-    })
+    } )
   }
 
 	getProductID(id) {
@@ -73,7 +73,7 @@ export default class SearchProducts extends Component {
                       { result.title.rendered }
                     </li>
                   )
-                })}
+                } ) }
               </ul>
             ) : (
               <p>{this.state.results}</p>

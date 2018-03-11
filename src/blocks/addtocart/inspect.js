@@ -1,25 +1,25 @@
 import SearchProducts from '../../components/searchproducts'
-import IconList from './iconlist';
+import IconList from './iconlist'
 
-const { Component } = wp.element;
+const { Component } = wp.element
 const {
   InspectorControls,
 	ColorPalette,
-} = wp.blocks;
+} = wp.blocks
 
 const {
   PanelBody,
   PanelRow,
   FormToggle,
 	PanelColor,
-} = wp.components;
+} = wp.components
 
-const { __ } = wp.i18n;
+const { __ } = wp.i18n
 
 export default class Inspector extends Component {
 
   constructor( props ) {
-    super( ...arguments );
+    super( props )
   }
   render() {
     return (

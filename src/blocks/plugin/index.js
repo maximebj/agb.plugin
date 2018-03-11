@@ -12,9 +12,9 @@ import Preview from './preview'
 
 const {
   registerBlockType,
-} = wp.blocks;
+} = wp.blocks
 
-const { __ } = wp.i18n;
+const { __ } = wp.i18n
 
 export default registerBlockType(
   'gutenblocks/plugin',
@@ -83,7 +83,7 @@ export default registerBlockType(
 					homepage: plugin.homepage,
 					numRatings: plugin.num_ratings,
         } )
-      };
+      }
 
       const defineImage = (icons) => {
         if (icons['2x']) {
@@ -113,4 +113,4 @@ export default registerBlockType(
       )
     },
   },
-);
+)

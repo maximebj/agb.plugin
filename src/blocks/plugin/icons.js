@@ -1,4 +1,4 @@
-const icons =  {};
+const icons =  {}
 
 icons.starFilled = (
 	<svg width='18px' height='18px'>
@@ -24,4 +24,4 @@ icons.starEmpty = (
 	</svg>
 )
 
-export default icons;
+export default icons

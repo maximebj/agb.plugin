@@ -4,17 +4,17 @@
  * Display an ad with text
  */
 
-import './style.scss';
-import './editor.scss';
+import './style.scss'
+import './editor.scss'
 
-const { __ } = wp.i18n;
+const { __ } = wp.i18n
 
 import classnames from 'classnames'
 
 const {
   registerBlockType,
   RichText,
-} = wp.blocks;
+} = wp.blocks
 
 
 export default registerBlockType(
@@ -79,7 +79,7 @@ export default registerBlockType(
           	{ props.attributes.content }
         	</div>
 				</div>
-      );
+      )
     },
 	},
-);
+)

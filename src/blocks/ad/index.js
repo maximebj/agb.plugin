@@ -4,16 +4,16 @@
  * Display an ad
  */
 
-import './style.scss';
-import './editor.scss';
+import './style.scss'
+import './editor.scss'
 
 import classnames from 'classnames'
 
-const { __ } = wp.i18n;
+const { __ } = wp.i18n
 
 const {
   registerBlockType,
-} = wp.blocks;
+} = wp.blocks
 
 
 export default registerBlockType(
@@ -33,10 +33,10 @@ export default registerBlockType(
         <div className='wp-block-gutenblocks-ad'>
           { __( 'An ad will be displayed here in front' ) }
         </div>
-      );
+      )
     },
     save() {
       return null
     },
 	},
-);
+)

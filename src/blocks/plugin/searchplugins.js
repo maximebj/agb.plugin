@@ -1,8 +1,8 @@
 import {debounce} from 'throttle-debounce'
 
-const { Component } = wp.element;
+const { Component } = wp.element
 
-const { __ } = wp.i18n;
+const { __ } = wp.i18n
 
 export default class SearchPlugins extends Component {
 
@@ -11,7 +11,7 @@ export default class SearchPlugins extends Component {
 
     this.state = {
       results: false,
-    };
+    }
 
     this.onSearch = this.onSearch.bind(this)
     this.performSearch = debounce(300, this.performSearch)
@@ -81,7 +81,7 @@ export default class SearchPlugins extends Component {
                       <span>{ plugin.name }</span>
                     </li>
                   )
-                })}
+                } ) }
               </ul>
             ) : (
               <p>{ this.state.results }</p>
@@ -89,7 +89,6 @@ export default class SearchPlugins extends Component {
           }
         </div>
       </div>
-    );
+    )
   }
-
 }

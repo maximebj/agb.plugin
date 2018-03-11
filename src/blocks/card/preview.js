@@ -1,6 +1,6 @@
-const { Component } = wp.element;
+const { Component } = wp.element
 
-const { __ } = wp.i18n;
+const { __ } = wp.i18n
 
 export default class Preview extends Component {
 

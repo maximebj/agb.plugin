@@ -5,17 +5,17 @@
  * 4 types are available : Tips, Warning, Avoid, Info
  */
 
-import './style.scss';
-import './editor.scss';
-
-const { __ } = wp.i18n;
+import './style.scss'
+import './editor.scss'
 
 import classnames from 'classnames'
+
+const { __ } = wp.i18n;
 
 const {
   registerBlockType,
   RichText,
-} = wp.blocks;
+} = wp.blocks
 
 const types = {
   'advice': __( 'Advice' ),
@@ -58,19 +58,19 @@ export default registerBlockType(
     edit: props => {
 
 			let options = []
-      _.each(types, (obj, key) => {
+      _.each( types, (obj, key) => {
       	options.push(
       		<option value={key}>{obj}</option>
       	)
-      })
+      } )
 
       const onChangeContent = value => {
         props.setAttributes( { content: value } )
-      };
+      }
 
       const onChangeType = event => {
-        props.setAttributes( { type: event.target.value, title: types[event.target.value]  } )
-      };
+        props.setAttributes( { type: event.target.value, title: types[event.target.value] } )
+      }
 
       return (
         <div className={ classnames( props.className, `${props.className}--${props.attributes.type}` ) }>
@@ -96,7 +96,7 @@ export default registerBlockType(
             focus={ props.focus }
   				/>
         </div>
-      );
+      )
     },
     save: props => {
       return (
@@ -104,7 +104,7 @@ export default registerBlockType(
           <p className='wp-block-gutenblocks-notice__title'>{ props.attributes.title }</p>
           <p className='wp-block-gutenblocks-notice__content'>{ props.attributes.content }</p>
         </div>
-      );
+      )
     },
   },
-);
+)
