@@ -91,7 +91,7 @@ export default registerBlockType(
 	        setAttributes( { hasIcon: ! attributes.hasIcon } )
 	      }
 
-				const currency = gutenblocksWooGlobals.currency
+				const currency = gutenblocksAddtocart.currency
 
 				// Currency before / after
 				const cb = ( currency == "$" ) ? currency : ''

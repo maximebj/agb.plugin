@@ -50,19 +50,6 @@ class Gutenberg {
       )
     );
 
-		// For the WooCommerce blocks
-		if ( class_exists( 'WooCommerce' ) ) {
-
-			wp_localize_script(
-	      'gutenblocks-block',
-	      'gutenblocksWooGlobals',
-	      array(
-	        'currency' => get_woocommerce_currency_symbol(),
-	      )
-	    );
-		}
-
-
 		// Blocks deactivator
 		$blocks = new Blocks();
 

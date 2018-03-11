@@ -19,7 +19,7 @@ export default class Preview extends Component {
   		return {__html: description }
 		}
 
-		const currency = gutenblocksWooGlobals.currency
+		const currency = gutenblocksProduct.currency
 
 		// Currency before / after
 		const cb = ( currency == "$" ) ? currency : ''

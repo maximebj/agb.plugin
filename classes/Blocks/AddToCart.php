@@ -10,6 +10,7 @@ class AddToCart {
 
 		// Register hooks
 		add_action( 'init', array( $this, 'register_render' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
 
 		// Register Block in the Gutenblocks settings page
 		$args = array(
@@ -23,14 +24,17 @@ class AddToCart {
   }
 
 	public function register_render() {
-		if ( class_exists( 'WooCommerce' ) ) {
 
-			// PHP Rendering of the block
-			register_block_type(
-	      'gutenblocks/addtocart',
-	      [ 'render_callback' => array( $this, render_block ) ]
-	    );
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			return;
 		}
+
+		// PHP Rendering of the block
+		register_block_type(
+      'gutenblocks/addtocart',
+      [ 'render_callback' => array( $this, render_block ) ]
+    );
+
 	}
 
 	public function render_block( $attributes ) {
@@ -53,6 +57,22 @@ class AddToCart {
 		ob_end_clean();
 
 		return $output;
+	}
+
+	public function editor_assets() {
+
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			return;
+		}
+
+		// This block needs the currency symbol
+		wp_localize_script(
+			Consts::BLOCKS_SCRIPT,
+			'gutenblocksAddtocart',
+			array(
+				'currency' => get_woocommerce_currency_symbol(),
+			)
+		);
 	}
 
 }

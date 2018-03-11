@@ -17,6 +17,7 @@ abstract class Consts {
 	const PLUGIN_NAME = 'gutenberg-blocks';
 	const VERSION = '1.0';
 	const SETTINGS_GROUP = 'gutenblocks-settings';
+	const BLOCKS_SCRIPT = 'gutenblocks-block';
 
 	// Plugin Path for includes
 	public static function get_path() {
