@@ -18,11 +18,12 @@ use GutenbergBlocks\Blocks\Notice;
 use GutenbergBlocks\Blocks\Plugin;
 use GutenbergBlocks\Blocks\Ad;
 use GutenbergBlocks\Blocks\AdText;
-use GutenbergBlocks\Blocks\Products;
+use GutenbergBlocks\Blocks\Product;
 use GutenbergBlocks\Blocks\Card;
 use GutenbergBlocks\Blocks\AddToCart;
 use GutenbergBlocks\Blocks\Posts;
 use GutenbergBlocks\Blocks\Testimonial;
+use GutenbergBlocks\Blocks\Gmap;
 
 
 /**
@@ -33,7 +34,7 @@ use GutenbergBlocks\Blocks\Testimonial;
  * @since 1.0.0
  */
 
-class Initializer {
+class Gutenblocks {
 
 	public function run() {
 
@@ -54,11 +55,12 @@ class Initializer {
 		require_once $path.'classes/Blocks/Plugin.php';
 		require_once $path.'classes/Blocks/Ad.php';
 		require_once $path.'classes/Blocks/AdText.php';
-		require_once $path.'classes/Blocks/Products.php';
+		require_once $path.'classes/Blocks/Product.php';
 		require_once $path.'classes/Blocks/Card.php';
 		require_once $path.'classes/Blocks/AddToCart.php';
 		require_once $path.'classes/Blocks/Posts.php';
 		require_once $path.'classes/Blocks/Testimonial.php';
+		require_once $path.'classes/Blocks/Gmap.php';
 
 
 		// Init Classes and Hooks
@@ -89,8 +91,8 @@ class Initializer {
 		$class_blocks_adtext = new AdText();
 		$class_blocks_adtext->run();
 
-		$class_blocks_products = new Products();
-		$class_blocks_products->run();
+		$class_blocks_product = new Product();
+		$class_blocks_product->run();
 
 		$class_blocks_card = new Card();
 		$class_blocks_card->run();
@@ -103,6 +105,9 @@ class Initializer {
 
 		$class_blocks_testimonial = new Testimonial();
 		$class_blocks_testimonial->run();
+
+		$class_blocks_gmap = new Gmap();
+		$class_blocks_gmap->run();
 
 	}
 

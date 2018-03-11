@@ -4,7 +4,7 @@ namespace GutenbergBlocks\Blocks;
 
 use GutenbergBlocks\Helpers\Consts;
 
-class Products {
+class Product {
 
   public function run() {
 
@@ -12,11 +12,11 @@ class Products {
 		$args = array(
 			'icon' => 'dashicons-products',
 			'category' => 'woo',
-			'description' => __( 'Display WooCommerce Product(s) in your post', 'gutenblocks' ),
+			'description' => __( 'Display WooCommerce Product in your post', 'gutenblocks' ),
 			'available' => false,
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/products', __( 'Woo Products', 'gutenblocks' ), $args );
+		gutenblocks_register_blocks( 'gutenblocks/products', __( 'Product', 'gutenblocks' ), $args );
   }
 
 	public function settings() {

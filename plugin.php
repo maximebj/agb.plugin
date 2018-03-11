@@ -13,9 +13,9 @@
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
-use GutenbergBlocks\Initializer;
+use GutenbergBlocks\Gutenblocks;
 
-require plugin_dir_path( __FILE__ ) . 'classes/Initializer.php';
+require plugin_dir_path( __FILE__ ) . 'classes/Gutenblocks.php';
 
 // Languages
 load_plugin_textdomain( 'gutenblocks', false, basename( __DIR__ ) . '/languages' );
@@ -81,5 +81,5 @@ function gutenblocks_register_setting( $setting, $load_on_editor = false ) {
 
 // Launch Plugin
 // Plugin Core encapsulation
-$gutenblocks = new Initializer();
+$gutenblocks = new Gutenblocks();
 $gutenblocks->run();
