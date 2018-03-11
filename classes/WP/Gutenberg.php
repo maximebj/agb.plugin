@@ -26,9 +26,9 @@ class Gutenberg {
 
 	public function blocks_assets() {
 		wp_enqueue_style(
-			'gutenblocks-style-css',
+			'gutenblocks-style',
 			Consts::get_url() . 'dist/blocks.style.build.css',
-			[ 'wp-blocks' ]
+			[ 'wp-blocks', 'wp-edit-post' ]
 		);
 	}
 

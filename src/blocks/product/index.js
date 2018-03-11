@@ -23,12 +23,12 @@ const { __ } = wp.i18n;
 export default registerBlockType(
   'gutenblocks/product',
   {
-    title: __( 'Woo Product' ),
-    description: __( 'Display WooCommerce Product(s) in your post' ),
+    title: __( 'Product' ),
+    description: __( 'Display WooCommerce Product in your post' ),
     category: 'common',
     icon: 'products',
     keywords: [
-      'woo',
+      __( 'woocommerce' ),
     ],
     attributes: {
       productID: {

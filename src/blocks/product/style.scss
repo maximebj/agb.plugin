@@ -1,5 +1,72 @@
 @import 'vars';
 
 .wp-block-gutenblocks-product {
+	display: flex;
+	align-items: center;
+	margin: $margin-default;
+  border: 1px solid $color-neutral;
+  border-radius: 4px;
+	overflow: hidden;
+}
 
+.wp-block-gutenblocks-product__image {
+	flex: 1;
+
+	img {
+		display: block;
+	}
+}
+
+.wp-block-gutenblocks-product__content {
+	flex: 2;
+	padding: 12px;
+}
+
+.wp-block-gutenblocks-product__title {
+	margin: 0;
+
+	a {
+		text-decoration: none;
+		color: #444;
+	}
+}
+
+.wp-block-gutenblocks-product__price {
+	font-weight: bold;
+	color: #dd1e35;
+	margin: .5em 0;
+	line-height: 1.3;
+}
+
+.wp-block-gutenblocks-product__sale {
+	font-size: .85em;
+	opacity: .7;
+	margin-left: 4px;
+}
+
+.wp-block-gutenblocks-product__description {
+	p {
+		font-size: .9em;
+	}
+}
+
+.wp-block-gutenblocks-product__button {
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+	background: #444;
+	border-radius: 4px;
+	color: white;
+	font-size: .9em;
+	text-decoration: none;
+	padding: .5em 1em;
+
+	&:hover {
+		color: white;
+		background-color: lighten(#444, 10%);
+	}
+
+	.dashicons {
+		margin-right: 8px;
+	}
 }

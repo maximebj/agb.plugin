@@ -4,19 +4,19 @@
  * Display an ad
  */
 
-import './style.scss';
-import './editor.scss';
+import './style.scss'
+import './editor.scss'
 
 import classnames from 'classnames'
 
-import Inspector from './inspect';
+import Inspector from './inspect'
 
-const { __ } = wp.i18n;
+const { __ } = wp.i18n
 
 const {
   registerBlockType,
   RichText,
-} = wp.blocks;
+} = wp.blocks
 
 const {
 	withAPIData,

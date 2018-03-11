@@ -35,6 +35,10 @@ class AddToCart {
 
 	public function render_block( $attributes ) {
 
+		if( !isset( $attribute['productID'] ) ) {
+			return;
+		}
+
 		$product = wc_get_product($attributes['productID']);
 
 		$url = get_site_url() . '?add-to-cart=' . $attributes['productID'];
