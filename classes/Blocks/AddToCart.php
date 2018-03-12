@@ -32,7 +32,7 @@ class AddToCart {
 		// PHP Rendering of the block
 		register_block_type(
       'gutenblocks/addtocart',
-      [ 'render_callback' => array( $this, render_block ) ]
+      [ 'render_callback' => array( $this, 'render_block' ) ]
     );
 
 	}

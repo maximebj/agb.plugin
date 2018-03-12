@@ -19,9 +19,5 @@ class Notice {
 		gutenblocks_register_blocks( 'gutenblocks/notice', __( 'Notice', 'gutenblocks' ), $args );
   }
 
-	public function settings() {
-		
-	}
-
 
 }

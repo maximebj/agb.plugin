@@ -32,7 +32,7 @@ class Product {
 		// PHP Rendering of the block
 		register_block_type(
       'gutenblocks/product',
-      [ 'render_callback' => array( $this, render_block ) ]
+      [ 'render_callback' => array( $this, 'render_block' ) ]
     );
 
 	}

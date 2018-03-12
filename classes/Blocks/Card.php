@@ -8,6 +8,9 @@ class Card {
 
   public function run() {
 
+		// Ajax Search Plugin on wp.org
+    add_action('wp_ajax_fetch_site', array( $this, 'fetch_site' ));
+
 		// Register Block in the Gutenblocks settings page
 		$args = array(
 			'icon' => 'dashicons-admin-links',
@@ -19,8 +22,69 @@ class Card {
 		gutenblocks_register_blocks( 'gutenblocks/card', __( 'Website card preview', 'gutenblocks' ), $args );
   }
 
-	public function settings() {
 
-	}
+	public function fetch_site()
+  {
+		$url = $_POST['url'];
+
+		$tags = get_meta_tags($url);
+
+		// Site not reached
+		if ( ! $tags ) {
+			echo json_encode(
+				array(
+					'error' => 'sitenotfound',
+				)
+			);
+
+			die();
+		}
+
+		// URL
+		$parts = parse_url( $url );
+		$site_url = $parts['scheme'].'://'.$parts['host'];
+
+		// Title
+		$title = '';
+
+		if( isset( $tags['title'] ) ) {
+			$title = $tags['title'];
+		}
+		elseif( isset( $tags['twitter:title'] ) ) {
+			$title = $tags['twitter:title'];
+		}
+
+		// Image
+		$image = '';
+
+		if( isset( $tags['twitter:image'] ) ) {
+			$image = $tags['twitter:image'];
+		}
+		elseif( isset( $tags['twitter:image:src'] ) ) {
+			$image = $tags['twitter:image:src'];
+		}
+
+		// Description
+		$description = '';
+
+		if( isset( $tags['description'] ) ) {
+			$description = $tags['description'];
+		}
+		elseif ( isset( $tags['twitter:description'] ) ) {
+			$description = $tags['twitter:description'];
+		}
+
+    echo json_encode(
+			array(
+				'title' => htmlspecialchars_decode( $title ),
+				'image' => $image,
+				'description' => htmlspecialchars_decode( $description, ENT_QUOTES ),
+				'url' => $url,
+				'mainURL' => $site_url,
+			)
+		);
+
+    die();
+  }
 
 }

@@ -58,20 +58,15 @@ export default registerBlockType(
     },
 		edit: props => {
 
-			const onURLFetched = (site) => {
+			const onURLFetched = site => {
 
 				props.setAttributes( {
           title: site.title,
           description: site.description,
           image: site.image,
           url: site.url,
-					siteUrl: getSiteURL(site.url),
+					siteUrl: site.mainURL,
         } )
-			}
-
-			const getSiteURL = url => {
-				const parts = url.split('/')
-				return parts[0]+'//'+parts[2]
 			}
 
       return (

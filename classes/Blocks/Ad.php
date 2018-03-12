@@ -45,7 +45,7 @@ class Ad {
 		// PHP Rendering of the block
 		register_block_type(
       'gutenblocks/ad',
-      [ 'render_callback' => array( $this, render_block ) ]
+      [ 'render_callback' => array( $this, 'render_block' ) ]
     );
 	}
 
