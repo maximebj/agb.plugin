@@ -244,7 +244,7 @@
   padding: 12px; }
 
 .wp-block-gutenblocks-post__title {
-  margin: 0; }
+  margin: 0 0 .5em 0; }
   .wp-block-gutenblocks-post__title a {
     font-size: 1.1em;
     font-weight: bold;
@@ -252,7 +252,7 @@
     color: #444; }
 
 .wp-block-gutenblocks-post__metas {
-  margin: .4em auto; }
+  margin: 0; }
   .wp-block-gutenblocks-post__metas em {
     line-height: 1.3;
     margin: .5em 0;

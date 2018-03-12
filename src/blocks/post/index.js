@@ -41,23 +41,22 @@ export default registerBlockType(
 			},
 			showCategory: {
         type: 'boolean',
+				default: true,
       },
 			showKeywords: {
         type: 'boolean',
+				default: true,
       },
 			showAuthor: {
         type: 'boolean',
+				default: true,
       },
-			showPostType: {
+			showImage: {
         type: 'boolean',
+				default: true,
       },
     },
     edit: props => {
-
-			// Default values
-			! props.attributes.showCategory && props.setAttributes( { showCategory: true } )
-			! props.attributes.showKeywords && props.setAttributes( { showKeywords: false } )
-			! props.attributes.showAuthor && props.setAttributes( { showAuthor: true } )
 
 			const onChangePost = post => {
         props.setAttributes( { postID: post.id } )
@@ -67,29 +66,25 @@ export default registerBlockType(
 				props.setAttributes( { postType: postType } )
 			}
 
-			const toggleCategory = () => {
-        props.setAttributes( { showCategory: ! props.attributes.showCategory } )
+			const toggleImage = () => {
+        props.setAttributes( { showImage: ! props.attributes.showImage } )
       }
 
-			const toggleKeywords = () => {
-        props.setAttributes( { showKeywords: ! props.attributes.showKeywords } )
+			const toggleCategory = () => {
+        props.setAttributes( { showCategory: ! props.attributes.showCategory } )
       }
 
 			const toggleAuthor = () => {
         props.setAttributes( { showAuthor: ! props.attributes.showAuthor } )
       }
 
-			const togglePostType = () => {
-        props.setAttributes( { showAuthor: ! props.attributes.showPostType } )
-      }
-
       return [
         !! props.focus && (
-          <Inspector { ...{ onChangePost, onChangePostType, toggleCategory, toggleKeywords, toggleAuthor, togglePostType, attributes } } />
+          <Inspector { ...{ onChangePost, onChangePostType, toggleCategory, toggleAuthor, toggleImage, ...props } } />
         )
 				,
         !! props.attributes.postID ? (
-					<Preview postID={ props.attributes.postID } />
+					<Preview { ...props } />
         ) : (
           <p class="gutenblocks-block-message">{ __( 'Search for a post in the inspector' ) }</p>
         )

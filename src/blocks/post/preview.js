@@ -18,7 +18,7 @@ export default class Preview extends Component {
   }
 
 	getPost() {
-		const postQuery = new wp.api.models.Post( { id: this.props.postID } );
+		const postQuery = new wp.api.models.Post( { id: this.props.attributes.postID } );
 
 		// Fetch post via API
 		postQuery.fetch().then( post => {
@@ -48,7 +48,7 @@ export default class Preview extends Component {
 
 	componentDidUpdate(lastProps, lastStates) {
 
-		if( lastProps.postID != this.props.postID ) {
+		if( lastProps.attributes.postID != this.props.attributes.postID ) {
 			this.getPost()
 		}
 	}
@@ -63,7 +63,7 @@ export default class Preview extends Component {
     return (
 			!! this.state.post ? (
 				<div className="wp-block-gutenblocks-post">
-					{ !! this.state.featuredImage && (
+					{ !! this.state.featuredImage && this.props.attributes.showImage && (
 						<a
 							href={ this.state.post.link }
 							className="wp-block-gutenblocks-post__image"
@@ -78,10 +78,10 @@ export default class Preview extends Component {
 						</p>
 						<p className="wp-block-gutenblocks-post__metas">
 							<em>
-								{ !! this.state.category && (
+								{ !! this.state.category && this.props.attributes.showCategory && (
 								<span> { __( 'In' ) + ' ' + this.state.category } </span>
 								) }
-								{ !! this.state.author && (
+								{ !! this.state.author && this.props.attributes.showAuthor && (
 								<span> { __( 'By' ) + ' ' + this.state.author } </span>
 								) }
 							</em>
