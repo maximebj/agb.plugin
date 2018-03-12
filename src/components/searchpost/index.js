@@ -8,17 +8,6 @@ const {
 	BaseControl,
 } = wp.components
 
-const options = [
-	{
-	label: 'Post',
-	value: 'post',
-	},
-	{
-	label: 'Page',
-	value: 'page',
-	},
-]
-
 export default class SearchProducts extends Component {
 
   constructor( props ) {
@@ -64,7 +53,7 @@ export default class SearchProducts extends Component {
   }
 
 	onChangePostType( value ) {
-    this.setState( { currentType: value } )
+    this.setState( { currentType: value.toLowerCase() } )
   }
 
 	getPostID(id) {

@@ -15,7 +15,7 @@ export default class Preview extends Component {
 		const product = this.props.product.data
 
 		const getDescription = () => {
-			const description = ( product.short_description !='' ) ? product.short_description : product.description;
+			const description = ( product.short_description !='' ) ? product.short_description : product.description
   		return {__html: description }
 		}
 

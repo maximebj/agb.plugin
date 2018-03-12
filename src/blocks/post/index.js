@@ -37,7 +37,7 @@ export default registerBlockType(
       },
 			postType: {
 				type: 'string',
-				default: 'Posts',
+				default: 'posts',
 			},
 			showCategory: {
         type: 'boolean',
@@ -55,7 +55,7 @@ export default registerBlockType(
     edit: withAPIData( ( { attributes } ) => {
 
 				return ( attributes.postID ) ? {
-					post: `/wp/v2/${this.attributes.postType}/${attributes.postID}`
+					post: `/wp/v2/${attributes.postType}/${attributes.postID}`
 				} : false
 
       } ) ( ( { post, focus, attributes, setAttributes } ) => {
@@ -94,7 +94,7 @@ export default registerBlockType(
 	          <Inspector { ...{ onChangePost, onChangePostType, toggleCategory, toggleKeywords, toggleAuthor, togglePostType, attributes } } />
 	        )
 					,
-	        !! attributes.productID ? (
+	        !! attributes.postID ? (
 						<Preview { ...{ post, attributes } } />
 	        ) : (
 	          <p class="gutenblocks-block-message">{ __( 'Search for a post in the inspector' ) }</p>
