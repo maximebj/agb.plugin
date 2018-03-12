@@ -39,8 +39,36 @@ class Post {
 			return;
 		}
 
-		$post = get_post( $attributes['postID'] );
+		$id = $attributes['postID'];
 
+		$post = get_post( $id );
+		$link = get_permalink( $id );
+		$excerpt = get_the_excerpt( $id );
+
+		$image = false;
+
+		if( $attributes['showImage'] !== false ) {
+			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'medium' );
+			$image = $image[0];
+		}
+
+		$author = false;
+
+		if( $attributes['showAuthor'] !== false ) {
+			$author = get_the_author_meta( 'display_name', $post->author );
+		}
+
+		$category = false;
+
+		if( $attributes['showCategory'] !== false ) {
+			$categories = get_the_category( $id );
+
+			if ( ! empty( $categories ) ) {
+    		$category = $categories[0]->name;
+			}
+		}
+
+		$output = "";
 		ob_start();
 		include Consts::get_path() . '/admin/templates/post.php';
 		$output = ob_get_contents();
