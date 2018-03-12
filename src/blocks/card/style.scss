@@ -33,14 +33,16 @@
 .wp-block-gutenblocks-card__content {
 	padding: .75em 1em;
 	border-top: 1px solid $color-neutral;
-}
 
-.wp-block-gutenblocks-card__title {
-	margin-top: 0 !important;
-}
+	.wp-block-gutenblocks-card__title {
+		margin-top: 0;
+		font-size: 1.1em;
+		font-weight: bold;
+	}
 
-.wp-block-gutenblocks-card__desc {
-
+	.wp-block-gutenblocks-card__description {
+		font-size: .9em;
+	}
 }
 
 .wp-block-gutenblocks-card__url {

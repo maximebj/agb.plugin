@@ -14,7 +14,7 @@ export default class Preview extends Component {
 				<a href={this.props.attributes.url} className="wp-block-gutenblocks-card__link"></a>
 				<img className="wp-block-gutenblocks-card__image" src={this.props.attributes.image} alt={this.props.attributes.title} />
 				<div className="wp-block-gutenblocks-card__content">
-					<h2 className="wp-block-gutenblocks-card__title">{this.props.attributes.title}</h2>
+					<p className="wp-block-gutenblocks-card__title">{this.props.attributes.title}</p>
 					<p className="wp-block-gutenblocks-card__description">{this.props.attributes.description}</p>
 					<p className="wp-block-gutenblocks-card__url">{this.props.attributes.siteUrl}</p>
 				</div>
