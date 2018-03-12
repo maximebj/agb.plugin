@@ -90,62 +90,70 @@
   margin: 1.5em 0;
   background: white;
   border: 1px solid #DDD; }
-  .wp-block-gutenblocks-plugin__content {
-    display: -ms-flexbox;
-    display: flex;
-    padding: 20px; }
-  .wp-block-gutenblocks-plugin__picture {
-    display: block;
-    width: 128px;
-    height: 128px;
-    margin-right: 20px; }
-    .wp-block-gutenblocks-plugin__picture img {
-      display: block; }
-  .wp-block-gutenblocks-plugin__main {
-    -ms-flex: 1;
-        flex: 1; }
-  .wp-block-gutenblocks-plugin__title {
+
+.wp-block-gutenblocks-plugin__content {
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px; }
+
+.wp-block-gutenblocks-plugin__picture {
+  display: block;
+  width: 128px;
+  height: 128px;
+  margin-right: 20px; }
+  .wp-block-gutenblocks-plugin__picture img {
+    display: block; }
+
+.wp-block-gutenblocks-plugin__main {
+  -ms-flex: 1;
+      flex: 1; }
+  .wp-block-gutenblocks-plugin__main .wp-block-gutenblocks-plugin__title {
     margin: 0 0 8px 0; }
-    .wp-block-gutenblocks-plugin__title a {
+    .wp-block-gutenblocks-plugin__main .wp-block-gutenblocks-plugin__title a {
       text-decoration: none;
       color: #444;
       font-weight: bold;
       text-transform: uppercase; }
-  .wp-block-gutenblocks-plugin__desc {
+  .wp-block-gutenblocks-plugin__main .wp-block-gutenblocks-plugin__desc {
     font-size: .9em;
     margin: 8px 0; }
-  .wp-block-gutenblocks-plugin__author {
+  .wp-block-gutenblocks-plugin__main .wp-block-gutenblocks-plugin__author {
     font-size: .9em;
     margin: 8px 0 0 0; }
-  .wp-block-gutenblocks-plugin__footer {
-    display: -ms-flexbox;
-    display: flex;
-    padding: 12px 20px;
-    background: #FAFAFA; }
-  .wp-block-gutenblocks-plugin__meta {
-    -ms-flex: 1;
-        flex: 1; }
-    .wp-block-gutenblocks-plugin__meta p {
-      margin: 0;
-      font-size: .9em;
-      line-height: 1.5; }
-  .wp-block-gutenblocks-plugin__num-rating:before {
-    content: '('; }
-  .wp-block-gutenblocks-plugin__num-rating:after {
-    content: ')'; }
-  .wp-block-gutenblocks-plugin__button {
-    display: inline-block;
-    background: #63ABD4;
-    color: white;
-    border-radius: 2px;
-    text-decoration: none;
-    padding: .5em 1em;
-    -webkit-transition: .3s background-color linear;
-    -o-transition: .3s background-color linear;
-    transition: .3s background-color linear; }
-    .wp-block-gutenblocks-plugin__button:hover {
-      background-color: #8bc1df;
-      color: white; }
+
+.wp-block-gutenblocks-plugin__footer {
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px 20px;
+  background: #FAFAFA; }
+
+.wp-block-gutenblocks-plugin__meta {
+  -ms-flex: 1;
+      flex: 1; }
+  .wp-block-gutenblocks-plugin__meta p {
+    margin: 0;
+    font-size: .9em;
+    line-height: 1.5; }
+
+.wp-block-gutenblocks-plugin__num-rating:before {
+  content: '('; }
+
+.wp-block-gutenblocks-plugin__num-rating:after {
+  content: ')'; }
+
+.wp-block-gutenblocks-plugin__button {
+  display: inline-block;
+  background: #63ABD4;
+  color: white;
+  border-radius: 2px;
+  text-decoration: none;
+  padding: .5em 1em;
+  -webkit-transition: .3s background-color linear;
+  -o-transition: .3s background-color linear;
+  transition: .3s background-color linear; }
+  .wp-block-gutenblocks-plugin__button:hover {
+    background-color: #8bc1df;
+    color: white; }
 .gutenblocks-block-message {
   text-align: center;
   font-style: italic;

@@ -1,19 +1,1 @@
 @import 'vars';
-
-// Component overrides
-
-.edit-post-visual-editor {
-	.wp-block-gutenblocks-plugin__desc,
-	.wp-block-gutenblocks-plugin__author,
-	.wp-block-gutenblocks-plugin__meta p {
-		font-size: .9em;
-	}
-
-	.wp-block-gutenblocks-plugin__author {
-		margin-bottom: 0;
-	}
-
-	.wp-block-gutenblocks-plugin__meta p {
-		line-height: 1.5;
-	}
-}

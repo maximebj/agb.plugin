@@ -4,28 +4,28 @@
 	margin: $margin-default;
   background: white;
 	border: 1px solid $color-neutral;
+}
 
-	&__content {
-		display: flex;
-		padding: 20px;
-	}
+.wp-block-gutenblocks-plugin__content {
+	display: flex;
+	padding: 20px;
+}
 
-	&__picture {
+.wp-block-gutenblocks-plugin__picture {
+	display: block;
+	width: 128px;
+	height: 128px;
+	margin-right: 20px;
+
+	img {
 		display: block;
-		width: 128px;
-		height: 128px;
-		margin-right: 20px;
-
-		img {
-			display: block;
-		}
 	}
+}
 
-	&__main {
-		flex: 1;
-	}
+.wp-block-gutenblocks-plugin__main {
+	flex: 1;
 
-	&__title {
+	.wp-block-gutenblocks-plugin__title {
 		margin: 0 0 8px 0;
 
 		a {
@@ -36,53 +36,53 @@
 		}
 	}
 
-	&__desc {
+	.wp-block-gutenblocks-plugin__desc {
 		font-size: .9em;
 		margin: 8px 0;
 	}
 
-	&__author {
+	.wp-block-gutenblocks-plugin__author {
 		font-size: .9em;
 		margin: 8px 0 0 0;
 	}
 
-	&__footer {
-		display: flex;
-		padding: 12px 20px;
-		background: #FAFAFA;
+}
+
+.wp-block-gutenblocks-plugin__footer {
+	display: flex;
+	padding: 12px 20px;
+	background: #FAFAFA;
+}
+
+.wp-block-gutenblocks-plugin__meta {
+	flex: 1;
+
+	p {
+		margin: 0;
+		font-size: .9em;
+		line-height: 1.5;
 	}
+}
 
-	&__meta {
-		flex: 1;
+.wp-block-gutenblocks-plugin__num-rating:before {
+	content: '(';
+}
 
-		p {
-			margin: 0;
-			font-size: .9em;
-			line-height: 1.5;
-		}
-	}
+.wp-block-gutenblocks-plugin__num-rating:after {
+	content: ')';
+}
 
-	&__num-rating:before {
-		content: '(';
-	}
+.wp-block-gutenblocks-plugin__button {
+	display: inline-block;
+	background: #63ABD4;
+	color: white;
+	border-radius: 2px;
+	text-decoration: none;
+	padding: .5em 1em;
+	transition: .3s background-color linear;
 
-	&__num-rating:after {
-		content: ')';
-	}
-
-	&__button {
-		display: inline-block;
-		background: #63ABD4;
+	&:hover {
+		background-color: lighten(#63ABD4, 10%);
 		color: white;
-		border-radius: 2px;
-		text-decoration: none;
-		padding: .5em 1em;
-		transition: .3s background-color linear;
-
-		&:hover {
-			background-color: lighten(#63ABD4, 10%);
-			color: white;
-		}
 	}
-
 }
