@@ -11,36 +11,61 @@ export default class Preview extends Component {
 
 		this.state = {
 			featuredImage: false,
+			post: false,
+			author: false,
+			category: false,
 		}
   }
 
-  render() {
+	getPost() {
+		const postQuery = new wp.api.models.Post( { id: this.props.postID } );
 
-		const post = this.props.post.data
+		// Fetch post via API
+		postQuery.fetch().then( post => {
+			this.setState( { post: post } )
 
-		// Featured image
-		if ( post && post.featured_media ) {
-
-			const query = new wp.api.models.Media( { id: post.featured_media } )
-
-			query.fetch().then( image => {
-				this.setState( { featuredImage: image.media_details.sizes.medium.source_url } )
+			// Get author
+			postQuery.getAuthorUser().done( author => {
+				this.setState( { author: author.attributes.name } )
 			} )
+
+			// Get Categories
+			postQuery.getCategories().done( categories => {
+				this.setState( { category: categories[0].name } )
+			} )
+
+			// Get Featured Image
+			postQuery.getFeaturedMedia().done( media => {
+				this.setState( { featuredImage: media.attributes.media_details.sizes.medium.source_url } )
+			} )
+
+		} )
+	}
+
+	componentWillMount() {
+    this.getPost()
+  }
+
+	componentDidUpdate(lastProps, lastStates) {
+
+		if( lastProps.postID != this.props.postID ) {
+			this.getPost()
 		}
+	}
+
+  render() {
 
 		// Get HTML Excerpt
 		const getExcerpt = () => {
-  		return {__html: post.excerpt.rendered }
+  		return {__html: this.state.post.excerpt.rendered }
 		}
 
-		console.log(post)
-
     return (
-			!! post ? (
+			!! this.state.post ? (
 				<div className="wp-block-gutenblocks-post">
 					{ !! this.state.featuredImage && (
 						<a
-							href={ post.link }
+							href={ this.state.post.link }
 							className="wp-block-gutenblocks-post__image"
 							style={ {
 								backgroundImage: `url(${this.state.featuredImage})`
@@ -49,14 +74,24 @@ export default class Preview extends Component {
 					) }
 					<div className="wp-block-gutenblocks-post__content">
 						<p className="wp-block-gutenblocks-post__title">
-							<a href={ post.link }>{ post.title.rendered }</a>
+							<a href={ this.state.post.link }>{ this.state.post.title.rendered }</a>
+						</p>
+						<p className="wp-block-gutenblocks-post__metas">
+							<em>
+								{ !! this.state.category && (
+								<span> { __( 'In' ) + ' ' + this.state.category } </span>
+								) }
+								{ !! this.state.author && (
+								<span> { __( 'By' ) + ' ' + this.state.author } </span>
+								) }
+							</em>
 						</p>
 						<div
 							className="wp-block-gutenblocks-post__excerpt"
 							dangerouslySetInnerHTML={ getExcerpt() }
 						/>
 						<p class="wp-block-gutenblocks-product__actions">
-							<a href={ post.link } className="wp-block-gutenblocks-post__button">
+							<a href={ this.state.post.link } className="wp-block-gutenblocks-post__button">
 								{ __( 'Read more' ) }
 							</a>
 						</p>

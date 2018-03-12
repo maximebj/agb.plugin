@@ -52,56 +52,49 @@ export default registerBlockType(
         type: 'boolean',
       },
     },
-    edit: withAPIData( ( { attributes } ) => {
+    edit: props => {
 
-				return ( attributes.postID ) ? {
-					post: `/wp/v2/${attributes.postType}/${attributes.postID}`
-				} : false
+			// Default values
+			! props.attributes.showCategory && props.setAttributes( { showCategory: true } )
+			! props.attributes.showKeywords && props.setAttributes( { showKeywords: false } )
+			! props.attributes.showAuthor && props.setAttributes( { showAuthor: true } )
 
-      } ) ( ( { post, focus, attributes, setAttributes } ) => {
+			const onChangePost = post => {
+        props.setAttributes( { postID: post.id } )
+      }
 
-				// Default values
-				! attributes.showCategory && setAttributes( { showCategory: true } )
-				! attributes.showKeywords && setAttributes( { showKeywords: false } )
-				! attributes.showAuthor && setAttributes( { showAuthor: true } )
+			const onChangePostType = postType => {
+				props.setAttributes( { postType: postType } )
+			}
 
-				const onChangePost = post => {
-	        setAttributes( { postID: post.id } )
-	      }
+			const toggleCategory = () => {
+        props.setAttributes( { showCategory: ! props.attributes.showCategory } )
+      }
 
-				const onChangePostType = postType => {
-					setAttributes( { postType: postType } )
-				}
+			const toggleKeywords = () => {
+        props.setAttributes( { showKeywords: ! props.attributes.showKeywords } )
+      }
 
-				const toggleCategory = () => {
-	        setAttributes( { showCategory: ! attributes.showCategory } )
-	      }
+			const toggleAuthor = () => {
+        props.setAttributes( { showAuthor: ! props.attributes.showAuthor } )
+      }
 
-				const toggleKeywords = () => {
-	        setAttributes( { showKeywords: ! attributes.showKeywords } )
-	      }
+			const togglePostType = () => {
+        props.setAttributes( { showAuthor: ! props.attributes.showPostType } )
+      }
 
-				const toggleAuthor = () => {
-	        setAttributes( { showAuthor: ! attributes.showAuthor } )
-	      }
-
-				const togglePostType = () => {
-	        setAttributes( { showAuthor: ! attributes.showPostType } )
-	      }
-
-	      return [
-	        !! focus && (
-	          <Inspector { ...{ onChangePost, onChangePostType, toggleCategory, toggleKeywords, toggleAuthor, togglePostType, attributes } } />
-	        )
-					,
-	        !! attributes.postID ? (
-						<Preview { ...{ post, attributes } } />
-	        ) : (
-	          <p class="gutenblocks-block-message">{ __( 'Search for a post in the inspector' ) }</p>
-	        )
-	      ]
-    	} )
-		,
+      return [
+        !! props.focus && (
+          <Inspector { ...{ onChangePost, onChangePostType, toggleCategory, toggleKeywords, toggleAuthor, togglePostType, attributes } } />
+        )
+				,
+        !! props.attributes.postID ? (
+					<Preview postID={ props.attributes.postID } />
+        ) : (
+          <p class="gutenblocks-block-message">{ __( 'Search for a post in the inspector' ) }</p>
+        )
+      ]
+  	},
     save: props => {
       return null
     },

@@ -1,4 +1,5 @@
 @import 'vars';
+
 .wp-block-gutenblocks-post {
 	display: flex;
 	margin: $margin-default;
@@ -27,12 +28,27 @@
 
 .wp-block-gutenblocks-post__title {
 	margin: 0;
-	font-size: 1.1em;
-	font-weight: bold;
 
 	a {
+		font-size: 1.1em;
+		font-weight: bold;
 		text-decoration: none;
 		color: #444;
+	}
+}
+
+.wp-block-gutenblocks-post__metas {
+	margin: .4em auto;
+
+	em {
+		line-height: 1.3;
+		margin: .5em 0;
+		color: #888;
+		font-size: .85em;
+	}
+
+	span + span:before {
+		content: '• ';
 	}
 }
 

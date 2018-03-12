@@ -55,6 +55,11 @@ class Post {
 
 		foreach( $types_raw as $type ) {
 
+			// Avoid WooCommerce Products CPT
+			if( $type->name == "product") {
+				continue;
+			}
+
 			$types[] = array(
 				'label' => $type->label,
 				'value' => ucfirst( ( $type->rest_base ) ? $type->rest_base  : $type->name ),
