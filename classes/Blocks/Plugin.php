@@ -20,7 +20,7 @@ class Plugin {
 			'description' => __( 'Display a Plugin informations from the official WordPress repository', 'gutenblocks' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/plugin', __( 'Plugin WordPress', 'gutenblocks' ), $args );
+		gutenblocks_register_blocks( 'gutenblocks/plugin', __( 'WordPress Plugin Card', 'gutenblocks' ), $args );
   }
 
   public function search_plugins()
