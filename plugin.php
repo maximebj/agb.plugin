@@ -14,11 +14,30 @@
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
 use GutenbergBlocks\Gutenblocks;
+use GutenbergBlocks\WP\Activator;
+use GutenbergBlocks\WP\Deactivator;
 
 require plugin_dir_path( __FILE__ ) . 'classes/Gutenblocks.php';
 
 // Languages
 load_plugin_textdomain( 'gutenblocks', false, basename( __DIR__ ) . '/languages' );
+
+// Activation / Deactivation
+
+function gutenblocks_activate_plugin() {
+	require_once plugin_dir_path(__FILE__).'classes/WP/Activator.php';
+	Activator::activate();
+}
+
+function gutenblocks_deactivate_plugin() {
+	require_once plugin_dir_path(__FILE__).'classes/WP/Deactivator.php';
+	Deactivator::deactivate();
+}
+
+register_activation_hook(__FILE__, 'gutenblocks_activate_plugin' );
+register_deactivation_hook(__FILE__, 'gutenblocks_deactivate_plugin' );
+
+
 
 
 // List the registered blocks in WP Admin Gutenberg Blocks settings page

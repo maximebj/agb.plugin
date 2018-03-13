@@ -38,6 +38,9 @@ class Gutenblocks {
 
 	public function run() {
 
+		// Check compatibility (WP 5.1 or gutenberg plugin is activated)
+		add_action( 'admin_init', array( $this, 'check_compatibility' ), 1 );
+
 		$path = plugin_dir_path( dirname( __FILE__ ) );
 
 		// Load Classes
@@ -117,6 +120,22 @@ class Gutenblocks {
 
 	public function get_version() {
 		return Consts::VERSION;
+	}
+
+	public function check_compatibility() {
+		if ( ! version_compare( $wp_version, '5.1', '>=' ) and ! is_plugin_active( 'gutenberg/gutenberg.php' ) ) {
+
+			deactivate_plugins( '/gutenberg-blocks/plugin.php' );
+			add_action( 'admin_notices', array( $this , 'compatibility_notice') );
+		}
+	}
+
+	public function compatibility_notice() {
+		?>
+		<div class="error notice is-dismissible">
+				<p><?php _e( 'Gutenblocks requires WordPress 5.1 or Gutenberg plugin to be activated', 'gutenblocks' ); ?></p>
+		</div>
+		<?php
 	}
 
 }

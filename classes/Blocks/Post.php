@@ -25,7 +25,10 @@ class Post {
 
 	public function register_render() {
 
-		// PHP Rendering of the block
+		if ( ! function_exists( 'register_block_type' ) ) {
+			return;
+		}
+
 		register_block_type(
       'gutenblocks/post',
       [ 'render_callback' => array( $this, 'render_block' ) ]

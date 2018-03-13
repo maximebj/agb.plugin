@@ -42,7 +42,10 @@ class Ad {
 
 	public function register_render() {
 
-		// PHP Rendering of the block
+		if ( ! function_exists( 'register_block_type' ) ) {
+			return;
+		}
+
 		register_block_type(
       'gutenblocks/ad',
       [ 'render_callback' => array( $this, 'render_block' ) ]

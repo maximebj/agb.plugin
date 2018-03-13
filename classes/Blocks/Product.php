@@ -25,11 +25,10 @@ class Product {
 
 	public function register_render() {
 
-		if ( class_exists( 'WooCommerce' ) ) {
+		if ( ! class_exists( 'WooCommerce' ) or ! function_exists( 'register_block_type' ) ) {
 			return;
 		}
 
-		// PHP Rendering of the block
 		register_block_type(
       'gutenblocks/product',
       [ 'render_callback' => array( $this, 'render_block' ) ]

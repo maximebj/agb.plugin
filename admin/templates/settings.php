@@ -113,7 +113,7 @@
 					<li class="gutenblocks-block<?php if ( $active ) : ?> is-active<?php endif; ?>">
 						<header class="gutenblocks-block__head">
 							<div class="gutenblocks-block__icon">
-								<?php if ( $block['icon'] ): ?>
+								<?php if ( isset( $block['icon'] ) ): ?>
 									<span class="dashicons <?php echo $block['icon']; ?>"></span>
 								<?php elseif( $block['svg'] ): ?>
 									<?php echo $block['svg']; ?>
