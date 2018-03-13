@@ -26,7 +26,14 @@
 
 		<div class="gutenblocks-list">
 			<?php foreach( $categories as $key => $cat ): ?>
-			<p class="gutenblocks-list__title"><?php echo $cat; ?></p>
+			<p class="gutenblocks-list__title">
+				<?php echo $cat; ?>
+				<?php
+					if ( $cat == "WooCommerce" and ! class_exists( 'WooCommerce' ) ) {
+						echo "<small><em>[" . __( 'WooCommerce is required to use these blocks', 'gutenblocks' ) . "]</em></small>";
+					}
+				?>
+			</p>
 			<ul>
 				<?php
 					foreach( $registered_blocks as $block ):
@@ -48,6 +55,8 @@
 						</div>
 						<div class="gutenblocks-block__actions">
 							<a href="" class="gutenblocks-block__button js-gutenblocks-show-panel"><?php _e( 'Settings', 'gutenblocks' ); ?></a>
+							<?php if ( $cat == "WooCommerce" and ! class_exists( 'WooCommerce' ) ) : ?>
+							<?php else: ?>
 							<a
 								href="#"
 								class="gutenblocks-block__button js-gutenblocks-toggle-state"
@@ -58,6 +67,7 @@
 							>
 								<?php echo ( $active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
 							</a>
+							<?php endif; ?>
 						</div>
 					</header>
 
