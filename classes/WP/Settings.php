@@ -56,6 +56,15 @@ class Settings {
 		// 	array( $this, 'import_export' )
 		// );
 
+		add_submenu_page(
+			Consts::PLUGIN_NAME,
+			__( 'Demo' , 'gutenblocks' ),
+			__( 'Demo' , 'gutenblocks' ),
+			'edit_posts',
+			Consts::PLUGIN_NAME . '-demo',
+			array( $this, 'demo_page' )
+		);
+
 		// Remove default submenu
 		unset( $submenu[Consts::PLUGIN_NAME][0] );
 	}
@@ -116,6 +125,11 @@ class Settings {
 
 	public function import_export() {
 		echo '<h1>Import / Export Settings</h1> <p>Soon...</p';
+	}
+
+	public function demo_page() {
+
+		require_once Consts::get_path() . 'admin/templates/demo.php';
 	}
 
 

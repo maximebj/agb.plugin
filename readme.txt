@@ -22,14 +22,15 @@ https://www.youtube.com/watch?v=PBVHKo172mU
 
 = Blocks =
 
-*  Notice : Display a sweet Info/Advice/Warning/Avoid/ notice
-*  Post : Display pretty posts link (from any post type)
-*  WooCommerce Product : Display WooCommerce Product in your post
-*  WooCommerce Add to cart button : An add to cart button to quickly purchase a WooCommerce product
-*  Banner Ad : Monetize your website by inserting banner Ads in your content
-*  Text + rectangle Ad : Monetize your website by inserting Rectangle Ads in your content
-*  WordPress Plugin Card : Display a Plugin informations from the official WordPress repository
-*  Website Card preview : Do you like how Facebook, Twitter or Slack display a sweet preview to a website in a card? Don't be jealous, we've made the same for you in WordPress!
+*  Notice: Display a sweet Info/Advice/Warning/Avoid/ notice
+*  Post: Display pretty posts link (from any post type)
+*  WooCommerce Product: Display WooCommerce Product in your post
+*  WooCommerce Add to cart button: An add to cart button to quickly purchase a WooCommerce product
+*  Banner Ad: Monetize your website by inserting banner Ads in your content
+*  Text + rectangle Ad: Monetize your website by inserting Rectangle Ads in your content
+*  WordPress Plugin Card: Display a Plugin informations from the official WordPress repository
+*  Website Card preview: Do you like how Facebook, Twitter or Slack display a sweet preview to a website in a card? Don't be jealous, we've made the same for you in WordPress!
+* Testimonial: Display a testimonial with a picture, text, name and company
 
 = Deactivate unwanted blocks =
 
