@@ -34,27 +34,33 @@
   padding: 12px;
   border: 1px solid #DDD;
   border-radius: 4px; }
-  .wp-block-gutenblocks-notice__title {
-    margin: 0 0 8px 0;
-    font-size: 1.1em; }
-  .wp-block-gutenblocks-notice__content {
-    margin-bottom: 0; }
-  .wp-block-gutenblocks-notice--advice {
-    border-top: 3px solid #83BD71; }
-    .wp-block-gutenblocks-notice--advice .wp-block-gutenblocks-notice__title {
-      color: #83BD71; }
-  .wp-block-gutenblocks-notice--avoid {
-    border-top: 3px solid #B54D4D; }
-    .wp-block-gutenblocks-notice--avoid .wp-block-gutenblocks-notice__title {
-      color: #B54D4D; }
-  .wp-block-gutenblocks-notice--warning {
-    border-top: 3px solid #FFC334; }
-    .wp-block-gutenblocks-notice--warning .wp-block-gutenblocks-notice__title {
-      color: #FFC334; }
-  .wp-block-gutenblocks-notice--info {
-    border-top: 3px solid #48ADD8; }
-    .wp-block-gutenblocks-notice--info .wp-block-gutenblocks-notice__title {
-      color: #48ADD8; }
+
+.wp-block-gutenblocks-notice__title {
+  margin: 0 0 8px 0;
+  font-size: 1.1em; }
+
+.wp-block-gutenblocks-notice__content {
+  margin-bottom: 0; }
+
+.wp-block-gutenblocks-notice--advice {
+  border-top: 3px solid #83BD71; }
+  .wp-block-gutenblocks-notice--advice .wp-block-gutenblocks-notice__title {
+    color: #83BD71; }
+
+.wp-block-gutenblocks-notice--avoid {
+  border-top: 3px solid #B54D4D; }
+  .wp-block-gutenblocks-notice--avoid .wp-block-gutenblocks-notice__title {
+    color: #B54D4D; }
+
+.wp-block-gutenblocks-notice--warning {
+  border-top: 3px solid #FFC334; }
+  .wp-block-gutenblocks-notice--warning .wp-block-gutenblocks-notice__title {
+    color: #FFC334; }
+
+.wp-block-gutenblocks-notice--info {
+  border-top: 3px solid #48ADD8; }
+  .wp-block-gutenblocks-notice--info .wp-block-gutenblocks-notice__title {
+    color: #48ADD8; }
 .gutenblocks-block-message {
   text-align: center;
   font-style: italic;
@@ -541,3 +547,109 @@
   .wp-block-gutenblocks-post__button:hover {
     color: white;
     background-color: #5e5e5e; }
+@charset "UTF-8";
+.gutenblocks-block-message {
+  text-align: center;
+  font-style: italic;
+  color: #ccc; }
+
+.gutenblocks-panel-results p {
+  margin: 10px 0;
+  text-align: center; }
+
+.gutenblocks-panel-results ul {
+  margin-top: 10px;
+  list-style-type: none;
+  border: 1px solid #E3E4E7; }
+
+.gutenblocks-panel-results li {
+  overflow: auto;
+  margin: 0;
+  padding: 10px; }
+  .gutenblocks-panel-results li:not(:first-child) {
+    border-top: 1px solid #E3E4E7; }
+  .gutenblocks-panel-results li:hover {
+    background: #efefef;
+    cursor: pointer; }
+
+.gutenblocks-panel-results img {
+  display: inline-block;
+  float: left;
+  margin-right: 4px;
+  width: 32px;
+  height: 32px; }
+
+.wp-block-gutenblocks-testimonial {
+  margin: 1.5em 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center; }
+
+.wp-block-gutenblocks-testimonial__picture {
+  position: relative; }
+  .wp-block-gutenblocks-testimonial__picture .wp-block-gutenblocks-testimonial__picture__image {
+    width: 100px;
+    height: 100px;
+    margin-right: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #DDD;
+    font-size: .8em;
+    background-size: cover;
+    background-position: center; }
+
+.wp-block-gutenblocks-testimonial__bubble {
+  position: relative;
+  -ms-flex: 3;
+      flex: 3;
+  border: 1px solid #DDD;
+  border-radius: 12px;
+  padding: 12px;
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05); }
+
+.wp-block-gutenblocks-testimonial__bubble--with-arrow:before {
+  content: '';
+  position: absolute;
+  display: block;
+  top: calc( 50% - 13px);
+  left: -17px;
+  border-top: 13px solid transparent;
+  border-right: 16px solid #DDD;
+  border-bottom: 13px solid transparent; }
+
+.wp-block-gutenblocks-testimonial__bubble--with-arrow:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: calc( 50% - 12px);
+  left: -16px;
+  border-top: 12px solid transparent;
+  border-right: 16px solid white;
+  border-bottom: 12px solid transparent; }
+
+.wp-block-gutenblocks-testimonial__content {
+  font-style: italic;
+  color: #aaa; }
+  .wp-block-gutenblocks-testimonial__content p {
+    font-size: 1.1em; }
+  .wp-block-gutenblocks-testimonial__content p:last-child {
+    margin-bottom: 0; }
+  .wp-block-gutenblocks-testimonial__content p:first-child:before {
+    content: '“ '; }
+  .wp-block-gutenblocks-testimonial__content p:last-child:after {
+    content: ' ”';
+    display: inline; }
+
+.wp-block-gutenblocks-testimonial__signature {
+  display: inline-block;
+  float: right;
+  margin-right: 24px;
+  margin-top: 10px; }
+  .wp-block-gutenblocks-testimonial__signature .wp-block-gutenblocks-testimonial__name {
+    margin: 0; }
+  .wp-block-gutenblocks-testimonial__signature .wp-block-gutenblocks-testimonial__company {
+    margin: 0;
+    color: #aaa;
+    font-size: .9em; }

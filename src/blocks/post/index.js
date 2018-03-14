@@ -14,10 +14,6 @@ const {
   registerBlockType,
 } = wp.blocks
 
-const {
-	withAPIData,
-} = wp.components
-
 const { __ } = wp.i18n
 
 export default registerBlockType(

@@ -11,8 +11,8 @@ class Testimonial {
 		$args = array(
 			'icon' => 'dashicons-format-status',
 			'category' => 'marketing',
-			'description' => __( "Display a customer testimonial. It's good for the thurst but don't lie to your visitors!", 'gutenblocks' ),
-			'available' => false,
+			'preview_image' => Consts::get_url() . 'admin/img/blocks/testimonial.jpg',
+			'description' => __( "Display a customer testimonial. It's good for the thrust but don't lie to your visitors!", 'gutenblocks' ),
 		);
 
 		gutenblocks_register_blocks( 'gutenblocks/testimonial', __( 'Testimonial', 'gutenblocks' ), $args );

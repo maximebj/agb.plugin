@@ -1,0 +1,25 @@
+@import 'vars';
+
+.wp-block-gutenblocks-testimonial__picture {
+	position: relative;
+
+	a {
+		cursor: pointer;
+	}
+
+	.wp-block-gutenblocks-testimonial__picture__actions {
+		position: absolute;
+		bottom: -30px;
+		left: 0;
+		right: 30px;
+		font-size: .8em;
+		text-align: center;
+	}
+}
+
+.wp-block-gutenblocks-testimonial__picture__image {
+	display: block;
+	cursor: pointer;
+	line-height: 100px;
+	text-align: center;
+}

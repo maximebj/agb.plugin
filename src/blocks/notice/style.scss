@@ -5,45 +5,45 @@
   padding: 12px;
   border: 1px solid $color-neutral;
   border-radius: 4px;
+}
 
-	&__title {
-	  margin: 0 0 8px 0;
-	  font-size: $size-title;
+.wp-block-gutenblocks-notice__title {
+  margin: 0 0 8px 0;
+  font-size: $size-title;
+}
+
+.wp-block-gutenblocks-notice__content {
+	margin-bottom: 0;
+}
+
+.wp-block-gutenblocks-notice--advice {
+  border-top: 3px solid $color-advice;
+
+  .wp-block-gutenblocks-notice__title {
+    color: $color-advice;
 	}
+}
 
-	&__content {
-		margin-bottom: 0;
+.wp-block-gutenblocks-notice--avoid {
+  border-top: 3px solid $color-avoid;
+
+  .wp-block-gutenblocks-notice__title {
+    color: $color-avoid;
 	}
+}
 
-	&--advice {
-	  border-top: 3px solid $color-advice;
+.wp-block-gutenblocks-notice--warning {
+  border-top: 3px solid $color-warning;
 
-	  .wp-block-gutenblocks-notice__title {
-	    color: $color-advice;
-		}
+  .wp-block-gutenblocks-notice__title {
+    color: $color-warning;
 	}
+}
 
-	&--avoid {
-	  border-top: 3px solid $color-avoid;
+.wp-block-gutenblocks-notice--info {
+  border-top: 3px solid $color-info;
 
-	  .wp-block-gutenblocks-notice__title {
-	    color: $color-avoid;
-		}
-	}
-
-	&--warning {
-	  border-top: 3px solid $color-warning;
-
-	  .wp-block-gutenblocks-notice__title {
-	    color: $color-warning;
-		}
-	}
-
-	&--info {
-	  border-top: 3px solid $color-info;
-
-	  .wp-block-gutenblocks-notice__title {
-	    color: $color-info;
-		}
+  .wp-block-gutenblocks-notice__title {
+    color: $color-info;
 	}
 }
