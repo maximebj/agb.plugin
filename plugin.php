@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: Gutenberg Blocks
+ * Plugin Name: Advanced Gutenberg Blocks
  * Plugin URI: #
  * Description: Awesome customizable blocks for the new WordPress Editor
  * Author: maximebj
