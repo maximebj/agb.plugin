@@ -1,4 +1,4 @@
-=== Gutenberg Blocks - Awesome blocks for the WordPress editor ===
+=== Advanced Gutenberg Blocks ===
 Contributors: maximebj
 Tags: gutenberg, blocks, card, plugin, testimonial, ad, marketplace, deactivate, WooCommerce, Product
 Requires at least: 4.5
@@ -9,11 +9,11 @@ Donate link: https://dysign.fr
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Gutenberg Blocks bring awesome blocks for the new WordPress editor, for a real WYSIWYG experience
+Advanced Gutenberg Blocks bring awesome blocks for the new WordPress editor, for a real WYSIWYG experience
 
 == Description ==
 
-Gutenberg Blocks bring awesome blocks for the new WordPress editor, for a real WYSIWYG experience.
+Advanced Gutenberg Blocks bring awesome blocks for the new WordPress editor, for a real WYSIWYG experience.
 For now we only have a few blocks but we will soon add a lot more!
 
 Have a block idea? Contact me at [@maximebj](https://twitter.com/maximebj)
