@@ -653,3 +653,36 @@
     margin: 0;
     color: #aaa;
     font-size: .9em; }
+.gutenblocks-block-message {
+  text-align: center;
+  font-style: italic;
+  color: #ccc; }
+
+.gutenblocks-panel-results p {
+  margin: 10px 0;
+  text-align: center; }
+
+.gutenblocks-panel-results ul {
+  margin-top: 10px;
+  list-style-type: none;
+  border: 1px solid #E3E4E7; }
+
+.gutenblocks-panel-results li {
+  overflow: auto;
+  margin: 0;
+  padding: 10px; }
+  .gutenblocks-panel-results li:not(:first-child) {
+    border-top: 1px solid #E3E4E7; }
+  .gutenblocks-panel-results li:hover {
+    background: #efefef;
+    cursor: pointer; }
+
+.gutenblocks-panel-results img {
+  display: inline-block;
+  float: left;
+  margin-right: 4px;
+  width: 32px;
+  height: 32px; }
+
+.wp-block-gutenblocks-gmap {
+  margin: 1.5em 0; }
