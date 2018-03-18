@@ -14,7 +14,6 @@ const {
   registerBlockType,
 } = wp.blocks
 
-
 const { __ } = wp.i18n
 
 export default registerBlockType(
@@ -28,24 +27,33 @@ export default registerBlockType(
       __( 'map' ),
     ],
     attributes: {
-      latitude: {
+      address: {
         type: 'string',
       },
+      latitude: {
+        type: 'float',
+      },
 			longitude: {
-        type: 'string',
+        type: 'float',
       },
 			zoom: {
         type: 'integer',
       },
 			height: {
-				type: 'integer'
+				type: 'integer',
+			},
+			style: {
+				type: 'string',
+				default: 'default'
 			},
     },
     edit: props => {
 
 			// Default values
-			! props.attributes.zoom && props.setAttributes( { zoom: 8 } )
+			! props.attributes.zoom && props.setAttributes( { zoom: 15 } )
 			! props.attributes.height && props.setAttributes( { height: 400 } )
+			! props.attributes.latitude && props.setAttributes( { latitude: 48.8566 } )
+			! props.attributes.longitude && props.setAttributes( { longitude: 2.3522 } )
 
 			const onChangeCoordinates = value => {
         props.setAttributes( { latitude: value.latitude } )
@@ -60,16 +68,21 @@ export default registerBlockType(
         props.setAttributes( { height: value } )
       }
 
+			const onChangeStyle = value => {
+				props.setAttributes( { style: value } )
+			}
+
       return [
         !! props.focus && (
-          <Inspector { ...{ onChangeCoordinates, onChangeZoom, onChangeHeight, ...props } } />
+          <Inspector { ...{ onChangeCoordinates, onChangeZoom, onChangeHeight, onChangeStyle, ...props } } />
         )
 				,
-        !! props.attributes.lattitude ? (
-					<Gmap { ...{ lattitude, longitude } } />
-        ) : (
-          <p class="gutenblocks-block-message">{ __( 'Type your address on the inspector' ) }</p>
-        )
+				<div className="wp-block-gutenblocks-gmap">
+	        { ! props.attributes.address && (
+	          <p class="gutenblocks-block-message">{ __( 'Type your address on the inspector' ) }</p>
+	        ) }
+					<Gmap { ...props } />
+				</div>
       ]
   	},
     save: props => {

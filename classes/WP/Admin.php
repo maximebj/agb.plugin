@@ -48,7 +48,7 @@ class Admin {
 
 		add_menu_page(
 			__( 'Blocks' , 'gutenblocks' ),
-			__( 'Blocks' , 'gutenblocks' ),
+			'blocks',
 			'edit_posts',
 			Consts::PLUGIN_NAME,
 			null,

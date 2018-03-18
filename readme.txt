@@ -1,6 +1,6 @@
 === Advanced Gutenberg Blocks ===
 Contributors: maximebj
-Tags: gutenberg, blocks, card, plugin, testimonial, ad, marketplace, deactivate, WooCommerce, Product
+Tags: gutenberg, blocks, card, plugin, testimonial, ad, marketplace, deactivate, WooCommerce, Product, google maps
 Requires at least: 4.5
 Tested up to: 4.9.4
 Requires PHP: 5.6
@@ -31,6 +31,7 @@ https://www.youtube.com/watch?v=PBVHKo172mU
 *  WordPress Plugin Card: Display a Plugin informations from the official WordPress repository
 *  Website Card preview: Do you like how Facebook, Twitter or Slack display a sweet preview to a website in a card? Don't be jealous, we've made the same for you in WordPress!
 * Testimonial: Display a testimonial with a picture, text, name and company
+* Google Map: Display a customizable Google Map in your content
 
 = Deactivate unwanted blocks =
 
@@ -69,5 +70,9 @@ For now it's a proof of concept of a Blocks repository in WordPress and a showca
 
 == Changelog ==
 
-= 0.1 (13/03/2018) =
+= 1.1.0 (18/03/2018) =
+* Added Google Maps Block
+* French Translation
+
+= 1.0.0 (13/03/2018) =
 * First release with a few blocks and the blocks manager

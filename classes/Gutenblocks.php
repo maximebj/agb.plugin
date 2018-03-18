@@ -135,7 +135,7 @@ class Gutenblocks {
 	public function compatibility_notice() {
 		?>
 		<div class="error notice is-dismissible">
-				<p><?php _e( 'Gutenblocks requires WordPress 5.1 or Gutenberg plugin to be activated', 'gutenblocks' ); ?></p>
+				<p><?php _e( 'Advanced Gutenberg Blocks requires WordPress 5.1 or Gutenberg plugin to be activated', 'gutenblocks' ); ?></p>
 		</div>
 		<?php
 	}

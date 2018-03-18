@@ -8,7 +8,7 @@ const { Component } = wp.element;
 export default class IconList extends Component {
 
   constructor( props ) {
-    super( props );
+    super( props )
   }
 
   getIcon(icon) {

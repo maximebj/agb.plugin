@@ -1,4 +1,6 @@
-import {debounce} from 'throttle-debounce'
+import debounce from 'throttle-debounce'
+
+import StyleSelector from './styleselector'
 
 const { Component } = wp.element
 
@@ -40,7 +42,7 @@ export default class Inspector extends Component {
 				>
 	        <input
 	          type="search"
-	          placeholder={ __('Type an address' ) }
+	          placeholder={ __( 'Type an address' ) }
 	          className="blocks-text-control__input"
 	          onChange={ this.onSearch }
 	        />
@@ -61,6 +63,12 @@ export default class Inspector extends Component {
 					min={ 0 }
 					max={ 1000 }
 				/>
+
+				<BaseControl
+					label={ __( 'Style' ) }
+				>
+					<StyleSelector onChangeStyle={ this.props.onChangeStyle } />
+				</BaseControl>
 
       </InspectorControls>
     )
