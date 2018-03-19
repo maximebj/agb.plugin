@@ -24,7 +24,7 @@ export default registerBlockType(
     category: 'common',
     icon: 'location-alt',
     keywords: [
-      __( 'map' ),
+      __( 'gmap' ),
     ],
     attributes: {
       address: {
@@ -33,18 +33,23 @@ export default registerBlockType(
       },
 			name: {
         type: 'string',
+				default: '',
       },
       latitude: {
         type: 'float',
+				default: 48.8566,
       },
 			longitude: {
         type: 'float',
+				default: 2.3522,
       },
 			zoom: {
         type: 'integer',
+				default: 15,
       },
 			height: {
 				type: 'integer',
+				default: 400,
 			},
 			style: {
 				type: 'string',

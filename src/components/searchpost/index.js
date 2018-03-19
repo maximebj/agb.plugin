@@ -99,7 +99,7 @@ export default class SearchPost extends Component {
 
 				<SelectControl
 					onChange={ this.onChangePostType }
-					label={ __(' In post type' ) }
+					label={ __( 'In post type' ) }
 					options={ JSON.parse( gutenblocksPost.types ) }
 					value={ this.state.currentType }
 				/>

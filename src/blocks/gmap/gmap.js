@@ -18,8 +18,8 @@ export default class Gmap extends Component {
 
 	componentDidMount() {
 
-		let coords = { lat: this.props.attributes.latitude, lng: this.props.attributes.longitude }
-
+		const coords = { lat: this.props.attributes.latitude, lng: this.props.attributes.longitude }
+		console.log(coords)
 		// Create Map
     const map = new google.maps.Map( document.querySelector( '.wp-block-gutenblocks-gmap__canvas' ), {
       zoom: this.props.attributes.zoom,

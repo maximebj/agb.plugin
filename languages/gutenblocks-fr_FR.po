@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Advanced Gutenberg Blocks\n"
-"POT-Creation-Date: 2018-03-19 14:09+0100\n"
-"PO-Revision-Date: 2018-03-19 14:09+0100\n"
+"POT-Creation-Date: 2018-03-19 14:28+0100\n"
+"PO-Revision-Date: 2018-03-19 14:28+0100\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language: fr_FR\n"
@@ -399,7 +399,7 @@ msgstr "Permet de mettre en avant une astuce ou une mise en garde"
 
 #: src/blocks/ad/index.js:27 src/blocks/adtext/index.js:28
 msgid "ad"
-msgstr "Pub"
+msgstr "pub"
 
 #: src/blocks/ad/index.js:28 src/blocks/adtext/index.js:29
 msgid "advertising"
@@ -420,7 +420,7 @@ msgstr ""
 
 #: src/blocks/addtocart/index.js:34
 msgid "purchase"
-msgstr "Acheter"
+msgstr "acheter"
 
 #: src/blocks/addtocart/index.js:70
 msgid "Add"
@@ -460,7 +460,7 @@ msgstr "Écrivez votre texte ici"
 
 #: src/blocks/card/index.js:25
 msgid "Turn a simple url in a pretty card preview"
-msgstr "Transforme une simple adresse URL en un joli aperçu "
+msgstr "Transforme une simple adresse URL en un joli aperçu"
 
 #: src/blocks/card/index.js:29
 msgid "url"
@@ -515,14 +515,14 @@ msgid "Display a customizable Google map"
 msgstr "Affiche une carte Google Maps personnalisable"
 
 #: src/blocks/gmap/index.js:27
-msgid "map"
-msgstr "carte"
-
-#: src/blocks/gmap/index.js:91
-msgid "Type your address on the inspector"
-msgstr "Indiquez une adresse dans l'inspecteur "
+msgid "gmap"
+msgstr "gmap"
 
 #: src/blocks/gmap/index.js:96
+msgid "Type your address on the inspector"
+msgstr "Indiquez une adresse dans l'inspecteur"
+
+#: src/blocks/gmap/index.js:101
 msgid ""
 "⚠️ You need to provide an API key in Blocks > Installed Blocks > Google Map"
 msgstr ""
@@ -606,7 +606,7 @@ msgstr "Moins de 10"
 
 #: src/blocks/plugin/preview.js:123
 msgid "Active Installations"
-msgstr "installations actives"
+msgstr "Installations actives"
 
 #: src/blocks/plugin/preview.js:131
 msgid "Plugin page"
@@ -718,7 +718,7 @@ msgid "Type a post title"
 msgstr "Indiquez un nom d'article"
 
 #: src/components/searchpost/index.js:102
-msgid " In post type"
+msgid "In post type"
 msgstr "Dans le type de publication"
 
 #: src/components/searchproduct/index.js:58
@@ -744,6 +744,12 @@ msgstr "maximebj"
 #. Author URI of the plugin/theme
 msgid "https://dysign.fr"
 msgstr "https://dysign.fr"
+
+#~ msgid " In post type"
+#~ msgstr "Dans le type de publication"
+
+#~ msgid "map"
+#~ msgstr "carte"
 
 #~ msgid " Add to cart"
 #~ msgstr "Ajouter au panier"

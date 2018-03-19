@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Advanced Gutenberg Blocks\n"
-"POT-Creation-Date: 2018-03-19 14:09+0100\n"
+"POT-Creation-Date: 2018-03-19 14:28+0100\n"
 "PO-Revision-Date: 2018-03-17 19:58+0100\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
@@ -495,14 +495,14 @@ msgid "Display a customizable Google map"
 msgstr ""
 
 #: src/blocks/gmap/index.js:27
-msgid "map"
-msgstr ""
-
-#: src/blocks/gmap/index.js:91
-msgid "Type your address on the inspector"
+msgid "gmap"
 msgstr ""
 
 #: src/blocks/gmap/index.js:96
+msgid "Type your address on the inspector"
+msgstr ""
+
+#: src/blocks/gmap/index.js:101
 msgid ""
 "⚠️ You need to provide an API key in Blocks > Installed Blocks > Google Map"
 msgstr ""
@@ -697,7 +697,7 @@ msgid "Type a post title"
 msgstr ""
 
 #: src/components/searchpost/index.js:102
-msgid " In post type"
+msgid "In post type"
 msgstr ""
 
 #: src/components/searchproduct/index.js:58
