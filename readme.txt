@@ -1,6 +1,6 @@
 === Advanced Gutenberg Blocks ===
 Contributors: maximebj
-Tags: gutenberg, blocks, card, plugin, testimonial, ad, marketplace, deactivate, WooCommerce, Product, google maps
+Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate blocks, plugin, ad, marketplace, WooCommerce, Product,
 Requires at least: 4.5
 Tested up to: 4.9.4
 Requires PHP: 5.6

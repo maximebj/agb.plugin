@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Advanced Gutenberg Blocks\n"
-"POT-Creation-Date: 2018-03-18 09:35+0100\n"
+"POT-Creation-Date: 2018-03-19 14:09+0100\n"
 "PO-Revision-Date: 2018-03-17 19:58+0100\n"
 "Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
 "Language-Team: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
@@ -21,23 +21,6 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 "X-Poedit-SearchPathExcluded-1: dev\n"
-
-#: admin/templates/post.php:13 src/blocks/post/preview.js:82
-msgid "In"
-msgstr ""
-
-#: admin/templates/post.php:16 src/blocks/plugin/preview.js:100
-#: src/blocks/post/preview.js:85
-msgid "By"
-msgstr ""
-
-#: admin/templates/post.php:27 src/blocks/post/preview.js:95
-msgid "Read more"
-msgstr ""
-
-#: admin/templates/product.php:25
-msgid " Add to cart"
-msgstr ""
 
 #: admin/templates/settings.php:12
 msgid "Gutenberg Blocks Settings"
@@ -153,26 +136,26 @@ msgstr ""
 msgid "Website card preview"
 msgstr ""
 
-#: classes/Blocks/Gmap.php:20
+#: classes/Blocks/Gmap.php:21
 msgid "Insert a Google Map in your content, the easy way."
 msgstr ""
 
-#: classes/Blocks/Gmap.php:24 src/blocks/gmap/index.js:23
+#: classes/Blocks/Gmap.php:25 src/blocks/gmap/index.js:22
 msgid "Google Map"
 msgstr ""
 
-#: classes/Blocks/Gmap.php:32
+#: classes/Blocks/Gmap.php:33
 msgid ""
 "The API key is mandatory, you can create one on the <a href=\"https://"
 "developers.google.com/maps/documentation/javascript/\" target=\"_blank"
 "\">Google Maps JS Api page</a>. "
 msgstr ""
 
-#: classes/Blocks/Gmap.php:36
+#: classes/Blocks/Gmap.php:37
 msgid "Api Key"
 msgstr ""
 
-#: classes/Blocks/Gmap.php:40
+#: classes/Blocks/Gmap.php:41
 msgid "Insert your Google Maps API Key here"
 msgstr ""
 
@@ -224,8 +207,8 @@ msgid ""
 "activated"
 msgstr ""
 
-#: classes/Services/Blocks.php:32 classes/Services/Blocks.php:107
-#: classes/Services/Blocks.php:117
+#: classes/Services/Blocks.php:32 classes/Services/Blocks.php:108
+#: classes/Services/Blocks.php:118
 msgid "Common"
 msgstr ""
 
@@ -241,123 +224,123 @@ msgstr ""
 msgid "External content"
 msgstr ""
 
-#: classes/Services/Blocks.php:108 classes/Services/Blocks.php:180
+#: classes/Services/Blocks.php:109 classes/Services/Blocks.php:181
 msgid "Formatting"
 msgstr ""
 
-#: classes/Services/Blocks.php:109 classes/Services/Blocks.php:225
+#: classes/Services/Blocks.php:110 classes/Services/Blocks.php:226
 msgid "Layout"
 msgstr ""
 
-#: classes/Services/Blocks.php:110 classes/Services/Blocks.php:258
+#: classes/Services/Blocks.php:111 classes/Services/Blocks.php:259
 msgid "Widgets"
 msgstr ""
 
-#: classes/Services/Blocks.php:111 classes/Services/Blocks.php:279
+#: classes/Services/Blocks.php:112 classes/Services/Blocks.php:280
 msgid "Embed"
 msgstr ""
 
-#: classes/Services/Blocks.php:120
+#: classes/Services/Blocks.php:121
 msgid "Audio"
 msgstr ""
 
-#: classes/Services/Blocks.php:126
+#: classes/Services/Blocks.php:127
 msgid "Cover Image"
 msgstr ""
 
-#: classes/Services/Blocks.php:132
+#: classes/Services/Blocks.php:133
 msgid "Gallery"
 msgstr ""
 
-#: classes/Services/Blocks.php:138
+#: classes/Services/Blocks.php:139
 msgid "Heading"
 msgstr ""
 
-#: classes/Services/Blocks.php:144
+#: classes/Services/Blocks.php:145
 msgid "Image"
 msgstr ""
 
-#: classes/Services/Blocks.php:150
+#: classes/Services/Blocks.php:151
 msgid "List"
 msgstr ""
 
-#: classes/Services/Blocks.php:156
+#: classes/Services/Blocks.php:157
 msgid "Paragraph"
 msgstr ""
 
-#: classes/Services/Blocks.php:162
+#: classes/Services/Blocks.php:163
 msgid "Quote"
 msgstr ""
 
-#: classes/Services/Blocks.php:168
+#: classes/Services/Blocks.php:169
 msgid "Subhead"
 msgstr ""
 
-#: classes/Services/Blocks.php:174
+#: classes/Services/Blocks.php:175
 msgid "Video"
 msgstr ""
 
-#: classes/Services/Blocks.php:183
+#: classes/Services/Blocks.php:184
 msgid "Code"
 msgstr ""
 
-#: classes/Services/Blocks.php:189
+#: classes/Services/Blocks.php:190
 msgid "Classic"
 msgstr ""
 
-#: classes/Services/Blocks.php:195
+#: classes/Services/Blocks.php:196
 msgid "Custom HTML"
 msgstr ""
 
-#: classes/Services/Blocks.php:201
+#: classes/Services/Blocks.php:202
 msgid "Preformatted"
 msgstr ""
 
-#: classes/Services/Blocks.php:207
+#: classes/Services/Blocks.php:208
 msgid "Pullquote"
 msgstr ""
 
-#: classes/Services/Blocks.php:213
+#: classes/Services/Blocks.php:214
 msgid "Table"
 msgstr ""
 
-#: classes/Services/Blocks.php:219
+#: classes/Services/Blocks.php:220
 msgid "Verse"
 msgstr ""
 
-#: classes/Services/Blocks.php:228
+#: classes/Services/Blocks.php:229
 msgid "Button"
 msgstr ""
 
-#: classes/Services/Blocks.php:234
+#: classes/Services/Blocks.php:235
 msgid "Columns"
 msgstr ""
 
-#: classes/Services/Blocks.php:240
+#: classes/Services/Blocks.php:241
 msgid "More"
 msgstr ""
 
-#: classes/Services/Blocks.php:246
+#: classes/Services/Blocks.php:247
 msgid "Separator"
 msgstr ""
 
-#: classes/Services/Blocks.php:252
+#: classes/Services/Blocks.php:253
 msgid "Text Columns"
 msgstr ""
 
-#: classes/Services/Blocks.php:261
+#: classes/Services/Blocks.php:262
 msgid "Shortcode"
 msgstr ""
 
-#: classes/Services/Blocks.php:267
+#: classes/Services/Blocks.php:268
 msgid "Categories"
 msgstr ""
 
-#: classes/Services/Blocks.php:273
+#: classes/Services/Blocks.php:274
 msgid "Latest posts"
 msgstr ""
 
-#: classes/WP/Admin.php:50 classes/WP/Admin.php:51
+#: classes/WP/Admin.php:50
 msgid "Blocks"
 msgstr ""
 
@@ -367,6 +350,24 @@ msgstr ""
 
 #: classes/WP/Settings.php:61 classes/WP/Settings.php:62
 msgid "Demo"
+msgstr ""
+
+#: public/templates/post.php:13 src/blocks/post/preview.js:82
+msgid "In"
+msgstr ""
+
+#: public/templates/post.php:16 src/blocks/plugin/preview.js:100
+#: src/blocks/post/preview.js:85
+msgid "By"
+msgstr ""
+
+#: public/templates/post.php:27 src/blocks/post/preview.js:95
+msgid "Read more"
+msgstr ""
+
+#: public/templates/product.php:25 src/blocks/addtocart/index.js:52
+#: src/blocks/product/preview.js:69
+msgid "Add to cart"
 msgstr ""
 
 #: src/blocks/ad/index.js:22 src/blocks/adtext/index.js:53
@@ -399,10 +400,6 @@ msgstr ""
 
 #: src/blocks/addtocart/index.js:34
 msgid "purchase"
-msgstr ""
-
-#: src/blocks/addtocart/index.js:52 src/blocks/product/preview.js:69
-msgid "Add to cart"
 msgstr ""
 
 #: src/blocks/addtocart/index.js:70
@@ -469,32 +466,65 @@ msgstr ""
 msgid "Apply"
 msgstr ""
 
-#: src/blocks/gmap/index.js:24
-msgid "Display a customizable Google map"
+#: src/blocks/gmap/geocoder.js:32 src/blocks/plugin/searchplugins.js:30
+#: src/components/searchpost/index.js:36
+#: src/components/searchproduct/index.js:28
+msgid "Loading..."
 msgstr ""
 
-#: src/blocks/gmap/index.js:28
-msgid "map"
+#: src/blocks/gmap/geocoder.js:41 src/blocks/plugin/searchplugins.js:44
+#: src/components/searchpost/index.js:49
+#: src/components/searchproduct/index.js:41
+msgid "No result"
 msgstr ""
 
-#: src/blocks/gmap/index.js:71
-msgid "Type your address on the inspector"
+#: src/blocks/gmap/geocoder.js:47
+msgid "Geocode was not successful for the following reason:"
 msgstr ""
 
-#: src/blocks/gmap/inspect.js:39
+#: src/blocks/gmap/geocoder.js:60
 msgid "Address"
 msgstr ""
 
-#: src/blocks/gmap/inspect.js:43
+#: src/blocks/gmap/geocoder.js:64
 msgid "Type an address"
 msgstr ""
 
-#: src/blocks/gmap/inspect.js:50
+#: src/blocks/gmap/index.js:23
+msgid "Display a customizable Google map"
+msgstr ""
+
+#: src/blocks/gmap/index.js:27
+msgid "map"
+msgstr ""
+
+#: src/blocks/gmap/index.js:91
+msgid "Type your address on the inspector"
+msgstr ""
+
+#: src/blocks/gmap/index.js:96
+msgid ""
+"⚠️ You need to provide an API key in Blocks > Installed Blocks > Google Map"
+msgstr ""
+
+#: src/blocks/gmap/inspect.js:32
+msgid "Marker Popup Title"
+msgstr ""
+
+#: src/blocks/gmap/inspect.js:36
+msgid "My shop Name"
+msgstr ""
+
+#: src/blocks/gmap/inspect.js:44
 msgid "Zoom"
 msgstr ""
 
-#: src/blocks/gmap/inspect.js:58
+#: src/blocks/gmap/inspect.js:52
 msgid "Height"
+msgstr ""
+
+#: src/blocks/gmap/inspect.js:60
+msgid "Style"
 msgstr ""
 
 #: src/blocks/notice/index.js:21
@@ -561,18 +591,8 @@ msgstr ""
 msgid "Plugin page"
 msgstr ""
 
-#: src/blocks/plugin/searchplugins.js:30 src/components/searchpost/index.js:36
-#: src/components/searchproduct/index.js:28
-msgid "Loading..."
-msgstr ""
-
-#: src/blocks/plugin/searchplugins.js:44 src/components/searchpost/index.js:49
-#: src/components/searchproduct/index.js:41
-msgid "No result"
-msgstr ""
-
 #: src/blocks/plugin/searchplugins.js:50
-msgid "Error: Couldn't reach wp.org"
+msgid "⚠️ Error: Couldn't reach wp.org"
 msgstr ""
 
 #: src/blocks/plugin/searchplugins.js:64

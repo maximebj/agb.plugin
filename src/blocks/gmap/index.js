@@ -93,7 +93,7 @@ export default registerBlockType(
 					{ typeof gutenblocksGmap === "undefined" ? (
 						<Gmap { ...props } />
 					) : (
-						<p class="gutenblocks-block-message">{ __( '⚠️ You need to provide an API key in Blocks > Settings > Google Map' ) }</p>
+						<p class="gutenblocks-block-message">{ __( '⚠️ You need to provide an API key in Blocks > Installed Blocks > Google Map' ) }</p>
 					) }
 				</div>
       ]
