@@ -29,6 +29,10 @@ export default registerBlockType(
     attributes: {
       address: {
         type: 'string',
+				default: 'Paris',
+      },
+			name: {
+        type: 'string',
       },
       latitude: {
         type: 'float',
@@ -56,12 +60,14 @@ export default registerBlockType(
 			! props.attributes.longitude && props.setAttributes( { longitude: 2.3522 } )
 
 			const onChangeAddress = geocodedObj => {
-
-				console.log(geocodedObj)
         props.setAttributes( { latitude: geocodedObj.geometry.location.lat() } )
         props.setAttributes( { longitude: geocodedObj.geometry.location.lng() } )
 				props.setAttributes( { address: geocodedObj.formatted_address } )
       }
+
+			const onChangeName = event => {
+				props.setAttributes( { name: event.target.value } )
+			}
 
 			const onChangeZoom = value => {
         props.setAttributes( { zoom: value } )
@@ -77,7 +83,7 @@ export default registerBlockType(
 
       return [
         !! props.focus && (
-          <Inspector { ...{ onChangeAddress, onChangeZoom, onChangeHeight, onChangeStyle, ...props } } />
+          <Inspector { ...{ onChangeAddress, onChangeName, onChangeZoom, onChangeHeight, onChangeStyle, ...props } } />
         )
 				,
 				<div className="wp-block-gutenblocks-gmap">

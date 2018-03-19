@@ -28,6 +28,18 @@ export default class Inspector extends Component {
 
 				<Geocoder onChangeAddress={ this.props.onChangeAddress } />
 
+				<BaseControl
+					label={ __( 'Marker Popup Title' ) }
+				>
+					<input
+						type="text"
+						placeholder={ __( 'My shop Name' ) }
+						className="blocks-text-control__input"
+						onChange={ this.props.onChangeName }
+						value={ this.props.attributes.name }
+					/>
+				</BaseControl>
+
 				<RangeControl
 					label={ __( 'Zoom' ) }
 					value={ this.props.attributes.zoom }

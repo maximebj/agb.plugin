@@ -8,12 +8,20 @@
 				zoom: <?php echo $attributes['zoom']; ?>,
 				center: coords,
 				styles: <?php echo $style; ?>
-			} )
+			} );
 
-			var marker = new google.maps.Marker({
+			var marker = new google.maps.Marker( {
 				position: coords,
 				map: map
-			} )
+			} );
+
+			var infoWindow = new google.maps.InfoWindow( {
+	    	content: "<p><strong><?php echo htmlspecialchars($attributes['name']); ?></strong></p><p><?php echo htmlspecialchars($attributes['address']); ?></p>"
+	  	} )
+
+			marker.addListener('click', function() {
+	    	infoWindow.open( map, marker );
+	  	} )
 		}
 	</script>
 	<script async defer

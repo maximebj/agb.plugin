@@ -767,7 +767,7 @@ class Gmap {
 				]";
 				break;
 			default:
-				$style = 'default';
+				$style = '"default"';
 		}
 
 		$api_key = get_option( 'gutenblocks-gmap-api-key' );
