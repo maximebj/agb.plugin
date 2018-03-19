@@ -25,7 +25,7 @@ class AddToCart {
 
 	public function register_render() {
 
-		if ( ! class_exists( 'WooCommerce' ) or ! function_exists( 'register_block_type' ) ) {
+		if ( ! class_exists( 'WooCommerce' ) or ! function_exists( 'register_block_type' ) or is_admin() ) {
 			return;
 		}
 

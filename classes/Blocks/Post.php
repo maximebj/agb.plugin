@@ -25,7 +25,7 @@ class Post {
 
 	public function register_render() {
 
-		if ( ! function_exists( 'register_block_type' ) ) {
+		if ( ! function_exists( 'register_block_type' ) or is_admin() ) {
 			return;
 		}
 
