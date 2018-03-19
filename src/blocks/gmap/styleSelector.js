@@ -16,15 +16,18 @@ export default class StyleSelector extends Component {
 
     return (
       <div class="gutenblocks-panel-maps">
-        { styles.map( value => {
+        { Object.keys(styles).map( key => {
+
           return (
-						<img
-							src=""
-							alt=""
-							onClick={() => this.getStyle(value) }
-						/>
+						<div className="gutenblocks-panel-maps__item">
+							<img
+								src={ `${gutenblocksGlobals.pluginurl}/admin/img/maps/${key}.png` }
+								alt={ `Style ${key}` }
+								onClick={ () => this.getStyle( key ) }
+							/>
+						</div>
           )
-        })}
+        } ) }
       </div>
     );
   }

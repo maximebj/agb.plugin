@@ -376,3 +376,16 @@
   margin-right: 4px;
   width: 32px;
   height: 32px; }
+
+.gutenblocks-panel-maps {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: -8px; }
+  .gutenblocks-panel-maps .gutenblocks-panel-maps__item {
+    width: calc( 50% - 16px);
+    margin: 8px; }
+  .gutenblocks-panel-maps img {
+    display: block;
+    cursor: pointer; }

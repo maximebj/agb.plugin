@@ -72,16 +72,22 @@ export default registerBlockType(
 				props.setAttributes( { style: value } )
 			}
 
+			console.log(typeof gutenblocksGmap == "undefined")
+
       return [
         !! props.focus && (
           <Inspector { ...{ onChangeCoordinates, onChangeZoom, onChangeHeight, onChangeStyle, ...props } } />
         )
 				,
 				<div className="wp-block-gutenblocks-gmap">
-	        { ! props.attributes.address && (
+	        { ! props.attributes.address && props.focus && typeof(gutenblocksGmap) == 'undefined' && (
 	          <p class="gutenblocks-block-message">{ __( 'Type your address on the inspector' ) }</p>
 	        ) }
-					<Gmap { ...props } />
+					{ typeof gutenblocksGmap === "undefined" ? (
+						<Gmap { ...props } />
+					) : (
+						<p class="gutenblocks-block-message">{ __( '⚠️ You need to provide an API key in Blocks > Settings > Google Map' ) }</p>
+					) }
 				</div>
       ]
   	},

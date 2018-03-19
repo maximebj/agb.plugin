@@ -21,8 +21,8 @@ export default class Inspector extends Component {
   constructor( props ) {
     super( props )
 
-		this.onSearch = this.onSearch.bind(this)
-    this.performSearch = debounce(300, this.performSearch)
+		//this.onSearch = this.onSearch.bind(this)
+    //this.performSearch = debounce(300, this.performSearch)
   }
 
 	onSearch( event ) {

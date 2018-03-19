@@ -19,11 +19,10 @@ export default class Gmap extends Component {
 
 		let coords = { lat: this.props.attributes.latitude, lng: this.props.attributes.longitude }
 
-		console.log(coords)
-
     let map = new google.maps.Map( document.querySelector( '.wp-block-gutenblocks-gmap__canvas' ), {
       zoom: this.props.attributes.zoom,
-      center: coords
+      center: coords,
+			styles: styles[this.props.attributes.style]
     } )
 
     let marker = new google.maps.Marker({
@@ -47,7 +46,7 @@ export default class Gmap extends Component {
 
 		// Update style
 		if(lastProps.attributes.style != this.props.attributes.style ) {
-			this.state.Gmap.setOptions( {styles: this.state.styles[this.props.attributes.style] } )
+			this.state.Gmap.setOptions( {styles: styles[this.props.attributes.style] } )
 		}
 	}
 

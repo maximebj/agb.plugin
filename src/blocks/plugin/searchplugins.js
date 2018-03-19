@@ -47,7 +47,7 @@ export default class SearchPlugins extends Component {
 			}
     })
 		.catch(error => {
-			this.setState( { results: __( "Error: Couldn't reach wp.org" ) } )
+			this.setState( { results: __( "⚠️ Error: Couldn't reach wp.org" ) } )
 		})
   }
 

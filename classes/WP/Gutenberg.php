@@ -47,6 +47,7 @@ class Gutenberg {
       'gutenblocksGlobals',
       array(
         'ajaxurl' => admin_url('admin-ajax.php'),
+				'pluginurl' => Consts::get_url(),
       )
     );
 

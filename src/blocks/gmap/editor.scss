@@ -1,1 +1,17 @@
 @import 'vars';
+
+.gutenblocks-panel-maps {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -8px;
+
+	.gutenblocks-panel-maps__item {
+		width: calc( 50% - 16px );
+		margin: 8px;
+	}
+
+	img {
+		display: block;
+		cursor: pointer;
+	}
+}
