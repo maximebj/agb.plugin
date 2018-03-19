@@ -1,4 +1,4 @@
-import debounce from 'throttle-debounce'
+import Geocoder from './geocoder'
 
 import StyleSelector from './styleselector'
 
@@ -10,8 +10,8 @@ const {
 
 const {
   PanelBody,
-	RangeControl,
 	BaseControl,
+	RangeControl,
 } = wp.components
 
 const { __ } = wp.i18n;
@@ -20,33 +20,13 @@ export default class Inspector extends Component {
 
   constructor( props ) {
     super( props )
-
-		//this.onSearch = this.onSearch.bind(this)
-    //this.performSearch = debounce(300, this.performSearch)
   }
-
-	onSearch( event ) {
-    this.performSearch( event.target.value )
-  }
-
-  performSearch( search ) {
-		console.log('search')
-	}
 
   render() {
     return (
       <InspectorControls key="inspector">
 
-				<BaseControl
-					label={ __( 'Address' ) }
-				>
-	        <input
-	          type="search"
-	          placeholder={ __( 'Type an address' ) }
-	          className="blocks-text-control__input"
-	          onChange={ this.onSearch }
-	        />
-				</BaseControl>
+				<Geocoder onChangeAddress={ this.props.onChangeAddress } />
 
 				<RangeControl
 					label={ __( 'Zoom' ) }

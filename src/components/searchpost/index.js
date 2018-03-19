@@ -8,7 +8,7 @@ const {
 	BaseControl,
 } = wp.components
 
-export default class SearchProducts extends Component {
+export default class SearchPost extends Component {
 
   constructor( props ) {
     super( props )

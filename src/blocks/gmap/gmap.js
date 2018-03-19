@@ -19,13 +19,13 @@ export default class Gmap extends Component {
 
 		let coords = { lat: this.props.attributes.latitude, lng: this.props.attributes.longitude }
 
-    let map = new google.maps.Map( document.querySelector( '.wp-block-gutenblocks-gmap__canvas' ), {
+    const map = new google.maps.Map( document.querySelector( '.wp-block-gutenblocks-gmap__canvas' ), {
       zoom: this.props.attributes.zoom,
       center: coords,
 			styles: styles[this.props.attributes.style]
     } )
 
-    let marker = new google.maps.Marker({
+    const marker = new google.maps.Marker({
       position: coords,
       map: map
     } )
@@ -38,6 +38,16 @@ export default class Gmap extends Component {
 	}
 
 	componentDidUpdate(lastProps, lastState) {
+
+		// Update position
+		if(lastProps.attributes.address != this.props.attributes.address ) {
+
+			const coords = { lat: this.props.attributes.latitude, lng: this.props.attributes.longitude }
+
+			this.state.Gmap.setCenter( coords )
+
+			this.state.marker.setPosition( coords )
+		}
 
 		// Update zoom
 		if(lastProps.attributes.zoom != this.props.attributes.zoom ) {
