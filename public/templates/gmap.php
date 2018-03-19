@@ -1,10 +1,10 @@
 <div class="wp-block-gutenblocks-gmap">
 	<script>
-		function initMap() {
+		function initMap<?php echo $rand; ?>() {
 
 			var coords = { lat: <?php echo $attributes['latitude']; ?>, lng: <?php echo $attributes['longitude']; ?> }
 
-			var map = new google.maps.Map( document.querySelector( '.wp-block-gutenblocks-gmap__canvas' ), {
+			var map = new google.maps.Map( document.querySelector( '#gutenblock-gmap-<?php echo $rand; ?>' ), {
 				zoom: <?php echo $attributes['zoom']; ?>,
 				center: coords,
 				styles: <?php echo $style; ?>
@@ -17,7 +17,7 @@
 		}
 	</script>
 	<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=<?php echo $api_key; ?>&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=<?php echo $api_key; ?>&callback=initMap<?php echo $rand; ?>">
   </script>
-	<div class="wp-block-gutenblocks-gmap__canvas" style="height: <?php echo $attributes['height']; ?>px;"></div>
+	<div class="wp-block-gutenblocks-gmap__canvas" id="gutenblock-gmap-<?php echo $rand; ?>" style="height: <?php echo $attributes['height']; ?>px;"></div>
 </div>

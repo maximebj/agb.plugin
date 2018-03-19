@@ -772,6 +772,8 @@ class Gmap {
 
 		$api_key = get_option( 'gutenblocks-gmap-api-key' );
 
+		$rand = rand();
+
 		$output = "";
 		ob_start();
 		include Consts::get_path() . 'public/templates/gmap.php';
