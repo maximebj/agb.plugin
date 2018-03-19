@@ -5,7 +5,6 @@ namespace GutenbergBlocks\WP;
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
 use GutenbergBlocks\Helpers\Consts;
-
 use GutenbergBlocks\Services\Blocks;
 
 /**
@@ -38,7 +37,7 @@ class Gutenberg {
 		// Custom blocks
 		wp_enqueue_script(
 			Consts::BLOCKS_SCRIPT,
-			Consts::get_url() . '/dist/blocks.build.js',
+			Consts::get_url() . 'dist/blocks.build.js',
 			[ 'wp-blocks', 'wp-i18n', 'wp-element' ]
 		);
 
@@ -56,7 +55,7 @@ class Gutenberg {
 
 		wp_enqueue_script(
 			'gutenblocks-block-deactivator',
-			Consts::get_url() . '/dist/deactivator.build.js',
+			Consts::get_url() . 'dist/deactivator.build.js',
 			[ 'wp-blocks', 'wp-i18n', 'wp-element' ],
 			'1.0',
 			true
