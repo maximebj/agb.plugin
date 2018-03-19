@@ -46,7 +46,7 @@ class Post {
 
 		$post = get_post( $id );
 		$link = get_permalink( $id );
-		$excerpt = get_the_excerpt( $id );
+		$excerpt = $post->post_excerpt; // bug: can't use get_the_excerpt as it causes an infinite loop if no excerpt is set
 
 		$image = false;
 
