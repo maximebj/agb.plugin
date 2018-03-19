@@ -22,7 +22,7 @@ export default class Inspector extends Component {
     return (
       <InspectorControls key="inspector">
 
-        <PanelBody title={ __('Search plugin' ) }>
+        <PanelBody title={ __( 'Search plugin', 'advanced-gutenberg-blocks' ) }>
           <SearchPlugins onChangePlugin={this.props.onChangePlugin} />
         </PanelBody>
 

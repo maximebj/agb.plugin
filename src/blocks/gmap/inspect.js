@@ -29,11 +29,11 @@ export default class Inspector extends Component {
 				<Geocoder onChangeAddress={ this.props.onChangeAddress } />
 
 				<BaseControl
-					label={ __( 'Marker Popup Title' ) }
+					label={ __( 'Marker Popup Title', 'advanced-gutenberg-blocks' ) }
 				>
 					<input
 						type="text"
-						placeholder={ __( 'My shop Name' ) }
+						placeholder={ __( 'My shop Name', 'advanced-gutenberg-blocks' ) }
 						className="blocks-text-control__input"
 						onChange={ this.props.onChangeName }
 						value={ this.props.attributes.name }
@@ -41,7 +41,7 @@ export default class Inspector extends Component {
 				</BaseControl>
 
 				<RangeControl
-					label={ __( 'Zoom' ) }
+					label={ __( 'Zoom', 'advanced-gutenberg-blocks' ) }
 					value={ this.props.attributes.zoom }
 					onChange={ this.props.onChangeZoom }
 					min={ 0 }
@@ -49,7 +49,7 @@ export default class Inspector extends Component {
 				/>
 
 				<RangeControl
-					label={ __( 'Height' ) }
+					label={ __( 'Height', 'advanced-gutenberg-blocks' ) }
 					value={ this.props.attributes.height }
 					onChange={ this.props.onChangeHeight }
 					min={ 0 }
@@ -57,7 +57,7 @@ export default class Inspector extends Component {
 				/>
 
 				<BaseControl
-					label={ __( 'Style' ) }
+					label={ __( 'Style', 'advanced-gutenberg-blocks' ) }
 				>
 					<StyleSelector onChangeStyle={ this.props.onChangeStyle } />
 				</BaseControl>

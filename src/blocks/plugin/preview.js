@@ -69,10 +69,10 @@ export default class Preview extends Component {
 
 	formatInstallsNumber() {
 		if ( this.props.attributes.activeInstalls > 1000000 ) {
-			this.setState( { installs: __( '1+ Million' ) } )
+			this.setState( { installs: __( '1+ Million', 'advanced-gutenberg-blocks' ) } )
 		}
 		else if( this.props.attributes.activeInstalls < 10 ) {
-			this.setState( { installs: __( 'Less than 10' ) } )
+			this.setState( { installs: __( 'Less than 10', 'advanced-gutenberg-blocks' ) } )
 		}
 		else {
 			this.setState( { installs: this.props.attributes.activeInstalls+'+' } )
@@ -97,7 +97,7 @@ export default class Preview extends Component {
 						</p>
             <p className="wp-block-gutenblocks-plugin__desc">{this.props.attributes.description}</p>
 						<p className="wp-block-gutenblocks-plugin__author">
-							{ __( 'By' ) }
+							{ __( 'By', 'advanced-gutenberg-blocks' ) }
 							&nbsp;
 							<a href={this.props.attributes.homepage} target='_blank'>
 								{this.state.author}
@@ -120,7 +120,7 @@ export default class Preview extends Component {
 						<p className="wp-block-gutenblocks-plugin__active" data-installs={this.props.attributes.activeInstalls}>
 							<span>{this.state.installs}</span>
 							&nbsp;
-							{ __( 'Active Installations' ) }
+							{ __( 'Active Installations', 'advanced-gutenberg-blocks' ) }
 						</p>
 					</div>
 					<div className="wp-block-gutenblocks-plugin__download">
@@ -128,7 +128,7 @@ export default class Preview extends Component {
 							href={this.props.attributes.downloadLink}
 							target="_blank"
 							className="wp-block-gutenblocks-plugin__button">
-								{ __('Plugin page') }
+								{ __( 'Plugin page', 'advanced-gutenberg-blocks' ) }
 							</a>
 					</div>
 				</footer>

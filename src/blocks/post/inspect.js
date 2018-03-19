@@ -25,23 +25,23 @@ export default class Inspector extends Component {
     return (
       <InspectorControls key="inspector">
 
-        <PanelBody title={ __('Choose a post') }>
+        <PanelBody title={ __( 'Choose a post', 'advanced-gutenberg-blocks' ) }>
           <SearchPost onChangePost={ this.props.onChangePost } />
         </PanelBody>
 
 				{ !! this.props.attributes.postID && (
 
-					<PanelBody title={ __('Customize') }>
+					<PanelBody title={ __( 'Customize', 'advanced-gutenberg-blocks' ) }>
 						<PanelRow>
 	            <label
 	              htmlFor="image-form-toggle"
 	              className="blocks-base-control__label"
 	            >
-	              { __( 'Show Image?') }
+	              { __( 'Show Image?', 'advanced-gutenberg-blocks' ) }
 	            </label>
 	            <FormToggle
 	              id="image-form-toggle"
-	              label={ __( 'Show Image?') }
+	              label={ __( 'Show Image?', 'advanced-gutenberg-blocks' ) }
 	              checked={ !! this.props.attributes.showImage }
 	              onChange={ this.props.toggleImage }
 	            />
@@ -51,11 +51,11 @@ export default class Inspector extends Component {
 	              htmlFor="author-form-toggle"
 	              className="blocks-base-control__label"
 	            >
-	              { __( 'Show Author?') }
+	              { __( 'Show Author?', 'advanced-gutenberg-blocks' ) }
 	            </label>
 	            <FormToggle
 	              id="author-form-toggle"
-	              label={ __( 'Show Author?') }
+	              label={ __( 'Show Author?', 'advanced-gutenberg-blocks' ) }
 	              checked={ !! this.props.attributes.showAuthor }
 	              onChange={ this.props.toggleAuthor }
 	            />
@@ -66,11 +66,11 @@ export default class Inspector extends Component {
 	              htmlFor="category-form-toggle"
 	              className="blocks-base-control__label"
 	            >
-	              { __( 'Show Category?') }
+	              { __( 'Show Category?', 'advanced-gutenberg-blocks' ) }
 	            </label>
 	            <FormToggle
 	              id="category-form-toggle"
-	              label={ __( 'Show Category?') }
+	              label={ __( 'Show Category?', 'advanced-gutenberg-blocks' ) }
 	              checked={ !! this.props.attributes.showCategory }
 	              onChange={ this.props.toggleCategory }
 	            />

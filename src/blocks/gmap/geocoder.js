@@ -29,7 +29,7 @@ export default class Geocoder extends Component {
       return
     }
 
-    this.setState( { results: __( 'Loading...' ) } )
+    this.setState( { results: __( 'Loading...', 'advanced-gutenberg-blocks' ) } )
 
 		const geocoder = new google.maps.Geocoder()
 		const component = this
@@ -38,13 +38,13 @@ export default class Geocoder extends Component {
       if (status == 'OK') {
 
 				if(results.length == 0 ) {
-	        results = __( 'No result' )
+	        results = __( 'No result', 'advanced-gutenberg-blocks' )
 	      }
 
 				component.setState( { results: results } )
 
 			} else {
-				component.setState( { results: __( 'Geocode was not successful for the following reason:' ) + status } )
+				component.setState( { results: __( 'Geocode was not successful for the following reason:', 'advanced-gutenberg-blocks' ) + status } )
       }
 		} )
   }
@@ -57,11 +57,11 @@ export default class Geocoder extends Component {
     return (
       <div>
 				<BaseControl
-					label={ __( 'Address' ) }
+					label={ __( 'Address', 'advanced-gutenberg-blocks' ) }
 				>
 	        <input
 	          type="search"
-	          placeholder={ __( 'Type an address' ) }
+	          placeholder={ __( 'Type an address', 'advanced-gutenberg-blocks' ) }
 	          className="blocks-text-control__input"
 	          onChange={ this.onSearch }
 	        />

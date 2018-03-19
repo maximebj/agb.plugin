@@ -37,7 +37,7 @@ export default class URLFetcher extends Component {
       return
     }
 
-		this.setState( { results: __('Fetching website...') } )
+		this.setState( { results: __( 'Fetching website...', 'advanced-gutenberg-blocks' ) } )
 
 		fetch(gutenblocksGlobals.ajaxurl, {
       method: 'POST',
@@ -51,7 +51,7 @@ export default class URLFetcher extends Component {
     .then( site => {
 
 			if ( site.error == 'sitenotfound') {
-				this.setState( { results: __( "⚠️ Error: Couldn't reach website" ) } )
+				this.setState( { results: __( "⚠️ Error: Couldn't reach website", 'advanced-gutenberg-blocks' ) } )
 			} else {
 				this.props.onURLFetched( site )
 			}
@@ -74,12 +74,12 @@ export default class URLFetcher extends Component {
 						name="url"
 						type="url"
 						id="url"
-						placeholder={ __('Type URL or paste') }
+						placeholder={ __( 'Type URL or paste', 'advanced-gutenberg-blocks' ) }
 						focus={this.props.focus}
 					/>
 					<IconButton
 	          icon="editor-break"
-	          label={ __( 'Apply' ) }
+	          label={ __( 'Apply', 'advanced-gutenberg-blocks' ) }
 	          type="submit"
 	        />
 				</form>

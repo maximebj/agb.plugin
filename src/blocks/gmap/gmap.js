@@ -2,8 +2,6 @@ import styles from './styles'
 
 const { Component } = wp.element
 
-const { __ } = wp.i18n
-
 export default class Gmap extends Component {
 
   constructor( props ) {

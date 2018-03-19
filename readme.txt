@@ -39,11 +39,11 @@ Don't want some of the blocks (from this plugin or the WP default ones) ? Disabl
 
 = Centralized settings =
 
-Gutenberg Blocks features a setting page with all the blocks where you can edit default settings and manage your blocks
+Advanced Gutenberg Blocks features a setting page with all the blocks where you can edit default settings and manage your blocks
 
 = Extensible =
 
-Create your own blocks and register them in the Gutenberg Blocks settings page.
+Create your own blocks and register them in the Advanced Gutenberg Blocks settings page.
 
 = Contribute! =
 
@@ -60,7 +60,7 @@ __This plugin requires Gutenberg plugin__
 
 == Frequently Asked Questions ==
 
-= What is Gutenberg Blocks? =
+= What is Advanced Gutenberg Blocks? =
 
 For now it's a proof of concept of a Blocks repository in WordPress and a showcase of some awesome dynamic blocks
 

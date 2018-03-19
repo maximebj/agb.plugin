@@ -26,12 +26,12 @@ const {
 export default registerBlockType(
   'gutenblocks/addtocart',
   {
-		title: __( 'Add to cart button' ),
-    description: __( 'This button allow a customer to quickly add a product to cart' ),
+		title: __( 'Add to cart button', 'advanced-gutenberg-blocks' ),
+    description: __( 'This button allow a customer to quickly add a product to cart', 'advanced-gutenberg-blocks' ),
     category: 'common',
     icon: 'cart',
     keywords: [
-      __( 'purchase' ),
+      __( 'purchase', 'advanced-gutenberg-blocks' ),
     ],
     attributes: {
 			productID: {
@@ -49,7 +49,7 @@ export default registerBlockType(
       },
       label: {
         type: 'string',
-				default: __( 'Add to cart' ),
+				default: __( 'Add to cart', 'advanced-gutenberg-blocks' ),
       },
     },
 		edit: withAPIData( ( { attributes } ) => {
@@ -67,7 +67,7 @@ export default registerBlockType(
 				const onChangeProduct = product => {
 	        setAttributes( {
 						productID: product.id,
-						label: __( 'Add' ) + ' ' + product.title.rendered + ' ' + __( 'to cart' )
+						label: __( 'Add', 'advanced-gutenberg-blocks' ) + ' ' + product.title.rendered + ' ' + __( 'to cart', 'advanced-gutenberg-blocks' )
 					} )
 	      }
 

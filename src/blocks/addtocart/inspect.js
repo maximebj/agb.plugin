@@ -24,12 +24,12 @@ export default class Inspector extends Component {
   render() {
     return (
       <InspectorControls key="inspector">
-				<PanelBody title={ __( 'Search Product' ) }>
+				<PanelBody title={ __( 'Search Product', 'advanced-gutenberg-blocks' ) }>
           <SearchProduct onChangeProduct={this.props.onChangeProduct} />
         </PanelBody>
 
 				<PanelColor
-          title={ __( 'Background Color' ) }
+          title={ __( 'Background Color', 'advanced-gutenberg-blocks' ) }
           colorValue={ this.props.attributes.backgroundColor }
           >
           <ColorPalette
@@ -39,18 +39,18 @@ export default class Inspector extends Component {
         </PanelColor>
 
         <PanelBody
-          title={ __('Icon') }
+          title={ __( 'Icon', 'advanced-gutenberg-blocks' ) }
         >
           <PanelRow>
             <label
               htmlFor="icon-form-toggle"
               className="blocks-base-control__label"
             >
-              { __( 'Display Icon?') }
+              { __( 'Display Icon?', 'advanced-gutenberg-blocks' ) }
             </label>
             <FormToggle
               id="icon-form-toggle"
-              label={ __( 'Display Icon?') }
+              label={ __( 'Display Icon?', 'advanced-gutenberg-blocks' ) }
               checked={ !! this.props.attributes.hasIcon }
               onChange={ this.props.toggleHasIcon }
             />

@@ -21,13 +21,13 @@ const {
 export default registerBlockType(
   'gutenblocks/card',
   {
-    title: __( 'Website card preview' ),
-    description: __( 'Turn a simple url in a pretty card preview' ),
+    title: __( 'Website card preview', 'advanced-gutenberg-blocks' ),
+    description: __( 'Turn a simple url in a pretty card preview', 'advanced-gutenberg-blocks' ),
     category: 'common',
     icon: 'admin-links',
     keywords: [
-      __( 'url' ),
-      __( 'link' ),
+      __( 'url', 'advanced-gutenberg-blocks' ),
+      __( 'link', 'advanced-gutenberg-blocks' ),
     ],
 		attributes: {
 			title: {

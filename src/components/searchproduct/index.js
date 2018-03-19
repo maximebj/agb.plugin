@@ -25,7 +25,7 @@ export default class SearchProduct extends Component {
       return
     }
 
-    this.setState( { results: __( 'Loading...' ) } )
+    this.setState( { results: __( 'Loading...', 'advanced-gutenberg-blocks' ) } )
 
     const productsCollection = new wp.api.collections.Product()
 
@@ -38,7 +38,7 @@ export default class SearchProduct extends Component {
     .then( results => {
 
       if(results.length == 0 ) {
-        results = __( 'No result' )
+        results = __( 'No result', 'advanced-gutenberg-blocks' )
       }
       this.setState( { results: results } )
     } )
@@ -55,7 +55,7 @@ export default class SearchProduct extends Component {
       <div>
         <input
           type="search"
-          placeholder={ __('Type a product name' ) }
+          placeholder={ __('Type a product name', 'advanced-gutenberg-blocks' ) }
           className="blocks-text-control__input"
           onChange={ this.onSearch }
         />

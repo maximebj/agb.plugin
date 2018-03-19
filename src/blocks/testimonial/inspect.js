@@ -28,11 +28,11 @@ export default class Inspector extends Component {
               htmlFor="image-form-toggle"
               className="blocks-base-control__label"
             >
-              { __( 'Show Image?') }
+              { __( 'Show Image?', 'advanced-gutenberg-blocks' ) }
             </label>
             <FormToggle
               id="image-form-toggle"
-              label={ __( 'Show Image?') }
+              label={ __( 'Show Image?', 'advanced-gutenberg-blocks' ) }
               checked={ !! this.props.attributes.showImage }
               onChange={ this.props.toggleImage }
             />
@@ -42,17 +42,15 @@ export default class Inspector extends Component {
               htmlFor="author-form-toggle"
               className="blocks-base-control__label"
             >
-              { __( 'Show Company name?') }
+              { __( 'Show Company name?', 'advanced-gutenberg-blocks' ) }
             </label>
             <FormToggle
               id="author-form-toggle"
-              label={ __( 'Show Company name?') }
+              label={ __( 'Show Company name?', 'advanced-gutenberg-blocks' ) }
               checked={ !! this.props.attributes.showCompany }
               onChange={ this.props.toggleCompany }
             />
           </PanelRow>
-
-
 				</PanelBody>
 
       </InspectorControls>

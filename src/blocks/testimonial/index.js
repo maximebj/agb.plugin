@@ -22,12 +22,12 @@ const {
 export default registerBlockType(
   'gutenblocks/testimonial',
   {
-    title: __( 'Testimonial' ),
-    description: __( 'Display a testimonial with a picture, text, name and company' ),
+    title: __( 'Testimonial', 'advanced-gutenberg-blocks' ),
+    description: __( 'Display a testimonial with a picture, text, name and company', 'advanced-gutenberg-blocks' ),
     category: 'common',
     icon: 'format-status',
     keywords: [
-      __('review'),
+      __( 'review', 'advanced-gutenberg-blocks' ),
     ],
     attributes: {
 			image: {
@@ -109,7 +109,7 @@ export default registerBlockType(
 										{ !! props.focus && (
 										<div className="wp-block-gutenblocks-testimonial__picture__actions">
 											<a onClick={ onRemoveImage }>
-												{ __( '× Remove' ) }
+												{ __( '× Remove', 'advanced-gutenberg-blocks' ) }
 											</a>
 										</div>
 										) }
@@ -125,7 +125,7 @@ export default registerBlockType(
 
 								) : (
 									<a className="wp-block-gutenblocks-testimonial__picture__image" onClick={ open }>
-										{ __('Select Image') }
+										{ __( 'Select Image', 'advanced-gutenberg-blocks' ) }
 									</a>
 								) )
 							) }
@@ -138,7 +138,7 @@ export default registerBlockType(
 	          <RichText
 	            tagName="div"
 							multiline="p"
-	            placeholder={ __( 'Write testimonial content here' ) }
+	            placeholder={ __( 'Write testimonial content here', 'advanced-gutenberg-blocks' ) }
 	            value={ props.attributes.content }
 	            className='wp-block-gutenblocks-testimonial__content'
 	            onChange={ onChangeContent }
@@ -148,7 +148,7 @@ export default registerBlockType(
 
 							<RichText
 								tagName="p"
-								placeholder={ __( 'Matt Mullenweg' ) }
+								placeholder={ __( 'Matt Mullenweg', 'advanced-gutenberg-blocks' ) }
 								value={ props.attributes.name }
 								className='wp-block-gutenblocks-testimonial__name'
 								onChange={ onChangeName }
@@ -156,7 +156,7 @@ export default registerBlockType(
 						{ !! props.attributes.showCompany && (
 							<RichText
 								tagName="p"
-								placeholder={ __( 'Automattic' ) }
+								placeholder={ __( 'Automattic', 'advanced-gutenberg-blocks' ) }
 								value={ props.attributes.company }
 								className='wp-block-gutenblocks-testimonial__company'
 								onChange={ onChangeCompany }

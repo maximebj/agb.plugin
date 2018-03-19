@@ -18,23 +18,23 @@ const {
 } = wp.blocks
 
 const types = {
-  'advice': __( 'Advice' ),
-  'avoid': __( 'Avoid' ),
-  'warning': __( 'Warning' ),
-  'info': __( 'Information' ),
+  'advice': __( 'Advice', 'advanced-gutenberg-blocks' ),
+  'avoid': __( 'Avoid', 'advanced-gutenberg-blocks' ),
+  'warning': __( 'Warning', 'advanced-gutenberg-blocks' ),
+  'info': __( 'Information', 'advanced-gutenberg-blocks' ),
 }
 
 export default registerBlockType(
   'gutenblocks/notice',
   {
-    title: __( 'Notice' ),
-    description: __( 'Put forward a tips or a warning' ),
+    title: __( 'Notice', 'advanced-gutenberg-blocks' ),
+    description: __( 'Put forward a tips or a warning', 'advanced-gutenberg-blocks' ),
     category: 'common',
     icon: 'warning',
     keywords: [
-      __('warning'),
-      __('information'),
-      __('tips'),
+      __( 'warning', 'advanced-gutenberg-blocks' ),
+      __( 'information', 'advanced-gutenberg-blocks' ),
+      __( 'tips', 'advanced-gutenberg-blocks' ),
     ],
     attributes: {
       type: {
@@ -89,7 +89,7 @@ export default registerBlockType(
 
           <RichText
             tagName="p"
-            placeholder={ __('Your tip/warning content') }
+            placeholder={ __( 'Your tip/warning content', 'advanced-gutenberg-blocks' ) }
             value={ props.attributes.content }
             className='wp-block-gutenblocks-notice__content'
             onChange={ onChangeContent }

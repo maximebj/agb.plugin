@@ -19,12 +19,12 @@ const { __ } = wp.i18n
 export default registerBlockType(
   'gutenblocks/gmap',
   {
-    title: __( 'Google Map' ),
-    description: __( 'Display a customizable Google map' ),
+    title: __( 'Google Map', 'advanced-gutenberg-blocks' ),
+    description: __( 'Display a customizable Google map', 'advanced-gutenberg-blocks' ),
     category: 'common',
     icon: 'location-alt',
     keywords: [
-      __( 'gmap' ),
+      __( 'gmap', 'advanced-gutenberg-blocks' ),
     ],
     attributes: {
       address: {
@@ -93,12 +93,12 @@ export default registerBlockType(
 				,
 				<div className="wp-block-gutenblocks-gmap">
 	        { ! props.attributes.address && props.focus && typeof(gutenblocksGmap) == 'undefined' && (
-	          <p class="gutenblocks-block-message">{ __( 'Type your address on the inspector' ) }</p>
+	          <p class="gutenblocks-block-message">{ __( 'Type your address on the inspector', 'advanced-gutenberg-blocks' ) }</p>
 	        ) }
 					{ typeof gutenblocksGmap === "undefined" ? (
 						<Gmap { ...props } />
 					) : (
-						<p class="gutenblocks-block-message">{ __( '⚠️ You need to provide an API key in Blocks > Installed Blocks > Google Map' ) }</p>
+						<p class="gutenblocks-block-message">{ __( '⚠️ You need to provide an API key in Blocks > Installed Blocks > Google Map', 'advanced-gutenberg-blocks' ) }</p>
 					) }
 				</div>
       ]

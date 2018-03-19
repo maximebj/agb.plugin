@@ -27,7 +27,7 @@ export default class SearchPlugins extends Component {
       return
     }
 
-    this.setState( { results: __('Loading...') } )
+    this.setState( { results: __( 'Loading...', 'advanced-gutenberg-blocks' ) } )
 
     fetch(gutenblocksGlobals.ajaxurl, {
       method: 'POST',
@@ -41,13 +41,13 @@ export default class SearchPlugins extends Component {
     .then(response => {
 
 			if(response.info.results == 0 ) {
-				this.setState( { results: __( 'No result' ) } )
+				this.setState( { results: __( 'No result', 'advanced-gutenberg-blocks' ) } )
       } else {
 				this.setState( { results: response.plugins } )
 			}
     })
 		.catch(error => {
-			this.setState( { results: __( "⚠️ Error: Couldn't reach wp.org" ) } )
+			this.setState( { results: __( "⚠️ Error: Couldn't reach wp.org", 'advanced-gutenberg-blocks' ) } )
 		})
   }
 
@@ -61,7 +61,7 @@ export default class SearchPlugins extends Component {
 
         <input
           type="search"
-          placeholder={ __( 'Search Plugin' ) }
+          placeholder={ __( 'Search Plugin', 'advanced-gutenberg-blocks' ) }
           className='blocks-text-control__input'
           onChange={ this.onSearch }
         />

@@ -19,12 +19,12 @@ const { __ } = wp.i18n
 export default registerBlockType(
   'gutenblocks/post',
   {
-    title: __( 'Post' ),
-    description: __( 'Display a pretty post link (from any post type)' ),
+    title: __( 'Post', 'advanced-gutenberg-blocks' ),
+    description: __( 'Display a pretty post link (from any post type)', 'advanced-gutenberg-blocks' ),
     category: 'common',
     icon: 'admin-post',
     keywords: [
-      __( 'link' ),
+      __( 'link', 'advanced-gutenberg-blocks' ),
     ],
     attributes: {
       postID: {
@@ -82,7 +82,7 @@ export default registerBlockType(
         !! props.attributes.postID ? (
 					<Preview { ...props } />
         ) : (
-          <p class="gutenblocks-block-message">{ __( 'Search for a post in the inspector' ) }</p>
+          <p class="gutenblocks-block-message">{ __( 'Search for a post in the inspector', 'advanced-gutenberg-blocks' ) }</p>
         )
       ]
   	},

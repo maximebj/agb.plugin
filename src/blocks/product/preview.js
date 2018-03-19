@@ -66,13 +66,13 @@ export default class Preview extends Component {
 								} }
 							>
 								<span className="dashicons dashicons-cart"></span>
-								{ __( 'Add to cart' ) }
+								{ __( 'Add to cart', 'advanced-gutenberg-blocks' ) }
 							</a>
 						</p>
 					</div>
 				</div>
 			) : (
-				<p class="gutenblocks-block-message">{ __( 'Loading product...' ) }</p>
+				<p class="gutenblocks-block-message">{ __( 'Loading product...', 'advanced-gutenberg-blocks' ) }</p>
 			)
     )
   }

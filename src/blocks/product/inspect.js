@@ -24,14 +24,14 @@ export default class Inspector extends Component {
     return (
       <InspectorControls key="inspector">
 
-        <PanelBody title={ __('Choose a product') }>
+        <PanelBody title={ __( 'Choose a product', 'advanced-gutenberg-blocks' ) }>
           <SearchProduct onChangeProduct={ this.props.onChangeProduct } />
         </PanelBody>
 
 				{ !! this.props.attributes.productID && (
 					<span>
 						<PanelColor
-		          title={ __( 'Price color' ) }
+		          title={ __( 'Price color', 'advanced-gutenberg-blocks' ) }
 		          colorValue={ this.props.attributes.priceColor }
 		          >
 		          <ColorPalette
@@ -41,7 +41,7 @@ export default class Inspector extends Component {
 		        </PanelColor>
 
 						<PanelColor
-		          title={ __( 'Button background color' ) }
+		          title={ __( 'Button background color', 'advanced-gutenberg-blocks' ) }
 		          colorValue={ this.props.attributes.buttonBackgroundColor }
 		          >
 		          <ColorPalette

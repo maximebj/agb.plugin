@@ -19,19 +19,19 @@ const {
 export default registerBlockType(
   'gutenblocks/ad',
   {
-    title: __( 'Advertisement' ),
-    description: __( 'Put forward a tips or a warning' ),
+    title: __( 'Advertisement', 'advanced-gutenberg-blocks' ),
+    description: __( 'Put forward a tips or a warning', 'advanced-gutenberg-blocks' ),
     category: 'common',
     icon: 'megaphone',
     keywords: [
-      __('ad'),
-      __('advertising'),
-      __('publicity'),
+      __( 'ad', 'advanced-gutenberg-blocks' ),
+      __( 'advertising', 'advanced-gutenberg-blocks' ),
+      __( 'publicity', 'advanced-gutenberg-blocks' ),
     ],
 		edit: props => {
       return (
         <div className='wp-block-gutenblocks-ad'>
-          { __( 'An ad will be displayed here in front' ) }
+          { __( 'An ad will be displayed here in front', 'advanced-gutenberg-blocks' ) }
         </div>
       )
     },

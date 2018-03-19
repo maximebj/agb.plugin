@@ -33,7 +33,7 @@ export default class SearchPost extends Component {
       return
     }
 
-    this.setState( { results: __( 'Loading...' ) } )
+    this.setState( { results: __( 'Loading...', 'advanced-gutenberg-blocks' ) } )
 
     const collection = new wp.api.collections[this.state.currentType]()
 
@@ -46,7 +46,7 @@ export default class SearchPost extends Component {
     .then( results => {
 
       if(results.length == 0 ) {
-        results = __( 'No result' )
+        results = __( 'No result', 'advanced-gutenberg-blocks' )
       }
       this.setState( { results: results } )
     } )
@@ -66,11 +66,11 @@ export default class SearchPost extends Component {
     return (
       <div>
 				<BaseControl
-					label={ __( 'Search a post' ) }
+					label={ __( 'Search a post', 'advanced-gutenberg-blocks' ) }
 				>
 	        <input
 	          type="search"
-	          placeholder={ __('Type a post title' ) }
+	          placeholder={ __('Type a post title', 'advanced-gutenberg-blocks' ) }
 	          className="blocks-text-control__input"
 	          onChange={ this.onSearch }
 	        />
@@ -99,7 +99,7 @@ export default class SearchPost extends Component {
 
 				<SelectControl
 					onChange={ this.onChangePostType }
-					label={ __( 'In post type' ) }
+					label={ __( 'In post type', 'advanced-gutenberg-blocks' ) }
 					options={ JSON.parse( gutenblocksPost.types ) }
 					value={ this.state.currentType }
 				/>

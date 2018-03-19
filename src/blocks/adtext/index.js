@@ -20,14 +20,14 @@ const {
 export default registerBlockType(
   'gutenblocks/adtext',
   {
-    title: __( 'Text + Ad' ),
-    description: __( 'Display a text on the left and a rectangle ad on the right' ),
+    title: __( 'Text + Ad', 'advanced-gutenberg-blocks' ),
+    description: __( 'Display a text on the left and a rectangle ad on the right', 'advanced-gutenberg-blocks' ),
     category: 'common',
     icon: 'align-right',
     keywords: [
-      __('ad'),
-      __('advertising'),
-      __('publicity'),
+      __( 'ad', 'advanced-gutenberg-blocks' ),
+      __( 'advertising', 'advanced-gutenberg-blocks' ),
+      __( 'publicity', 'advanced-gutenberg-blocks' ),
     ],
 		attributes: {
       content: {
@@ -50,12 +50,12 @@ export default registerBlockType(
       return (
         <div className='wp-block-gutenblocks-adtext'>
 					<div className="wp-block-gutenblocks-adtext__ad">
-						{ __( 'Advertisement' ) }
+						{ __( 'Advertisement', 'advanced-gutenberg-blocks' ) }
 					</div>
 					<RichText
             tagName="div"
             multiline="p"
-            placeholder={ __( 'Write text here' ) }
+            placeholder={ __( 'Write text here', 'advanced-gutenberg-blocks' ) }
             value={ props.attributes.content }
             className="wp-block-gutenblocks-adtext__content"
             onChange={ onChangeContent }

@@ -79,10 +79,10 @@ export default class Preview extends Component {
 						<p className="wp-block-gutenblocks-post__metas">
 							<em>
 								{ !! this.state.category && this.props.attributes.showCategory && (
-								<span> { __( 'In' ) + ' ' + this.state.category } </span>
+								<span> { __( 'In', 'advanced-gutenberg-blocks' ) + ' ' + this.state.category } </span>
 								) }
 								{ !! this.state.author && this.props.attributes.showAuthor && (
-								<span> { __( 'By' ) + ' ' + this.state.author } </span>
+								<span> { __( 'By', 'advanced-gutenberg-blocks' ) + ' ' + this.state.author } </span>
 								) }
 							</em>
 						</p>
@@ -92,13 +92,13 @@ export default class Preview extends Component {
 						/>
 						<p class="wp-block-gutenblocks-product__actions">
 							<a href={ this.state.post.link } className="wp-block-gutenblocks-post__button">
-								{ __( 'Read more' ) }
+								{ __( 'Read more', 'advanced-gutenberg-blocks' ) }
 							</a>
 						</p>
 					</div>
 				</div>
 			) : (
-				<p class="gutenblocks-block-message">{ __( 'Loading post...' ) }</p>
+				<p class="gutenblocks-block-message">{ __( 'Loading post...', 'advanced-gutenberg-blocks' ) }</p>
 			)
     )
   }

@@ -19,8 +19,8 @@ const { __ } = wp.i18n
 export default registerBlockType(
   'gutenblocks/plugin',
   {
-    title: __( 'Plugin' ),
-    description: __( 'Display informations from a WordPress plugin' ),
+    title: __( 'Plugin', 'advanced-gutenberg-blocks' ),
+    description: __( 'Display informations from a WordPress plugin', 'advanced-gutenberg-blocks' ),
     category: 'common',
     icon: 'admin-plugins',
     keywords: [
@@ -103,7 +103,7 @@ export default registerBlockType(
         !! props.attributes.title ? (
           <Preview {...props} />
         ) : (
-          <p class="gutenblocks-block-message">{ __( 'Search for a plugin in the inspector' ) }</p>
+          <p class="gutenblocks-block-message">{ __( 'Search for a plugin in the inspector', 'advanced-gutenberg-blocks' ) }</p>
         )
       ]
     },

@@ -23,12 +23,12 @@ const { __ } = wp.i18n
 export default registerBlockType(
   'gutenblocks/product',
   {
-    title: __( 'Product' ),
-    description: __( 'Display WooCommerce Product in your post' ),
+    title: __( 'Product', 'advanced-gutenberg-blocks' ),
+    description: __( 'Display WooCommerce Product in your post', 'advanced-gutenberg-blocks' ),
     category: 'common',
     icon: 'products',
     keywords: [
-      __( 'woocommerce' ),
+      __( 'woocommerce', 'advanced-gutenberg-blocks' ),
     ],
     attributes: {
       productID: {
@@ -74,7 +74,7 @@ export default registerBlockType(
 	        !! attributes.productID ? (
 						<Preview { ...{ product, attributes } } />
 	        ) : (
-	          <p class="gutenblocks-block-message">{ __( 'Search for a product in the inspector' ) }</p>
+	          <p class="gutenblocks-block-message">{ __( 'Search for a product in the inspector', 'advanced-gutenberg-blocks' ) }</p>
 	        )
 	      ]
     	} )
