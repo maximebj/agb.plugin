@@ -20,7 +20,7 @@ use GutenbergBlocks\WP\Deactivator;
 require plugin_dir_path( __FILE__ ) . 'classes/Gutenblocks.php';
 
 // Languages
-load_plugin_textdomain( 'gutenblocks', false, basename( __DIR__ ) . '/languages' );
+load_plugin_textdomain( 'advanced-gutenberg-blocks', false, basename( __DIR__ ) . '/languages' );
 
 // Activation / Deactivation
 

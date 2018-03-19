@@ -12,17 +12,17 @@
 				<?php _e('Gutenberg Blocks Settings'); ?>
 			</h1>
       <ul class="gutenblocks-settings__header__menu">
-        <li><a href="#my-blocks"><?php _e( 'My Blocks', 'gutenblocks' ); ?></a></li>
-        <li><a href="#wp-blocks"><?php _e( 'WordPress Blocks', 'gutenblocks' ); ?></a></li>
+        <li><a href="#my-blocks"><?php _e( 'My Blocks', 'advanced-gutenberg-blocks' ); ?></a></li>
+        <li><a href="#wp-blocks"><?php _e( 'WordPress Blocks', 'advanced-gutenberg-blocks' ); ?></a></li>
       </ul>
 		</div>
 	</header>
 
 	<main class="gutenblocks-settings__content">
 
-		<h2 id="my-blocks"><?php _e( 'My Blocks', 'gutenblocks' ); ?></h2>
+		<h2 id="my-blocks"><?php _e( 'My Blocks', 'advanced-gutenberg-blocks' ); ?></h2>
 
-		<p class="gutenblocks-settings__description"><?php _e( "Check out these awesome blocks to improve your WordPress experience.", 'gutenblocks' ); ?></p>
+		<p class="gutenblocks-settings__description"><?php _e( "Check out these awesome blocks to improve your WordPress experience.", 'advanced-gutenberg-blocks' ); ?></p>
 
 		<div class="gutenblocks-list">
 			<?php foreach( $categories as $key => $cat ): ?>
@@ -30,7 +30,7 @@
 				<?php echo $cat; ?>
 				<?php
 					if ( $cat == "WooCommerce" and ! class_exists( 'WooCommerce' ) ) {
-						echo "<small><em>[" . __( 'WooCommerce is required to use these blocks', 'gutenblocks' ) . "]</em></small>";
+						echo "<small><em>[" . __( 'WooCommerce is required to use these blocks', 'advanced-gutenberg-blocks' ) . "]</em></small>";
 					}
 				?>
 			</p>
@@ -50,11 +50,11 @@
 						<div class="gutenblocks-block__title js-gutenblocks-show-panel">
 							<?php echo $block['name']; ?>
 							<?php if( !$block['available'] ): ?>
-								<small><?php _e( '[Soon]', 'gutenblocks' ); ?></small>
+								<small><?php _e( '[Soon]', 'advanced-gutenberg-blocks' ); ?></small>
 							<?php endif; ?>
 						</div>
 						<div class="gutenblocks-block__actions">
-							<a href="" class="gutenblocks-block__button js-gutenblocks-show-panel"><?php _e( 'Settings', 'gutenblocks' ); ?></a>
+							<a href="" class="gutenblocks-block__button js-gutenblocks-show-panel"><?php _e( 'Settings', 'advanced-gutenberg-blocks' ); ?></a>
 							<?php if ( $cat == "WooCommerce" and ! class_exists( 'WooCommerce' ) ) : ?>
 							<?php else: ?>
 							<a
@@ -63,9 +63,9 @@
 								data-block="<?php echo $block['id']; ?>"
 								data-command=<?php echo ( $active ) ? 'disable' : 'enable'; ?>
 								data-invert-command=<?php echo ( !$active ) ? 'disable' : 'enable'; ?>
-								data-invert-label=<?php echo ( !$active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
+								data-invert-label=<?php echo ( !$active ) ? __( 'Disable', 'advanced-gutenberg-blocks' ) : __( 'Enable', 'advanced-gutenberg-blocks' ); ?>
 							>
-								<?php echo ( $active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
+								<?php echo ( $active ) ? __( 'Disable', 'advanced-gutenberg-blocks' ) : __( 'Enable', 'advanced-gutenberg-blocks' ); ?>
 							</a>
 							<?php endif; ?>
 						</div>
@@ -74,27 +74,27 @@
 					<div class="gutenblocks-block__panel">
 						<?php if( $block['description'] ): ?>
 							<div class="gutenblocks-block__description">
-								<p class="gutenblocks-block__panel__title"><?php _e( 'Description', 'gutenblocks' ); ?></p>
+								<p class="gutenblocks-block__panel__title"><?php _e( 'Description', 'advanced-gutenberg-blocks' ); ?></p>
 								<p><?php echo $block['description']; ?></p>
 							</div>
 						<?php endif; ?>
 
 						<?php if( $block['preview_image'] ): ?>
 							<div class="gutenblocks-block__preview">
-								<p class="gutenblocks-block__panel__title"><?php _e( 'Preview', 'gutenblocks'); ?></p>
-								<img src="<?php echo $block['preview_image']; ?>" alt="<?php sprintf( __( '%s example', 'gutenblocks' ), $block['name'] ); ?>">
+								<p class="gutenblocks-block__panel__title"><?php _e( 'Preview', 'advanced-gutenberg-blocks'); ?></p>
+								<img src="<?php echo $block['preview_image']; ?>" alt="<?php sprintf( __( '%s example', 'advanced-gutenberg-blocks' ), $block['name'] ); ?>">
 							</div>
 						<?php endif; ?>
 
 						<div class="gutenblocks-block__settings">
-							<p class="gutenblocks-block__panel__title"><?php _e( 'Settings', 'gutenblocks'); ?></p>
+							<p class="gutenblocks-block__panel__title"><?php _e( 'Settings', 'advanced-gutenberg-blocks'); ?></p>
 							<?php if( $block['options_callback'] ): ?>
 								<?php call_user_func( $block['options_callback'] ); ?>
 								<p>
 									<input type="submit" class="button button-primary" value="<?php _e( 'Save Changes' ); ?>">
 								</p>
 							<?php else: ?>
-							<p><?php _e( 'No settings for this block.', 'gutenblocks'); ?></p>
+							<p><?php _e( 'No settings for this block.', 'advanced-gutenberg-blocks'); ?></p>
 							<?php endif; ?>
 						</div>
 
@@ -107,9 +107,9 @@
 		</div>
 
 
-		<h2 id="wp-blocks"><?php _e('Default WordPress blocks', 'gutenblocks'); ?></h2>
+		<h2 id="wp-blocks"><?php _e('Default WordPress blocks', 'advanced-gutenberg-blocks'); ?></h2>
 
-		<p class="gutenblocks-settings__description"><?php _e("Disable the blocks you don't want to deal with for a lighter user interface.", 'gutenblocks'); ?></p>
+		<p class="gutenblocks-settings__description"><?php _e("Disable the blocks you don't want to deal with for a lighter user interface.", 'advanced-gutenberg-blocks'); ?></p>
 
 		<div class="gutenblocks-list">
 			<?php
@@ -133,7 +133,7 @@
 								<?php echo $block['name']; ?>
 							</div>
 							<div class="gutenblocks-block__actions">
-								<?php /*<a href="" class="gutenblocks-block__button js-gutenblocks-show-panel"><?php _e( 'Settings', 'gutenblocks' ); ?></a> */ ?>
+								<?php /*<a href="" class="gutenblocks-block__button js-gutenblocks-show-panel"><?php _e( 'Settings', 'advanced-gutenberg-blocks' ); ?></a> */ ?>
 
 		            <?php if( $block['can_disable'] ): ?>
 								<a
@@ -142,9 +142,9 @@
 									data-block="<?php echo $block['id']; ?>"
 									data-command=<?php echo ( $active ) ? 'disable' : 'enable'; ?>
 									data-invert-command=<?php echo ( !$active ) ? 'disable' : 'enable'; ?>
-									data-invert-label=<?php echo ( !$active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
+									data-invert-label=<?php echo ( !$active ) ? __( 'Disable', 'advanced-gutenberg-blocks' ) : __( 'Enable', 'advanced-gutenberg-blocks' ); ?>
 								>
-									<?php echo ( $active ) ? __( 'Disable', 'gutenblocks' ) : __( 'Enable', 'gutenblocks' ); ?>
+									<?php echo ( $active ) ? __( 'Disable', 'advanced-gutenberg-blocks' ) : __( 'Enable', 'advanced-gutenberg-blocks' ); ?>
 								</a>
 		            <?php endif; ?>
 							</div>

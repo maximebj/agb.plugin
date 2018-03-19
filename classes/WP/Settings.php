@@ -31,8 +31,8 @@ class Settings {
 
 		add_submenu_page(
 			Consts::PLUGIN_NAME,
-			__( 'Installed Blocks' , 'gutenblocks' ),
-			__( 'Installed Blocks' , 'gutenblocks' ),
+			__( 'Installed Blocks' , 'advanced-gutenberg-blocks' ),
+			__( 'Installed Blocks' , 'advanced-gutenberg-blocks' ),
 			'edit_posts',
 			Consts::PLUGIN_NAME.'-installed',
 			array( $this, 'settings_page' )
@@ -40,8 +40,8 @@ class Settings {
 
 		// add_submenu_page(
 		// 	Consts::PLUGIN_NAME,
-		// 	__( 'Add Block' , 'gutenblocks' ),
-		// 	__( 'Add Block' , 'gutenblocks' ),
+		// 	__( 'Add Block' , 'advanced-gutenberg-blocks' ),
+		// 	__( 'Add Block' , 'advanced-gutenberg-blocks' ),
 		// 	'edit_posts',
 		// 	Consts::PLUGIN_NAME.'-install',
 		// 	array( $this, 'block_install' )
@@ -49,8 +49,8 @@ class Settings {
 
 		// add_submenu_page(
 		// 	Consts::PLUGIN_NAME,
-		// 	__( 'Import/Export' , 'gutenblocks' ),
-		// 	__( 'Import/Export' , 'gutenblocks' ),
+		// 	__( 'Import/Export' , 'advanced-gutenberg-blocks' ),
+		// 	__( 'Import/Export' , 'advanced-gutenberg-blocks' ),
 		// 	'edit_posts',
 		// 	Consts::PLUGIN_NAME.'-import',
 		// 	array( $this, 'import_export' )
@@ -58,8 +58,8 @@ class Settings {
 
 		add_submenu_page(
 			Consts::PLUGIN_NAME,
-			__( 'Demo' , 'gutenblocks' ),
-			__( 'Demo' , 'gutenblocks' ),
+			__( 'Demo' , 'advanced-gutenberg-blocks' ),
+			__( 'Demo' , 'advanced-gutenberg-blocks' ),
 			'edit_posts',
 			Consts::PLUGIN_NAME . '-demo',
 			array( $this, 'demo_page' )

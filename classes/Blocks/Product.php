@@ -17,10 +17,10 @@ class Product {
 			'icon' => 'dashicons-products',
 			'category' => 'woo',
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/product.jpg',
-			'description' => __( 'Display WooCommerce Product in your post', 'gutenblocks' ),
+			'description' => __( 'Display WooCommerce Product in your post', 'advanced-gutenberg-blocks' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/product', __( 'Product', 'gutenblocks' ), $args );
+		gutenblocks_register_blocks( 'gutenblocks/product', __( 'Product', 'advanced-gutenberg-blocks' ), $args );
   }
 
 	public function register_render() {

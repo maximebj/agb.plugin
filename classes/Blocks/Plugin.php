@@ -17,10 +17,10 @@ class Plugin {
 			'icon' => 'dashicons-admin-plugins',
 			'category' => 'apis',
 			'preview_image' => Consts::get_url().'admin/img/blocks/plugin.jpg',
-			'description' => __( 'Display a Plugin informations from the official WordPress repository', 'gutenblocks' ),
+			'description' => __( 'Display a Plugin informations from the official WordPress repository', 'advanced-gutenberg-blocks' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/plugin', __( 'WordPress Plugin Card', 'gutenblocks' ), $args );
+		gutenblocks_register_blocks( 'gutenblocks/plugin', __( 'WordPress Plugin Card', 'advanced-gutenberg-blocks' ), $args );
   }
 
   public function search_plugins()

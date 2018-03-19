@@ -47,7 +47,7 @@ class Admin {
 	public function add_admin_menu() {
 
 		add_menu_page(
-			__( 'Blocks' , 'gutenblocks' ),
+			__( 'Blocks' , 'advanced-gutenberg-blocks' ),
 			'blocks',
 			'edit_posts',
 			Consts::PLUGIN_NAME,

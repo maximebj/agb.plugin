@@ -16,11 +16,11 @@ class Ad {
 			'icon' => 'dashicons-megaphone',
 			'category' => 'marketing',
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/banner.jpg',
-			'description' => __( 'Monetize your website by inserting Ads in your content. All you need is to grab a script from Google Adsense or other and paste it below. Best use for banner ads.', 'gutenblocks' ),
+			'description' => __( 'Monetize your website by inserting Ads in your content. All you need is to grab a script from Google Adsense or other and paste it below. Best use for banner ads.', 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/ad', __( 'Banner Ad', 'gutenblocks' ), $args );
+		gutenblocks_register_blocks( 'gutenblocks/ad', __( 'Banner Ad', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
 		gutenblocks_register_setting( 'gutenblocks-ad-script' );
@@ -30,7 +30,7 @@ class Ad {
 		echo '
 		<div class="gutenblocks-block__settings__option">
 			<div class="gutenblocks-block__settings__label">
-				<label for="gutenblocks-ad-script"> ' . __( 'Js script', 'gutenblocks' ) . '</label>
+				<label for="gutenblocks-ad-script"> ' . __( 'Js script', 'advanced-gutenberg-blocks' ) . '</label>
 			</div>
 
 			<div class="gutenblocks-block__settings__field">

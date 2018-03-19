@@ -13,10 +13,10 @@ class Notice {
 			'icon' => 'dashicons-warning',
 			'category' => 'common',
 			'preview_image' => Consts::get_url().'admin/img/blocks/notice.jpg',
-			'description' => __( 'Display a sweet Info/Advice/Warning/Avoid/ notice', 'gutenblocks' ),
+			'description' => __( 'Display a sweet Info/Advice/Warning/Avoid/ notice', 'advanced-gutenberg-blocks' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/notice', __( 'Notice', 'gutenblocks' ), $args );
+		gutenblocks_register_blocks( 'gutenblocks/notice', __( 'Notice', 'advanced-gutenberg-blocks' ), $args );
   }
 
 

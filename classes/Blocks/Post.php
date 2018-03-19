@@ -17,10 +17,10 @@ class Post {
 			'icon' => 'dashicons-admin-post',
 			'category' => 'common',
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/post.jpg',
-			'description' => __( 'Display pretty posts link (from any post type)', 'gutenblocks' ),
+			'description' => __( 'Display pretty posts link (from any post type)', 'advanced-gutenberg-blocks' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/post', __( 'Post', 'gutenblocks' ), $args );
+		gutenblocks_register_blocks( 'gutenblocks/post', __( 'Post', 'advanced-gutenberg-blocks' ), $args );
   }
 
 	public function register_render() {

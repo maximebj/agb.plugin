@@ -18,11 +18,11 @@ class Gmap {
 			'icon' => 'dashicons-location-alt',
 			'category' => 'apis',
 			'preview_image' => Consts::get_url().'admin/img/blocks/gmap.jpg',
-			'description' => __( "Insert a Google Map in your content, the easy way.", 'gutenblocks' ),
+			'description' => __( "Insert a Google Map in your content, the easy way.", 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/gmap', __( 'Google Map', 'gutenblocks' ), $args );
+		gutenblocks_register_blocks( 'gutenblocks/gmap', __( 'Google Map', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
 		gutenblocks_register_setting( 'gutenblocks-gmap-api-key' );
@@ -34,11 +34,11 @@ class Gmap {
 
 		<div class="gutenblocks-block__settings__option">
 			<div class="gutenblocks-block__settings__label">
-				<label for="gutenblocks-gmap-api-key"> ' . __( 'Api Key', 'gutenblocks' ) . '</label>
+				<label for="gutenblocks-gmap-api-key"> ' . __( 'Api Key', 'advanced-gutenberg-blocks' ) . '</label>
 			</div>
 
 			<div class="gutenblocks-block__settings__field">
-				<input type="text" name="gutenblocks-gmap-api-key" placeholder="' . __( 'Insert your Google Maps API Key here', 'gutenblocks' ) . '" value="' . get_option( 'gutenblocks-gmap-api-key' ) . '">
+				<input type="text" name="gutenblocks-gmap-api-key" placeholder="' . __( 'Insert your Google Maps API Key here', 'advanced-gutenberg-blocks' ) . '" value="' . get_option( 'gutenblocks-gmap-api-key' ) . '">
 			</div>
 		</div>
 		';

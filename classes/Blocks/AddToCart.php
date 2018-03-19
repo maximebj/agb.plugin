@@ -17,10 +17,10 @@ class AddToCart {
 			'icon' => 'dashicons-cart',
 			'category' => 'woo',
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/addtocart.jpg',
-			'description' => __( 'An add to cart button to quickly purchase a WooCommerce product', 'gutenblocks' ),
+			'description' => __( 'An add to cart button to quickly purchase a WooCommerce product', 'advanced-gutenberg-blocks' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/addtocart', __( 'Add to cart button', 'gutenblocks' ), $args );
+		gutenblocks_register_blocks( 'gutenblocks/addtocart', __( 'Add to cart button', 'advanced-gutenberg-blocks' ), $args );
   }
 
 	public function register_render() {

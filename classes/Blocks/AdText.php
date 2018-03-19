@@ -16,11 +16,11 @@ class AdText {
 			'icon' => 'dashicons-align-right',
 			'category' => 'marketing',
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/ad.jpg',
-			'description' => __( 'Monetize your website by inserting Ads in your content. This blocks allows you to write a text on the left and display ad on the right. All you need is to grab a script from Google Adsense or other and paste it below. Best use for Rectangle ads.', 'gutenblocks' ),
+			'description' => __( 'Monetize your website by inserting Ads in your content. This blocks allows you to write a text on the left and display ad on the right. All you need is to grab a script from Google Adsense or other and paste it below. Best use for Rectangle ads.', 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/adtext', __( 'Text + Rectangle Ad', 'gutenblocks' ), $args );
+		gutenblocks_register_blocks( 'gutenblocks/adtext', __( 'Text + Rectangle Ad', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
 		gutenblocks_register_setting( 'gutenblocks-adtext-script' );
@@ -30,7 +30,7 @@ class AdText {
 		echo '
 		<div class="gutenblocks-block__settings__option">
 			<div class="gutenblocks-block__settings__label">
-				<label for="gutenblocks-adtext-script"> ' . __( 'Js script', 'gutenblocks' ) . '</label>
+				<label for="gutenblocks-adtext-script"> ' . __( 'Js script', 'advanced-gutenberg-blocks' ) . '</label>
 			</div>
 
 			<div class="gutenblocks-block__settings__field">
