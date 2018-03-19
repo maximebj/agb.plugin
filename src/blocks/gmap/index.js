@@ -72,8 +72,6 @@ export default registerBlockType(
 				props.setAttributes( { style: value } )
 			}
 
-			console.log(typeof gutenblocksGmap == "undefined")
-
       return [
         !! props.focus && (
           <Inspector { ...{ onChangeCoordinates, onChangeZoom, onChangeHeight, onChangeStyle, ...props } } />
