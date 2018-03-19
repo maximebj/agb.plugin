@@ -58,7 +58,7 @@ class Product {
 		$ca = ( $currency != "$" ) ? $currency : '';
 
 		ob_start();
-		include Consts::get_path() . '/admin/templates/product.php';
+		include Consts::get_path() . 'public/templates/product.php';
 		$output = ob_get_contents();
 		ob_end_clean();
 

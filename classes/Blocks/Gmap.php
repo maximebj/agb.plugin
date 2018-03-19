@@ -50,20 +50,16 @@ class Gmap {
 		}
 
 		register_block_type(
-      'gutenblocks/post',
+      'gutenblocks/gmap',
       [ 'render_callback' => array( $this, 'render_block' ) ]
     );
 	}
 
 	public function render_block( $attributes ) {
 
-		if( ! isset( $attributes['address'] ) ) {
-			return;
-		}
-
 		$output = "";
 		ob_start();
-		include Consts::get_path() . '/admin/templates/post.php';
+		include Consts::get_path() . 'public/templates/gmap.php';
 		$output = ob_get_contents();
 		ob_end_clean();
 

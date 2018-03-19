@@ -21,12 +21,12 @@ abstract class Consts {
 
 	// Plugin Path for includes
 	public static function get_path() {
-		return WP_PLUGIN_DIR.'/'.Consts::PLUGIN_NAME.'/';
+		return WP_PLUGIN_DIR . '/' . Consts::PLUGIN_NAME . '/';
 	}
 
 	// Plugin URL for assets enqueing
   public static function get_url() {
-    return plugin_dir_url(dirname(dirname(__FILE__)));
+    return plugin_dir_url( dirname( dirname( __FILE__ ) ) );
   }
 
 }

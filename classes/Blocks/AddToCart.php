@@ -52,7 +52,7 @@ class AddToCart {
 		$ca = ( $currency != "$" ) ? $currency : '';
 
 		ob_start();
-		include Consts::get_path() . '/admin/templates/addtocart.php';
+		include Consts::get_path() . 'public/templates/addtocart.php';
 		$output = ob_get_contents();
 		ob_end_clean();
 

@@ -73,7 +73,7 @@ class Post {
 
 		$output = "";
 		ob_start();
-		include Consts::get_path() . '/admin/templates/post.php';
+		include Consts::get_path() . 'public/templates/post.php';
 		$output = ob_get_contents();
 		ob_end_clean();
 
