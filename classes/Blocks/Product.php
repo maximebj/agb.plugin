@@ -20,7 +20,7 @@ class Product {
 			'description' => __( 'Display WooCommerce Product in your post', 'gutenblocks' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/products', __( 'Product', 'gutenblocks' ), $args );
+		gutenblocks_register_blocks( 'gutenblocks/product', __( 'Product', 'gutenblocks' ), $args );
   }
 
 	public function register_render() {
