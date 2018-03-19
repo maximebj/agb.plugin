@@ -17,13 +17,13 @@ use GutenbergBlocks\Helpers\Consts;
 class Admin {
 
 	public function register_hooks() {
-		add_action('admin_enqueue_scripts', array($this, 'enqueue_assets'));
-		add_action('admin_menu', array( $this, 'add_admin_menu'));
+		add_action( 'admin_enqueue_scripts', array($this, 'enqueue_assets' ) );
+		add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
 	}
 
 	public function enqueue_assets($hook) {
 
-		if( strpos( $hook, 'blocks_page_' . Consts::PLUGIN_NAME ) === false ) {
+		if( strpos( $hook, Consts::PLUGIN_NAME ) === false ) {
 			return;
 		}
 
@@ -48,7 +48,7 @@ class Admin {
 
 		add_menu_page(
 			__( 'Blocks' , 'advanced-gutenberg-blocks' ),
-			'blocks',
+			__( 'Blocks' , 'advanced-gutenberg-blocks' ),
 			'edit_posts',
 			Consts::PLUGIN_NAME,
 			null,

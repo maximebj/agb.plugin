@@ -9,6 +9,9 @@
  * Version: 1.1
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ *
+ * Text Domain: advanced-gutenberg-blocks
+ * Domain Path: /languages/
  */
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
@@ -19,24 +22,26 @@ use GutenbergBlocks\WP\Deactivator;
 
 require plugin_dir_path( __FILE__ ) . 'classes/Gutenblocks.php';
 
+
 // Languages
-load_plugin_textdomain( 'advanced-gutenberg-blocks', false, basename( __DIR__ ) . '/languages' );
+function gutenblocks_load_textdomain() {
+  load_plugin_textdomain( 'advanced-gutenberg-blocks', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+}
+add_action( 'plugins_loaded', 'gutenblocks_load_textdomain' );
+
 
 // Activation / Deactivation
-
 function gutenblocks_activate_plugin() {
 	require_once plugin_dir_path(__FILE__).'classes/WP/Activator.php';
 	Activator::activate();
 }
+register_activation_hook(__FILE__, 'gutenblocks_activate_plugin' );
 
 function gutenblocks_deactivate_plugin() {
 	require_once plugin_dir_path(__FILE__).'classes/WP/Deactivator.php';
 	Deactivator::deactivate();
 }
-
-register_activation_hook(__FILE__, 'gutenblocks_activate_plugin' );
 register_deactivation_hook(__FILE__, 'gutenblocks_deactivate_plugin' );
-
 
 
 

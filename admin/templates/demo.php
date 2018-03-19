@@ -6,7 +6,7 @@
     background: white;
     margin: 50px auto;
     padding: 50px;
-		max-width: 500px;
+		max-width: 600px;
     border: 1px solid #ccc;
   }
 </style>
