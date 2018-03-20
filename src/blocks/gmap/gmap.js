@@ -1,100 +1,111 @@
-import styles from './styles'
+import styles from "./styles"
 
 const { Component } = wp.element
 
 export default class Gmap extends Component {
-
-  constructor( props ) {
-    super( props )
-
-		this.state = {
-      Gmap: '',
-			marker: '',
-			infoWindow: '',
-    }
-  }
-
-	componentDidMount() {
-
-		const coords = { lat: this.props.attributes.latitude, lng: this.props.attributes.longitude }
-		console.log(coords)
-		// Create Map
-    const map = new google.maps.Map( document.querySelector( '.wp-block-gutenblocks-gmap__canvas' ), {
-      zoom: this.props.attributes.zoom,
-      center: coords,
-			styles: styles[this.props.attributes.style]
-    } )
-
-		// Create Marker
-    const marker = new google.maps.Marker( {
-      position: coords,
-      map: map
-    } )
-
-		// Create Info Window
-		const infoWindow = new google.maps.InfoWindow( {
-    	content: this.setInfoWindowContent()
-  	} )
-
-		// On marker click: open info window
-		marker.addListener('click', function() {
-    	infoWindow.open( map, marker );
-  	} )
-
-		// Set everything in state to access it later
-		this.setState( {
-			Gmap: map,
-			marker: marker,
-			infoWindow: infoWindow
-		} )
-
+	gmapObj = {
+		Gmap: "",
+		marker: "",
+		infoWindow: ""
 	}
 
-	componentDidUpdate(lastProps, lastState) {
+	_createMap = coords => {
+		return new google.maps.Map(
+			document.querySelector(".wp-block-gutenblocks-gmap__canvas"),
+			{
+				zoom: this.props.attributes.zoom,
+				center: coords,
+				styles: styles[this.props.attributes.style]
+			}
+		)
+	}
+
+	_createMarker = (map, coords) => {
+		return new google.maps.Marker({
+			position: coords,
+			map: map
+		})
+	}
+
+	_createInfoWindow = () => {
+		return new google.maps.InfoWindow({
+			content: this._setInfoWindowContent(this.props.attributes)
+		})
+	}
+
+	componentDidMount() {
+		const coords = {
+			lat: this.props.attributes.latitude,
+			lng: this.props.attributes.longitude
+		}
+
+		this.gmapObj.Gmap = this._createMap(coords)
+		this.gmapObj.marker = this._createMarker(this.gmapObj.Gmap, coords)
+		this.gmapObj.infoWindow = this._createInfoWindow()
+
+		this.gmapObj.marker.addListener("click", () => {
+			this.gmapObj.infoWindow.open(this.gmapObj.Gmap, this.gmapObj.marker)
+		})
+	}
+
+	componentWillReceiveProps(nextProps) {
+		const { address, zoom, style, name } = this.props.attributes
+		const {
+			address: nextAddress,
+			zoom: nextZoom,
+			style: nextStyle,
+			name: nextName,
+			latitude: nextLatitude,
+			longitude: nextLongitude
+		} = nextProps.attributes
+		const { Gmap, marker, infoWindow } = this.gmapObj
 
 		// Update position
-		if( lastProps.attributes.address != this.props.attributes.address ) {
+		if (address != nextAddress) {
+			const coords = {
+				lat: nextLatitude,
+				lng: nextLongitude
+			}
 
-			const coords = { lat: this.props.attributes.latitude, lng: this.props.attributes.longitude }
-
-			this.state.Gmap.setCenter( coords )
-			this.state.marker.setPosition( coords )
-			this.state.infoWindow.setContent( this.setInfoWindowContent() )
+			Gmap.setCenter(coords)
+			marker.setPosition(coords)
+			infoWindow.setContent(this._setInfoWindowContent(nextProps.attributes))
 		}
 
 		// Update zoom
-		if( lastProps.attributes.zoom != this.props.attributes.zoom ) {
-			this.state.Gmap.setZoom( this.props.attributes.zoom );
+		if (zoom != nextZoom) {
+			Gmap.setZoom(nextZoom)
 		}
 
 		// Update style
-		if( lastProps.attributes.style != this.props.attributes.style ) {
-			this.state.Gmap.setOptions( {styles: styles[this.props.attributes.style] } )
+		if (style != nextStyle) {
+			Gmap.setOptions({
+				styles: styles[nextStyle]
+			})
 		}
 
 		// Update infoWindow
-		if( lastProps.attributes.name != this.props.attributes.name ) {
-			this.state.infoWindow.setContent( this.setInfoWindowContent() )
+		if (name != nextName) {			
+			infoWindow.setContent(this._setInfoWindowContent(nextProps.attributes))
 		}
 	}
 
-	setInfoWindowContent() {
+	_setInfoWindowContent = (attributes) => {
+		const { name, address } = attributes
 		return `
-			<p><strong>${this.props.attributes.name}</strong></p>
-			<p>${this.props.attributes.address}</p>
+			<p><strong>${name}</strong></p>
+			<p>${address}</p>
 		`
 	}
 
-  render() {
-
-    return (
+	render() {
+		return (
 			<div
 				className="wp-block-gutenblocks-gmap__canvas"
-				style={ {
+				style={{
 					height: this.props.attributes.height
-				} }
-			>
-			</div>
-    )
-  }
+				}}
+			/>
+		)
+	}
 }
