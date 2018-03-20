@@ -42,7 +42,7 @@
 						}
 						$active = !in_array( $block['id'], $disabled_blocks );
 				?>
-				<li class="gutenblocks-block<?php if( $active ): ?> is-active<?php endif; ?>">
+				<li class="gutenblocks-block<?php if( $active ): ?> is-active<?php endif; ?>" id="<?php echo sanitize_key($block['name']); ?>">
 					<header class="gutenblocks-block__head">
 						<div class="gutenblocks-block__icon js-gutenblocks-show-panel">
 							<span class="dashicons <?php echo $block['icon']; ?>"></span>
