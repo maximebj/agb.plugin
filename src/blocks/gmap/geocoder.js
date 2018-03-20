@@ -1,94 +1,89 @@
-import {debounce} from 'throttle-debounce'
+import { debounce } from "throttle-debounce"
 
 const { Component } = wp.element
 const { __ } = wp.i18n
 
-const {
-	BaseControl,
-} = wp.components
+const { BaseControl } = wp.components
 
 export default class Geocoder extends Component {
-
-  constructor( props ) {
-    super( props )
-
-    this.state = {
-      results: false,
+    state = {
+        searchQuery: "",
+        results: false
     }
 
-    this.onSearch = this.onSearch.bind( this )
-    this.performSearch = debounce( 300, this.performSearch )
-  }
-
-  onSearch( event ) {
-    this.performSearch( event.target.value )
-  }
-
-  performSearch( search ) {
-    if( search.length < 3) {
-      return
+    onSearch = event => {
+        this.setState({ searchQuery: event.target.value })
+        this.performSearch()
     }
 
-    this.setState( { results: __( 'Loading...', 'advanced-gutenberg-blocks' ) } )
+    performSearch = debounce(300, () => {
+        const { searchQuery } = this.state
+        if (searchQuery.length < 3) {
+            return
+        }
 
-		const geocoder = new google.maps.Geocoder()
-		const component = this
+        this.setState({
+            results: __("Loading...", "advanced-gutenberg-blocks")
+        })
 
-		geocoder.geocode( { 'address': search }, function(results, status) {
-      if (status == 'OK') {
+        const geocoder = new google.maps.Geocoder()
 
-				if(results.length == 0 ) {
-	        results = __( 'No result', 'advanced-gutenberg-blocks' )
-	      }
+        geocoder.geocode({ address: searchQuery }, (results, status) => {
+            if (status == "OK") {
+                if (results.length == 0) {
+                    results = __("No result", "advanced-gutenberg-blocks")
+                }
 
-				component.setState( { results: results } )
+                this.setState({ results: results })
+            } else {
+                this.setState({
+                    results:
+                        __(
+                            "Geocode was not successful for the following reason:",
+                            "advanced-gutenberg-blocks"
+                        ) + status
+                })
+            }
+        })
+    })
 
-			} else {
-				component.setState( { results: __( 'Geocode was not successful for the following reason:', 'advanced-gutenberg-blocks' ) + status } )
-      }
-		} )
-  }
+    getGeocodedObj(obj) {
+        this.props.onChangeAddress(obj)
+    }
 
-	getGeocodedObj(obj) {
-		this.props.onChangeAddress( obj )
-	}
+    _renderResults = () => {
+        return this.state.results.map(result => {
+            return (
+                <li key={`gmap-result-${result.place_id}`} onClick={() => this.getGeocodedObj(result)}>
+                    {result.formatted_address}
+                </li>
+            )
+        })
+    }
 
-  render() {
-    return (
-      <div>
-				<BaseControl
-					label={ __( 'Address', 'advanced-gutenberg-blocks' ) }
-				>
-	        <input
-	          type="search"
-	          placeholder={ __( 'Type an address', 'advanced-gutenberg-blocks' ) }
-	          className="blocks-text-control__input"
-	          onChange={ this.onSearch }
-	        />
+    render() {
+        return (
+            <BaseControl label={__("Address", "advanced-gutenberg-blocks")}>
+                <input
+                    type="search"
+                    placeholder={__(
+                        "Type an address",
+                        "advanced-gutenberg-blocks"
+                    )}
+                    className="blocks-text-control__input"
+                    onChange={this.onSearch}
+                    value={this.state.searchQuery}
+                />
 
-	        <div className="gutenblocks-panel-results">
-
-	          { !! this.state.results && Array.isArray(this.state.results) ?
-	            (
-	              <ul>
-	                { this.state.results.map( result => {
-	                  return (
-	                    <li
-	                      onClick={ () => this.getGeocodedObj( result ) }
-	                    >
-	                      { result.formatted_address }
-	                    </li>
-	                  )
-	                } ) }
-	              </ul>
-	            ) : (
-	              <p>{this.state.results}</p>
-	            )
-	          }
-	        </div>
-				</BaseControl>
-
-      </div>
-    )
-  }
+                <div className="gutenblocks-panel-results">
+                    {!!this.state.results &&
+                    Array.isArray(this.state.results) ? (
+                        <ul>{this._renderResults()}</ul>
+                    ) : (
+                        <p>{this.state.results}</p>
+                    )}
+                </div>
+            </BaseControl>
+        )
+    }
 }
