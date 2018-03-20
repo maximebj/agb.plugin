@@ -29,6 +29,9 @@ function gutenblocks_load_textdomain() {
 }
 add_action( 'plugins_loaded', 'gutenblocks_load_textdomain' );
 
+// Hack to get JS strings translatable by wp.org
+require plugin_dir_path( __FILE__ ) . 'js-strings.php';
+
 
 // Activation / Deactivation
 function gutenblocks_activate_plugin() {
