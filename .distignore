@@ -1,0 +1,12 @@
+.git
+/dev
+/node_modules
+.DS_Store
+.distignore
+.editorconfig
+.eslintignore
+.eslintrc.json
+.gitignore
+package-lock.json
+package.json
+readme.md
