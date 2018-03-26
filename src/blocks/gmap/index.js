@@ -45,11 +45,9 @@ export default registerBlockType(
       },
 			zoom: {
         type: 'integer',
-				default: 15,
       },
 			height: {
 				type: 'integer',
-				default: 400,
 			},
 			style: {
 				type: 'string',

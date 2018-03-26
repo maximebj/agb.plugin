@@ -2,6 +2,17 @@
 
 .wp-block-gutenblocks-adtext {
 	overflow: auto;
+	margin: $margin-default;
+}
+
+.wp-block-gutenblocks-adtext__content {
+	p {
+		margin: 1.5em 0;
+	}
+
+	p:first-child {
+		margin-top: 0;
+	}
 }
 
 .wp-block-gutenblocks-adtext__ad {
