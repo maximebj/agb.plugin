@@ -96,13 +96,19 @@ body
 		color border-color
 
 .gutenblocks-block
-	padding 16px pad-s
 	margin 0
 	border-bottom 1px solid border-color
+
+	&:before
+		content ""
+		display block
+		height 85px /* fixed header height*/
+		margin -85px 0 0 /* negative fixed header height */
 
 .gutenblocks-block__head
 	display flex
 	align-items center
+	padding 16px pad-s
 
 .gutenblocks-block__icon
 	position relative
@@ -165,6 +171,7 @@ body
 
 .gutenblocks-block__panel
 	display none
+	padding 0 20px
 
 .gutenblocks-block__panel__title
 	position relative
