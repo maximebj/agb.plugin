@@ -4,7 +4,7 @@ Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate
 Requires at least: 4.5
 Tested up to: 4.9.4
 Requires PHP: 5.6
-Stable tag: 1.1
+Stable tag: 1.1.1
 Donate link: https://dysign.fr
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -69,6 +69,10 @@ For now it's a proof of concept of a Blocks repository in WordPress and a showca
 
 
 == Changelog ==
+
+= 1.1.1 (26/03/2018) =
+* Fixed Gmap block
+* Improved front style consistency
 
 = 1.1.0 (18/03/2018) =
 * Added Google Maps Block
