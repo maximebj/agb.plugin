@@ -770,6 +770,13 @@ class Gmap {
 				$style = '"default"';
 		}
 
+		// Default values
+		if( ! isset( $attributes['address'] ) ) {  $attributes['address'] = 'Paris'; }
+		if( ! isset( $attributes['latitude'] ) ) {  $attributes['latitude'] = 48.8566; }
+		if( ! isset( $attributes['longitude'] ) ) {  $attributes['longitude'] = 2.3522; }
+		if( ! isset( $attributes['zoom'] ) ) {  $attributes['zoom'] = 15 ; }
+		if( ! isset( $attributes['height'] ) ) {  $attributes['height'] = 400 ; }
+
 		$api_key = get_option( 'gutenblocks-gmap-api-key' );
 
 		$rand = rand();
