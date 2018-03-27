@@ -19,7 +19,7 @@
 		<div class="wp-block-gutenblocks-product__description">
 			<?php echo $description; ?>
 		</div>
-		<p>
+		<p class="wp-block-gutenblocks-product__actions">
 			<a class="wp-block-gutenblocks-product__button" href="<?php echo $add_to_cart_url; ?>" style="background-color: <?php echo $attributes['buttonBackgroundColor']; ?>">
 				<span class="dashicons dashicons-cart"></span>
 				<?php _e( 'Add to cart', 'advanced-gutenberg-blocks' ); ?>

@@ -147,7 +147,7 @@
 .wp-block-gutenblocks-plugin__num-rating:after {
   content: ')'; }
 
-.wp-block-gutenblocks-plugin__button {
+.wp-block-gutenblocks-plugin__download a {
   display: inline-block;
   background: #63ABD4;
   color: white;
@@ -157,7 +157,7 @@
   -webkit-transition: .3s background-color linear;
   -o-transition: .3s background-color linear;
   transition: .3s background-color linear; }
-  .wp-block-gutenblocks-plugin__button:hover {
+  .wp-block-gutenblocks-plugin__download a:hover {
     background-color: #8bc1df;
     color: white; }
 .gutenblocks-block-message {
