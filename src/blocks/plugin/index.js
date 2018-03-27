@@ -76,7 +76,7 @@ export default registerBlockType(
           title: plugin.name,
           description: plugin.short_description,
           image: defineImage(plugin.icons),
-          downloadLink: `https://fr.wordpress.org/plugins/${plugin.slug}`,
+          downloadLink: `https://wordpress.org/plugins/${plugin.slug}`,
           activeInstalls: plugin.active_installs,
           rating: plugin.rating,
 					author: plugin.author,
