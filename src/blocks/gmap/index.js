@@ -106,7 +106,7 @@ export default registerBlockType(
 				) : (
 					<p class="gutenblocks-block-message">
 						{__( "⚠️ You need to provide an API key in ", "advanced-gutenberg-blocks" )}
-						<a href="/wp-admin/admin.php?page=advanced-gutenberg-blocks-installed#googlemap">
+						<a href="/wp-admin/admin.php?page=advanced-gutenberg-blocks-installed#blockgooglemap">
 							{__( "Blocks > Installed Blocks > Google Map", "advanced-gutenberg-blocks" )}
 						</a>
 					</p>
