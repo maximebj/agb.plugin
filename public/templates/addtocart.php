@@ -3,7 +3,7 @@
     <?php if ( $attributes['hasIcon'] !== false ): ?>
       <span class="dashicons dashicons-<?php echo $attributes['icon']; ?>" ></span>
     <?php endif; ?>
-    <span class="wp-block-gutenblocks-addtocart__label"><?php echo $attributes['label'][0]; ?></span>
+    <span class="wp-block-gutenblocks-addtocart__label"><?php echo $attributes['label']; ?></span>
     <span class="wp-block-gutenblocks-addtocart__separator"> • </span>
 		<span class="wp-block-gutenblocks-addtocart__price">
 			<?php if($product->get_sale_price() == ""): ?>
