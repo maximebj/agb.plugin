@@ -16,48 +16,17 @@ defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
 class Blocks {
 
-	// Blocks that need to be in the settings page
-	protected $registered_blocks;
-
 	// Blocks are ranked in categories
 	protected $categories;
 
 	public function __construct() {
 		$this->set_categories();
-		$this->setup_registered_blocks();
-	}
-
-	public function set_categories() {
-		$categories = array(
-			'common'    => __( 'Common', 'gutenblobks' ),
-			'woo' 	    => __( 'WooCommerce', 'gutenblobks' ),
-			'marketing' => __( 'Marketing', 'gutenblobks' ),
-			'apis' 	    => __( 'External content', 'gutenblobks' ),
-		);
-
-		$categories = apply_filters( 'gutenberg-blocks/register-block', $categories );
-
-		$this->categories = $categories;
-	}
-
-
-	public function get_categories() {
-		return $this->categories;
-	}
-
-
-	public function setup_registered_blocks() {
-		global $AdvancedGutenbergBlocks;
-
-		$blocks = $AdvancedGutenbergBlocks->get_blocks();
-
-		$blocks = apply_filters( 'gutenberg-blocks/registered-block', $blocks );
-
-		$this->registered_blocks = $blocks;
 	}
 
 	public function get_registered_blocks() {
-		return $this->registered_blocks;
+		global $AdvancedGutenbergBlocks;
+
+		return $AdvancedGutenbergBlocks->get_blocks();
 	}
 
 	public function get_disabled_blocks() {
@@ -92,6 +61,27 @@ class Blocks {
 	public function set_disabled_blocks($blocks) {
 		update_option('gutenberg-blocks-disabled', $blocks);
 	}
+
+
+	// Catégories
+
+	public function set_categories() {
+		$categories = array(
+			'common'    => __( 'Common', 'gutenblobks' ),
+			'woo' 	    => __( 'WooCommerce', 'gutenblobks' ),
+			'marketing' => __( 'Marketing', 'gutenblobks' ),
+			'apis' 	    => __( 'External content', 'gutenblobks' ),
+		);
+
+		$categories = apply_filters( 'gutenberg-blocks/register-block', $categories );
+
+		$this->categories = $categories;
+	}
+
+	public function get_categories() {
+		return $this->categories;
+	}
+
 
 	public function get_native_blocks_categories() {
 		return array(

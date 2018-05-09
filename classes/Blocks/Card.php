@@ -3,7 +3,8 @@
 namespace AdvancedGutenbergBlocks\Blocks;
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
-use AdvancedGutenbergBlocks\Extend;
+use AdvancedGutenbergBlocks\Helpers\Extend;
+
 
 class Card {
 
@@ -20,7 +21,7 @@ class Card {
 			'description' => __( "Do you like how Facebook, Twitter or Slack display a sweet preview to a website in a card? Don't be jealous, we've made the same for you in WordPress!", 'advanced-gutenberg-blocks' ),
 		);
 
-		//Extend::register_block( 'gutenblocks/card', __( 'Website card preview', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'gutenblocks/card', __( 'Website card preview', 'advanced-gutenberg-blocks' ), $args );
   }
 
 

@@ -13,8 +13,6 @@ use AdvancedGutenbergBlocks\WP\Front;
 use AdvancedGutenbergBlocks\WP\Gutenberg;
 use AdvancedGutenbergBlocks\WP\Settings;
 
-use AdvancedGutenbergBlocks\Services\Blocks;
-
 use AdvancedGutenbergBlocks\Blocks\Notice;
 use AdvancedGutenbergBlocks\Blocks\Plugin;
 use AdvancedGutenbergBlocks\Blocks\Ad;
@@ -43,8 +41,7 @@ class AdvancedGutenbergBlocks {
 	// List the registered blocks in WP Admin Gutenberg Blocks settings page
 	private $registered_settings = array();
 
-
-	public function __construct() {
+	public function run() {
 
 		// Check compatibility (WP 5.1 or gutenberg plugin is activated)
 		add_action( 'admin_init', array( $this, 'check_compatibility' ), 1 );
@@ -58,14 +55,15 @@ class AdvancedGutenbergBlocks {
 		// Load Classes
 		require_once $path . 'classes/Helpers/Consts.php';
 		require_once $path . 'classes/Helpers/Dashicons.php';
+		require_once $path . 'classes/Helpers/Extend.php';
+
+		require_once $path . 'classes/Services/Blocks.php';
 
 		require_once $path . 'classes/WP/Installer.php';
 		require_once $path . 'classes/WP/Admin.php';
 		require_once $path . 'classes/WP/Front.php';
 		require_once $path . 'classes/WP/Gutenberg.php';
 		require_once $path . 'classes/WP/Settings.php';
-
-		require_once $path . 'classes/Services/Blocks.php';
 
 		require_once $path . 'classes/Blocks/Notice.php';
 		require_once $path . 'classes/Blocks/Plugin.php';
@@ -79,7 +77,7 @@ class AdvancedGutenbergBlocks {
 		require_once $path . 'classes/Blocks/Gmap.php';
 
 		// Hack to get JS strings translatable by wp.org
-		require $path . 'js-strings.php';
+		require_once $path . 'js-strings.php';
 
 		// Activation / Deactivation hooks
 		register_activation_hook( $path . 'plugin.php' , Installer::activate() );
@@ -104,31 +102,26 @@ class AdvancedGutenbergBlocks {
 		(new Post)->run();
 		(new Testimonial)->run();
 		(new Gmap)->run();
-
 	}
 
-	public function get_plugin_name() {
-		return Consts::PLUGIN_NAME;
-	}
-
-	public function get_version() {
-		return Consts::VERSION;
-	}
+	/**
+	 * Blocs / Settings getter / setters
+	 */
 
 	public function set_block( $args ) {
-		$this->$registered_blocks[] = $args;
+		$this->registered_blocks[] = $args;
 	}
 
 	public function set_setting( $args ) {
-		$this->$registered_settings[] = $args;
+		$this->registered_settings[] = $args;
 	}
 
 	public function get_blocks() {
-		return $this->$registered_blocks;
+		return $this->registered_blocks;
 	}
 
 	public function get_settings() {
-		return $this->$registered_settings;
+		return $this->registered_settings;
 	}
 
 

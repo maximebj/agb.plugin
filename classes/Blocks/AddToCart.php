@@ -3,7 +3,7 @@
 namespace AdvancedGutenbergBlocks\Blocks;
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
-use AdvancedGutenbergBlocks\Extend;
+use AdvancedGutenbergBlocks\Helpers\Extend;
 
 class AddToCart {
 
@@ -21,7 +21,7 @@ class AddToCart {
 			'description' => __( 'An add to cart button to quickly purchase a WooCommerce product', 'advanced-gutenberg-blocks' ),
 		);
 
-		//Extend::register_block( 'gutenblocks/addtocart', __( 'Add to cart button', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'gutenblocks/addtocart', __( 'Add to cart button', 'advanced-gutenberg-blocks' ), $args );
   }
 
 	public function register_render() {

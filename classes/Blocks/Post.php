@@ -3,7 +3,8 @@
 namespace AdvancedGutenbergBlocks\Blocks;
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
-use AdvancedGutenbergBlocks\Extend;
+use AdvancedGutenbergBlocks\Helpers\Extend;
+
 
 class Post {
 
@@ -21,7 +22,7 @@ class Post {
 			'description' => __( 'Display pretty posts link (from any post type)', 'advanced-gutenberg-blocks' ),
 		);
 
-		//Extend::register_block( 'gutenblocks/post', __( 'Post', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'gutenblocks/post', __( 'Post', 'advanced-gutenberg-blocks' ), $args );
   }
 
 	public function register_render() {

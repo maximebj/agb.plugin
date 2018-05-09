@@ -21,3 +21,4 @@ use AdvancedGutenbergBlocks\AdvancedGutenbergBlocks;
 require plugin_dir_path( __FILE__ ) . 'classes/AdvancedGutenbergBlocks.php';
 
 $AdvancedGutenbergBlocks = new AdvancedGutenbergBlocks();
+$AdvancedGutenbergBlocks->run();

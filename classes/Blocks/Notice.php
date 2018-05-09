@@ -3,7 +3,8 @@
 namespace AdvancedGutenbergBlocks\Blocks;
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
-use AdvancedGutenbergBlocks\Extend;
+use AdvancedGutenbergBlocks\Helpers\Extend;
+
 
 class Notice {
 
@@ -17,7 +18,7 @@ class Notice {
 			'description' => __( 'Display a sweet Info/Advice/Warning/Avoid/ notice', 'advanced-gutenberg-blocks' ),
 		);
 
-		//Extend::register_block( 'gutenblocks/notice', __( 'Notice', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'gutenblocks/notice', __( 'Notice', 'advanced-gutenberg-blocks' ), $args );
   }
 
 

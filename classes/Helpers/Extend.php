@@ -1,44 +1,18 @@
 <?php
 
-namespace AdvancedGutenbergBlocks;
+namespace AdvancedGutenbergBlocks\Helpers;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
 /**
- * Extensibility methods for developers
+ * Extensibility API
  *
  * @author Maximebj
  * @version 1.0.0
- * @since 1.0.0
+ * @since 1.2.0
  */
 
-class Extend {
-
-	// List the registered blocks in WP Admin Gutenberg Blocks settings page
-	private $registered_blocks = array();
-
-	// List the registered blocks in WP Admin Gutenberg Blocks settings page
-	private $registered_settings = array();
-
-	/**
-	 * Register blocks and settings (use Extend class to do this)
-	 */
-
-	public function set_block( $args ) {
-		$this->$registered_blocks[] = $args;
-	}
-
-	public function set_setting( $args ) {
-		$this->$registered_settings[] = $args;
-	}
-
-	public function get_blocks() {
-		return $this->$registered_blocks;
-	}
-
-	public function get_settings() {
-		return $this->$registered_settings;
-	}
+abstract class Extend {
 
 	/**
 	 *  Register blocks
@@ -53,7 +27,7 @@ class Extend {
 	 *  available: (Boolean) Set to False to tease a not yet available block
 	 */
 
-	public function register_block($id, $name, $args) {
+	static function register_block($id, $name, $args) {
 		global $AdvancedGutenbergBlocks;
 
 		$defaults = array(
@@ -70,7 +44,7 @@ class Extend {
 
 		$args = wp_parse_args($args, $defaults);
 
-		$this->set_block($args);
+		$AdvancedGutenbergBlocks->set_block( $args );
 	}
 
 	/**
@@ -80,7 +54,7 @@ class Extend {
 	 * load_on_editor: (Boolean) define if the option value will be sent to the admin editor
 	 */
 
-	public function register_setting( $setting, $load_on_editor = false ) {
+	static function register_setting( $setting, $load_on_editor = false ) {
 		global $AdvancedGutenbergBlocks;
 
 		$args = array(
@@ -88,7 +62,8 @@ class Extend {
 			'editor' => $load_on_editor,
 		);
 
-		$this->set_setting($args);
+		$AdvancedGutenbergBlocks->set_setting( $args );
 
 	}
+
 }

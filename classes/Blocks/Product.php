@@ -3,7 +3,8 @@
 namespace AdvancedGutenbergBlocks\Blocks;
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
-use AdvancedGutenbergBlocks\Extend;
+use AdvancedGutenbergBlocks\Helpers\Extend;
+
 
 class Product {
 
@@ -21,7 +22,7 @@ class Product {
 			'description' => __( 'Display WooCommerce Product in your post', 'advanced-gutenberg-blocks' ),
 		);
 
-		//Extend::register_block( 'gutenblocks/product', __( 'Product', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'gutenblocks/product', __( 'Product', 'advanced-gutenberg-blocks' ), $args );
   }
 
 	public function register_render() {
