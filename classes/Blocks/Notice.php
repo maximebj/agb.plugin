@@ -10,7 +10,7 @@ class Notice {
 
   public function run() {
 
-		// Register Block in the Gutenblocks settings page
+		// Register Block in the plugin settings page
 		$args = array(
 			'icon' => 'dashicons-warning',
 			'category' => 'common',
@@ -18,7 +18,7 @@ class Notice {
 			'description' => __( 'Display a sweet Info/Advice/Warning/Avoid/ notice', 'advanced-gutenberg-blocks' ),
 		);
 
-		Extend::register_block( 'gutenblocks/notice', __( 'Notice', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'advanced-gutenberg-blocks/notice', __( 'Notice', 'advanced-gutenberg-blocks' ), $args );
   }
 
 

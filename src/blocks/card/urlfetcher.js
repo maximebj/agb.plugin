@@ -39,7 +39,7 @@ export default class URLFetcher extends Component {
 
 		this.setState( { results: __( 'Fetching website...', 'advanced-gutenberg-blocks' ) } )
 
-		fetch(gutenblocksGlobals.ajaxurl, {
+		fetch(advancedGutenbergBlocksGlobals.ajaxurl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
@@ -67,7 +67,7 @@ export default class URLFetcher extends Component {
 				<form
 	        key="form-link"
 	        onSubmit={ this.onSubmitForm }
-					className="wp-block-gutenblocks-card__urlfetcher"
+					className="wp-block-advanced-gutenberg-blocks-card__urlfetcher"
 	      >
 					<Dashicon icon='admin-links' />
 					<input
@@ -85,7 +85,7 @@ export default class URLFetcher extends Component {
 				</form>
 
 				{ this.state.results && (
-					<p className="gutenblocks-block-message">{ this.state.results }</p>
+					<p className="advanced-gutenberg-blocks-block-message">{ this.state.results }</p>
 				) }
 			</div>
     )

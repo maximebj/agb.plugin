@@ -60,7 +60,7 @@ export default class SearchProduct extends Component {
           onChange={ this.onSearch }
         />
 
-        <div className="gutenblocks-panel-results">
+        <div className="advanced-gutenberg-blocks-panel-results">
 
           { !! this.state.results && Array.isArray(this.state.results) ?
             (

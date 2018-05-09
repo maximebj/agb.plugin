@@ -1,13 +1,11 @@
-@import 'vars';
-
-.wp-block-gutenblocks-testimonial__picture {
+.wp-block-advanced-gutenberg-blocks-testimonial__picture {
 	position: relative;
 
 	a {
 		cursor: pointer;
 	}
 
-	.wp-block-gutenblocks-testimonial__picture__actions {
+	.wp-block-advanced-gutenberg-blocks-testimonial__picture__actions {
 		position: absolute;
 		bottom: -30px;
 		left: 0;
@@ -17,7 +15,7 @@
 	}
 }
 
-.wp-block-gutenblocks-testimonial__picture__image {
+.wp-block-advanced-gutenberg-blocks-testimonial__picture__image {
 	display: block;
 	cursor: pointer;
 	line-height: 100px;

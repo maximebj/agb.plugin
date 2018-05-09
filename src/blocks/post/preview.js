@@ -62,21 +62,21 @@ export default class Preview extends Component {
 
     return (
 			!! this.state.post ? (
-				<div className="wp-block-gutenblocks-post">
+				<div className="wp-block-advanced-gutenberg-blocks-post">
 					{ !! this.state.featuredImage && this.props.attributes.showImage && (
 						<a
 							href={ this.state.post.link }
-							className="wp-block-gutenblocks-post__image"
+							className="wp-block-advanced-gutenberg-blocks-post__image"
 							style={ {
 								backgroundImage: `url(${this.state.featuredImage})`
 							} }
 						/>
 					) }
-					<div className="wp-block-gutenblocks-post__content">
-						<p className="wp-block-gutenblocks-post__title">
+					<div className="wp-block-advanced-gutenberg-blocks-post__content">
+						<p className="wp-block-advanced-gutenberg-blocks-post__title">
 							<a href={ this.state.post.link }>{ this.state.post.title.rendered }</a>
 						</p>
-						<p className="wp-block-gutenblocks-post__metas">
+						<p className="wp-block-advanced-gutenberg-blocks-post__metas">
 							<em>
 								{ !! this.state.category && this.props.attributes.showCategory && (
 								<span> { __( 'In', 'advanced-gutenberg-blocks' ) + ' ' + this.state.category } </span>
@@ -87,18 +87,18 @@ export default class Preview extends Component {
 							</em>
 						</p>
 						<div
-							className="wp-block-gutenblocks-post__excerpt"
+							className="wp-block-advanced-gutenberg-blocks-post__excerpt"
 							dangerouslySetInnerHTML={ getExcerpt() }
 						/>
-						<p class="wp-block-gutenblocks-product__actions">
-							<a href={ this.state.post.link } className="wp-block-gutenblocks-post__button">
+						<p class="wp-block-advanced-gutenberg-blocks-product__actions">
+							<a href={ this.state.post.link } className="wp-block-advanced-gutenberg-blocks-post__button">
 								{ __( 'Read more', 'advanced-gutenberg-blocks' ) }
 							</a>
 						</p>
 					</div>
 				</div>
 			) : (
-				<p class="gutenblocks-block-message">{ __( 'Loading post...', 'advanced-gutenberg-blocks' ) }</p>
+				<p class="advanced-gutenberg-blocks-block-message">{ __( 'Loading post...', 'advanced-gutenberg-blocks' ) }</p>
 			)
     )
   }

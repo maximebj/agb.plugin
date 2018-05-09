@@ -1,4 +1,4 @@
-<div class="wp-block-gutenblocks-gmap">
+<div class="wp-block-advanced-gutenberg-blocks-gmap">
 	<script>
 		function initMap<?php echo $rand; ?>() {
 
@@ -27,5 +27,5 @@
 	<script async defer
     src="https://maps.googleapis.com/maps/api/js?key=<?php echo $api_key; ?>&callback=initMap<?php echo $rand; ?>">
   </script>
-	<div class="wp-block-gutenblocks-gmap__canvas" id="gutenblock-gmap-<?php echo $rand; ?>" style="height: <?php echo $attributes['height']; ?>px;"></div>
+	<div class="wp-block-advanced-gutenberg-blocks-gmap__canvas" id="gutenblock-gmap-<?php echo $rand; ?>" style="height: <?php echo $attributes['height']; ?>px;"></div>
 </div>

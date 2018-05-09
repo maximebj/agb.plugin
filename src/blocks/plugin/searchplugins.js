@@ -29,7 +29,7 @@ export default class SearchPlugins extends Component {
 
     this.setState( { results: __( 'Loading...', 'advanced-gutenberg-blocks' ) } )
 
-    fetch(gutenblocksGlobals.ajaxurl, {
+    fetch(advancedGutenbergBlocksGlobals.ajaxurl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
@@ -66,7 +66,7 @@ export default class SearchPlugins extends Component {
           onChange={ this.onSearch }
         />
 
-			  <div className="gutenblocks-panel-results">
+			  <div className="advanced-gutenberg-blocks-panel-results">
 
           { this.state.results && Array.isArray(this.state.results) ?
             (

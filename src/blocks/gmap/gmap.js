@@ -11,7 +11,7 @@ export default class Gmap extends Component {
 
 	_createMap = coords => {
 		return new google.maps.Map(
-			document.querySelector(".wp-block-gutenblocks-gmap__canvas"),
+			document.querySelector(".wp-block-advanced-gutenberg-blocks-gmap__canvas"),
 			{
 				zoom: this.props.attributes.zoom,
 				center: coords,
@@ -85,7 +85,7 @@ export default class Gmap extends Component {
 		}
 
 		// Update infoWindow
-		if (name != nextName) {			
+		if (name != nextName) {
 			infoWindow.setContent(this._setInfoWindowContent(nextProps.attributes))
 		}
 	}
@@ -101,7 +101,7 @@ export default class Gmap extends Component {
 	render() {
 		return (
 			<div
-				className="wp-block-gutenblocks-gmap__canvas"
+				className="wp-block-advanced-gutenberg-blocks-gmap__canvas"
 				style={{
 					height: this.props.attributes.height
 				}}

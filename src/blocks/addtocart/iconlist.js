@@ -18,7 +18,7 @@ export default class IconList extends Component {
   render() {
 
     return (
-      <div class="gutenblocks-panel-buttons">
+      <div class="advanced-gutenberg-blocks-panel-buttons">
         { dashIconList.map( value => {
           return (
             <span

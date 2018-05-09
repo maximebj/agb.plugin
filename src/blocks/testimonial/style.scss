@@ -1,15 +1,13 @@
-@import 'vars';
-
-.wp-block-gutenblocks-testimonial {
+.wp-block-advanced-gutenberg-blocks-testimonial {
   margin: $margin-default;
 	display: flex;
 	align-items: center;
 }
 
-.wp-block-gutenblocks-testimonial__picture {
+.wp-block-advanced-gutenberg-blocks-testimonial__picture {
 	position: relative;
 
-	.wp-block-gutenblocks-testimonial__picture__image {
+	.wp-block-advanced-gutenberg-blocks-testimonial__picture__image {
 		width: 100px;
 		height: 100px;
 		margin-right: 30px;
@@ -22,7 +20,7 @@
 	}
 }
 
-.wp-block-gutenblocks-testimonial__bubble {
+.wp-block-advanced-gutenberg-blocks-testimonial__bubble {
 	position: relative;
 	flex: 3;
 	border: 1px solid $color-neutral;
@@ -31,7 +29,7 @@
 	box-shadow: 5px 5px 10px rgba(0,0,0, .05);
 }
 
-.wp-block-gutenblocks-testimonial__bubble--with-arrow {
+.wp-block-advanced-gutenberg-blocks-testimonial__bubble--with-arrow {
 	&:before {
 		content: '';
 		position: absolute;
@@ -55,7 +53,7 @@
 	}
 }
 
-.wp-block-gutenblocks-testimonial__content {
+.wp-block-advanced-gutenberg-blocks-testimonial__content {
 	font-style: italic;
 	color: #aaa;
 
@@ -78,17 +76,17 @@
 }
 
 
-.wp-block-gutenblocks-testimonial__signature {
+.wp-block-advanced-gutenberg-blocks-testimonial__signature {
 	display: inline-block;
 	float: right;
 	margin-right: 24px;
 	margin-top: 10px;
 
-	.wp-block-gutenblocks-testimonial__name {
+	.wp-block-advanced-gutenberg-blocks-testimonial__name {
 		margin: 0;
 	}
 
-	.wp-block-gutenblocks-testimonial__company {
+	.wp-block-advanced-gutenberg-blocks-testimonial__company {
 		margin: 0;
 		color: #aaa;
 		font-size: .9em;

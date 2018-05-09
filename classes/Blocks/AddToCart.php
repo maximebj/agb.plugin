@@ -13,7 +13,7 @@ class AddToCart {
 		add_action( 'init', array( $this, 'register_render' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
 
-		// Register Block in the Gutenblocks settings page
+		// Register Block in the plugin settings page
 		$args = array(
 			'icon' => 'dashicons-cart',
 			'category' => 'woo',
@@ -21,7 +21,7 @@ class AddToCart {
 			'description' => __( 'An add to cart button to quickly purchase a WooCommerce product', 'advanced-gutenberg-blocks' ),
 		);
 
-		Extend::register_block( 'gutenblocks/addtocart', __( 'Add to cart button', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'advanced-gutenberg-blocks/addtocart', __( 'Add to cart button', 'advanced-gutenberg-blocks' ), $args );
   }
 
 	public function register_render() {
@@ -32,7 +32,7 @@ class AddToCart {
 
 		// PHP Rendering of the block
 		register_block_type(
-      'gutenblocks/addtocart',
+      'advanced-gutenberg-blocks/addtocart',
       [ 'render_callback' => array( $this, 'render_block' ) ]
     );
 
@@ -69,7 +69,7 @@ class AddToCart {
 		// This block needs the currency symbol
 		wp_localize_script(
 			Consts::BLOCKS_SCRIPT,
-			'gutenblocksAddtocart',
+			'advancedGutenbergBlocksAddtocart',
 			array(
 				'currency' => get_woocommerce_currency_symbol(),
 			)

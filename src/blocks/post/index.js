@@ -8,7 +8,7 @@ const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
 
 export default registerBlockType(
-  'gutenblocks/post',
+  'advanced-gutenberg-blocks/post',
   {
     title: __( 'Post', 'advanced-gutenberg-blocks' ),
     description: __( 'Display a pretty post link (from any post type)', 'advanced-gutenberg-blocks' ),
@@ -73,7 +73,7 @@ export default registerBlockType(
         !! props.attributes.postID ? (
 					<Preview { ...props } />
         ) : (
-          <p class="gutenblocks-block-message">{ __( 'Search for a post in the inspector', 'advanced-gutenberg-blocks' ) }</p>
+          <p class="advanced-gutenberg-blocks-block-message">{ __( 'Search for a post in the inspector', 'advanced-gutenberg-blocks' ) }</p>
         )
       ]
   	},

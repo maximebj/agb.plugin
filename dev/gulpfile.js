@@ -7,7 +7,7 @@ const bs = require("browser-sync").create()
 
 gulp.task("stylus-admin-css", function() {
   return gulp
-    .src("./stylus/gutenblocks-admin.styl")
+    .src("./stylus/advanced-gutenberg-blocks-admin.styl")
     .pipe(plumber())
     .pipe(
       stylus({

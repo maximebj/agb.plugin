@@ -13,7 +13,7 @@ class AdText {
 		// Register hooks
 		add_action( 'enqueue_block_editor_assets', array( $this, 'arguments_for_js' ) );
 
-		// Register Block in the Gutenblocks settings page
+		// Register Block in the plugin settings page
 		$args = array(
 			'icon' => 'dashicons-align-right',
 			'category' => 'marketing',
@@ -22,21 +22,21 @@ class AdText {
 			'options_callback' => array( $this, 'settings' ),
 		);
 
-		Extend::register_block( 'gutenblocks/adtext', __( 'Text + Rectangle Ad', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'advanced-gutenberg-blocks/adtext', __( 'Text + Rectangle Ad', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
-		Extend::register_setting( 'gutenblocks-adtext-script' );
+		Extend::register_setting( 'advanced-gutenberg-blocks-adtext-script' );
   }
 
 	public function settings() {
 		echo '
-		<div class="gutenblocks-block__settings__option">
-			<div class="gutenblocks-block__settings__label">
-				<label for="gutenblocks-adtext-script"> ' . __( 'Js script', 'advanced-gutenberg-blocks' ) . '</label>
+		<div class="advanced-gutenberg-blocks-block__settings__option">
+			<div class="advanced-gutenberg-blocks-block__settings__label">
+				<label for="advanced-gutenberg-blocks-adtext-script"> ' . __( 'Js script', 'advanced-gutenberg-blocks' ) . '</label>
 			</div>
 
-			<div class="gutenblocks-block__settings__field">
-				<textarea name="gutenblocks-adtext-script" rows="4">' . get_option('gutenblocks-adtext-script') . '</textarea>
+			<div class="advanced-gutenberg-blocks-block__settings__field">
+				<textarea name="advanced-gutenberg-blocks-adtext-script" rows="4">' . get_option('advanced-gutenberg-blocks-adtext-script') . '</textarea>
 			</div>
 		</div>
 		';
@@ -44,10 +44,10 @@ class AdText {
 
 	public function arguments_for_js() {
 		wp_localize_script(
-      'gutenblocks-block',
-      'gutenblocksAdTextSettings',
+      'advanced-gutenberg-blocks-block',
+      'advancedGutenbergBlocksAdTextSettings',
       array(
-        'script' => get_option('gutenblocks-adtext-script'),
+        'script' => get_option('advanced-gutenberg-blocks-adtext-script'),
       )
     );
 	}

@@ -1,5 +1,5 @@
 // Deactivate Blocks
-var deactivatedBlocks = JSON.parse(gutenblocksDeactivated);
+var deactivatedBlocks = JSON.parse(advancedGutenbergBlocksDeactivated);
 
 deactivatedBlocks.forEach( block => {
 	wp.blocks.unregisterBlockType(block);

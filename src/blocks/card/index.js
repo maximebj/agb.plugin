@@ -10,7 +10,7 @@ const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
 
 export default registerBlockType(
-  'gutenblocks/card',
+  'advanced-gutenberg-blocks/card',
   {
     title: __( 'Website card preview', 'advanced-gutenberg-blocks' ),
     description: __( 'Turn a simple url in a pretty card preview', 'advanced-gutenberg-blocks' ),
@@ -23,12 +23,12 @@ export default registerBlockType(
 		attributes: {
 			title: {
 				source: 'text',
-        selector: '.wp-block-gutenblocks-card__title',
+        selector: '.wp-block-advanced-gutenberg-blocks-card__title',
 				default: '',
       },
 			description: {
 				source: 'text',
-        selector: '.wp-block-gutenblocks-card__description',
+        selector: '.wp-block-advanced-gutenberg-blocks-card__description',
       },
 			image: {
         type: 'string',
@@ -44,7 +44,7 @@ export default registerBlockType(
       },
 			siteUrl: {
 				source: 'text',
-        selector: '.wp-block-gutenblocks-card__url',
+        selector: '.wp-block-advanced-gutenberg-blocks-card__url',
       },
     },
 		edit: props => {

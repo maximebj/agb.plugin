@@ -19,7 +19,7 @@ export default class Preview extends Component {
   		return {__html: description }
 		}
 
-		const currency = gutenblocksProduct.currency
+		const currency = advancedGutenbergBlocksProduct.currency
 
 		// Currency before / after
 		const cb = ( currency == "$" ) ? currency : ''
@@ -27,18 +27,18 @@ export default class Preview extends Component {
 
     return (
 			!! product ? (
-				<div className="wp-block-gutenblocks-product">
+				<div className="wp-block-advanced-gutenberg-blocks-product">
 					{ !! product.images && (
-						<a href={ product.permalink } className="wp-block-gutenblocks-product__image">
+						<a href={ product.permalink } className="wp-block-advanced-gutenberg-blocks-product__image">
 							<img src={ product.images[0].src } alt={ product.images[0].alt } />
 						</a>
 					) }
-					<div className="wp-block-gutenblocks-product__content">
-						<p className="wp-block-gutenblocks-product__title">
+					<div className="wp-block-advanced-gutenberg-blocks-product__content">
+						<p className="wp-block-advanced-gutenberg-blocks-product__title">
 							<a href={ product.permalink }>{ product.name }</a>
 						</p>
 						<p
-							className="wp-block-gutenblocks-product__price"
+							className="wp-block-advanced-gutenberg-blocks-product__price"
 							style={ {
 								color: this.props.attributes.priceColor
 							} }
@@ -46,7 +46,7 @@ export default class Preview extends Component {
 							{ !! product.sale_price != "" ? (
 								<span>
 									<span>{ cb }{ product.sale_price }{ ca }</span>
-									<del className="wp-block-gutenblocks-product__sale">{ cb }{ product.regular_price }{ ca }</del>
+									<del className="wp-block-advanced-gutenberg-blocks-product__sale">{ cb }{ product.regular_price }{ ca }</del>
 								</span>
 								) : (
 									<span>{ cb }{ product.price }{ ca }</span>
@@ -54,12 +54,12 @@ export default class Preview extends Component {
 							}
 						</p>
 						<div
-							className="wp-block-gutenblocks-product__description"
+							className="wp-block-advanced-gutenberg-blocks-product__description"
 							dangerouslySetInnerHTML={ getDescription() }>
 						</div>
-						<p class="wp-block-gutenblocks-product__actions">
+						<p class="wp-block-advanced-gutenberg-blocks-product__actions">
 							<a
-								className="wp-block-gutenblocks-product__button"
+								className="wp-block-advanced-gutenberg-blocks-product__button"
 								href={ '/?add-to-cart=' + product.id }
 								style={ {
 									backgroundColor: this.props.attributes.buttonBackgroundColor
@@ -72,7 +72,7 @@ export default class Preview extends Component {
 					</div>
 				</div>
 			) : (
-				<p class="gutenblocks-block-message">{ __( 'Loading product...', 'advanced-gutenberg-blocks' ) }</p>
+				<p class="advanced-gutenberg-blocks-block-message">{ __( 'Loading product...', 'advanced-gutenberg-blocks' ) }</p>
 			)
     )
   }

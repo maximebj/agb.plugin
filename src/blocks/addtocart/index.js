@@ -16,7 +16,7 @@ const { withAPIData } = wp.components
 
 
 export default registerBlockType(
-  'gutenblocks/addtocart',
+  'advanced-gutenberg-blocks/addtocart',
   {
 		title: __( 'Add to cart button', 'advanced-gutenberg-blocks' ),
     description: __( 'This button allow a customer to quickly add a product to cart', 'advanced-gutenberg-blocks' ),
@@ -83,7 +83,7 @@ export default registerBlockType(
 	        setAttributes( { hasIcon: ! attributes.hasIcon } )
 	      }
 
-				const currency = gutenblocksAddtocart.currency
+				const currency = advancedGutenbergBlocksAddtocart.currency
 
 				// Currency before / after
 				const cb = ( currency == "$" ) ? currency : ''
@@ -94,12 +94,12 @@ export default registerBlockType(
 	          <Inspector { ...{ onChangeIcon, onChangeURL, toggleHasIcon, onChangeProduct, onChangeBackgroundColor , attributes } } />
 	        )
 					,
-	        <p className="wp-block-gutenblocks-addtocart">
+	        <p className="wp-block-advanced-gutenberg-blocks-addtocart">
 	          <a
 							style={ {
 		            backgroundColor: attributes.backgroundColor
 		          } }
-							className="wp-block-gutenblocks-addtocart__button"
+							className="wp-block-advanced-gutenberg-blocks-addtocart__button"
 						>
 	            { !! attributes.hasIcon && (
 	              <span className={ classnames('dashicons', `dashicons-${attributes.icon}`) }></span>
@@ -107,19 +107,19 @@ export default registerBlockType(
 	            }
 	            <RichText
 	              tagName="span"
-								className="wp-block-gutenblocks-addtocart__label"
+								className="wp-block-advanced-gutenberg-blocks-addtocart__label"
 	              value={ attributes.label }
 	              onChange={ onChangeLabel }
 	            />
-							<span class="wp-block-gutenblocks-addtocart__separator"> • </span>
+							<span class="wp-block-advanced-gutenberg-blocks-addtocart__separator"> • </span>
 
 							{ !! product && typeof product.data !== "undefined" ? (
-								<div className="wp-block-gutenblocks-addtocart__price">
+								<div className="wp-block-advanced-gutenberg-blocks-addtocart__price">
 
 									{ !! product.data.sale_price != "" ? (
 										<span>
 											<span>{ cb }{ product.data.sale_price }{ ca }</span>
-											<del className="wp-block-gutenblocks-addtocart__sale">{ cb }{ product.data.regular_price }{ ca }</del>
+											<del className="wp-block-advanced-gutenberg-blocks-addtocart__sale">{ cb }{ product.data.regular_price }{ ca }</del>
 										</span>
 										) : (
 											<span>{ cb }{ product.data.price }{ ca }</span>

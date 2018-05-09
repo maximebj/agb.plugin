@@ -1,11 +1,9 @@
-@import 'vars';
-
-.wp-block-gutenblocks-adtext {
+.wp-block-advanced-gutenberg-blocks-adtext {
 	overflow: auto;
 	margin: $margin-default;
 }
 
-.wp-block-gutenblocks-adtext__content {
+.wp-block-advanced-gutenberg-blocks-adtext__content {
 	p {
 		margin: 1.5em 0;
 	}
@@ -15,7 +13,7 @@
 	}
 }
 
-.wp-block-gutenblocks-adtext__ad {
+.wp-block-advanced-gutenberg-blocks-adtext__ad {
 	float: right;
 	margin: 0 0 20px 20px;
 }

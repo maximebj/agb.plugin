@@ -14,7 +14,7 @@ const {
 } = wp.blocks
 
 export default registerBlockType(
-  'gutenblocks/testimonial',
+  'advanced-gutenberg-blocks/testimonial',
   {
     title: __( 'Testimonial', 'advanced-gutenberg-blocks' ),
     description: __( 'Display a testimonial with a picture, text, name and company', 'advanced-gutenberg-blocks' ),
@@ -30,17 +30,17 @@ export default registerBlockType(
       content: {
         type: 'array',
         source: 'children',
-        selector: '.wp-block-gutenblocks-testimonial__content',
+        selector: '.wp-block-advanced-gutenberg-blocks-testimonial__content',
       },
 			name: {
         type: 'array',
         source: 'children',
-        selector: '.wp-block-gutenblocks-testimonial__name',
+        selector: '.wp-block-advanced-gutenberg-blocks-testimonial__name',
       },
 			company: {
         type: 'array',
         source: 'children',
-        selector: '.wp-block-gutenblocks-testimonial__company',
+        selector: '.wp-block-advanced-gutenberg-blocks-testimonial__company',
       },
 			showCompany: {
 				type: 'boolean',
@@ -89,9 +89,9 @@ export default registerBlockType(
           <Inspector { ...{ toggleCompany, toggleImage, ...props } } />
         )
 				,
-        <div className="wp-block-gutenblocks-testimonial">
+        <div className="wp-block-advanced-gutenberg-blocks-testimonial">
 					{ !! props.attributes.showImage && (
-					<div className="wp-block-gutenblocks-testimonial__picture">
+					<div className="wp-block-advanced-gutenberg-blocks-testimonial__picture">
 
 						<MediaUpload
 							onSelect={ onSelectMedia }
@@ -101,7 +101,7 @@ export default registerBlockType(
 								( !! props.attributes.image ? (
 									<div>
 										{ !! props.focus && (
-										<div className="wp-block-gutenblocks-testimonial__picture__actions">
+										<div className="wp-block-advanced-gutenberg-blocks-testimonial__picture__actions">
 											<a onClick={ onRemoveImage }>
 												{ __( '× Remove', 'advanced-gutenberg-blocks' ) }
 											</a>
@@ -109,7 +109,7 @@ export default registerBlockType(
 										) }
 
 										<div
-											className="wp-block-gutenblocks-testimonial__picture__image"
+											className="wp-block-advanced-gutenberg-blocks-testimonial__picture__image"
 											style={ {
 						            backgroundImage: `url(${props.attributes.image})`
 						          } }
@@ -118,7 +118,7 @@ export default registerBlockType(
 									</div>
 
 								) : (
-									<a className="wp-block-gutenblocks-testimonial__picture__image" onClick={ open }>
+									<a className="wp-block-advanced-gutenberg-blocks-testimonial__picture__image" onClick={ open }>
 										{ __( 'Select Image', 'advanced-gutenberg-blocks' ) }
 									</a>
 								) )
@@ -127,24 +127,24 @@ export default registerBlockType(
 					</div>
 					) }
 
-					<div className={ classnames( "wp-block-gutenblocks-testimonial__bubble", props.attributes.showImage && "wp-block-gutenblocks-testimonial__bubble--with-arrow" ) }>
+					<div className={ classnames( "wp-block-advanced-gutenberg-blocks-testimonial__bubble", props.attributes.showImage && "wp-block-advanced-gutenberg-blocks-testimonial__bubble--with-arrow" ) }>
 
 	          <RichText
 	            tagName="div"
 							multiline="p"
 	            placeholder={ __( 'Write testimonial content here', 'advanced-gutenberg-blocks' ) }
 	            value={ props.attributes.content }
-	            className='wp-block-gutenblocks-testimonial__content'
+	            className='wp-block-advanced-gutenberg-blocks-testimonial__content'
 	            onChange={ onChangeContent }
 	  				/>
 
-						<div className="wp-block-gutenblocks-testimonial__signature">
+						<div className="wp-block-advanced-gutenberg-blocks-testimonial__signature">
 
 							<RichText
 								tagName="p"
 								placeholder={ __( 'Matt Mullenweg', 'advanced-gutenberg-blocks' ) }
 								value={ props.attributes.name }
-								className='wp-block-gutenblocks-testimonial__name'
+								className='wp-block-advanced-gutenberg-blocks-testimonial__name'
 								onChange={ onChangeName }
 							/>
 						{ !! props.attributes.showCompany && (
@@ -152,7 +152,7 @@ export default registerBlockType(
 								tagName="p"
 								placeholder={ __( 'Automattic', 'advanced-gutenberg-blocks' ) }
 								value={ props.attributes.company }
-								className='wp-block-gutenblocks-testimonial__company'
+								className='wp-block-advanced-gutenberg-blocks-testimonial__company'
 								onChange={ onChangeCompany }
 							/>
 						) }
@@ -165,11 +165,11 @@ export default registerBlockType(
     },
     save: props => {
       return (
-				<div className="wp-block-gutenblocks-testimonial">
+				<div className="wp-block-advanced-gutenberg-blocks-testimonial">
 					{ !! props.attributes.showImage && (
-					<div className="wp-block-gutenblocks-testimonial__picture">
+					<div className="wp-block-advanced-gutenberg-blocks-testimonial__picture">
 						<div
-							className="wp-block-gutenblocks-testimonial__picture__image"
+							className="wp-block-advanced-gutenberg-blocks-testimonial__picture__image"
 							style={ {
 								backgroundImage: `url(${props.attributes.image})`
 							} }
@@ -177,19 +177,19 @@ export default registerBlockType(
 					</div>
 					) }
 
-					<div className={ classnames( "wp-block-gutenblocks-testimonial__bubble", props.attributes.showImage && "wp-block-gutenblocks-testimonial__bubble--with-arrow" ) }>
+					<div className={ classnames( "wp-block-advanced-gutenberg-blocks-testimonial__bubble", props.attributes.showImage && "wp-block-advanced-gutenberg-blocks-testimonial__bubble--with-arrow" ) }>
 
-						<div className="wp-block-gutenblocks-testimonial__content">
+						<div className="wp-block-advanced-gutenberg-blocks-testimonial__content">
 							{ props.attributes.content }
 						</div>
 
-						<div className="wp-block-gutenblocks-testimonial__signature">
-							<p className="wp-block-gutenblocks-testimonial__name">
+						<div className="wp-block-advanced-gutenberg-blocks-testimonial__signature">
+							<p className="wp-block-advanced-gutenberg-blocks-testimonial__name">
 								{ props.attributes.name }
 							</p>
 
 							{ !! props.attributes.showCompany && (
-								<p className='wp-block-gutenblocks-testimonial__company'>
+								<p className='wp-block-advanced-gutenberg-blocks-testimonial__company'>
 									{ props.attributes.company }
 								</p>
 							) }

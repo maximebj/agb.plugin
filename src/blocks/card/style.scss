@@ -1,6 +1,4 @@
-@import 'vars';
-
-.wp-block-gutenblocks-card {
+.wp-block-advanced-gutenberg-blocks-card {
 	position: relative;
 	display: block;
 	color: #444;
@@ -15,7 +13,7 @@
 	}
 }
 
-.wp-block-gutenblocks-card__link {
+.wp-block-advanced-gutenberg-blocks-card__link {
 	position: absolute;
 	z-index: 1;
 	top: 0;
@@ -25,28 +23,28 @@
 	text-decoration: none;
 }
 
-.wp-block-gutenblocks-card__image {
+.wp-block-advanced-gutenberg-blocks-card__image {
 	display: block;
 	margin: 0 auto;
 }
 
-.wp-block-gutenblocks-card__content {
+.wp-block-advanced-gutenberg-blocks-card__content {
 	padding: .75em 1em;
 	border-top: 1px solid $color-neutral;
 
-	.wp-block-gutenblocks-card__title {
+	.wp-block-advanced-gutenberg-blocks-card__title {
 		margin-top: 0;
 		font-size: 1.1em;
 		font-weight: bold;
 	}
 
-	.wp-block-gutenblocks-card__description {
+	.wp-block-advanced-gutenberg-blocks-card__description {
 		font-size: .9em;
 		margin: 1em 0;
 	}
 }
 
-.wp-block-gutenblocks-card__url {
+.wp-block-advanced-gutenberg-blocks-card__url {
 	color: $color-neutral;
 	margin-bottom: 0;
 }

@@ -13,7 +13,7 @@ class Card {
 		// Ajax Search Plugin on wp.org
     add_action('wp_ajax_fetch_site', array( $this, 'fetch_site' ));
 
-		// Register Block in the Gutenblocks settings page
+		// Register Block in the plugin settings page
 		$args = array(
 			'icon' => 'dashicons-admin-links',
 			'category' => 'apis',
@@ -21,7 +21,7 @@ class Card {
 			'description' => __( "Do you like how Facebook, Twitter or Slack display a sweet preview to a website in a card? Don't be jealous, we've made the same for you in WordPress!", 'advanced-gutenberg-blocks' ),
 		);
 
-		Extend::register_block( 'gutenblocks/card', __( 'Website card preview', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'advanced-gutenberg-blocks/card', __( 'Website card preview', 'advanced-gutenberg-blocks' ), $args );
   }
 
 

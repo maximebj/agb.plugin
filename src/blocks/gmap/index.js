@@ -8,7 +8,7 @@ const { registerBlockType } = wp.blocks
 const { __ } = wp.i18n
 
 export default registerBlockType(
-	'gutenblocks/gmap',
+	'advanced-gutenberg-blocks/gmap',
 	{
 	title: __( "Google Map", "advanced-gutenberg-blocks" ),
 	description: __( "Display a customizable Google map", "advanced-gutenberg-blocks" ),
@@ -88,16 +88,16 @@ export default registerBlockType(
 					}}
 				/>
 			),
-			<div className="wp-block-gutenblocks-gmap">
-				{ ! props.attributes.address && props.focus && typeof gutenblocksGmap == "undefined" && (
-						<p class="gutenblocks-block-message">
+			<div className="wp-block-advanced-gutenberg-blocks-gmap">
+				{ ! props.attributes.address && props.focus && typeof advancedGutenbergBlocksGmap == "undefined" && (
+						<p class="advanced-gutenberg-blocks-block-message">
 							{__( "Type your address on the inspector", "advanced-gutenberg-blocks" )}
 						</p>
 					)}
-				{ typeof gutenblocksGmap === "undefined" ? (
+				{ typeof advancedGutenbergBlocksGmap === "undefined" ? (
 					<Gmap {...props} />
 				) : (
-					<p class="gutenblocks-block-message">
+					<p class="advanced-gutenberg-blocks-block-message">
 						{__( "⚠️ You need to provide an API key in ", "advanced-gutenberg-blocks" )}
 						<a href="/wp-admin/admin.php?page=advanced-gutenberg-blocks-installed#blockgooglemap">
 							{__( "Blocks > Installed Blocks > Google Map", "advanced-gutenberg-blocks" )}

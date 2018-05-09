@@ -75,7 +75,7 @@ export default class Geocoder extends Component {
                     value={this.state.searchQuery}
                 />
 
-                <div className="gutenblocks-panel-results">
+                <div className="advanced-gutenberg-blocks-panel-results">
                     {!!this.state.results &&
                     Array.isArray(this.state.results) ? (
                         <ul>{this._renderResults()}</ul>

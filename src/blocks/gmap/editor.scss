@@ -1,11 +1,9 @@
-@import 'vars';
-
-.gutenblocks-panel-maps {
+.advanced-gutenberg-blocks-panel-maps {
 	display: flex;
 	flex-wrap: wrap;
 	margin: -8px;
 
-	.gutenblocks-panel-maps__item {
+	.advanced-gutenberg-blocks-panel-maps__item {
 		width: calc( 50% - 16px );
 		margin: 8px;
 	}

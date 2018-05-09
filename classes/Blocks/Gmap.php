@@ -14,7 +14,7 @@ class Gmap {
 		add_action( 'init', array( $this, 'register_render' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
 
-		// Register Block in the Gutenblocks settings page
+		// Register Block in the plugin settings page
 		$args = array(
 			'icon' => 'dashicons-location-alt',
 			'category' => 'apis',
@@ -23,23 +23,23 @@ class Gmap {
 			'options_callback' => array( $this, 'settings' ),
 		);
 
-		Extend::register_block( 'gutenblocks/gmap', __( 'Google Map', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'advanced-gutenberg-blocks/gmap', __( 'Google Map', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
-		Extend::register_setting( 'gutenblocks-gmap-api-key' );
+		Extend::register_setting( 'advanced-gutenberg-blocks-gmap-api-key' );
   }
 
 	public function settings() {
 		echo '
-		<p class="gutenblocks-block__settings__description">' . __( 'The API key is mandatory, you can create one on the <a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">Google Maps JS Api page</a>. ' ) . '</p>
+		<p class="advanced-gutenberg-blocks-block__settings__description">' . __( 'The API key is mandatory, you can create one on the <a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">Google Maps JS Api page</a>. ' ) . '</p>
 
-		<div class="gutenblocks-block__settings__option">
-			<div class="gutenblocks-block__settings__label">
-				<label for="gutenblocks-gmap-api-key"> ' . __( 'Api Key', 'advanced-gutenberg-blocks' ) . '</label>
+		<div class="advanced-gutenberg-blocks-block__settings__option">
+			<div class="advanced-gutenberg-blocks-block__settings__label">
+				<label for="advanced-gutenberg-blocks-gmap-api-key"> ' . __( 'Api Key', 'advanced-gutenberg-blocks' ) . '</label>
 			</div>
 
-			<div class="gutenblocks-block__settings__field">
-				<input type="text" name="gutenblocks-gmap-api-key" placeholder="' . __( 'Insert your Google Maps API Key here', 'advanced-gutenberg-blocks' ) . '" value="' . get_option( 'gutenblocks-gmap-api-key' ) . '">
+			<div class="advanced-gutenberg-blocks-block__settings__field">
+				<input type="text" name="advanced-gutenberg-blocks-gmap-api-key" placeholder="' . __( 'Insert your Google Maps API Key here', 'advanced-gutenberg-blocks' ) . '" value="' . get_option( 'advanced-gutenberg-blocks-gmap-api-key' ) . '">
 			</div>
 		</div>
 		';
@@ -52,7 +52,7 @@ class Gmap {
 		}
 
 		register_block_type(
-      'gutenblocks/gmap',
+      'advanced-gutenberg-blocks/gmap',
       [ 'render_callback' => array( $this, 'render_block' ) ]
     );
 	}
@@ -778,7 +778,7 @@ class Gmap {
 		if( ! isset( $attributes['zoom'] ) ) {  $attributes['zoom'] = 15 ; }
 		if( ! isset( $attributes['height'] ) ) {  $attributes['height'] = 400 ; }
 
-		$api_key = get_option( 'gutenblocks-gmap-api-key' );
+		$api_key = get_option( 'advanced-gutenberg-blocks-gmap-api-key' );
 
 		$rand = rand();
 
@@ -792,14 +792,14 @@ class Gmap {
 	}
 
 	public function editor_assets() {
-		$api_key = get_option( 'gutenblocks-gmap-api-key' );
+		$api_key = get_option( 'advanced-gutenberg-blocks-gmap-api-key' );
 
 		if ( $api_key == "" ) {
 
 			// Block will display a notice than the API key is not yet set
 			wp_localize_script(
 				Consts::BLOCKS_SCRIPT,
-				'gutenblocksGmap',
+				'advancedGutenbergBlocksGmap',
 				array(
 					'error' => 'noApiKey',
 				)

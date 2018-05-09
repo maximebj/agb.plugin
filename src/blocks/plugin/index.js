@@ -8,7 +8,7 @@ const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
 
 export default registerBlockType(
-  'gutenblocks/plugin',
+  'advanced-gutenberg-blocks/plugin',
   {
     title: __( 'Plugin', 'advanced-gutenberg-blocks' ),
     description: __( 'Display informations from a WordPress plugin', 'advanced-gutenberg-blocks' ),
@@ -20,43 +20,43 @@ export default registerBlockType(
     attributes: {
       title: {
         source: 'text',
-        selector: '.wp-block-gutenblocks-plugin__title a',
+        selector: '.wp-block-advanced-gutenberg-blocks-plugin__title a',
       },
       description: {
         source: 'text',
-        selector: '.wp-block-gutenblocks-plugin__desc',
+        selector: '.wp-block-advanced-gutenberg-blocks-plugin__desc',
       },
       image: {
         source: 'attribute',
-        selector: '.wp-block-gutenblocks-plugin__picture img',
+        selector: '.wp-block-advanced-gutenberg-blocks-plugin__picture img',
         attribute: 'src',
       },
       activeInstalls: {
         source: 'attribute',
-        selector: '.wp-block-gutenblocks-plugin__active',
+        selector: '.wp-block-advanced-gutenberg-blocks-plugin__active',
 				attribute: 'data-installs',
       },
       downloadLink: {
         source: 'attribute',
-        selector: '.wp-block-gutenblocks-plugin__download a',
+        selector: '.wp-block-advanced-gutenberg-blocks-plugin__download a',
         attribute: 'href',
       },
       rating: {
         source: 'attribute',
-        selector: '.wp-block-gutenblocks-plugin__stars',
+        selector: '.wp-block-advanced-gutenberg-blocks-plugin__stars',
         attribute: 'data-note',
       },
 			numRatings: {
 				souce: 'text',
-				selector: '.wp-block-gutenblocks-plugin__num-rating',
+				selector: '.wp-block-advanced-gutenberg-blocks-plugin__num-rating',
 			},
 			author: {
 				source: 'text',
-				selector: '.wp-block-gutenblocks-plugin__author a',
+				selector: '.wp-block-advanced-gutenberg-blocks-plugin__author a',
 			},
 			homepage: {
 				source: 'attribute',
-				selector: '.wp-block-gutenblocks-plugin__author a',
+				selector: '.wp-block-advanced-gutenberg-blocks-plugin__author a',
 				attribute: 'href',
 			},
     },
@@ -94,7 +94,7 @@ export default registerBlockType(
         !! props.attributes.title ? (
           <Preview {...props} />
         ) : (
-          <p class="gutenblocks-block-message">{ __( 'Search for a plugin in the inspector', 'advanced-gutenberg-blocks' ) }</p>
+          <p class="advanced-gutenberg-blocks-block-message">{ __( 'Search for a plugin in the inspector', 'advanced-gutenberg-blocks' ) }</p>
         )
       ]
     },

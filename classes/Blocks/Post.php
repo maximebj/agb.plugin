@@ -14,7 +14,7 @@ class Post {
 		add_action( 'init', array( $this, 'register_render' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
 
-		// Register Block in the Gutenblocks settings page
+		// Register Block in the plugin settings page
 		$args = array(
 			'icon' => 'dashicons-admin-post',
 			'category' => 'common',
@@ -22,7 +22,7 @@ class Post {
 			'description' => __( 'Display pretty posts link (from any post type)', 'advanced-gutenberg-blocks' ),
 		);
 
-		Extend::register_block( 'gutenblocks/post', __( 'Post', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'advanced-gutenberg-blocks/post', __( 'Post', 'advanced-gutenberg-blocks' ), $args );
   }
 
 	public function register_render() {
@@ -32,7 +32,7 @@ class Post {
 		}
 
 		register_block_type(
-      'gutenblocks/post',
+      'advanced-gutenberg-blocks/post',
       [ 'render_callback' => array( $this, 'render_block' ) ]
     );
 
@@ -101,7 +101,7 @@ class Post {
 
 		wp_localize_script(
 			Consts::BLOCKS_SCRIPT,
-			'gutenblocksPost',
+			'advancedGutenbergBlocksPost',
 			array(
 				'types' => json_encode( $types ),
 			)

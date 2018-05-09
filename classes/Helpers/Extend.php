@@ -48,7 +48,7 @@ abstract class Extend {
 	}
 
 	/**
-	 * Register a setting for the Gutenblocks settings page
+	 * Register a setting for the plugin settings page
 	 *
 	 * name: (String) Setting slug
 	 * load_on_editor: (Boolean) define if the option value will be sent to the admin editor

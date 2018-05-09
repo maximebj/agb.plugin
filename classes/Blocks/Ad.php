@@ -12,7 +12,7 @@ class Ad {
 		// Register hooks
 		add_action( 'init', array( $this, 'register_render' ) );
 
-		// Register Block in the Gutenblocks settings page
+		// Register Block in the plugin settings page
 		$args = array(
 			'icon' => 'dashicons-megaphone',
 			'category' => 'marketing',
@@ -21,22 +21,22 @@ class Ad {
 			'options_callback' => array( $this, 'settings' ),
 		);
 
-		Extend::register_block( 'gutenblocks/ad', __( 'Banner Ad', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'advanced-gutenberg-blocks/ad', __( 'Banner Ad', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
-		Extend::register_setting( 'gutenblocks-ad-script' );
+		Extend::register_setting( 'advanced-gutenberg-blocks-ad-script' );
 
   }
 
 	public function settings() {
 		echo '
-		<div class="gutenblocks-block__settings__option">
-			<div class="gutenblocks-block__settings__label">
-				<label for="gutenblocks-ad-script"> ' . __( 'Js script', 'advanced-gutenberg-blocks' ) . '</label>
+		<div class="advanced-gutenberg-blocks-block__settings__option">
+			<div class="advanced-gutenberg-blocks-block__settings__label">
+				<label for="advanced-gutenberg-blocks-ad-script"> ' . __( 'Js script', 'advanced-gutenberg-blocks' ) . '</label>
 			</div>
 
-			<div class="gutenblocks-block__settings__field">
-				<textarea name="gutenblocks-ad-script" rows="4">' . get_option('gutenblocks-ad-script') . '</textarea>
+			<div class="advanced-gutenberg-blocks-block__settings__field">
+				<textarea name="advanced-gutenberg-blocks-ad-script" rows="4">' . get_option('advanced-gutenberg-blocks-ad-script') . '</textarea>
 			</div>
 		</div>
 		';
@@ -49,14 +49,14 @@ class Ad {
 		}
 
 		register_block_type(
-      'gutenblocks/ad',
+      'advanced-gutenberg-blocks/ad',
       [ 'render_callback' => array( $this, 'render_block' ) ]
     );
 	}
 
 	public function render_block() {
 
-		return '<div class="wp-block-gutenblocks-ad">' . get_option('gutenblocks-ad-script') . '</div>';
+		return '<div class="wp-block-advanced-gutenberg-blocks-ad">' . get_option('advanced-gutenberg-blocks-ad-script') . '</div>';
 	}
 
 }

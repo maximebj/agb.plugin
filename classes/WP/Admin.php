@@ -29,7 +29,7 @@ class Admin {
 
 		wp_enqueue_style(
 			Consts::PLUGIN_NAME,
-			Consts::get_url().'admin/css/gutenblocks-admin.css',
+			Consts::get_url().'admin/css/advanced-gutenberg-blocks-admin.css',
 			array(),
 			Consts::VERSION,
 			'all'
@@ -37,7 +37,7 @@ class Admin {
 
 		wp_enqueue_script(
 			Consts::PLUGIN_NAME.'-settings',
-			Consts::get_url().'admin/js/gutenblocks-settings.js',
+			Consts::get_url().'admin/js/advanced-gutenberg-blocks-settings.js',
 			array('jquery'),
 			Consts::VERSION,
 			false

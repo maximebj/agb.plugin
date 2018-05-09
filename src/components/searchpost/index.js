@@ -75,7 +75,7 @@ export default class SearchPost extends Component {
 	          onChange={ this.onSearch }
 	        />
 
-	        <div className="gutenblocks-panel-results">
+	        <div className="advanced-gutenberg-blocks-panel-results">
 
 	          { !! this.state.results && Array.isArray(this.state.results) ?
 	            (
@@ -100,7 +100,7 @@ export default class SearchPost extends Component {
 				<SelectControl
 					onChange={ this.onChangePostType }
 					label={ __( 'In post type', 'advanced-gutenberg-blocks' ) }
-					options={ JSON.parse( gutenblocksPost.types ) }
+					options={ JSON.parse( advancedGutenbergBlocksPost.types ) }
 					value={ this.state.currentType }
 				/>
       </div>

@@ -25,7 +25,7 @@ class Gutenberg {
 
 	public function blocks_assets() {
 		wp_enqueue_style(
-			'gutenblocks-style',
+			'advanced-gutenberg-blocks-style',
 			Consts::get_url() . 'dist/blocks.style.build.css',
 			[ 'wp-blocks', 'wp-edit-post' ]
 		);
@@ -43,18 +43,24 @@ class Gutenberg {
 
 		wp_localize_script(
       Consts::BLOCKS_SCRIPT,
-      'gutenblocksGlobals',
+      'advancedGutenbergBlocksGlobals',
       array(
         'ajaxurl' => admin_url('admin-ajax.php'),
 				'pluginurl' => Consts::get_url(),
       )
     );
 
+		// Get translations
+		$locale  = gutenberg_get_jed_locale_data( 'advanced-gutenberg-blocks' );
+		$content = 'wp.i18n.setLocaleData(' . json_encode( $locale ) . ', "advanced-gutenberg-blocks" );';
+		wp_script_add_data( Consts::BLOCKS_SCRIPT, 'data', $content );
+
+
 		// Blocks deactivator
 		$blocks = new Blocks();
 
 		wp_enqueue_script(
-			'gutenblocks-block-deactivator',
+			'advanced-gutenberg-blocks-deactivator',
 			Consts::get_url() . 'dist/deactivator.build.js',
 			[ 'wp-blocks', 'wp-i18n', 'wp-element' ],
 			'1.0',
@@ -62,15 +68,15 @@ class Gutenberg {
 		);
 
 		wp_localize_script(
-      'gutenblocks-block-deactivator',
-      'gutenblocksDeactivated',
+      'advanced-gutenberg-blocks-deactivator',
+      'advancedGutenbergBlocksDeactivated',
       $blocks->get_disabled_blocks_js()
     );
 
 		// Special styles for the Editor
 
 		wp_enqueue_style(
-			'gutenblocks-block-editor',
+			'advanced-gutenberg-blocks-editor',
 			Consts::get_url() . 'dist/blocks.editor.build.css',
 			[ 'wp-edit-blocks' ]
 		);

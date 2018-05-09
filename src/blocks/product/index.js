@@ -9,7 +9,7 @@ const { registerBlockType } = wp.blocks
 const {	withAPIData } = wp.components
 
 export default registerBlockType(
-  'gutenblocks/product',
+  'advanced-gutenberg-blocks/product',
   {
     title: __( 'Product', 'advanced-gutenberg-blocks' ),
     description: __( 'Display WooCommerce Product in your post', 'advanced-gutenberg-blocks' ),
@@ -62,7 +62,7 @@ export default registerBlockType(
 	        !! attributes.productID ? (
 						<Preview { ...{ product, attributes } } />
 	        ) : (
-	          <p class="gutenblocks-block-message">{ __( 'Search for a product in the inspector', 'advanced-gutenberg-blocks' ) }</p>
+	          <p class="advanced-gutenberg-blocks-block-message">{ __( 'Search for a product in the inspector', 'advanced-gutenberg-blocks' ) }</p>
 	        )
 	      ]
     	} )

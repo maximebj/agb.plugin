@@ -14,7 +14,7 @@ class Product {
 		add_action( 'init', array( $this, 'register_render' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
 
-		// Register Block in the Gutenblocks settings page
+		// Register Block in the plugin settings page
 		$args = array(
 			'icon' => 'dashicons-products',
 			'category' => 'woo',
@@ -22,7 +22,7 @@ class Product {
 			'description' => __( 'Display WooCommerce Product in your post', 'advanced-gutenberg-blocks' ),
 		);
 
-		Extend::register_block( 'gutenblocks/product', __( 'Product', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'advanced-gutenberg-blocks/product', __( 'Product', 'advanced-gutenberg-blocks' ), $args );
   }
 
 	public function register_render() {
@@ -32,7 +32,7 @@ class Product {
 		}
 
 		register_block_type(
-      'gutenblocks/product',
+      'advanced-gutenberg-blocks/product',
       [ 'render_callback' => array( $this, 'render_block' ) ]
     );
 
@@ -76,7 +76,7 @@ class Product {
 		// This block needs the currency symbol
 		wp_localize_script(
 			Consts::BLOCKS_SCRIPT,
-			'gutenblocksProduct',
+			'advancedGutenbergBlocksProduct',
 			array(
 				'currency' => get_woocommerce_currency_symbol(),
 			)

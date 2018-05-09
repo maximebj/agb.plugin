@@ -15,13 +15,13 @@ export default class StyleSelector extends Component {
   render() {
 
     return (
-      <div class="gutenblocks-panel-maps">
+      <div class="advanced-gutenberg-blocks-panel-maps">
         { Object.keys(styles).map( key => {
 
           return (
-						<div className="gutenblocks-panel-maps__item">
+						<div className="advanced-gutenberg-blocks-panel-maps__item">
 							<img
-								src={ `${gutenblocksGlobals.pluginurl}/admin/img/maps/${key}.png` }
+								src={ `${advancedGutenbergBlocksGlobals.pluginurl}/admin/img/maps/${key}.png` }
 								alt={ `Style ${key}` }
 								onClick={ () => this.getStyle( key ) }
 							/>

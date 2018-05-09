@@ -7,7 +7,7 @@ const { __ } = wp.i18n
 const { registerBlockType} = wp.blocks
 
 export default registerBlockType(
-  'gutenblocks/ad',
+  'advanced-gutenberg-blocks/ad',
   {
     title: __( 'Advertisement', 'advanced-gutenberg-blocks' ),
     description: __( 'Put forward a tips or a warning', 'advanced-gutenberg-blocks' ),
@@ -20,7 +20,7 @@ export default registerBlockType(
     ],
 		edit: props => {
       return (
-        <div className='wp-block-gutenblocks-ad'>
+        <div className='wp-block-advanced-gutenberg-blocks-ad'>
           { __( 'An ad will be displayed here in front', 'advanced-gutenberg-blocks' ) }
         </div>
       )
