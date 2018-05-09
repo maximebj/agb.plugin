@@ -1,8 +1,9 @@
 <?php
 
-namespace GutenbergBlocks\Blocks;
+namespace AdvancedGutenbergBlocks\Blocks;
 
-use GutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Extend;
 
 class Testimonial {
 
@@ -15,7 +16,7 @@ class Testimonial {
 			'description' => __( "Display a customer testimonial. It's good for the thrust but don't lie to your visitors!", 'advanced-gutenberg-blocks' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/testimonial', __( 'Testimonial', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'gutenblocks/testimonial', __( 'Testimonial', 'advanced-gutenberg-blocks' ), $args );
   }
 
 }

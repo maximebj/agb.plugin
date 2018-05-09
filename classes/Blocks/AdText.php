@@ -1,8 +1,9 @@
 <?php
 
-namespace GutenbergBlocks\Blocks;
+namespace AdvancedGutenbergBlocks\Blocks;
 
-use GutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Extend;
 
 class AdText {
 
@@ -20,10 +21,10 @@ class AdText {
 			'options_callback' => array( $this, 'settings' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/adtext', __( 'Text + Rectangle Ad', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'gutenblocks/adtext', __( 'Text + Rectangle Ad', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
-		gutenblocks_register_setting( 'gutenblocks-adtext-script' );
+		Extend::register_setting( 'gutenblocks-adtext-script' );
   }
 
 	public function settings() {

@@ -1,8 +1,9 @@
 <?php
 
-namespace GutenbergBlocks\Blocks;
+namespace AdvancedGutenbergBlocks\Blocks;
 
-use GutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Extend;
 
 class Card {
 
@@ -19,7 +20,7 @@ class Card {
 			'description' => __( "Do you like how Facebook, Twitter or Slack display a sweet preview to a website in a card? Don't be jealous, we've made the same for you in WordPress!", 'advanced-gutenberg-blocks' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/card', __( 'Website card preview', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'gutenblocks/card', __( 'Website card preview', 'advanced-gutenberg-blocks' ), $args );
   }
 
 

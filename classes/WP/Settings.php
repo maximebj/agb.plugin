@@ -1,12 +1,11 @@
 <?php
 
-namespace GutenbergBlocks\WP;
+namespace AdvancedGutenbergBlocks\WP;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
-use GutenbergBlocks\Helpers\Consts;
-
-use GutenbergBlocks\Services\Blocks;
+use AdvancedGutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Services\Blocks;
 
 /**
  * Settings page fields registration
@@ -70,10 +69,12 @@ class Settings {
 	}
 
 	public function register_settings() {
-		global $gutenblocks_registered_settings;
+		global $AdvancedGutenbergBlocks;
+
+		$settings = $AdvancedGutenbergBlocks->get_settings();
 
 		// Register blocks settings
-		foreach( $gutenblocks_registered_settings as $setting ) {
+		foreach( $settings as $setting ) {
 			register_setting( Consts::SETTINGS_GROUP, $setting['name'] );
 		}
 	}

@@ -1,20 +1,11 @@
-/**
- * BLOCK: Post
- *
- * Display a pretty post link (from any post type)
- */
-
 import './style.scss'
 import './editor.scss'
 
 import Inspector from './inspect'
 import Preview from './preview'
 
-const {
-  registerBlockType,
-} = wp.blocks
-
 const { __ } = wp.i18n
+const { registerBlockType } = wp.blocks
 
 export default registerBlockType(
   'gutenblocks/post',

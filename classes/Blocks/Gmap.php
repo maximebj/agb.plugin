@@ -1,9 +1,9 @@
 <?php
 
-namespace GutenbergBlocks\Blocks;
+namespace AdvancedGutenbergBlocks\Blocks;
 
-use GutenbergBlocks\Helpers\Consts;
-use GutenbergBlocks\Services\Blocks;
+use AdvancedGutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Extend;
 
 class Gmap {
 
@@ -22,10 +22,10 @@ class Gmap {
 			'options_callback' => array( $this, 'settings' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/gmap', __( 'Google Map', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'gutenblocks/gmap', __( 'Google Map', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
-		gutenblocks_register_setting( 'gutenblocks-gmap-api-key' );
+		Extend::register_setting( 'gutenblocks-gmap-api-key' );
   }
 
 	public function settings() {

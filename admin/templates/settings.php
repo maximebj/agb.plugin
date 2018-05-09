@@ -1,5 +1,5 @@
 <?php
-	use GutenbergBlocks\Helpers\Consts;
+	use AdvancedGutenbergBlocks\Helpers\Consts;
 ?>
 <form method="post" action="options.php" class="gutenblocks-settings">
 	<?php settings_fields( Consts::SETTINGS_GROUP ); ?>

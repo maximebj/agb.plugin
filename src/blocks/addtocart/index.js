@@ -1,9 +1,3 @@
-/**
- * BLOCK: Advertisement
- *
- * Display an ad
- */
-
 import './style.scss'
 import './editor.scss'
 
@@ -18,9 +12,7 @@ const {
   RichText,
 } = wp.blocks
 
-const {
-	withAPIData,
-} = wp.components
+const { withAPIData } = wp.components
 
 
 export default registerBlockType(

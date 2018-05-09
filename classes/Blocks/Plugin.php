@@ -1,8 +1,9 @@
 <?php
 
-namespace GutenbergBlocks\Blocks;
+namespace AdvancedGutenbergBlocks\Blocks;
 
-use GutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Extend;
 
 class Plugin {
 
@@ -20,7 +21,7 @@ class Plugin {
 			'description' => __( 'Display a Plugin informations from the official WordPress repository', 'advanced-gutenberg-blocks' ),
 		);
 
-		gutenblocks_register_blocks( 'gutenblocks/plugin', __( 'WordPress Plugin Card', 'advanced-gutenberg-blocks' ), $args );
+		Extend::register_block( 'gutenblocks/plugin', __( 'WordPress Plugin Card', 'advanced-gutenberg-blocks' ), $args );
   }
 
   public function search_plugins()

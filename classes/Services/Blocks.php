@@ -1,8 +1,8 @@
 <?php
 
-namespace GutenbergBlocks\Services;
+namespace AdvancedGutenbergBlocks\Services;
 
-use GutenbergBlocks\Helpers\Dashicons;
+use AdvancedGutenbergBlocks\Helpers\Dashicons;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
@@ -24,7 +24,7 @@ class Blocks {
 
 	public function __construct() {
 		$this->set_categories();
-		$this->register_blocks();
+		$this->setup_registered_blocks();
 	}
 
 	public function set_categories() {
@@ -45,23 +45,13 @@ class Blocks {
 		return $this->categories;
 	}
 
-	/**
-	* Register blocks
-	*
-	*  id: (String) block identifier (from JS. Eg: gutenblock/plugin)
-	*  name: (String) Name of the block
-  *  icon: (String) Dashicon class
-	*  preview_image: (String) Image URL
-	*  category: (String) [api, ... ] category to display block
-	*	 options_callback: (Function) Callback method to display block settings
-	*
-	*/
-	public function register_blocks() {
-		global $gutenblocks_registered_blocks;
 
-		$blocks = $gutenblocks_registered_blocks;
+	public function setup_registered_blocks() {
+		global $AdvancedGutenbergBlocks;
 
-		$blocks = apply_filters( 'gutenberg-blocks/register-block', $blocks );
+		$blocks = $AdvancedGutenbergBlocks->get_blocks();
+
+		$blocks = apply_filters( 'gutenberg-blocks/registered-block', $blocks );
 
 		$this->registered_blocks = $blocks;
 	}

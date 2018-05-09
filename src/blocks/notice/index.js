@@ -1,10 +1,3 @@
-/**
- * BLOCK: Notice
- *
- * Display a notice block
- * 4 types are available : Tips, Warning, Avoid, Info
- */
-
 import './style.scss'
 import './editor.scss'
 
@@ -18,10 +11,10 @@ const {
 } = wp.blocks
 
 const types = {
-  'advice': __( 'Advice', 'advanced-gutenberg-blocks' ),
-  'avoid': __( 'Avoid', 'advanced-gutenberg-blocks' ),
-  'warning': __( 'Warning', 'advanced-gutenberg-blocks' ),
-  'info': __( 'Information', 'advanced-gutenberg-blocks' ),
+  'advice': 	__( 'Advice', 'advanced-gutenberg-blocks' ),
+  'avoid': 		__( 'Avoid', 'advanced-gutenberg-blocks' ),
+  'warning': 	__( 'Warning', 'advanced-gutenberg-blocks' ),
+  'info': 		__( 'Information', 'advanced-gutenberg-blocks' ),
 }
 
 export default registerBlockType(

@@ -1,9 +1,3 @@
-/**
- * BLOCK: Testimonial
- *
- * Display a testimonial block
- */
-
 import './style.scss'
 import './editor.scss'
 

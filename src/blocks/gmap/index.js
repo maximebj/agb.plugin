@@ -1,9 +1,3 @@
-/**
- * BLOCK: Gmap
- *
- * Display a Google map
- */
-
 import "./style.scss"
 import "./editor.scss"
 
@@ -11,7 +5,6 @@ import Inspector from "./inspect"
 import Gmap from "./gmap"
 
 const { registerBlockType } = wp.blocks
-
 const { __ } = wp.i18n
 
 export default registerBlockType(

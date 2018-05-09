@@ -1,11 +1,11 @@
 <?php
 
-namespace GutenbergBlocks\WP;
+namespace AdvancedGutenbergBlocks\WP;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
-use GutenbergBlocks\Helpers\Consts;
-use GutenbergBlocks\Services\Blocks;
+use AdvancedGutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Services\Blocks;
 
 /**
  * Gutenberg Editor enqueue styles, scripts

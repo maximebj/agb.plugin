@@ -1,9 +1,3 @@
-/**
- * BLOCK: Link Preview
- *
- * Display a site link preview
- */
-
 import './style.scss'
 import './editor.scss'
 
@@ -13,10 +7,7 @@ import URLFetcher from './urlfetcher'
 import Preview from './preview'
 
 const { __ } = wp.i18n
-
-const {
-  registerBlockType,
-} = wp.blocks
+const { registerBlockType } = wp.blocks
 
 export default registerBlockType(
   'gutenblocks/card',

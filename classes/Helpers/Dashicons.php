@@ -1,6 +1,6 @@
 <?php
 
-namespace GutenbergBlocks\Helpers;
+namespace AdvancedGutenbergBlocks\Helpers;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 

@@ -1,24 +1,12 @@
-/**
- * BLOCK: Product
- *
- * Display WooCommerce Product in your post
- */
-
 import './style.scss'
 import './editor.scss'
 
 import Inspector from './inspect'
 import Preview from './preview'
 
-const {
-  registerBlockType,
-} = wp.blocks
-
-const {
-	withAPIData,
-} = wp.components
-
 const { __ } = wp.i18n
+const { registerBlockType } = wp.blocks
+const {	withAPIData } = wp.components
 
 export default registerBlockType(
   'gutenblocks/product',

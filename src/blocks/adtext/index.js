@@ -1,9 +1,3 @@
-/**
- * BLOCK: Advertisement + Text
- *
- * Display an ad with text
- */
-
 import './style.scss'
 import './editor.scss'
 

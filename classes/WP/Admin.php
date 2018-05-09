@@ -1,10 +1,10 @@
 <?php
 
-namespace GutenbergBlocks\WP;
+namespace AdvancedGutenbergBlocks\WP;
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
-use GutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Helpers\Consts;
 
 /**
  * Admin enqueue styles, scripts and menu declaration
