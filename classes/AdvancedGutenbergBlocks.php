@@ -37,6 +37,13 @@ use AdvancedGutenbergBlocks\Blocks\Gmap;
 
 class AdvancedGutenbergBlocks {
 
+	// List the registered blocks in WP Admin Gutenberg Blocks settings page
+	private $registered_blocks = array();
+
+	// List the registered blocks in WP Admin Gutenberg Blocks settings page
+	private $registered_settings = array();
+
+
 	public function __construct() {
 
 		// Check compatibility (WP 5.1 or gutenberg plugin is activated)
@@ -81,49 +88,22 @@ class AdvancedGutenbergBlocks {
 
 
 		// Init Classes and Hooks
-		$class_admin = new Admin();
-    $class_admin->register_hooks();
-
-		$class_public = new Front();
-    $class_public->register_hooks();
-
-		$class_gutenberg = new Gutenberg();
-		$class_gutenberg->register_hooks();
-
-		$class_settings = new Settings();
-		$class_settings->register_hooks();
-
+    (new Admin)->register_hooks();
+    (new Front)->register_hooks();
+		(new Gutenberg)->register_hooks();
+		(new Settings)->register_hooks();
 
 		// Blocks
-		$class_blocks_plugin = new Plugin();
-		$class_blocks_plugin->run();
-
-		$class_blocks_notice = new Notice();
-		$class_blocks_notice->run();
-
-		$class_blocks_ad = new Ad();
-		$class_blocks_ad->run();
-
-		$class_blocks_adtext = new AdText();
-		$class_blocks_adtext->run();
-
-		$class_blocks_product = new Product();
-		$class_blocks_product->run();
-
-		$class_blocks_card = new Card();
-		$class_blocks_card->run();
-
-		$class_blocks_addtocart = new AddToCart();
-		$class_blocks_addtocart->run();
-
-		$class_blocks_post = new Post();
-		$class_blocks_post->run();
-
-		$class_blocks_testimonial = new Testimonial();
-		$class_blocks_testimonial->run();
-
-		$class_blocks_gmap = new Gmap();
-		$class_blocks_gmap->run();
+		(new Plugin)->run();
+		(new Notice)->run();
+		(new Ad)->run();
+		(new AdText)->run();
+		(new Product)->run();
+		(new Card)->run();
+		(new AddToCart)->run();
+		(new Post)->run();
+		(new Testimonial)->run();
+		(new Gmap)->run();
 
 	}
 
@@ -133,6 +113,22 @@ class AdvancedGutenbergBlocks {
 
 	public function get_version() {
 		return Consts::VERSION;
+	}
+
+	public function set_block( $args ) {
+		$this->$registered_blocks[] = $args;
+	}
+
+	public function set_setting( $args ) {
+		$this->$registered_settings[] = $args;
+	}
+
+	public function get_blocks() {
+		return $this->$registered_blocks;
+	}
+
+	public function get_settings() {
+		return $this->$registered_settings;
 	}
 
 

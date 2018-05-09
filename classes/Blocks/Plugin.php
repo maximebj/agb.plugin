@@ -21,7 +21,7 @@ class Plugin {
 			'description' => __( 'Display a Plugin informations from the official WordPress repository', 'advanced-gutenberg-blocks' ),
 		);
 
-		Extend::register_block( 'gutenblocks/plugin', __( 'WordPress Plugin Card', 'advanced-gutenberg-blocks' ), $args );
+		//Extend::register_block( 'gutenblocks/plugin', __( 'WordPress Plugin Card', 'advanced-gutenberg-blocks' ), $args );
   }
 
   public function search_plugins()

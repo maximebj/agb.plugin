@@ -71,12 +71,12 @@ class Settings {
 	public function register_settings() {
 		global $AdvancedGutenbergBlocks;
 
-		$settings = $AdvancedGutenbergBlocks->get_settings();
-
-		// Register blocks settings
-		foreach( $settings as $setting ) {
-			register_setting( Consts::SETTINGS_GROUP, $setting['name'] );
-		}
+		// $settings = $AdvancedGutenbergBlocks->get_settings();
+		//
+		// // Register blocks settings
+		// foreach( $settings as $setting ) {
+		// 	register_setting( Consts::SETTINGS_GROUP, $setting['name'] );
+		// }
 	}
 
 	public function settings_page(){

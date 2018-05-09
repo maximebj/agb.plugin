@@ -22,10 +22,10 @@ class Gmap {
 			'options_callback' => array( $this, 'settings' ),
 		);
 
-		Extend::register_block( 'gutenblocks/gmap', __( 'Google Map', 'advanced-gutenberg-blocks' ), $args );
+		//Extend::register_block( 'gutenblocks/gmap', __( 'Google Map', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
-		Extend::register_setting( 'gutenblocks-gmap-api-key' );
+		//Extend::register_setting( 'gutenblocks-gmap-api-key' );
   }
 
 	public function settings() {

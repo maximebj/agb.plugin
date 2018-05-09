@@ -21,10 +21,10 @@ class Ad {
 			'options_callback' => array( $this, 'settings' ),
 		);
 
-		Extend::register_block( 'gutenblocks/ad', __( 'Banner Ad', 'advanced-gutenberg-blocks' ), $args );
+		//Extend::register_block( 'gutenblocks/ad', __( 'Banner Ad', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
-		Extend::register_setting( 'gutenblocks-ad-script' );
+		//Extend::register_setting( 'gutenblocks-ad-script' );
   }
 
 	public function settings() {

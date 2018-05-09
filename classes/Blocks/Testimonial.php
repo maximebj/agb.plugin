@@ -16,7 +16,7 @@ class Testimonial {
 			'description' => __( "Display a customer testimonial. It's good for the thrust but don't lie to your visitors!", 'advanced-gutenberg-blocks' ),
 		);
 
-		Extend::register_block( 'gutenblocks/testimonial', __( 'Testimonial', 'advanced-gutenberg-blocks' ), $args );
+		//Extend::register_block( 'gutenblocks/testimonial', __( 'Testimonial', 'advanced-gutenberg-blocks' ), $args );
   }
 
 }
