@@ -79,7 +79,7 @@ export default registerBlockType(
 											<div>
 												{ isSelected && (
 												<div className="wp-block-advanced-gutenberg-blocks-testimonial__picture__actions">
-													<a onClick={ () => setAttributes( { image: false } ) }>
+													<a onClick={ () => setAttributes( { image: null } ) }>
 														{ __( '× Remove', 'advanced-gutenberg-blocks' ) }
 													</a>
 												</div>

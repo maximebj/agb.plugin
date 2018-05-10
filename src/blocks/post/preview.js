@@ -6,21 +6,18 @@ const { __ } = wp.i18n
 
 export default class Preview extends Component {
 
-  constructor( props ) {
-    super( props )
+	state = {
+		featuredImage: false,
+		post: false,
+		author: false,
+		category: false,
+	}
+
+	getPost = () => {
 
 		const { postID } = this.props.attributes
 
-		this.state = {
-			featuredImage: false,
-			post: false,
-			author: false,
-			category: false,
-		}
-  }
-
-	getPost() {
-		const postQuery = new wp.api.models.Post( { id: this.postID } );
+		const postQuery = new wp.api.models.Post( { id: postID } );
 
 		// Fetch post via API
 		postQuery.fetch().then( post => {
@@ -50,7 +47,7 @@ export default class Preview extends Component {
 
 	componentDidUpdate(lastProps, lastStates) {
 
-		if( lastProps.attributes.postID != this.postID ) {
+		if( lastProps.attributes.postID != this.props.attributes.postID ) {
 			this.getPost()
 		}
 	}

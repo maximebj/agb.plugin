@@ -16,10 +16,6 @@ const { __ } = wp.i18n;
 
 export default class Inspector extends Component {
 
-  constructor( props ) {
-    super( props )
-  }
-
   render() {
 
 		const { attributes: { productID, priceColor, buttonBackgroundColor }, setAttributes } = this.props
@@ -28,7 +24,9 @@ export default class Inspector extends Component {
       <InspectorControls>
 
         <PanelBody title={ __( 'Choose a product', 'advanced-gutenberg-blocks' ) }>
-          <SearchProduct { ...{ productID, setAttributes } } />
+          <SearchProduct
+						onChange= { productID => setAttributes( { productID } ) }
+					/>
         </PanelBody>
 
 				{ !! productID && (

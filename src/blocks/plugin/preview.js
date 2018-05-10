@@ -6,10 +6,6 @@ const { __ } = wp.i18n
 
 export default class Preview extends Component {
 
-  constructor( props ) {
-    super( props )
-  }
-
 	stars = false
 	installs = ''
 	author = ''

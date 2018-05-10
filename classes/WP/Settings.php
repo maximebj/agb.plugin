@@ -92,6 +92,7 @@ class Settings {
 	}
 
 	public function toggle_block() {
+
 		$block_type = $_POST['block'];
 		$command = $_POST['command'];
 
@@ -113,6 +114,9 @@ class Settings {
 				unset( $disabled_blocks[ $key ] );
 			}
 		}
+
+
+
 
 		$blocks->set_disabled_blocks($disabled_blocks);
 

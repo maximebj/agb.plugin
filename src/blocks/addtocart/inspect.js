@@ -18,24 +18,25 @@ const { __ } = wp.i18n
 
 export default class Inspector extends Component {
 
-  constructor( props ) {
-    super( props )
-  }
-
   render() {
+
+		const { attributes: { productID, backgroundColor, hasIcon }, setAttributes } = this.props
+
     return (
       <InspectorControls>
 				<PanelBody title={ __( 'Search Product', 'advanced-gutenberg-blocks' ) }>
-          <SearchProduct onChangeProduct={this.props.onChangeProduct} />
+          <SearchProduct
+						onChange= { productID => setAttributes( { productID } ) }
+					/>
         </PanelBody>
 
 				<PanelColor
           title={ __( 'Background Color', 'advanced-gutenberg-blocks' ) }
-          colorValue={ this.props.attributes.backgroundColor }
+          colorValue={ backgroundColor }
           >
           <ColorPalette
-            value={ this.props.attributes.backgroundColor }
-            onChange={ this.props.onChangeBackgroundColor }
+            value={ backgroundColor }
+            onChange={ backgroundColor => setAttributes( { backgroundColor } ) }
           />
         </PanelColor>
 
@@ -52,20 +53,22 @@ export default class Inspector extends Component {
             <FormToggle
               id="icon-form-toggle"
               label={ __( 'Display Icon?', 'advanced-gutenberg-blocks' ) }
-              checked={ !! this.props.attributes.hasIcon }
-              onChange={ this.props.toggleHasIcon }
+              checked={ !! hasIcon }
+              onChange={ hasIcon => setAttributes( { hasIcon: ! hasIcon } ) }
             />
           </PanelRow>
 
           {
-            !! this.props.attributes.hasIcon && (
-              <IconList onChangeIcon={ this.props.onChangeIcon } />
+            !! hasIcon && (
+              <IconList
+								onChange={ icon => setAttributes( { icon } ) }
+							/>
             )
           }
 
         </PanelBody>
 
       </InspectorControls>
-    );
+    )
   }
 }

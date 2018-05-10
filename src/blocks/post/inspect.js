@@ -17,10 +17,6 @@ const { __ } = wp.i18n
 
 export default class Inspector extends Component {
 
-  constructor( props ) {
-    super( props )
-  }
-
   render() {
 
 		const { attributes: { postID, showImage, showAuthor, showCategory }, setAttributes } = this.props

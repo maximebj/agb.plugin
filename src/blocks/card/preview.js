@@ -2,10 +2,6 @@ const { Component } = wp.element
 
 export default class Preview extends Component {
 
-  constructor( props ) {
-    super( props )
-  }
-
   render() {
 
 		const { attributes: { url, title, image, description, siteUrl } } = this.props

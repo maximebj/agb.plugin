@@ -1,4 +1,4 @@
-import {debounce} from 'throttle-debounce'
+import { debounce } from 'throttle-debounce'
 
 const { Component } = wp.element
 
@@ -11,18 +11,11 @@ const {
 
 export default class URLFetcher extends Component {
 
-  constructor( props ) {
-    super( props )
+	state = {
+		results: false,
+	}
 
-		this.state = {
-			results: false,
-		}
-
-		this.onSubmitForm = this.onSubmitForm.bind( this )
-    this.fetchURL = debounce( 300, this.fetchURL )
-  }
-
-  onSubmitForm( event ) {
+  onSubmitForm = event => {
 		event.preventDefault()
 
 		const form = event.currentTarget
@@ -31,7 +24,7 @@ export default class URLFetcher extends Component {
 		this.fetchURL( url )
   }
 
-	fetchURL( site ) {
+	fetchURL = debounce( 300, site => {
 
 		if( site.length < 10) {
       return
@@ -59,7 +52,7 @@ export default class URLFetcher extends Component {
     } )
 		.catch( error => { } )
 
-	}
+	} )
 
   render() {
 

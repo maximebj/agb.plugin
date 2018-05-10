@@ -21,8 +21,7 @@ export default registerBlockType(
     ],
     attributes: {
       productID: {
-        type: 'string',
-				default: false,
+        type: 'integer',
       },
 			priceColor: {
         type: 'string',
@@ -31,15 +30,18 @@ export default registerBlockType(
         type: 'string',
       },
     },
-    edit: withAPIData( ( { attributes } ) => {
+    edit: withAPIData( props => {
 
-				return ( attributes.productID ) ? {
-					product: '/wc/v2/products/' + attributes.productID
+				const { productID } = props.attributes
+
+				return ( productID ) ? {
+					product: '/wc/v2/products/' + productID
 				} : false
 
       } ) ( ( props ) => {
 
 				const { attributes , product, focus, setAttributes } = props
+				const { productID } = attributes
 
 				// Default values
 				! priceColor && setAttributes( { priceColor: '#dd1e35' } )
@@ -49,7 +51,7 @@ export default registerBlockType(
 	        <Fragment>
 	          <Inspector { ...{ attributes, setAttributes } } />
 
-		        { !! attributes.productID ? (
+		        { !! productID ? (
 							<Preview { ...{ product, attributes } } />
 		        ) : (
 		          <p class="advanced-gutenberg-blocks-block-message">{ __( 'Search for a product in the inspector', 'advanced-gutenberg-blocks' ) }</p>

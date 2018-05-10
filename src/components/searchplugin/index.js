@@ -1,4 +1,4 @@
-import {debounce} from 'throttle-debounce'
+import { debounce } from 'throttle-debounce'
 
 const { Component } = wp.element
 
@@ -6,22 +6,15 @@ const { __ } = wp.i18n
 
 export default class SearchPlugin extends Component {
 
-  constructor( props ) {
-    super( props )
+	state = {
+		results: false,
+	}
 
-    this.state = {
-      results: false,
-    }
-
-    this.onSearch = this.onSearch.bind(this)
-    this.performSearch = debounce(300, this.performSearch)
+  onSearch = event => {
+    this.performSearch( event.target.value )
   }
 
-  onSearch( event ) {
-    this.performSearch( event.target.value)
-  }
-
-  performSearch( search ) {
+  performSearch = debounce(300, search => {
 
     if( search.length < 3) {
       return
@@ -49,9 +42,9 @@ export default class SearchPlugin extends Component {
 		.catch( error => {
 			this.setState( { results: __( "⚠️ Error: Couldn't reach wp.org", 'advanced-gutenberg-blocks' ) } )
 		})
-  }
+  })
 
-  onChangeValue( slug ) {
+  onChangeValue = slug => {
     this.props.onChange( _.find(this.state.results, { slug: slug} ) )
   }
 

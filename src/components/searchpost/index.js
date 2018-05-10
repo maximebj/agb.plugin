@@ -1,4 +1,4 @@
-import {debounce} from 'throttle-debounce'
+import { debounce } from 'throttle-debounce'
 
 const { Component } = wp.element
 const { __ } = wp.i18n
@@ -10,25 +10,17 @@ const {
 
 export default class SearchPost extends Component {
 
-  constructor( props ) {
-    super( props )
-
-    this.state = {
-      results: false,
-			types: [{ label: 'Post', value: 'Post' }],
-			currentType: 'Posts',
-    }
-
-    this.onSearch = this.onSearch.bind(this)
-    this.onChangePostType = this.onChangePostType.bind(this)
-    this.performSearch = debounce(300, this.performSearch)
+  state = {
+    results: false,
+    types: [{ label: 'Post', value: 'Post' }],
+    currentType: 'Posts',
   }
 
-  onSearch( event ) {
+  onSearch = event => {
     this.performSearch( event.target.value )
   }
 
-  performSearch( search ) {
+  performSearch = debounce(300, search => {
     if( search.length < 3) {
       return
     }
@@ -50,13 +42,13 @@ export default class SearchPost extends Component {
       }
       this.setState( { results: results } )
     } )
-  }
+  })
 
-	onChangePostType( value ) {
+	onChangePostType = value => {
     this.setState( { currentType: value.toLowerCase() } )
   }
 
-	onChangeValue(id) {
+	onChangeValue = id => {
 		this.props.onChange(  _.find( this.state.results, { id: id} ) )
 	}
 

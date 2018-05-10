@@ -1,18 +1,10 @@
 import classnames from 'classnames'
 
-import dashIconList from './dashiconlist';
+import dashIconList from './dashiconlist'
 
 const { Component } = wp.element
 
 export default class IconList extends Component {
-
-  constructor( props ) {
-    super( props )
-  }
-
-  getIcon(icon) {
-    this.props.onChangeIcon(icon)
-  }
 
   render() {
 
@@ -22,13 +14,12 @@ export default class IconList extends Component {
           return (
             <span
               className={ classnames('dashicons', `dashicons-${value}`) }
-              onClick={() => this.getIcon(value) }
+              onClick={ () => this.props.onChange( value ) }
             >
             </span>
           )
         })}
       </div>
-    );
+    )
   }
-
 }

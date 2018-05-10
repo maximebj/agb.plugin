@@ -52,23 +52,6 @@ export default registerBlockType(
 
 			const { attributes: { type, content, title },  isSelected, setAttributes } = props
 
-
-			// TODO
-
-			/*
-			{ Object.keys(styles).map( key => {
-
-				return (
-
-			*/
-			let options = []
-      _.each( types, (obj, key) => {
-      	options.push(
-      		<option value={key}>{obj}</option>
-      	)
-      } )
-
-
       const onChangeType = event => {
         props.setAttributes( {
 					type: event.target.value,
@@ -84,7 +67,11 @@ export default registerBlockType(
               onChange={ onChangeType }
               value={ type }
             >
-							{options}
+              { types.map( ( key, val ) => {
+                return (
+                  <option value={key}>{val}</option>
+                ) }
+              ) }
             </select>
             ) : (
             <p className='wp-block-advanced-gutenberg-blocks-notice__title'>{ title }</p>

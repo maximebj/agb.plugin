@@ -28,7 +28,7 @@ export default registerBlockType(
     ],
     attributes: {
 			productID: {
-        type: 'string',
+        type: 'integer',
       },
 			hasIcon: {
         type: 'boolean',
@@ -45,13 +45,18 @@ export default registerBlockType(
 				default: __( 'Add to cart', 'advanced-gutenberg-blocks' ),
       },
     },
-		edit: withAPIData( ( { attributes } ) => {
+		edit: withAPIData( props => {
 
-				return ( attributes.productID ) ? {
-					product: '/wc/v2/products/' + attributes.productID
+				const { productID } = props.attributes
+
+				return ( productID ) ? {
+					product: '/wc/v2/products/' + productID
 				} : false
 
-      } ) ( ( { product, focus, attributes, setAttributes } ) => {
+      } ) ( ( props ) => {
+
+				const { product, focus, attributes, setAttributes } = props
+				const { hasIcon, icon, backgroundColor, label } = attributes
 
 				// Set default values (keep here to save them in html
 				! attributes.icon && setAttributes( { icon: 'cart' } )
@@ -64,26 +69,6 @@ export default registerBlockType(
 					} )
 	      }
 
-				const onChangeLabel = value => {
-	        setAttributes( { label: value } )
-	      }
-
-	      const onChangeURL = value => {
-	        setAttributes( { url: value } )
-	      }
-
-				const onChangeBackgroundColor = value => {
-	        setAttributes( { backgroundColor: value } )
-	      }
-
-	      const onChangeIcon = value => {
-	        setAttributes( { icon: value } )
-	      };
-
-	      const toggleHasIcon = () => {
-	        setAttributes( { hasIcon: ! attributes.hasIcon } )
-	      }
-
 				const currency = advancedGutenbergBlocksAddtocart.currency
 
 				// Currency before / after
@@ -92,24 +77,24 @@ export default registerBlockType(
 
 	      return (
 	        <Fragment>
-	          <Inspector { ...{ onChangeIcon, onChangeURL, toggleHasIcon, onChangeProduct, onChangeBackgroundColor , attributes } } />
+	          <Inspector { ...{ attributes } } />
 
 		        <p className="wp-block-advanced-gutenberg-blocks-addtocart">
 		          <a
 								style={ {
-			            backgroundColor: attributes.backgroundColor
+			            backgroundColor: backgroundColor
 			          } }
 								className="wp-block-advanced-gutenberg-blocks-addtocart__button"
 							>
-		            { !! attributes.hasIcon && (
-		              <span className={ classnames('dashicons', `dashicons-${attributes.icon}`) }></span>
+		            { hasIcon && (
+		              <span className={ classnames('dashicons', `dashicons-${icon}`) }></span>
 		              )
 		            }
 		            <RichText
 		              tagName="span"
 									className="wp-block-advanced-gutenberg-blocks-addtocart__label"
-		              value={ attributes.label }
-		              onChange={ onChangeLabel }
+		              value={ label }
+		              onChange={ label => setAttributes( { label } ) }
 		            />
 								<span class="wp-block-advanced-gutenberg-blocks-addtocart__separator"> • </span>
 

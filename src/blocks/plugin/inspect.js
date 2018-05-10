@@ -7,10 +7,6 @@ const { PanelBody } = wp.components
 
 export default class Inspector extends Component {
 
-  constructor( props ) {
-    super( props )
-  }
-
   render() {
 
 		const onChangePlugin = (plugin) => {

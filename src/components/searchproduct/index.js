@@ -1,26 +1,19 @@
-import {debounce} from 'throttle-debounce'
+import { debounce } from 'throttle-debounce'
 
 const { Component } = wp.element
 const { __ } = wp.i18n
 
 export default class SearchProduct extends Component {
 
-  constructor( props ) {
-    super( props )
+	state = {
+		results: false,
+	}
 
-    this.state = {
-      results: false,
-    }
-
-    this.onSearch = this.onSearch.bind(this)
-    this.performSearch = debounce(300, this.performSearch)
-  }
-
-  onSearch( event ) {
+  onSearch = event => {
     this.performSearch( event.target.value )
   }
 
-  performSearch( search ) {
+  performSearch = debounce(300, search => {
     if( search.length < 3) {
       return
     }
@@ -42,12 +35,10 @@ export default class SearchProduct extends Component {
       }
       this.setState( { results: results } )
     } )
-  }
+  })
 
-	getProductID(id) {
-		this.props.setAttributes (
-			{ productID: _.find( this.state.results, { id: id} ) }
-		)
+	onChangeValue = id => {
+		this.props.onChange ( _.find( this.state.results, { id: id} ) )
 	}
 
   render() {
@@ -62,13 +53,13 @@ export default class SearchProduct extends Component {
 
         <div className="advanced-gutenberg-blocks-panel-results">
 
-          { !! this.state.results && Array.isArray(this.state.results) ?
+          { !! this.state.results && Array.isArray( this.state.results ) ?
             (
               <ul>
                 { this.state.results.map( result => {
                   return (
                     <li
-                      onClick={ () => this.getProductID(result.id) }
+                      onClick={ () => this.onChangeValue( result.id ) }
                     >
                       { result.title.rendered }
                     </li>

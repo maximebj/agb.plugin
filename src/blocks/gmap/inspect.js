@@ -8,10 +8,6 @@ const { PanelBody, BaseControl, RangeControl } = wp.components
 
 export default class Inspector extends Component {
 
-	constructor( props ) {
-		super( props )
-	}
-
 	render() {
 
 		const { attributes: { address, name, zoom, height, style }, setAttributes } = this.props

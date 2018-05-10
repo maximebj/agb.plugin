@@ -4,10 +4,6 @@ const { Component } = wp.element;
 
 export default class StyleSelector extends Component {
 
-  constructor( props ) {
-    super( props )
-  }
-
   render() {
 
 		const { style, setAttributes } = props
