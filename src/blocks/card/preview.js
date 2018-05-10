@@ -7,14 +7,17 @@ export default class Preview extends Component {
   }
 
   render() {
+
+		const { attributes: { url, title, image, description, siteUrl } } = this.props
+
     return (
 			<div className="wp-block-advanced-gutenberg-blocks-card">
-				<a href={this.props.attributes.url} className="wp-block-advanced-gutenberg-blocks-card__link"></a>
-				<img className="wp-block-advanced-gutenberg-blocks-card__image" src={this.props.attributes.image} alt={this.props.attributes.title} />
+				<a href={ url } className="wp-block-advanced-gutenberg-blocks-card__link"></a>
+				<img className="wp-block-advanced-gutenberg-blocks-card__image" src={ image } alt={ title } />
 				<div className="wp-block-advanced-gutenberg-blocks-card__content">
-					<p className="wp-block-advanced-gutenberg-blocks-card__title">{this.props.attributes.title}</p>
-					<p className="wp-block-advanced-gutenberg-blocks-card__description">{this.props.attributes.description}</p>
-					<p className="wp-block-advanced-gutenberg-blocks-card__url">{this.props.attributes.siteUrl}</p>
+					<p className="wp-block-advanced-gutenberg-blocks-card__title">{ title }</p>
+					<p className="wp-block-advanced-gutenberg-blocks-card__description">{ description }</p>
+					<p className="wp-block-advanced-gutenberg-blocks-card__url">{ siteUrl }</p>
 				</div>
 			</div>
     )

@@ -56,10 +56,8 @@ export default class SearchPost extends Component {
     this.setState( { currentType: value.toLowerCase() } )
   }
 
-	getPostID(id) {
-		this.props.onChangePost(
-			_.find( this.state.results, { id: id} )
-		)
+	onChangeValue(id) {
+		this.props.onChange(  _.find( this.state.results, { id: id} ) )
 	}
 
   render() {
@@ -83,7 +81,7 @@ export default class SearchPost extends Component {
 	                { this.state.results.map( result => {
 	                  return (
 	                    <li
-	                      onClick={ () => this.getPostID(result.id) }
+	                      onClick={ () => this.onChangeValue(result.id) }
 	                    >
 	                      { result.title.rendered }
 	                    </li>

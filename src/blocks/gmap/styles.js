@@ -708,5 +708,4 @@ styles.aubergine = [
   }
 ]
 
-
 export default styles

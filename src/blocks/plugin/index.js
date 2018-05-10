@@ -6,6 +6,7 @@ import Preview from './preview'
 
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
+const { Fragment } = wp.element
 
 export default registerBlockType(
   'advanced-gutenberg-blocks/plugin',
@@ -62,45 +63,25 @@ export default registerBlockType(
     },
     edit: props => {
 
-      const onChangePlugin = (plugin) => {
-        props.setAttributes( {
-          title: plugin.name,
-          description: plugin.short_description,
-          image: defineImage(plugin.icons),
-          downloadLink: `https://wordpress.org/plugins/${plugin.slug}`,
-          activeInstalls: plugin.active_installs,
-          rating: plugin.rating,
-					author: plugin.author,
-					homepage: plugin.homepage,
-					numRatings: plugin.num_ratings,
-        } )
-      }
+			const { attributes, setAttributes } = props
+			const { title } = attributes
 
-      const defineImage = (icons) => {
-        if (icons['2x']) {
-          return icons['2x']
-        } else if(icons['1x']) {
-          return icons['1x']
-        } else {
-          return icons.default
-        }
-      }
+      return (
+        <Fragment>
+          <Inspector { ...{ attributes, setAttributes } } />
 
-      return [
-        !! props.focus && (
-          <Inspector onChangePlugin={onChangePlugin} />
-        )
-				,
-        !! props.attributes.title ? (
-          <Preview {...props} />
-        ) : (
-          <p class="advanced-gutenberg-blocks-block-message">{ __( 'Search for a plugin in the inspector', 'advanced-gutenberg-blocks' ) }</p>
-        )
-      ]
+	        { !! title ? (
+	          <Preview { ...{ attributes } } />
+	        ) : (
+	          <p class="advanced-gutenberg-blocks-block-message">{ __( 'Search for a plugin in the inspector', 'advanced-gutenberg-blocks' ) }</p>
+	        ) }
+
+				</Fragment>
+      )
     },
     save: props => {
       return (
-        <Preview {...props} />
+        <Preview { ...{ attributes } } />
       )
     },
   },

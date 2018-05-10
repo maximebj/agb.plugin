@@ -8,11 +8,9 @@ export default class StyleSelector extends Component {
     super( props )
   }
 
-  getStyle( style ) {
-    this.props.onChangeStyle( style )
-  }
-
   render() {
+
+		const { style, setAttributes } = props
 
     return (
       <div class="advanced-gutenberg-blocks-panel-maps">
@@ -23,7 +21,7 @@ export default class StyleSelector extends Component {
 							<img
 								src={ `${advancedGutenbergBlocksGlobals.pluginurl}/admin/img/maps/${key}.png` }
 								alt={ `Style ${key}` }
-								onClick={ () => this.getStyle( key ) }
+								onClick={ () => setAttibutes( { style } ) }
 							/>
 						</div>
           )

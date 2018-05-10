@@ -13,7 +13,7 @@ const {
 	FormToggle,
 } = wp.components
 
-const { __ } = wp.i18n;
+const { __ } = wp.i18n
 
 export default class Inspector extends Component {
 
@@ -22,14 +22,19 @@ export default class Inspector extends Component {
   }
 
   render() {
+
+		const { attributes: { postID, showImage, showAuthor, showCategory }, setAttributes } = this.props
+
     return (
-      <InspectorControls key="inspector">
+      <InspectorControls>
 
         <PanelBody title={ __( 'Choose a post', 'advanced-gutenberg-blocks' ) }>
-          <SearchPost onChangePost={ this.props.onChangePost } />
+          <SearchPost
+						onChange= { postID => setAttributes( { postID } ) }
+					/>
         </PanelBody>
 
-				{ !! this.props.attributes.postID && (
+				{ !! postID && (
 
 					<PanelBody title={ __( 'Customize', 'advanced-gutenberg-blocks' ) }>
 						<PanelRow>
@@ -42,8 +47,8 @@ export default class Inspector extends Component {
 	            <FormToggle
 	              id="image-form-toggle"
 	              label={ __( 'Show Image?', 'advanced-gutenberg-blocks' ) }
-	              checked={ !! this.props.attributes.showImage }
-	              onChange={ this.props.toggleImage }
+	              checked={ showImage }
+	              onChange={ () => setAttributes( { showImage: ! showImage } ) }
 	            />
 	          </PanelRow>
 						<PanelRow>
@@ -56,8 +61,8 @@ export default class Inspector extends Component {
 	            <FormToggle
 	              id="author-form-toggle"
 	              label={ __( 'Show Author?', 'advanced-gutenberg-blocks' ) }
-	              checked={ !! this.props.attributes.showAuthor }
-	              onChange={ this.props.toggleAuthor }
+	              checked={ showAuthor }
+	              onChange={ () => setAttributes( { showAuthor: ! showAuthor } ) }
 	            />
 	          </PanelRow>
 
@@ -71,8 +76,8 @@ export default class Inspector extends Component {
 	            <FormToggle
 	              id="category-form-toggle"
 	              label={ __( 'Show Category?', 'advanced-gutenberg-blocks' ) }
-	              checked={ !! this.props.attributes.showCategory }
-	              onChange={ this.props.toggleCategory }
+	              checked={ showCategory }
+	              onChange={ () => setAttributes( { showCategory: ! showCategory } ) }
 	            />
 	          </PanelRow>
 					</PanelBody>

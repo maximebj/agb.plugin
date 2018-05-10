@@ -13,6 +13,8 @@ const {
 	MediaUpload,
 } = wp.blocks
 
+const { Fragment } = wp.element
+
 export default registerBlockType(
   'advanced-gutenberg-blocks/testimonial',
   {
@@ -53,144 +55,124 @@ export default registerBlockType(
     },
     edit: props => {
 
+			const { attributes: { image, content, name, company, showImage, showCompany }, setAttributes, isSelected } = props
+
 			const onSelectMedia = media => {
-
-				let image = ( media.sizes.medium ) ? media.sizes.medium.url : media.url;
-				console.log(image)
-				props.setAttributes( { image: image } )
+				const image = ( media.sizes.medium ) ? media.sizes.medium.url : media.url;
+				setAttributes( { image } )
 			}
 
-      const onChangeContent = value => {
-        props.setAttributes( { content: value } )
-      }
+      return (
+        <Fragment>
+          <Inspector { ...{ showCompany, showImage, setAttributes } } />
 
-			const onChangeName = value => {
-        props.setAttributes( { name: value } )
-      }
+	        <div className="wp-block-advanced-gutenberg-blocks-testimonial">
+						{ !! showImage && (
+							<div className="wp-block-advanced-gutenberg-blocks-testimonial__picture">
 
-			const onChangeCompany = value => {
-				props.setAttributes( { company: value } )
-			}
+								<MediaUpload
+									onSelect={ onSelectMedia }
+									type="image"
+									value={ image }
+									render={ ( { open } ) => (
+										( !! image ? (
+											<div>
+												{ isSelected && (
+												<div className="wp-block-advanced-gutenberg-blocks-testimonial__picture__actions">
+													<a onClick={ () => setAttributes( { image: false } ) }>
+														{ __( '× Remove', 'advanced-gutenberg-blocks' ) }
+													</a>
+												</div>
+												) }
 
-			const onRemoveImage = () => {
-				props.setAttributes( { image: false } )
-			}
+												<div
+													className="wp-block-advanced-gutenberg-blocks-testimonial__picture__image"
+													style={ {
+								            backgroundImage: `url(${image})`
+								          } }
+													onClick={ open }
+												/>
+											</div>
 
-			const toggleCompany = () => {
-        props.setAttributes( { showCompany: ! props.attributes.showCompany } )
-      }
-
-			const toggleImage = () => {
-        props.setAttributes( { showImage: ! props.attributes.showImage } )
-      }
-
-      return [
-        !! props.focus && (
-          <Inspector { ...{ toggleCompany, toggleImage, ...props } } />
-        )
-				,
-        <div className="wp-block-advanced-gutenberg-blocks-testimonial">
-					{ !! props.attributes.showImage && (
-					<div className="wp-block-advanced-gutenberg-blocks-testimonial__picture">
-
-						<MediaUpload
-							onSelect={ onSelectMedia }
-							type="image"
-							value={ props.attributes.image }
-							render={ ( { open } ) => (
-								( !! props.attributes.image ? (
-									<div>
-										{ !! props.focus && (
-										<div className="wp-block-advanced-gutenberg-blocks-testimonial__picture__actions">
-											<a onClick={ onRemoveImage }>
-												{ __( '× Remove', 'advanced-gutenberg-blocks' ) }
+										) : (
+											<a className="wp-block-advanced-gutenberg-blocks-testimonial__picture__image" onClick={ open }>
+												{ __( 'Select Image', 'advanced-gutenberg-blocks' ) }
 											</a>
-										</div>
-										) }
-
-										<div
-											className="wp-block-advanced-gutenberg-blocks-testimonial__picture__image"
-											style={ {
-						            backgroundImage: `url(${props.attributes.image})`
-						          } }
-											onClick={ open }
-										/>
-									</div>
-
-								) : (
-									<a className="wp-block-advanced-gutenberg-blocks-testimonial__picture__image" onClick={ open }>
-										{ __( 'Select Image', 'advanced-gutenberg-blocks' ) }
-									</a>
-								) )
-							) }
-						/>
-					</div>
-					) }
-
-					<div className={ classnames( "wp-block-advanced-gutenberg-blocks-testimonial__bubble", props.attributes.showImage && "wp-block-advanced-gutenberg-blocks-testimonial__bubble--with-arrow" ) }>
-
-	          <RichText
-	            tagName="div"
-							multiline="p"
-	            placeholder={ __( 'Write testimonial content here', 'advanced-gutenberg-blocks' ) }
-	            value={ props.attributes.content }
-	            className='wp-block-advanced-gutenberg-blocks-testimonial__content'
-	            onChange={ onChangeContent }
-	  				/>
-
-						<div className="wp-block-advanced-gutenberg-blocks-testimonial__signature">
-
-							<RichText
-								tagName="p"
-								placeholder={ __( 'Matt Mullenweg', 'advanced-gutenberg-blocks' ) }
-								value={ props.attributes.name }
-								className='wp-block-advanced-gutenberg-blocks-testimonial__name'
-								onChange={ onChangeName }
-							/>
-						{ !! props.attributes.showCompany && (
-							<RichText
-								tagName="p"
-								placeholder={ __( 'Automattic', 'advanced-gutenberg-blocks' ) }
-								value={ props.attributes.company }
-								className='wp-block-advanced-gutenberg-blocks-testimonial__company'
-								onChange={ onChangeCompany }
-							/>
+										) )
+									) }
+								/>
+							</div>
 						) }
 
-						</div>
+						<div className={ classnames( "wp-block-advanced-gutenberg-blocks-testimonial__bubble", showImage && "wp-block-advanced-gutenberg-blocks-testimonial__bubble--with-arrow" ) }>
 
-					</div>
-        </div>
-      ]
+		          <RichText
+		            tagName="div"
+								multiline="p"
+		            placeholder={ __( 'Write testimonial content here', 'advanced-gutenberg-blocks' ) }
+		            value={ content }
+		            className='wp-block-advanced-gutenberg-blocks-testimonial__content'
+		            onChange={ content => setAttributes( { content } ) }
+		  				/>
+
+							<div className="wp-block-advanced-gutenberg-blocks-testimonial__signature">
+
+								<RichText
+									tagName="p"
+									placeholder={ __( 'Matt Mullenweg', 'advanced-gutenberg-blocks' ) }
+									value={ name }
+									className='wp-block-advanced-gutenberg-blocks-testimonial__name'
+									onChange={ name => setAttributes( { name } ) }
+								/>
+
+								{ !! showCompany && (
+									<RichText
+										tagName="p"
+										placeholder={ __( 'Automattic', 'advanced-gutenberg-blocks' ) }
+										value={ company }
+										className='wp-block-advanced-gutenberg-blocks-testimonial__company'
+										onChange={ company => setAttributes( { company } ) }
+									/>
+								) }
+
+							</div>
+
+						</div>
+	        </div>
+				</Fragment>
+			)
     },
     save: props => {
+
+			const { image, content, name, company, showImage, showCompany } = props.attributes
+
       return (
 				<div className="wp-block-advanced-gutenberg-blocks-testimonial">
-					{ !! props.attributes.showImage && (
+					{ showImage && (
 					<div className="wp-block-advanced-gutenberg-blocks-testimonial__picture">
 						<div
 							className="wp-block-advanced-gutenberg-blocks-testimonial__picture__image"
 							style={ {
-								backgroundImage: `url(${props.attributes.image})`
+								backgroundImage: `url(${image})`
 							} }
 						/>
 					</div>
 					) }
 
-					<div className={ classnames( "wp-block-advanced-gutenberg-blocks-testimonial__bubble", props.attributes.showImage && "wp-block-advanced-gutenberg-blocks-testimonial__bubble--with-arrow" ) }>
+					<div className={ classnames( "wp-block-advanced-gutenberg-blocks-testimonial__bubble", showImage && "wp-block-advanced-gutenberg-blocks-testimonial__bubble--with-arrow" ) }>
 
 						<div className="wp-block-advanced-gutenberg-blocks-testimonial__content">
-							{ props.attributes.content }
+							{ content }
 						</div>
 
 						<div className="wp-block-advanced-gutenberg-blocks-testimonial__signature">
 							<p className="wp-block-advanced-gutenberg-blocks-testimonial__name">
-								{ props.attributes.name }
+								{ name }
 							</p>
 
-							{ !! props.attributes.showCompany && (
+							{ showCompany && (
 								<p className='wp-block-advanced-gutenberg-blocks-testimonial__company'>
-									{ props.attributes.company }
+									{ company }
 								</p>
 							) }
 

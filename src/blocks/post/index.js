@@ -6,6 +6,8 @@ import Preview from './preview'
 
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
+const { Fragment } = wp.element
+
 
 export default registerBlockType(
   'advanced-gutenberg-blocks/post',
@@ -22,15 +24,7 @@ export default registerBlockType(
         type: 'string',
 				default: false,
       },
-			postType: {
-				type: 'string',
-				default: 'posts',
-			},
 			showCategory: {
-        type: 'boolean',
-				default: true,
-      },
-			showKeywords: {
         type: 'boolean',
 				default: true,
       },
@@ -45,37 +39,22 @@ export default registerBlockType(
     },
     edit: props => {
 
-			const onChangePost = post => {
-        props.setAttributes( { postID: post.id } )
-      }
+			const { attributes, setAttributes } = props
+			const { postID } = attributes
 
-			const onChangePostType = postType => {
-				props.setAttributes( { postType: postType } )
-			}
+      return (
+				<Fragment>
 
-			const toggleImage = () => {
-        props.setAttributes( { showImage: ! props.attributes.showImage } )
-      }
+          <Inspector { ...{ attributes, setAttributes } } />
 
-			const toggleCategory = () => {
-        props.setAttributes( { showCategory: ! props.attributes.showCategory } )
-      }
+	        { !! postID ? (
+						<Preview { ...{ attributes } } />
+	        ) : (
+	          <p class="advanced-gutenberg-blocks-block-message">{ __( 'Search for a post in the inspector', 'advanced-gutenberg-blocks' ) }</p>
+	        ) }
 
-			const toggleAuthor = () => {
-        props.setAttributes( { showAuthor: ! props.attributes.showAuthor } )
-      }
-
-      return [
-        !! props.focus && (
-          <Inspector { ...{ onChangePost, onChangePostType, toggleCategory, toggleAuthor, toggleImage, ...props } } />
-        )
-				,
-        !! props.attributes.postID ? (
-					<Preview { ...props } />
-        ) : (
-          <p class="advanced-gutenberg-blocks-block-message">{ __( 'Search for a post in the inspector', 'advanced-gutenberg-blocks' ) }</p>
-        )
-      ]
+				</Fragment>
+      )
   	},
     save: props => {
       return null

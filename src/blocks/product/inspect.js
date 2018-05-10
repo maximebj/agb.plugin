@@ -21,32 +21,35 @@ export default class Inspector extends Component {
   }
 
   render() {
+
+		const { attributes: { productID, priceColor, buttonBackgroundColor }, setAttributes } = this.props
+
     return (
-      <InspectorControls key="inspector">
+      <InspectorControls>
 
         <PanelBody title={ __( 'Choose a product', 'advanced-gutenberg-blocks' ) }>
-          <SearchProduct onChangeProduct={ this.props.onChangeProduct } />
+          <SearchProduct { ...{ productID, setAttributes } } />
         </PanelBody>
 
-				{ !! this.props.attributes.productID && (
+				{ !! productID && (
 					<span>
 						<PanelColor
 		          title={ __( 'Price color', 'advanced-gutenberg-blocks' ) }
-		          colorValue={ this.props.attributes.priceColor }
+		          colorValue={ priceColor }
 		          >
 		          <ColorPalette
-		            value={ this.props.attributes.priceColor }
-		            onChange={ this.props.onChangePriceColor }
+		            value={ priceColor }
+		            onChange={ priceColor => setAttributes( { priceColor } ) }
 		          />
 		        </PanelColor>
 
 						<PanelColor
 		          title={ __( 'Button background color', 'advanced-gutenberg-blocks' ) }
-		          colorValue={ this.props.attributes.buttonBackgroundColor }
+		          colorValue={ buttonBackgroundColor }
 		          >
 		          <ColorPalette
-		            value={ this.props.attributes.buttonBackgroundColor }
-		            onChange={ this.props.onChangeButtonBackgroundColor }
+		            value={ buttonBackgroundColor }
+		            onChange={ buttonBackgroundColor => setAttributes( { buttonBackgroundColor } ) }
 		          />
 		        </PanelColor>
 					</span>

@@ -62,6 +62,9 @@ export default class URLFetcher extends Component {
 	}
 
   render() {
+
+		const { isSelected } = props
+
     return (
 			<div>
 				<form
@@ -75,7 +78,7 @@ export default class URLFetcher extends Component {
 						type="url"
 						id="url"
 						placeholder={ __( 'Type URL or paste', 'advanced-gutenberg-blocks' ) }
-						focus={this.props.focus}
+						focus={isSelected}
 					/>
 					<IconButton
 	          icon="editor-break"

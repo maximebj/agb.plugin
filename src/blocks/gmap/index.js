@@ -6,6 +6,7 @@ import Gmap from "./gmap"
 
 const { registerBlockType } = wp.blocks
 const { __ } = wp.i18n
+const { Fragment } = wp.element
 
 export default registerBlockType(
 	'advanced-gutenberg-blocks/gmap',
@@ -49,63 +50,31 @@ export default registerBlockType(
 	},
 	edit: props => {
 
-		const onChangeAddress = geocodedObj => {
-			props.setAttributes({
-				latitude: geocodedObj.geometry.location.lat()
-			})
-			props.setAttributes({
-				longitude: geocodedObj.geometry.location.lng()
-			})
-			props.setAttributes({ address: geocodedObj.formatted_address })
-		}
+		const { attributes: { address, name, zoom, height, style }, setAttributes, isSelected } = props
 
-		const onChangeName = event => {
-			props.setAttributes({ name: event.target.value })
-		}
+		return (
+			<Fragment>
+				<Inspector {...{ attributes, setAttributes } } />
 
-		const onChangeZoom = value => {
-			props.setAttributes({ zoom: value })
-		}
-
-		const onChangeHeight = value => {
-			props.setAttributes({ height: value })
-		}
-
-		const onChangeStyle = value => {
-			props.setAttributes({ style: value })
-		}
-
-		return [
-			!! props.focus && (
-				<Inspector
-					{...{
-						onChangeAddress,
-						onChangeName,
-						onChangeZoom,
-						onChangeHeight,
-						onChangeStyle,
-						...props
-					}}
-				/>
-			),
-			<div className="wp-block-advanced-gutenberg-blocks-gmap">
-				{ ! props.attributes.address && props.focus && typeof advancedGutenbergBlocksGmap == "undefined" && (
+				<div className="wp-block-advanced-gutenberg-blocks-gmap">
+					{ ! address && isSelected && typeof advancedGutenbergBlocksGmap == "undefined" && (
+							<p class="advanced-gutenberg-blocks-block-message">
+								{__( "Type your address on the inspector", "advanced-gutenberg-blocks" )}
+							</p>
+						)}
+					{ typeof advancedGutenbergBlocksGmap === "undefined" ? (
+						<Gmap {...props} />
+					) : (
 						<p class="advanced-gutenberg-blocks-block-message">
-							{__( "Type your address on the inspector", "advanced-gutenberg-blocks" )}
+							{__( "⚠️ You need to provide an API key in ", "advanced-gutenberg-blocks" )}
+							<a href="/wp-admin/admin.php?page=advanced-gutenberg-blocks-installed#blockgooglemap">
+								{__( "Blocks > Installed Blocks > Google Map", "advanced-gutenberg-blocks" )}
+							</a>
 						</p>
 					)}
-				{ typeof advancedGutenbergBlocksGmap === "undefined" ? (
-					<Gmap {...props} />
-				) : (
-					<p class="advanced-gutenberg-blocks-block-message">
-						{__( "⚠️ You need to provide an API key in ", "advanced-gutenberg-blocks" )}
-						<a href="/wp-admin/admin.php?page=advanced-gutenberg-blocks-installed#blockgooglemap">
-							{__( "Blocks > Installed Blocks > Google Map", "advanced-gutenberg-blocks" )}
-						</a>
-					</p>
-				)}
-			</div>
-		]
+				</div>
+			</Fragment>
+		)
 	},
 	save: props => {
 		return null

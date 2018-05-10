@@ -50,6 +50,17 @@ export default registerBlockType(
     },
     edit: props => {
 
+			const { attributes: { type, content, title },  isSelected, setAttributes } = props
+
+
+			// TODO
+
+			/*
+			{ Object.keys(styles).map( key => {
+
+				return (
+
+			*/
 			let options = []
       _.each( types, (obj, key) => {
       	options.push(
@@ -57,45 +68,48 @@ export default registerBlockType(
       	)
       } )
 
-      const onChangeContent = value => {
-        props.setAttributes( { content: value } )
-      }
 
       const onChangeType = event => {
-        props.setAttributes( { type: event.target.value, title: types[event.target.value] } )
+        props.setAttributes( {
+					type: event.target.value,
+					title: types[event.target.value]
+				} )
       }
 
       return (
         <div className={ classnames( props.className, `${props.className}--${props.attributes.type}` ) }>
-          { !! props.focus ? (
+          { isSelected ? (
             <select
               name="type"
               onChange={ onChangeType }
-              value={ props.attributes.type }
+              value={ type }
             >
 							{options}
             </select>
             ) : (
-            <p className='wp-block-advanced-gutenberg-blocks-notice__title'>{ props.attributes.title }</p>
+            <p className='wp-block-advanced-gutenberg-blocks-notice__title'>{ title }</p>
             )
           }
 
           <RichText
             tagName="p"
             placeholder={ __( 'Your tip/warning content', 'advanced-gutenberg-blocks' ) }
-            value={ props.attributes.content }
+            value={ content }
             className='wp-block-advanced-gutenberg-blocks-notice__content'
-            onChange={ onChangeContent }
-            focus={ props.focus }
+            onChange={ content => setAttributes( { content } ) }
+            focus={ isSelected }
   				/>
         </div>
       )
     },
     save: props => {
-      return (
-        <div className={ `wp-block-advanced-gutenberg-blocks-notice--${ props.attributes.type }` } data-type={ props.attributes.type }>
-          <p className='wp-block-advanced-gutenberg-blocks-notice__title'>{ props.attributes.title }</p>
-          <p className='wp-block-advanced-gutenberg-blocks-notice__content'>{ props.attributes.content }</p>
+
+			const { type, title, content } = props.attributes
+
+			return (
+        <div className={ `wp-block-advanced-gutenberg-blocks-notice--${ type }` } data-type={ type }>
+          <p className='wp-block-advanced-gutenberg-blocks-notice__title'>{ title }</p>
+          <p className='wp-block-advanced-gutenberg-blocks-notice__content'>{ content }</p>
         </div>
       )
     },

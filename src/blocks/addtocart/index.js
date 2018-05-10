@@ -13,6 +13,7 @@ const {
 } = wp.blocks
 
 const { withAPIData } = wp.components
+const { Fragment } = wp.element
 
 
 export default registerBlockType(
@@ -89,51 +90,50 @@ export default registerBlockType(
 				const cb = ( currency == "$" ) ? currency : ''
 				const ca = ( currency != "$" ) ? currency : ''
 
-	      return [
-	        !! focus && (
+	      return (
+	        <Fragment>
 	          <Inspector { ...{ onChangeIcon, onChangeURL, toggleHasIcon, onChangeProduct, onChangeBackgroundColor , attributes } } />
-	        )
-					,
-	        <p className="wp-block-advanced-gutenberg-blocks-addtocart">
-	          <a
-							style={ {
-		            backgroundColor: attributes.backgroundColor
-		          } }
-							className="wp-block-advanced-gutenberg-blocks-addtocart__button"
-						>
-	            { !! attributes.hasIcon && (
-	              <span className={ classnames('dashicons', `dashicons-${attributes.icon}`) }></span>
-	              )
-	            }
-	            <RichText
-	              tagName="span"
-								className="wp-block-advanced-gutenberg-blocks-addtocart__label"
-	              value={ attributes.label }
-	              onChange={ onChangeLabel }
-	            />
-							<span class="wp-block-advanced-gutenberg-blocks-addtocart__separator"> • </span>
 
-							{ !! product && typeof product.data !== "undefined" ? (
-								<div className="wp-block-advanced-gutenberg-blocks-addtocart__price">
+		        <p className="wp-block-advanced-gutenberg-blocks-addtocart">
+		          <a
+								style={ {
+			            backgroundColor: attributes.backgroundColor
+			          } }
+								className="wp-block-advanced-gutenberg-blocks-addtocart__button"
+							>
+		            { !! attributes.hasIcon && (
+		              <span className={ classnames('dashicons', `dashicons-${attributes.icon}`) }></span>
+		              )
+		            }
+		            <RichText
+		              tagName="span"
+									className="wp-block-advanced-gutenberg-blocks-addtocart__label"
+		              value={ attributes.label }
+		              onChange={ onChangeLabel }
+		            />
+								<span class="wp-block-advanced-gutenberg-blocks-addtocart__separator"> • </span>
 
-									{ !! product.data.sale_price != "" ? (
-										<span>
-											<span>{ cb }{ product.data.sale_price }{ ca }</span>
-											<del className="wp-block-advanced-gutenberg-blocks-addtocart__sale">{ cb }{ product.data.regular_price }{ ca }</del>
-										</span>
-										) : (
-											<span>{ cb }{ product.data.price }{ ca }</span>
-										)
-									}
-								</div>
-							) : (
-								<span>{ cb }0{ ca }</span>
-							) }
-						</a>
-					</p>
-	      ]
-			} )
-  	,
+								{ !! product && typeof product.data !== "undefined" ? (
+									<div className="wp-block-advanced-gutenberg-blocks-addtocart__price">
+
+										{ !! product.data.sale_price != "" ? (
+											<span>
+												<span>{ cb }{ product.data.sale_price }{ ca }</span>
+												<del className="wp-block-advanced-gutenberg-blocks-addtocart__sale">{ cb }{ product.data.regular_price }{ ca }</del>
+											</span>
+											) : (
+												<span>{ cb }{ product.data.price }{ ca }</span>
+											)
+										}
+									</div>
+								) : (
+									<span>{ cb }0{ ca }</span>
+								) }
+							</a>
+						</p>
+					</Fragment>
+	      )
+			} ),
 		save: () => {
       return null
     },

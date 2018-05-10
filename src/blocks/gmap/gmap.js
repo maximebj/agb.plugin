@@ -3,13 +3,14 @@ import styles from "./styles"
 const { Component } = wp.element
 
 export default class Gmap extends Component {
+
 	gmapObj = {
 		Gmap: "",
 		marker: "",
 		infoWindow: ""
 	}
 
-	_createMap = coords => {
+	createMap = coords => {
 		return new google.maps.Map(
 			document.querySelector(".wp-block-advanced-gutenberg-blocks-gmap__canvas"),
 			{
@@ -20,17 +21,25 @@ export default class Gmap extends Component {
 		)
 	}
 
-	_createMarker = (map, coords) => {
+	createMarker = (map, coords) => {
 		return new google.maps.Marker({
 			position: coords,
 			map: map
 		})
 	}
 
-	_createInfoWindow = () => {
+	createInfoWindow = () => {
 		return new google.maps.InfoWindow({
-			content: this._setInfoWindowContent(this.props.attributes)
+			content: this.setInfoWindowContent(this.props.attributes)
 		})
+	}
+
+	setInfoWindowContent = (attributes) => {
+		const { name, address } = attributes
+		return `
+			<p><strong>${name}</strong></p>
+			<p>${address}</p>
+		`
 	}
 
 	componentDidMount() {
@@ -39,16 +48,16 @@ export default class Gmap extends Component {
 			lng: this.props.attributes.longitude
 		}
 
-		this.gmapObj.Gmap = this._createMap(coords)
-		this.gmapObj.marker = this._createMarker(this.gmapObj.Gmap, coords)
-		this.gmapObj.infoWindow = this._createInfoWindow()
+		this.gmapObj.Gmap = this.createMap(coords)
+		this.gmapObj.marker = this.createMarker(this.gmapObj.Gmap, coords)
+		this.gmapObj.infoWindow = this.createInfoWindow()
 
 		this.gmapObj.marker.addListener("click", () => {
 			this.gmapObj.infoWindow.open(this.gmapObj.Gmap, this.gmapObj.marker)
 		})
 	}
 
-	componentWillReceiveProps(nextProps) {
+	componentWillReceiveProps( nextProps ) {
 		const { address, zoom, style, name } = this.props.attributes
 		const {
 			address: nextAddress,
@@ -69,7 +78,7 @@ export default class Gmap extends Component {
 
 			Gmap.setCenter(coords)
 			marker.setPosition(coords)
-			infoWindow.setContent(this._setInfoWindowContent(nextProps.attributes))
+			infoWindow.setContent(this.setInfoWindowContent(nextProps.attributes))
 		}
 
 		// Update zoom
@@ -86,24 +95,20 @@ export default class Gmap extends Component {
 
 		// Update infoWindow
 		if (name != nextName) {
-			infoWindow.setContent(this._setInfoWindowContent(nextProps.attributes))
+			infoWindow.setContent(this.setInfoWindowContent(nextProps.attributes))
 		}
 	}
 
-	_setInfoWindowContent = (attributes) => {
-		const { name, address } = attributes
-		return `
-			<p><strong>${name}</strong></p>
-			<p>${address}</p>
-		`
-	}
 
 	render() {
+
+		const { attributes: { height} } = this.props
+
 		return (
 			<div
 				className="wp-block-advanced-gutenberg-blocks-gmap__canvas"
 				style={{
-					height: this.props.attributes.height
+					height: height
 				}}
 			/>
 		)

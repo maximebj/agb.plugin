@@ -12,6 +12,7 @@ export default class Preview extends Component {
 
   render() {
 
+		const { attributes: { priceColor, buttonBackgroundColor } } = this.props
 		const product = this.props.product.data
 
 		const getDescription = () => {
@@ -40,7 +41,7 @@ export default class Preview extends Component {
 						<p
 							className="wp-block-advanced-gutenberg-blocks-product__price"
 							style={ {
-								color: this.props.attributes.priceColor
+								color: priceColor
 							} }
 						>
 							{ !! product.sale_price != "" ? (
@@ -62,7 +63,7 @@ export default class Preview extends Component {
 								className="wp-block-advanced-gutenberg-blocks-product__button"
 								href={ '/?add-to-cart=' + product.id }
 								style={ {
-									backgroundColor: this.props.attributes.buttonBackgroundColor
+									backgroundColor: buttonBackgroundColor
 								} }
 							>
 								<span className="dashicons dashicons-cart"></span>

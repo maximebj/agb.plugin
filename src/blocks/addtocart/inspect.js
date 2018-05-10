@@ -21,9 +21,10 @@ export default class Inspector extends Component {
   constructor( props ) {
     super( props )
   }
+
   render() {
     return (
-      <InspectorControls key="inspector">
+      <InspectorControls>
 				<PanelBody title={ __( 'Search Product', 'advanced-gutenberg-blocks' ) }>
           <SearchProduct onChangeProduct={this.props.onChangeProduct} />
         </PanelBody>

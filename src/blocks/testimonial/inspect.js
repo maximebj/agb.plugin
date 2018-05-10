@@ -19,8 +19,11 @@ export default class Inspector extends Component {
   }
 
   render() {
+
+		const { showImage, showCompany, setAttributes } = this.props
+
     return (
-      <InspectorControls key="inspector">
+      <InspectorControls>
 
 				<PanelBody>
 					<PanelRow>
@@ -33,8 +36,8 @@ export default class Inspector extends Component {
             <FormToggle
               id="image-form-toggle"
               label={ __( 'Show Image?', 'advanced-gutenberg-blocks' ) }
-              checked={ !! this.props.attributes.showImage }
-              onChange={ this.props.toggleImage }
+              checked={ showImage }
+              onChange={ () => setAttributes( { showImage: ! showImage } ) }
             />
           </PanelRow>
 					<PanelRow>
@@ -47,8 +50,8 @@ export default class Inspector extends Component {
             <FormToggle
               id="author-form-toggle"
               label={ __( 'Show Company name?', 'advanced-gutenberg-blocks' ) }
-              checked={ !! this.props.attributes.showCompany }
-              onChange={ this.props.toggleCompany }
+              checked={ showCompany }
+              onChange={ () => setAttributes( { showCompany: ! props.attributes.showCompany } ) }
             />
           </PanelRow>
 				</PanelBody>

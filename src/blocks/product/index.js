@@ -7,6 +7,7 @@ import Preview from './preview'
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
 const {	withAPIData } = wp.components
+const { Fragment } = wp.element
 
 export default registerBlockType(
   'advanced-gutenberg-blocks/product',
@@ -36,35 +37,26 @@ export default registerBlockType(
 					product: '/wc/v2/products/' + attributes.productID
 				} : false
 
-      } ) ( ( { product, focus, attributes, setAttributes } ) => {
+      } ) ( ( props ) => {
+
+				const { attributes , product, focus, setAttributes } = props
 
 				// Default values
-				! attributes.priceColor && setAttributes( { priceColor: '#dd1e35' } )
-				! attributes.buttonBackgroundColor && setAttributes( { buttonBackgroundColor: '#444' } )
+				! priceColor && setAttributes( { priceColor: '#dd1e35' } )
+				! buttonBackgroundColor && setAttributes( { buttonBackgroundColor: '#444' } )
 
-				const onChangeProduct = product => {
-	        setAttributes( { productID: product.id } )
-	      }
+	      return (
+	        <Fragment>
+	          <Inspector { ...{ attributes, setAttributes } } />
 
-				const onChangePriceColor = value => {
-	        setAttributes( { priceColor: value } )
-	      }
+		        { !! attributes.productID ? (
+							<Preview { ...{ product, attributes } } />
+		        ) : (
+		          <p class="advanced-gutenberg-blocks-block-message">{ __( 'Search for a product in the inspector', 'advanced-gutenberg-blocks' ) }</p>
+		        ) }
 
-				const onChangeButtonBackgroundColor = value => {
-	        setAttributes( { buttonBackgroundColor: value } )
-	      }
-
-	      return [
-	        !! focus && (
-	          <Inspector { ...{ onChangeProduct, onChangePriceColor, onChangeButtonBackgroundColor, attributes } } />
-	        )
-					,
-	        !! attributes.productID ? (
-						<Preview { ...{ product, attributes } } />
-	        ) : (
-	          <p class="advanced-gutenberg-blocks-block-message">{ __( 'Search for a product in the inspector', 'advanced-gutenberg-blocks' ) }</p>
-	        )
-	      ]
+					</Fragment>
+	      )
     	} )
 		,
     save: props => {

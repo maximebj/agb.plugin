@@ -45,8 +45,8 @@ export default class SearchProduct extends Component {
   }
 
 	getProductID(id) {
-		this.props.onChangeProduct(
-			_.find( this.state.results, { id: id} )
+		this.props.setAttributes (
+			{ productID: _.find( this.state.results, { id: id} ) }
 		)
 	}
 

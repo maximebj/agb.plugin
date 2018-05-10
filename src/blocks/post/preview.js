@@ -9,6 +9,8 @@ export default class Preview extends Component {
   constructor( props ) {
     super( props )
 
+		const { postID } = this.props.attributes
+
 		this.state = {
 			featuredImage: false,
 			post: false,
@@ -18,7 +20,7 @@ export default class Preview extends Component {
   }
 
 	getPost() {
-		const postQuery = new wp.api.models.Post( { id: this.props.attributes.postID } );
+		const postQuery = new wp.api.models.Post( { id: this.postID } );
 
 		// Fetch post via API
 		postQuery.fetch().then( post => {
@@ -48,12 +50,15 @@ export default class Preview extends Component {
 
 	componentDidUpdate(lastProps, lastStates) {
 
-		if( lastProps.attributes.postID != this.props.attributes.postID ) {
+		if( lastProps.attributes.postID != this.postID ) {
 			this.getPost()
 		}
 	}
 
   render() {
+
+		const { showImage, showCategory, showAuthor } = this.props.attributes
+		const { post, featuredImage, category, author } = this.state
 
 		// Get HTML Excerpt
 		const getExcerpt = () => {
@@ -61,28 +66,28 @@ export default class Preview extends Component {
 		}
 
     return (
-			!! this.state.post ? (
+			!! post ? (
 				<div className="wp-block-advanced-gutenberg-blocks-post">
-					{ !! this.state.featuredImage && this.props.attributes.showImage && (
+					{ !! featuredImage && showImage && (
 						<a
-							href={ this.state.post.link }
+							href={ post.link }
 							className="wp-block-advanced-gutenberg-blocks-post__image"
 							style={ {
-								backgroundImage: `url(${this.state.featuredImage})`
+								backgroundImage: `url(${featuredImage})`
 							} }
 						/>
 					) }
 					<div className="wp-block-advanced-gutenberg-blocks-post__content">
 						<p className="wp-block-advanced-gutenberg-blocks-post__title">
-							<a href={ this.state.post.link }>{ this.state.post.title.rendered }</a>
+							<a href={ post.link }>{ post.title.rendered }</a>
 						</p>
 						<p className="wp-block-advanced-gutenberg-blocks-post__metas">
 							<em>
-								{ !! this.state.category && this.props.attributes.showCategory && (
-								<span> { __( 'In', 'advanced-gutenberg-blocks' ) + ' ' + this.state.category } </span>
+								{ !! category && showCategory && (
+								<span> { __( 'In', 'advanced-gutenberg-blocks' ) + ' ' + category } </span>
 								) }
-								{ !! this.state.author && this.props.attributes.showAuthor && (
-								<span> { __( 'By', 'advanced-gutenberg-blocks' ) + ' ' + this.state.author } </span>
+								{ !! author && showAuthor && (
+								<span> { __( 'By', 'advanced-gutenberg-blocks' ) + ' ' + author } </span>
 								) }
 							</em>
 						</p>
@@ -91,7 +96,7 @@ export default class Preview extends Component {
 							dangerouslySetInnerHTML={ getExcerpt() }
 						/>
 						<p class="wp-block-advanced-gutenberg-blocks-product__actions">
-							<a href={ this.state.post.link } className="wp-block-advanced-gutenberg-blocks-post__button">
+							<a href={ post.link } className="wp-block-advanced-gutenberg-blocks-post__button">
 								{ __( 'Read more', 'advanced-gutenberg-blocks' ) }
 							</a>
 						</p>

@@ -2,8 +2,7 @@ import classnames from 'classnames'
 
 import dashIconList from './dashiconlist';
 
-const { Component } = wp.element;
-
+const { Component } = wp.element
 
 export default class IconList extends Component {
 

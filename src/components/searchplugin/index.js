@@ -4,7 +4,7 @@ const { Component } = wp.element
 
 const { __ } = wp.i18n
 
-export default class SearchPlugins extends Component {
+export default class SearchPlugin extends Component {
 
   constructor( props ) {
     super( props )
@@ -46,13 +46,13 @@ export default class SearchPlugins extends Component {
 				this.setState( { results: response.plugins } )
 			}
     })
-		.catch(error => {
+		.catch( error => {
 			this.setState( { results: __( "⚠️ Error: Couldn't reach wp.org", 'advanced-gutenberg-blocks' ) } )
 		})
   }
 
-  getPluginSlug(slug) {
-    this.props.onChangePlugin(_.find(this.state.results, { slug: slug}) )
+  onChangeValue( slug ) {
+    this.props.onChange( _.find(this.state.results, { slug: slug} ) )
   }
 
   render() {
@@ -76,8 +76,8 @@ export default class SearchPlugins extends Component {
                   let icon = (!! plugin.icons['1x']) ? plugin.icons['1x'] : plugin.icons.default
 
                   return (
-                    <li onClick={ () => this.getPluginSlug(plugin.slug) } >
-                      <img src={icon} alt={ plugin.name } />
+                    <li onClick={ () => this.onChangeValue( plugin.slug ) } >
+                      <img src={ icon } alt={ plugin.name } />
                       <span>{ plugin.name }</span>
                     </li>
                   )

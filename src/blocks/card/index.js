@@ -49,9 +49,12 @@ export default registerBlockType(
     },
 		edit: props => {
 
+			const { attributes, setAttributes } = props
+			const { title } = attributes
+
 			const onURLFetched = site => {
 
-				props.setAttributes( {
+				setAttributes( {
           title: site.title,
           description: site.description,
           image: site.image,
@@ -63,10 +66,10 @@ export default registerBlockType(
       return (
 				<div>
 					{
-						!! props.attributes.title == '' ? (
-		          <URLFetcher onURLFetched={ onURLFetched } />
+						title === '' ? (
+		          <URLFetcher { ...{ onURLFetched } } />
 		        ) : (
-							<Preview { ...props } />
+							<Preview { ...attributes } />
 	        	)
 					}
 				</div>

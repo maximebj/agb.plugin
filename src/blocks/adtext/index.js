@@ -37,9 +37,7 @@ export default registerBlockType(
     },
 		edit: props => {
 
-			const onChangeContent = value => {
-        props.setAttributes( { content: value } )
-      }
+			const { attributes: { content }, isSelected, setAttributes } = props
 
       return (
         <div className='wp-block-advanced-gutenberg-blocks-adtext'>
@@ -50,15 +48,17 @@ export default registerBlockType(
             tagName="div"
             multiline="p"
             placeholder={ __( 'Write text here', 'advanced-gutenberg-blocks' ) }
-            value={ props.attributes.content }
+            value={ content }
             className="wp-block-advanced-gutenberg-blocks-adtext__content"
-            onChange={ onChangeContent }
-            focus={ props.focus }
+            onChange={ content => setAttributes( { content } ) }
+            focus={ isSelected }
   				/>
         </div>
       );
     },
 		save: props => {
+
+			const { content } = props.attributes
 
 			const createMarkup = () => {
 				return {__html: advancedGutenbergBlocksAdTextSettings.script }
@@ -70,7 +70,7 @@ export default registerBlockType(
 					</div>
 
 					<div className="wp-block-advanced-gutenberg-blocks-adtext__content">
-          	{ props.attributes.content }
+          	{ content }
         	</div>
 				</div>
       )
