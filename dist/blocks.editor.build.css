@@ -1,4 +1,4 @@
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -34,7 +34,19 @@
 
 .wp-block-advanced-gutenberg-blocks-notice select {
   margin-bottom: 14px; }
-.advanced-gutenberg-blocks-block-message {
+
+.AGB-toolbar-icon-advice {
+  color: #83BD71; }
+
+.AGB-toolbar-icon-avoid {
+  color: #B54D4D; }
+
+.AGB-toolbar-icon-warning {
+  color: #FFC334; }
+
+.AGB-toolbar-icon-info {
+  color: #48ADD8; }
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -64,7 +76,7 @@
   margin-right: 4px;
   width: 32px;
   height: 32px; }
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -102,7 +114,7 @@
   text-align: center;
   line-height: 90px;
   color: #999; }
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -141,7 +153,7 @@
   line-height: 248px;
   width: 250px;
   color: #999; }
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -192,7 +204,7 @@
       -webkit-transform: scale(1.02);
           -ms-transform: scale(1.02);
               transform: scale(1.02); }
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -238,7 +250,7 @@
   .wp-block-advanced-gutenberg-blocks-card__urlfetcher input:focus {
     -webkit-box-shadow: none;
             box-shadow: none; }
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -268,7 +280,7 @@
   margin-right: 4px;
   width: 32px;
   height: 32px; }
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -298,7 +310,7 @@
   margin-right: 4px;
   width: 32px;
   height: 32px; }
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -346,7 +358,7 @@
   cursor: pointer;
   line-height: 100px;
   text-align: center; }
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -377,15 +389,15 @@
   width: 32px;
   height: 32px; }
 
-.advanced-gutenberg-blocks-panel-maps {
+.AGB-panel-maps {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: -8px; }
-  .advanced-gutenberg-blocks-panel-maps .advanced-gutenberg-blocks-panel-maps__item {
+  .AGB-panel-maps .AGB-panel-maps__item {
     width: calc( 50% - 16px);
     margin: 8px; }
-  .advanced-gutenberg-blocks-panel-maps img {
+  .AGB-panel-maps img {
     display: block;
     cursor: pointer; }

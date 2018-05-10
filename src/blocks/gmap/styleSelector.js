@@ -9,11 +9,11 @@ export default class StyleSelector extends Component {
 		const { style, setAttributes } = props
 
     return (
-      <div class="advanced-gutenberg-blocks-panel-maps">
+      <div class="AGB-panel-maps">
         { Object.keys(styles).map( key => {
 
           return (
-						<div className="advanced-gutenberg-blocks-panel-maps__item">
+						<div className="AGB-panel-maps__item">
 							<img
 								src={ `${advancedGutenbergBlocksGlobals.pluginurl}/admin/img/maps/${key}.png` }
 								alt={ `Style ${key}` }

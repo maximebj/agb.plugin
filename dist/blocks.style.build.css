@@ -1,4 +1,4 @@
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -61,7 +61,7 @@
   border-top: 3px solid #48ADD8; }
   .wp-block-advanced-gutenberg-blocks-notice--info .wp-block-advanced-gutenberg-blocks-notice__title {
     color: #48ADD8; }
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -159,7 +159,7 @@
   .wp-block-advanced-gutenberg-blocks-plugin__download a:hover {
     background-color: #8bc1df;
     color: white; }
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -192,7 +192,7 @@
 
 .wp-block-advanced-gutenberg-blocks-ad {
   margin: 2em 0; }
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -236,7 +236,7 @@
 .wp-block-advanced-gutenberg-blocks-adtext__ad {
   float: right;
   margin: 0 0 20px 20px; }
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -295,7 +295,7 @@
   font-size: .85em;
   opacity: .7;
   margin-left: 4px; }
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -365,7 +365,7 @@
 .wp-block-advanced-gutenberg-blocks-card__url {
   color: #DDD;
   margin-bottom: 0; }
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -461,7 +461,7 @@
   .wp-block-advanced-gutenberg-blocks-product__button .dashicons {
     margin-right: 8px; }
 @charset "UTF-8";
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -552,7 +552,7 @@
       color: white;
       background-color: #5e5e5e; }
 @charset "UTF-8";
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }
@@ -657,7 +657,7 @@
     margin: 0;
     color: #aaa;
     font-size: .9em; }
-.advanced-gutenberg-blocks-block-message {
+.AGB-block-message {
   text-align: center;
   font-style: italic;
   color: #ccc; }

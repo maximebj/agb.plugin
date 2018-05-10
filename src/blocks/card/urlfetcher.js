@@ -81,7 +81,7 @@ export default class URLFetcher extends Component {
 				</form>
 
 				{ this.state.results && (
-					<p className="advanced-gutenberg-blocks-block-message">{ this.state.results }</p>
+					<p className="AGB-block-message">{ this.state.results }</p>
 				) }
 			</div>
     )

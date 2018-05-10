@@ -58,14 +58,14 @@ export default registerBlockType(
 
 				<div className="wp-block-advanced-gutenberg-blocks-gmap">
 					{ ! address && isSelected && typeof advancedGutenbergBlocksGmap == "undefined" && (
-							<p class="advanced-gutenberg-blocks-block-message">
+							<p class="AGB-block-message">
 								{__( "Type your address on the inspector", "advanced-gutenberg-blocks" )}
 							</p>
 						)}
 					{ typeof advancedGutenbergBlocksGmap === "undefined" ? (
 						<Gmap {...props} />
 					) : (
-						<p class="advanced-gutenberg-blocks-block-message">
+						<p class="AGB-block-message">
 							{__( "⚠️ You need to provide an API key in ", "advanced-gutenberg-blocks" )}
 							<a href="/wp-admin/admin.php?page=advanced-gutenberg-blocks-installed#blockgooglemap">
 								{__( "Blocks > Installed Blocks > Google Map", "advanced-gutenberg-blocks" )}

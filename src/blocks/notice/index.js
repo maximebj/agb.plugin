@@ -3,6 +3,8 @@ import './editor.scss'
 
 import classnames from 'classnames'
 
+import Tools from './tools'
+
 const { __ } = wp.i18n
 
 const {
@@ -10,12 +12,30 @@ const {
   RichText,
 } = wp.blocks
 
-const types = {
-  'advice': 	__( 'Advice', 'advanced-gutenberg-blocks' ),
-  'avoid': 		__( 'Avoid', 'advanced-gutenberg-blocks' ),
-  'warning': 	__( 'Warning', 'advanced-gutenberg-blocks' ),
-  'info': 		__( 'Information', 'advanced-gutenberg-blocks' ),
-}
+const { Fragment } = wp.element
+
+const types = [
+  {
+		slug: 'advice',
+		title: __( 'Advice', 'advanced-gutenberg-blocks' ),
+		icon: 'thumbs-up',
+	},
+	{
+		slug: 'info',
+		title: __( 'Information', 'advanced-gutenberg-blocks' ),
+		icon: 'info',
+	},
+	{
+		slug: 'warning',
+		title: __( 'Warning', 'advanced-gutenberg-blocks' ),
+		icon: 'warning',
+	},
+	{
+		slug: 'avoid',
+		title: __( 'Avoid', 'advanced-gutenberg-blocks' ),
+		icon: 'dismiss',
+	},
+]
 
 export default registerBlockType(
   'advanced-gutenberg-blocks/notice',
@@ -34,13 +54,13 @@ export default registerBlockType(
         source: 'attribute',
         selector: '.wp-block-advanced-gutenberg-blocks-notice',
         attribute: 'data-type',
-        default: Object.keys(types)[0],
+        //default: Object.keys(types)[0],
       },
 			title: {
         source: 'text',
         type: 'string',
         selector: '.wp-block-advanced-gutenberg-blocks-notice__title',
-				default: types.advice,
+				//default: types.advice.title,
       },
       content: {
         type: 'array',
@@ -50,43 +70,36 @@ export default registerBlockType(
     },
     edit: props => {
 
-			const { attributes: { type, content, title },  isSelected, setAttributes } = props
-
-      const onChangeType = event => {
-        props.setAttributes( {
-					type: event.target.value,
-					title: types[event.target.value]
-				} )
-      }
+			const { attributes: { type, content, title }, className, isSelected, setAttributes } = props
 
       return (
-        <div className={ classnames( props.className, `${props.className}--${props.attributes.type}` ) }>
-          { isSelected ? (
-            <select
-              name="type"
-              onChange={ onChangeType }
-              value={ type }
-            >
-              { types.map( ( key, val ) => {
-                return (
-                  <option value={key}>{val}</option>
-                ) }
-              ) }
-            </select>
-            ) : (
-            <p className='wp-block-advanced-gutenberg-blocks-notice__title'>{ title }</p>
-            )
-          }
+				<Fragment>
 
-          <RichText
-            tagName="p"
-            placeholder={ __( 'Your tip/warning content', 'advanced-gutenberg-blocks' ) }
-            value={ content }
-            className='wp-block-advanced-gutenberg-blocks-notice__content'
-            onChange={ content => setAttributes( { content } ) }
-            focus={ isSelected }
-  				/>
-        </div>
+					<Tools { ...{ type, types, setAttributes } } />
+
+	        <div className={ classnames( className, `${className}--${type}` ) }>
+	          { isSelected ? (
+							<RichText
+		            tagName="p"
+		            value={ title }
+		            className='wp-block-advanced-gutenberg-blocks-notice__title'
+		            onChange={ title => setAttributes( { title } ) }
+		  				/>
+            ) : (
+	            <p className='wp-block-advanced-gutenberg-blocks-notice__title'>{ title }</p>
+	          ) }
+
+	          <RichText
+	            tagName="p"
+	            placeholder={ __( 'Your tip/warning content', 'advanced-gutenberg-blocks' ) }
+	            value={ content }
+	            className='wp-block-advanced-gutenberg-blocks-notice__content'
+	            onChange={ content => setAttributes( { content } ) }
+	            focus={ isSelected }
+	  				/>
+	        </div>
+
+				</Fragment>
       )
     },
     save: props => {

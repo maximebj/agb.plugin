@@ -54,7 +54,7 @@ export default registerBlockType(
 		        { !! productID ? (
 							<Preview { ...{ product, attributes } } />
 		        ) : (
-		          <p class="advanced-gutenberg-blocks-block-message">{ __( 'Search for a product in the inspector', 'advanced-gutenberg-blocks' ) }</p>
+		          <p class="AGB-block-message">{ __( 'Search for a product in the inspector', 'advanced-gutenberg-blocks' ) }</p>
 		        ) }
 
 					</Fragment>

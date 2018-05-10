@@ -9,3 +9,21 @@
 .wp-block-advanced-gutenberg-blocks-notice select {
 	margin-bottom: 14px;
 }
+
+// Notice toolbar icons
+
+.AGB-toolbar-icon-advice {
+	color: $color-advice;
+}
+
+.AGB-toolbar-icon-avoid {
+	color: $color-avoid;
+}
+
+.AGB-toolbar-icon-warning {
+	color: $color-warning;
+}
+
+.AGB-toolbar-icon-info {
+	color: $color-info;
+}

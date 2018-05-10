@@ -50,7 +50,7 @@ export default class Geocoder extends Component {
 		})
   }
 
-  _renderResults = () => {
+  renderResults = () => {
     return this.state.results.map(result => {
       return (
         <li key={`gmap-result-${result.place_id}`} onClick={ () => this.setGeocodedObj(result) }>
@@ -61,6 +61,8 @@ export default class Geocoder extends Component {
   }
 
   render() {
+
+		const { seachQuery, results } = this.state
     return (
       <BaseControl label={__("Address", "advanced-gutenberg-blocks")}>
         <input
@@ -68,15 +70,14 @@ export default class Geocoder extends Component {
           placeholder={ __( "Type an address", "advanced-gutenberg-blocks" ) }
           className="blocks-text-control__input"
           onChange={ this.onSearch }
-          value={ this.state.searchQuery }
+          value={ searchQuery }
       	/>
 
       	<div className="advanced-gutenberg-blocks-panel-results">
-          {!!this.state.results &&
-          Array.isArray(this.state.results) ? (
-            <ul>{ this._renderResults() }</ul>
+          { !! results && Array.isArray( results ) ? (
+            <ul>{ this.renderResults() }</ul>
           ) : (
-            <p>{ this.state.results }</p>
+            <p>{ results }</p>
           )}
         </div>
       </BaseControl>

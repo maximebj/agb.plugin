@@ -43,7 +43,7 @@ export default class Inspector extends Component {
         </PanelBody>
 
       </InspectorControls>
-    );
+    )
   }
 
 }
