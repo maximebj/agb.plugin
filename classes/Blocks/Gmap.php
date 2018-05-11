@@ -31,17 +31,17 @@ class Gmap {
 
 	public function settings() {
 		echo '
-		<p class="AGB-block__settings__description">' . __( 'The API key is mandatory, you can create one on the <a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">Google Maps JS Api page</a>. ' ) . '</p>
+			<p class="AGB-block__settings__description">' . __( 'The API key is mandatory, you can create one on the <a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">Google Maps JS Api page</a>. ' ) . '</p>
 
-		<div class="AGB-block__settings__option">
-			<div class="AGB-block__settings__label">
-				<label for="advanced-gutenberg-blocks-gmap-api-key"> ' . __( 'Api Key', 'advanced-gutenberg-blocks' ) . '</label>
-			</div>
+			<div class="AGB-block__settings__option">
+				<div class="AGB-block__settings__label">
+					<label for="advanced-gutenberg-blocks-gmap-api-key"> ' . __( 'Api Key', 'advanced-gutenberg-blocks' ) . '</label>
+				</div>
 
-			<div class="AGB-block__settings__field">
-				<input type="text" name="advanced-gutenberg-blocks-gmap-api-key" placeholder="' . __( 'Insert your Google Maps API Key here', 'advanced-gutenberg-blocks' ) . '" value="' . get_option( 'advanced-gutenberg-blocks-gmap-api-key' ) . '">
+				<div class="AGB-block__settings__field">
+					<input type="text" name="advanced-gutenberg-blocks-gmap-api-key" placeholder="' . __( 'Insert your Google Maps API Key here', 'advanced-gutenberg-blocks' ) . '" value="' . get_option( 'advanced-gutenberg-blocks-gmap-api-key' ) . '">
+				</div>
 			</div>
-		</div>
 		';
 	}
 
@@ -794,26 +794,26 @@ class Gmap {
 	public function editor_assets() {
 		$api_key = get_option( 'advanced-gutenberg-blocks-gmap-api-key' );
 
-		if ( $api_key == "" ) {
+		$data = array();
 
-			// Block will display a notice than the API key is not yet set
-			wp_localize_script(
-				Consts::BLOCKS_SCRIPT,
-				'advancedGutenbergBlocksGmap',
-				array(
-					'error' => 'noApiKey',
-				)
-			);
-			return;
+		if ( $api_key == "" ) {
+			$data['error'] = 'noApiKey';
 		}
 
-		// Load Gmap
-		wp_enqueue_script(
-			Consts::PLUGIN_NAME . '-gmap',
-			'https://maps.googleapis.com/maps/api/js?key=' . $api_key,
-			[ Consts::BLOCKS_SCRIPT ],
-			true
+		wp_localize_script(
+			Consts::BLOCKS_SCRIPT,
+			'advancedGutenbergBlocksGmap',
+			$data
 		);
 
+		// Load Gmap API if key is provided
+		if( $api_key != "" ) {
+			wp_enqueue_script(
+				Consts::PLUGIN_NAME . '-gmap',
+				'https://maps.googleapis.com/maps/api/js?key=' . $api_key,
+				[ Consts::BLOCKS_SCRIPT ],
+				true
+			);
+		}
 	}
 }

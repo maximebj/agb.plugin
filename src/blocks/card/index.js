@@ -42,10 +42,6 @@ export default registerBlockType(
         selector: 'a',
         attribute: 'href',
       },
-			siteUrl: {
-				source: 'text',
-        selector: '.wp-block-advanced-gutenberg-blocks-card__url',
-      },
     },
 		edit: props => {
 
@@ -59,22 +55,31 @@ export default registerBlockType(
           description: site.description,
           image: site.image,
           url: site.url,
-					siteUrl: site.mainURL,
         } )
 			}
 
+			// If API key is not yet provided
+			if ( typeof advancedGutenbergBlocksOpenGraph.error !== "undefined" ) {
+				return (
+					<p class="AGB-block-message">
+						{__( "⚠️ You need to provide an API key in ", 'advanced-gutenberg-blocks' )}
+						<a
+							target='_blank' href="/wp-admin/admin.php?page=advanced-gutenberg-blocks-installed#advanced-gutenberg-blocks-card"
+						>
+							{__( "Blocks > Installed Blocks > Card Preview", 'advanced-gutenberg-blocks' )}
+						</a>
+					</p>
+				)
+			}
+
       return (
-				<div>
-					{
-						title === '' ? (
-		          <URLFetcher
-								onChange={ site => onURLFetched( site ) }
-							/>
-		        ) : (
-							<Preview { ...{ attributes } } />
-	        	)
-					}
-				</div>
+				title === '' ? (
+          <URLFetcher
+						onChange={ site => onURLFetched( site ) }
+					/>
+        ) : (
+					<Preview { ...{ attributes } } />
+      	)
       )
     },
 		save: props => {

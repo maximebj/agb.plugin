@@ -42,7 +42,7 @@
 						}
 						$active = !in_array( $block['id'], $disabled_blocks );
 				?>
-				<li class="AGB-block<?php if( $active ): ?> is-active<?php endif; ?>" id="block<?php echo sanitize_key($block['name']); ?>">
+				<li class="AGB-block<?php if( $active ): ?> is-active<?php endif; ?>" id="<?php echo sanitize_title($block['id']); ?>">
 					<header class="AGB-block__head">
 						<div class="AGB-block__icon js-AGB-show-panel">
 							<span class="dashicons <?php echo $block['icon']; ?>"></span>

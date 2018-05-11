@@ -13,7 +13,7 @@ export default class Preview extends Component {
 				<div className="wp-block-advanced-gutenberg-blocks-card__content">
 					<p className="wp-block-advanced-gutenberg-blocks-card__title">{ title }</p>
 					<p className="wp-block-advanced-gutenberg-blocks-card__description">{ description }</p>
-					<p className="wp-block-advanced-gutenberg-blocks-card__url">{ siteUrl }</p>
+					<p className="wp-block-advanced-gutenberg-blocks-card__url">{ url }</p>
 				</div>
 			</div>
     )

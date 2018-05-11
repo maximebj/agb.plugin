@@ -2,8 +2,7 @@ import { debounce } from 'throttle-debounce'
 
 const { __ } = wp.i18n
 const { Component } = wp.element
-const { UrlInput } = wp.blocks
-const { Placeholder, Spinner } = wp.components
+const { Placeholder, Spinner, TextControl } = wp.components
 
 export default class URLFetcher extends Component {
 
@@ -19,26 +18,20 @@ export default class URLFetcher extends Component {
 
 		this.setState( { results: __( 'Fetching website...', 'advanced-gutenberg-blocks' ) } )
 
-		fetch(advancedGutenbergBlocksGlobals.ajaxurl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
-      },
-      body: 'action=fetch_site&url=' + encodeURIComponent( url ),
-      credentials: 'same-origin'
-    })
-    .then( site => site.json() )
-    .then( site => {
+		fetch(
+			`https://opengraph.io/api/1.0/site/${encodeURIComponent(url)}?app_id=5a9e67e4929fbe0b005d4dd8`
+		)
+		.then( response => response.json() )
+		.then( response => {
 
-			if ( site.error == 'sitenotfound') {
+			if ( response.error ) {
 				this.setState( { results: __( "⚠️ Error: Couldn't reach website", 'advanced-gutenberg-blocks' ) } )
 			} else {
-				this.props.onChange( site )
+
+				this.props.onChange( response.hybridGraph )
 			}
 
-    } )
-		.catch( error => { } )
-
+		} )
 	} )
 
   render() {
@@ -50,8 +43,10 @@ export default class URLFetcher extends Component {
 				icon="admin-site"
 				label={ __( "Website card preview", 'advanced-gutenberg-blocks' ) }
 			>
-				<UrlInput
+				<TextControl
+					type="url"
 					onChange={ value => this.fetchURL( value ) }
+					placeHolder={ __('Paste URL here', 'advanced-gutenberg-blocks' ) }
 				/>
 
 				{ this.state.results && (

@@ -53,21 +53,27 @@ export default registerBlockType(
 		const { attributes, setAttributes, isSelected } = props
 		const { address, name, zoom, height, style } = attributes
 
+		// If API key is not yet provided
+		if ( typeof advancedGutenbergBlocksGmap.error !== "undefined" ) {
+			return (
+				<p class="AGB-block-message">
+					{__( "⚠️ You need to provide an API key in ", 'advanced-gutenberg-blocks' )}
+					<a
+						target='_blank'
+						href="/wp-admin/admin.php?page=advanced-gutenberg-blocks-installed#advanced-gutenberg-blocks-gmap"
+					>
+						{__( "Blocks > Installed Blocks > Google Map", 'advanced-gutenberg-blocks' )}
+					</a>
+				</p>
+			)
+		}
+
 		return (
 			<Fragment>
 				<Inspector { ...{ attributes, setAttributes } } />
 
 				<div className="wp-block-advanced-gutenberg-blocks-gmap">
-					{ typeof advancedGutenbergBlocksGmap === "undefined" ? (
-						<Gmap { ...{ attributes } } />
-					) : (
-						<p class="AGB-block-message">
-							{__( "⚠️ You need to provide an API key in ", 'advanced-gutenberg-blocks' )}
-							<a href="/wp-admin/admin.php?page=advanced-gutenberg-blocks-installed#blockgooglemap">
-								{__( "Blocks > Installed Blocks > Google Map", 'advanced-gutenberg-blocks' )}
-							</a>
-						</p>
-					) }
+					<Gmap { ...{ attributes } } />
 				</div>
 			</Fragment>
 		)
