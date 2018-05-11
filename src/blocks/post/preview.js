@@ -1,8 +1,7 @@
 import classnames from 'classnames'
 
-const { Component } = wp.element
-
 const { __ } = wp.i18n
+const { Component } = wp.element
 
 export default class Preview extends Component {
 

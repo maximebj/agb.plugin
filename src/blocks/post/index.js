@@ -8,7 +8,6 @@ const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
 const { Fragment } = wp.element
 
-
 export default registerBlockType(
   'advanced-gutenberg-blocks/post',
   {
