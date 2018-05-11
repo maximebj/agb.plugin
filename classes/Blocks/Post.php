@@ -46,36 +46,44 @@ class Post {
 
 		$id = $attributes['postID'];
 
-		$post = get_post( $id );
-		$link = get_permalink( $id );
-		$excerpt = $post->post_excerpt; // bug: can't use get_the_excerpt as it causes an infinite loop if no excerpt is set
-
-		$image = false;
-
-		if( $attributes['showImage'] !== false ) {
-			$image = wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'medium' );
-			$image = $image[0];
-		}
-
-		$author = false;
-
-		if( $attributes['showAuthor'] !== false ) {
-			$author = get_the_author_meta( 'display_name', $post->author );
-		}
-
-		$category = false;
-
-		if( $attributes['showCategory'] !== false ) {
-			$categories = get_the_category( $id );
-
-			if ( ! empty( $categories ) ) {
-    		$category = $categories[0]->name;
-			}
-		}
-
+		// Start cached output
 		$output = "";
 		ob_start();
-		include Consts::get_path() . 'public/templates/post.php';
+
+		$args = array( 'p' => $id );
+		$query = new \WP_Query( $args );
+
+		if( $query->have_posts() ): while( $query->have_posts() ): $query->the_post();
+
+			$image = false;
+			$author = false;
+			$category = false;
+
+			if( $attributes['showImage'] !== false ) {
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );
+				$image = $image[0];
+			}
+
+			if( $attributes['showAuthor'] !== false ) {
+				$author = get_the_author_meta( 'display_name', $post->author );
+			}
+
+			if( $attributes['showCategory'] !== false ) {
+				$categories = get_the_category();
+
+				if ( ! empty( $categories ) ) {
+	    		$category = $categories[0]->name;
+				}
+			}
+
+			// Get template
+			include Consts::get_path() . 'public/templates/post.php';
+
+			endwhile;
+			wp_reset_postdata();
+		endif;
+
+		// En cached output
 		$output = ob_get_contents();
 		ob_end_clean();
 

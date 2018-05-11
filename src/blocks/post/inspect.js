@@ -1,5 +1,6 @@
 import SearchPost from '../../components/searchpost'
 
+const { __ } = wp.i18n
 const { Component } = wp.element
 
 const {
@@ -9,11 +10,8 @@ const {
 
 const {
   PanelBody,
-	PanelRow,
-	FormToggle,
+	ToggleControl,
 } = wp.components
-
-const { __ } = wp.i18n
 
 export default class Inspector extends Component {
 
@@ -26,56 +24,32 @@ export default class Inspector extends Component {
 
         <PanelBody title={ __( 'Choose a post', 'advanced-gutenberg-blocks' ) }>
           <SearchPost
-						onChange= { postID => setAttributes( { postID } ) }
+						onChange= { post => setAttributes( { postID: post.id } ) }
 					/>
         </PanelBody>
 
 				{ !! postID && (
 
 					<PanelBody title={ __( 'Customize', 'advanced-gutenberg-blocks' ) }>
-						<PanelRow>
-	            <label
-	              htmlFor="image-form-toggle"
-	              className="blocks-base-control__label"
-	            >
-	              { __( 'Show Image?', 'advanced-gutenberg-blocks' ) }
-	            </label>
-	            <FormToggle
-	              id="image-form-toggle"
-	              label={ __( 'Show Image?', 'advanced-gutenberg-blocks' ) }
-	              checked={ showImage }
-	              onChange={ () => setAttributes( { showImage: ! showImage } ) }
-	            />
-	          </PanelRow>
-						<PanelRow>
-	            <label
-	              htmlFor="author-form-toggle"
-	              className="blocks-base-control__label"
-	            >
-	              { __( 'Show Author?', 'advanced-gutenberg-blocks' ) }
-	            </label>
-	            <FormToggle
-	              id="author-form-toggle"
-	              label={ __( 'Show Author?', 'advanced-gutenberg-blocks' ) }
-	              checked={ showAuthor }
-	              onChange={ () => setAttributes( { showAuthor: ! showAuthor } ) }
-	            />
-	          </PanelRow>
 
-						<PanelRow>
-	            <label
-	              htmlFor="category-form-toggle"
-	              className="blocks-base-control__label"
-	            >
-	              { __( 'Show Category?', 'advanced-gutenberg-blocks' ) }
-	            </label>
-	            <FormToggle
-	              id="category-form-toggle"
-	              label={ __( 'Show Category?', 'advanced-gutenberg-blocks' ) }
-	              checked={ showCategory }
-	              onChange={ () => setAttributes( { showCategory: ! showCategory } ) }
-	            />
-	          </PanelRow>
+						<ToggleControl
+							label={ __( 'Show Image?', 'advanced-gutenberg-blocks' ) }
+							checked={ showImage }
+							onChange={ () => setAttributes( { showImage: ! showImage } ) }
+						/>
+
+						<ToggleControl
+							label={ __( 'Show Author?', 'advanced-gutenberg-blocks' ) }
+							checked={ showAuthor }
+							onChange={ () => setAttributes( { showAuthor: ! showAuthor } ) }
+						/>
+
+						<ToggleControl
+							label={ __( 'Show Category?', 'advanced-gutenberg-blocks' ) }
+							checked={ showCategory }
+							onChange={ () => setAttributes( { showCategory: ! showCategory } ) }
+						/>
+
 					</PanelBody>
 				) }
 

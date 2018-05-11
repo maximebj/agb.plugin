@@ -5,7 +5,7 @@
 	<?php endif; ?>
 	<div class="wp-block-advanced-gutenberg-blocks-post__content">
 		<p class="wp-block-advanced-gutenberg-blocks-post__title">
-			<a href="<?php echo $link; ?>"><?php echo $post->post_title; ?></a>
+			<a href="<?php echo $link; ?>"><?php the_title(); ?></a>
 		</p>
 		<p class="wp-block-advanced-gutenberg-blocks-post__metas">
 			<em>
@@ -19,7 +19,7 @@
 		</p>
 		<div class="wp-block-advanced-gutenberg-blocks-post__excerpt">
 			<p>
-				<?php echo $excerpt; ?>
+				<?php the_excerpt(); ?>
 			</p>
 		</div>
 		<p class="wp-block-advanced-gutenberg-blocks-product__actions">
