@@ -235,19 +235,19 @@
   width: 32px;
   height: 32px; }
 
-.wp-block-advanced-gutenberg-blocks-card__urlfetcher {
+.AGB-urlfetcher {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
       align-items: center; }
-  .wp-block-advanced-gutenberg-blocks-card__urlfetcher input {
+  .AGB-urlfetcher input {
     padding: 10px;
     width: 220px;
     border: none;
     outline: none;
     -webkit-box-shadow: none;
             box-shadow: none; }
-  .wp-block-advanced-gutenberg-blocks-card__urlfetcher input:focus {
+  .AGB-urlfetcher input:focus {
     -webkit-box-shadow: none;
             box-shadow: none; }
 .AGB-block-message {

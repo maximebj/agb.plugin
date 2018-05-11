@@ -1,13 +1,9 @@
 import { debounce } from 'throttle-debounce'
 
-const { Component } = wp.element
-
 const { __ } = wp.i18n
-
-const {
-  Dashicon,
-	IconButton,
-} = wp.components
+const { Component } = wp.element
+const { UrlInput } = wp.blocks
+const { Placeholder, Spinner } = wp.components
 
 export default class URLFetcher extends Component {
 
@@ -15,18 +11,9 @@ export default class URLFetcher extends Component {
 		results: false,
 	}
 
-  onSubmitForm = event => {
-		event.preventDefault()
+	fetchURL = debounce( 300, url => {
 
-		const form = event.currentTarget
-		const url = form.url.value
-
-		this.fetchURL( url )
-  }
-
-	fetchURL = debounce( 300, site => {
-
-		if( site.length < 10) {
+		if( url.length < 10) {
       return
     }
 
@@ -37,7 +24,7 @@ export default class URLFetcher extends Component {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
       },
-      body: 'action=fetch_site&url=' + encodeURIComponent( site ),
+      body: 'action=fetch_site&url=' + encodeURIComponent( url ),
       credentials: 'same-origin'
     })
     .then( site => site.json() )
@@ -46,7 +33,7 @@ export default class URLFetcher extends Component {
 			if ( site.error == 'sitenotfound') {
 				this.setState( { results: __( "⚠️ Error: Couldn't reach website", 'advanced-gutenberg-blocks' ) } )
 			} else {
-				this.props.onURLFetched( site )
+				this.props.onChange( site )
 			}
 
     } )
@@ -56,34 +43,24 @@ export default class URLFetcher extends Component {
 
   render() {
 
-		const { isSelected } = props
+		const { isSelected } = this.props
 
     return (
-			<div>
-				<form
-	        key="form-link"
-	        onSubmit={ this.onSubmitForm }
-					className="wp-block-advanced-gutenberg-blocks-card__urlfetcher"
-	      >
-					<Dashicon icon='admin-links' />
-					<input
-						name="url"
-						type="url"
-						id="url"
-						placeholder={ __( 'Type URL or paste', 'advanced-gutenberg-blocks' ) }
-						focus={isSelected}
-					/>
-					<IconButton
-	          icon="editor-break"
-	          label={ __( 'Apply', 'advanced-gutenberg-blocks' ) }
-	          type="submit"
-	        />
-				</form>
+			<Placeholder
+				icon="admin-site"
+				label={ __( "Website card preview", 'advanced-gutenberg-blocks' ) }
+			>
+				<UrlInput
+					onChange={ value => this.fetchURL( value ) }
+				/>
 
 				{ this.state.results && (
-					<p className="AGB-block-message">{ this.state.results }</p>
+					<p>
+						<Spinner />
+						{ this.state.results }
+					</p>
 				) }
-			</div>
+			</Placeholder>
     )
   }
 }

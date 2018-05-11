@@ -67,17 +67,22 @@ export default registerBlockType(
 				<div>
 					{
 						title === '' ? (
-		          <URLFetcher { ...{ onURLFetched } } />
+		          <URLFetcher
+								onChange={ site => onURLFetched( site ) }
+							/>
 		        ) : (
-							<Preview { ...attributes } />
+							<Preview { ...{ attributes } } />
 	        	)
 					}
 				</div>
       )
     },
 		save: props => {
+
+			const { attributes } = props
+
       return (
-        <Preview { ...props } />
+        <Preview { ...{ attributes } } />
       )
     },
 	},
