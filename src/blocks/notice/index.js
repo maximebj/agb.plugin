@@ -54,13 +54,13 @@ export default registerBlockType(
         source: 'attribute',
         selector: '.wp-block-advanced-gutenberg-blocks-notice',
         attribute: 'data-type',
-        //default: Object.keys(types)[0],
+        default: types[0].slug,
       },
 			title: {
         source: 'text',
         type: 'string',
         selector: '.wp-block-advanced-gutenberg-blocks-notice__title',
-				//default: types.advice.title,
+				default: types[0].title,
       },
       content: {
         type: 'array',
@@ -78,16 +78,13 @@ export default registerBlockType(
 					<Tools { ...{ type, types, setAttributes } } />
 
 	        <div className={ classnames( className, `${className}--${type}` ) }>
-	          { isSelected ? (
-							<RichText
-		            tagName="p"
-		            value={ title }
-		            className='wp-block-advanced-gutenberg-blocks-notice__title'
-		            onChange={ title => setAttributes( { title } ) }
-		  				/>
-            ) : (
-	            <p className='wp-block-advanced-gutenberg-blocks-notice__title'>{ title }</p>
-	          ) }
+
+						<RichText
+	            tagName="p"
+	            value={ title }
+	            className='wp-block-advanced-gutenberg-blocks-notice__title'
+	            onChange={ title => setAttributes( { title } ) }
+	  				/>
 
 	          <RichText
 	            tagName="p"
@@ -95,7 +92,6 @@ export default registerBlockType(
 	            value={ content }
 	            className='wp-block-advanced-gutenberg-blocks-notice__content'
 	            onChange={ content => setAttributes( { content } ) }
-	            focus={ isSelected }
 	  				/>
 	        </div>
 

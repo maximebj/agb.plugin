@@ -1,6 +1,7 @@
 import { debounce } from 'throttle-debounce'
 
-const { Component } = wp.element
+const { Component, Fragment } = wp.element
+const { TextControl } = wp.components
 const { __ } = wp.i18n
 
 export default class SearchProduct extends Component {
@@ -9,11 +10,7 @@ export default class SearchProduct extends Component {
 		results: false,
 	}
 
-  onSearch = event => {
-    this.performSearch( event.target.value )
-  }
-
-  performSearch = debounce(300, search => {
+  onSearch = debounce( 300, search => {
     if( search.length < 3) {
       return
     }
@@ -35,7 +32,7 @@ export default class SearchProduct extends Component {
       }
       this.setState( { results: results } )
     } )
-  })
+  } )
 
 	onChangeValue = id => {
 		this.props.onChange ( _.find( this.state.results, { id: id} ) )
@@ -43,15 +40,16 @@ export default class SearchProduct extends Component {
 
   render() {
     return (
-      <div>
-        <input
-          type="search"
-          placeholder={ __('Type a product name', 'advanced-gutenberg-blocks' ) }
-          className="blocks-text-control__input"
-          onChange={ this.onSearch }
-        />
+      <Fragment>
 
-        <div className="advanced-gutenberg-blocks-panel-results">
+				<TextControl
+					type="search"
+					label={ __( "Search Product", 'advanced-gutenberg-blocks' ) }
+					placeholder={ __( "Type a product name", 'advanced-gutenberg-blocks' ) }
+					onChange={ value => this.onSearch( value ) }
+				/>
+
+        <div className="AGB-panel-results">
 
           { !! this.state.results && Array.isArray( this.state.results ) ?
             (
@@ -71,7 +69,8 @@ export default class SearchProduct extends Component {
             )
           }
         </div>
-      </div>
+
+      </Fragment>
     )
   }
 }

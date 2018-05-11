@@ -25,7 +25,7 @@ class Gutenberg {
 
 	public function blocks_assets() {
 		wp_enqueue_style(
-			'advanced-gutenberg-blocks-style',
+			Consts::PLUGIN_NAME . '-style',
 			Consts::get_url() . 'dist/blocks.style.build.css',
 			[ 'wp-blocks', 'wp-edit-post' ]
 		);
@@ -38,17 +38,9 @@ class Gutenberg {
 		wp_enqueue_script(
 			Consts::BLOCKS_SCRIPT,
 			Consts::get_url() . 'dist/blocks.build.js',
-			[ 'wp-blocks', 'wp-i18n', 'wp-element' ]
+			[ 'wp-blocks', 'wp-i18n', 'wp-element' ],
+			'1.0'
 		);
-
-		wp_localize_script(
-      Consts::BLOCKS_SCRIPT,
-      'advancedGutenbergBlocksGlobals',
-      array(
-        'ajaxurl' => admin_url('admin-ajax.php'),
-				'pluginurl' => Consts::get_url(),
-      )
-    );
 
 		// Get translations
 		$locale  = gutenberg_get_jed_locale_data( 'advanced-gutenberg-blocks' );
@@ -56,11 +48,21 @@ class Gutenberg {
 		wp_script_add_data( Consts::BLOCKS_SCRIPT, 'data', $content );
 
 
+		// Set always after script_add_data or it won't show
+		wp_localize_script(
+			Consts::BLOCKS_SCRIPT,
+			'advancedGutenbergBlocksGlobals',
+			array(
+				'ajaxurl' => admin_url('admin-ajax.php'),
+				'pluginurl' => Consts::get_url(),
+			)
+		);
+
 		// Blocks deactivator
 		$blocks = new Blocks();
 
 		wp_enqueue_script(
-			'advanced-gutenberg-blocks-deactivator',
+			Consts::PLUGIN_NAME . '-deactivator',
 			Consts::get_url() . 'dist/deactivator.build.js',
 			[ 'wp-blocks', 'wp-i18n', 'wp-element' ],
 			'1.0',
@@ -68,7 +70,7 @@ class Gutenberg {
 		);
 
 		wp_localize_script(
-      'advanced-gutenberg-blocks-deactivator',
+      Consts::PLUGIN_NAME . '-deactivator',
       'advancedGutenbergBlocksDeactivated',
       $blocks->get_disabled_blocks_js()
     );

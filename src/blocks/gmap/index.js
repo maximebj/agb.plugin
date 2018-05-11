@@ -11,12 +11,12 @@ const { Fragment } = wp.element
 export default registerBlockType(
 	'advanced-gutenberg-blocks/gmap',
 	{
-	title: __( "Google Map", "advanced-gutenberg-blocks" ),
-	description: __( "Display a customizable Google map", "advanced-gutenberg-blocks" ),
+	title: __( "Google Map", 'advanced-gutenberg-blocks' ),
+	description: __( "Display a customizable Google map", 'advanced-gutenberg-blocks' ),
 	category: "common",
 	icon: "location-alt",
 	keywords: [
-    __("gmap", "advanced-gutenberg-blocks" )
+    __("gmap", 'advanced-gutenberg-blocks' )
 	],
 	attributes: {
 		address: {
@@ -50,28 +50,24 @@ export default registerBlockType(
 	},
 	edit: props => {
 
-		const { attributes: { address, name, zoom, height, style }, setAttributes, isSelected } = props
+		const { attributes, setAttributes, isSelected } = props
+		const { address, name, zoom, height, style } = attributes
 
 		return (
 			<Fragment>
-				<Inspector {...{ attributes, setAttributes } } />
+				<Inspector { ...{ attributes, setAttributes } } />
 
 				<div className="wp-block-advanced-gutenberg-blocks-gmap">
-					{ ! address && isSelected && typeof advancedGutenbergBlocksGmap == "undefined" && (
-							<p class="AGB-block-message">
-								{__( "Type your address on the inspector", "advanced-gutenberg-blocks" )}
-							</p>
-						)}
 					{ typeof advancedGutenbergBlocksGmap === "undefined" ? (
-						<Gmap {...props} />
+						<Gmap { ...{ attributes } } />
 					) : (
 						<p class="AGB-block-message">
-							{__( "⚠️ You need to provide an API key in ", "advanced-gutenberg-blocks" )}
+							{__( "⚠️ You need to provide an API key in ", 'advanced-gutenberg-blocks' )}
 							<a href="/wp-admin/admin.php?page=advanced-gutenberg-blocks-installed#blockgooglemap">
-								{__( "Blocks > Installed Blocks > Google Map", "advanced-gutenberg-blocks" )}
+								{__( "Blocks > Installed Blocks > Google Map", 'advanced-gutenberg-blocks' )}
 							</a>
 						</p>
-					)}
+					) }
 				</div>
 			</Fragment>
 		)

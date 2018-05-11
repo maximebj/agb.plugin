@@ -1,27 +1,24 @@
 import { debounce } from 'throttle-debounce'
 
-const { Component } = wp.element
+const { Component, Fragment } = wp.element
 const { __ } = wp.i18n
 
 const {
 	SelectControl,
-	BaseControl,
+	TextControl,
 } = wp.components
 
 export default class SearchPost extends Component {
 
   state = {
     results: false,
-    types: [{ label: 'Post', value: 'Post' }],
+    types: [ { label: 'Post', value: 'Post' } ],
     currentType: 'Posts',
   }
 
-  onSearch = event => {
-    this.performSearch( event.target.value )
-  }
+  onSearch = debounce( 300, search => {
 
-  performSearch = debounce(300, search => {
-    if( search.length < 3) {
+		if( search.length < 3) {
       return
     }
 
@@ -42,7 +39,7 @@ export default class SearchPost extends Component {
       }
       this.setState( { results: results } )
     } )
-  })
+  } )
 
 	onChangePostType = value => {
     this.setState( { currentType: value.toLowerCase() } )
@@ -54,38 +51,35 @@ export default class SearchPost extends Component {
 
   render() {
     return (
-      <div>
-				<BaseControl
-					label={ __( 'Search a post', 'advanced-gutenberg-blocks' ) }
-				>
-	        <input
-	          type="search"
-	          placeholder={ __('Type a post title', 'advanced-gutenberg-blocks' ) }
-	          className="blocks-text-control__input"
-	          onChange={ this.onSearch }
-	        />
+      <Fragment>
 
-	        <div className="advanced-gutenberg-blocks-panel-results">
+				<TextControl
+					type="search"
+					label={ __( "Search Post", 'advanced-gutenberg-blocks' ) }
+					placeholder={ __( "Type a post title", 'advanced-gutenberg-blocks' ) }
+					onChange={ value => this.onSearch( value ) }
+				/>
 
-	          { !! this.state.results && Array.isArray(this.state.results) ?
-	            (
-	              <ul>
-	                { this.state.results.map( result => {
-	                  return (
-	                    <li
-	                      onClick={ () => this.onChangeValue(result.id) }
-	                    >
-	                      { result.title.rendered }
-	                    </li>
-	                  )
-	                } ) }
-	              </ul>
-	            ) : (
-	              <p>{this.state.results}</p>
-	            )
-	          }
-	        </div>
-				</BaseControl>
+        <div className="AGB-panel-results">
+
+          { !! this.state.results && Array.isArray(this.state.results) ?
+            (
+              <ul>
+                { this.state.results.map( result => {
+                  return (
+                    <li
+                      onClick={ () => this.onChangeValue(result.id) }
+                    >
+                      { result.title.rendered }
+                    </li>
+                  )
+                } ) }
+              </ul>
+            ) : (
+              <p>{this.state.results}</p>
+            )
+          }
+        </div>
 
 				<SelectControl
 					onChange={ this.onChangePostType }
@@ -93,7 +87,8 @@ export default class SearchPost extends Component {
 					options={ JSON.parse( advancedGutenbergBlocksPost.types ) }
 					value={ this.state.currentType }
 				/>
-      </div>
+
+			</Fragment>
     )
   }
 }

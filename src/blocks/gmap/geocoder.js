@@ -1,53 +1,48 @@
 import { debounce } from "throttle-debounce"
 
-const { Component } = wp.element
+const { Component, Fragment } = wp.element
 const { __ } = wp.i18n
-const { BaseControl } = wp.components
+const { TextControl } = wp.components
 
 export default class Geocoder extends Component {
-  state = {
-    searchQuery: "",
+
+	state = {
     results: false
   }
 
-  onSearch = event => {
-    this.setState({ searchQuery: event.target.value })
-    this.performSearch()
-  }
+  onSearch = debounce( 300, searchQuery => {
 
-  performSearch = debounce(300, () => {
-    const { searchQuery } = this.state
-    if ( searchQuery.length < 3 ) {
+		if ( searchQuery.length < 3 ) {
       return
     }
 
-    this.setState({
-      results: __("Loading...", "advanced-gutenberg-blocks")
-    })
+    this.setState( {
+      results: __( "Loading...", 'advanced-gutenberg-blocks' )
+    } )
 
     const geocoder = new google.maps.Geocoder()
 
-    geocoder.geocode({ address: searchQuery }, (results, status) => {
+    geocoder.geocode( { address: searchQuery }, (results, status) => {
       if (status == "OK") {
         if (results.length == 0) {
-          results = __("No result", "advanced-gutenberg-blocks")
+          results = __( "No result", 'advanced-gutenberg-blocks' )
         }
 
-        this.setState({ results: results })
+        this.setState( { results: results } )
       } else {
-        this.setState({
-          results: __( "Geocode was not successful for the following reason:", "advanced-gutenberg-blocks" ) + status
-        })
+        this.setState( {
+          results: __( "Geocode was not successful for the following reason:", 'advanced-gutenberg-blocks' ) + status
+        } )
       }
-    })
-  })
+    } )
+  } )
 
   setGeocodedObj = geocodedObj => {
-		this.props.setAttributes({
+		this.props.setAttributes( {
 			latitude: geocodedObj.geometry.location.lat(),
 			longitude: geocodedObj.geometry.location.lng(),
 			address: geocodedObj.formatted_address
-		})
+		} )
   }
 
   renderResults = () => {
@@ -57,30 +52,28 @@ export default class Geocoder extends Component {
           {result.formatted_address}
         </li>
       )
-    })
+    } )
   }
 
   render() {
 
-		const { seachQuery, results } = this.state
     return (
-      <BaseControl label={__("Address", "advanced-gutenberg-blocks")}>
-        <input
-          type="search"
-          placeholder={ __( "Type an address", "advanced-gutenberg-blocks" ) }
-          className="blocks-text-control__input"
-          onChange={ this.onSearch }
-          value={ searchQuery }
-      	/>
+			<Fragment>
+				<TextControl
+					type="search"
+					label={ __( "Address", 'advanced-gutenberg-blocks' ) }
+					placeholder={ __( "Type an address", 'advanced-gutenberg-blocks' ) }
+					onChange={ value => this.onSearch( value ) }
+				/>
 
-      	<div className="advanced-gutenberg-blocks-panel-results">
-          { !! results && Array.isArray( results ) ? (
-            <ul>{ this.renderResults() }</ul>
-          ) : (
-            <p>{ results }</p>
-          )}
-        </div>
-      </BaseControl>
+				<div className="AGB-panel-results">
+					{ !! this.state.results && Array.isArray( this.state.results ) ? (
+						<ul>{ this.renderResults() }</ul>
+					) : (
+						<p>{ this.state.results }</p>
+					)}
+				</div>
+			</Fragment>
     )
   }
 }

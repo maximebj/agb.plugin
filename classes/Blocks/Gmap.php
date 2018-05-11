@@ -31,14 +31,14 @@ class Gmap {
 
 	public function settings() {
 		echo '
-		<p class="advanced-gutenberg-blocks-block__settings__description">' . __( 'The API key is mandatory, you can create one on the <a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">Google Maps JS Api page</a>. ' ) . '</p>
+		<p class="AGB-block__settings__description">' . __( 'The API key is mandatory, you can create one on the <a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">Google Maps JS Api page</a>. ' ) . '</p>
 
-		<div class="advanced-gutenberg-blocks-block__settings__option">
-			<div class="advanced-gutenberg-blocks-block__settings__label">
+		<div class="AGB-block__settings__option">
+			<div class="AGB-block__settings__label">
 				<label for="advanced-gutenberg-blocks-gmap-api-key"> ' . __( 'Api Key', 'advanced-gutenberg-blocks' ) . '</label>
 			</div>
 
-			<div class="advanced-gutenberg-blocks-block__settings__field">
+			<div class="AGB-block__settings__field">
 				<input type="text" name="advanced-gutenberg-blocks-gmap-api-key" placeholder="' . __( 'Insert your Google Maps API Key here', 'advanced-gutenberg-blocks' ) . '" value="' . get_option( 'advanced-gutenberg-blocks-gmap-api-key' ) . '">
 			</div>
 		</div>
@@ -772,11 +772,11 @@ class Gmap {
 		}
 
 		// Default values
-		if( ! isset( $attributes['address'] ) ) {  $attributes['address'] = 'Paris'; }
-		if( ! isset( $attributes['latitude'] ) ) {  $attributes['latitude'] = 48.8566; }
-		if( ! isset( $attributes['longitude'] ) ) {  $attributes['longitude'] = 2.3522; }
-		if( ! isset( $attributes['zoom'] ) ) {  $attributes['zoom'] = 15 ; }
-		if( ! isset( $attributes['height'] ) ) {  $attributes['height'] = 400 ; }
+		if( ! isset( $attributes['address'] ) ) { $attributes['address'] = 'Paris'; }
+		if( ! isset( $attributes['latitude'] ) ) { $attributes['latitude'] = 48.8566; }
+		if( ! isset( $attributes['longitude'] ) ) { $attributes['longitude'] = 2.3522; }
+		if( ! isset( $attributes['zoom'] ) ) { $attributes['zoom'] = 15; }
+		if( ! isset( $attributes['height'] ) ) { $attributes['height'] = 400; }
 
 		$api_key = get_option( 'advanced-gutenberg-blocks-gmap-api-key' );
 
@@ -809,7 +809,7 @@ class Gmap {
 
 		// Load Gmap
 		wp_enqueue_script(
-			Consts::BLOCKS_SCRIPT . '-gmap',
+			Consts::PLUGIN_NAME . '-gmap',
 			'https://maps.googleapis.com/maps/api/js?key=' . $api_key,
 			[ Consts::BLOCKS_SCRIPT ],
 			true

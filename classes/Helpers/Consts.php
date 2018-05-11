@@ -16,8 +16,8 @@ abstract class Consts {
 
 	const PLUGIN_NAME = 'advanced-gutenberg-blocks';
 	const VERSION = '1.0';
-	const SETTINGS_GROUP = 'dvanced-gutenberg-blocks-settings';
-	const BLOCKS_SCRIPT = 'dvanced-gutenberg-blocks-block';
+	const SETTINGS_GROUP = 'advanced-gutenberg-blocks-settings';
+	const BLOCKS_SCRIPT = 'advanced-gutenberg-blocks-editor';
 
 	// Plugin Path for includes
 	public static function get_path() {

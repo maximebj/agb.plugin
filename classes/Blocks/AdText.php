@@ -30,12 +30,12 @@ class AdText {
 
 	public function settings() {
 		echo '
-		<div class="advanced-gutenberg-blocks-block__settings__option">
-			<div class="advanced-gutenberg-blocks-block__settings__label">
+		<div class="AGB-block__settings__option">
+			<div class="AGB-block__settings__label">
 				<label for="advanced-gutenberg-blocks-adtext-script"> ' . __( 'Js script', 'advanced-gutenberg-blocks' ) . '</label>
 			</div>
 
-			<div class="advanced-gutenberg-blocks-block__settings__field">
+			<div class="AGB-block__settings__field">
 				<textarea name="advanced-gutenberg-blocks-adtext-script" rows="4">' . get_option('advanced-gutenberg-blocks-adtext-script') . '</textarea>
 			</div>
 		</div>

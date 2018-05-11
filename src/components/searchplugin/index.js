@@ -1,7 +1,7 @@
 import { debounce } from 'throttle-debounce'
 
-const { Component } = wp.element
-
+const { Component, Fragment } = wp.element
+const { TextControl } = wp.components
 const { __ } = wp.i18n
 
 export default class SearchPlugin extends Component {
@@ -10,11 +10,7 @@ export default class SearchPlugin extends Component {
 		results: false,
 	}
 
-  onSearch = event => {
-    this.performSearch( event.target.value )
-  }
-
-  performSearch = debounce(300, search => {
+  onSearch = debounce( 300, search => {
 
     if( search.length < 3) {
       return
@@ -27,9 +23,9 @@ export default class SearchPlugin extends Component {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
       },
-      body: 'action=search_plugins&search='+encodeURIComponent(search),
+      body: 'action=search_plugins&search=' + encodeURIComponent( search ),
       credentials: 'same-origin'
-    })
+    } )
     .then(response => response.json() )
     .then(response => {
 
@@ -38,11 +34,11 @@ export default class SearchPlugin extends Component {
       } else {
 				this.setState( { results: response.plugins } )
 			}
-    })
+    } )
 		.catch( error => {
 			this.setState( { results: __( "⚠️ Error: Couldn't reach wp.org", 'advanced-gutenberg-blocks' ) } )
-		})
-  })
+		} )
+  } )
 
   onChangeValue = slug => {
     this.props.onChange( _.find(this.state.results, { slug: slug} ) )
@@ -50,16 +46,16 @@ export default class SearchPlugin extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
 
-        <input
-          type="search"
-          placeholder={ __( 'Search Plugin', 'advanced-gutenberg-blocks' ) }
-          className='blocks-text-control__input'
-          onChange={ this.onSearch }
-        />
+				<TextControl
+					type="search"
+					label={ __( 'Search Plugin', 'advanced-gutenberg-blocks' ) }
+					placeholder={ __( "Type a plugin name ", 'advanced-gutenberg-blocks' ) }
+					onChange={ value => this.onSearch( value ) }
+				/>
 
-			  <div className="advanced-gutenberg-blocks-panel-results">
+			  <div className="AGB-panel-results">
 
           { this.state.results && Array.isArray(this.state.results) ?
             (
@@ -81,7 +77,7 @@ export default class SearchPlugin extends Component {
             )
           }
         </div>
-      </div>
+      </Fragment>
     )
   }
 }

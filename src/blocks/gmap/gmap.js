@@ -59,6 +59,7 @@ export default class Gmap extends Component {
 
 	componentWillReceiveProps( nextProps ) {
 		const { address, zoom, style, name } = this.props.attributes
+
 		const {
 			address: nextAddress,
 			zoom: nextZoom,
@@ -67,10 +68,11 @@ export default class Gmap extends Component {
 			latitude: nextLatitude,
 			longitude: nextLongitude
 		} = nextProps.attributes
+
 		const { Gmap, marker, infoWindow } = this.gmapObj
 
 		// Update position
-		if (address != nextAddress) {
+		if ( address != nextAddress ) {
 			const coords = {
 				lat: nextLatitude,
 				lng: nextLongitude
@@ -82,15 +84,16 @@ export default class Gmap extends Component {
 		}
 
 		// Update zoom
-		if (zoom != nextZoom) {
-			Gmap.setZoom(nextZoom)
+		if ( zoom != nextZoom ) {
+			Gmap.setZoom( nextZoom )
 		}
 
 		// Update style
-		if (style != nextStyle) {
-			Gmap.setOptions({
+		if ( style != nextStyle ) {
+			console.log(style, nextStyle)
+			Gmap.setOptions( {
 				styles: styles[nextStyle]
-			})
+			} )
 		}
 
 		// Update infoWindow
@@ -102,7 +105,7 @@ export default class Gmap extends Component {
 
 	render() {
 
-		const { attributes: { height} } = this.props
+		const { attributes: { height } } = this.props
 
 		return (
 			<div

@@ -51,7 +51,6 @@ export default registerBlockType(
             value={ content }
             className="wp-block-advanced-gutenberg-blocks-adtext__content"
             onChange={ content => setAttributes( { content } ) }
-            focus={ isSelected }
   				/>
         </div>
       );
