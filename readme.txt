@@ -74,7 +74,7 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 * Improved Card preview data fetching
 * Fixed a bug with Card plugin API key
 * Fixed Assets version to avoid cache issues on update
-
+* Fixed text input labels and styles
 
 = 1.2 (14/05/2018) =
 * WARNING: This version breaks compatibility with previous version. You'll need to recreate your blocks. Sorry for that, it wont happen again : I'm changing the plugin slug, textdomain and blocks ID to avoid conflict with another plugin.
