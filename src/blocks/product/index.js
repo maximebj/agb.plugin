@@ -41,7 +41,7 @@ export default registerBlockType(
       } ) ( ( props ) => {
 
 				const { attributes , product, focus, setAttributes } = props
-				const { productID } = attributes
+				const { productID, priceColor, buttonBackgroundColor } = attributes
 
 				// Default values
 				! priceColor && setAttributes( { priceColor: '#dd1e35' } )

@@ -44,7 +44,7 @@ class AddToCart {
 			return;
 		}
 
-		$product = wc_get_product($attributes['productID']);
+		$product = wc_get_product( $attributes['productID'] );
 
 		$add_to_cart_url = get_site_url() . '?add-to-cart=' . $attributes['productID'];
 

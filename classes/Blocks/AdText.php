@@ -44,7 +44,7 @@ class AdText {
 
 	public function arguments_for_js() {
 		wp_localize_script(
-      'advanced-gutenberg-blocks-block',
+      Consts::BLOCKS_SCRIPT,
       'advancedGutenbergBlocksAdTextSettings',
       array(
         'script' => get_option('advanced-gutenberg-blocks-adtext-script'),

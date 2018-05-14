@@ -52,7 +52,10 @@ export default class Preview extends Component {
 	}
 
 	extractAuthor = () => {
-		this.author = this.props.attributes.author.replace(/<(?:.|\n)*?>/gm, '')
+
+		const { author } = this.props.attributes
+
+		this.author = author.replace(/<(?:.|\n)*?>/gm, '')
 	}
 
   componentWillMount() {
@@ -78,7 +81,7 @@ export default class Preview extends Component {
   render() {
 
 		const { downloadLink, image, title, description, activeInstalls, homepage, rating, numRatings } = this.props.attributes
-		const { author, stars, installs } = this.state
+
 
     return (
       <div className="wp-block-advanced-gutenberg-blocks-plugin">
@@ -96,7 +99,7 @@ export default class Preview extends Component {
 							{ __( 'By', 'advanced-gutenberg-blocks' ) }
 							&nbsp;
 							<a href={ homepage } target='_blank'>
-								{ author }
+								{ this.author }
 							</a>
 						</p>
           </div>
@@ -106,7 +109,7 @@ export default class Preview extends Component {
 					<div className="wp-block-advanced-gutenberg-blocks-plugin__meta">
 						<p className="wp-block-advanced-gutenberg-blocks-plugin__rating">
 							<span className="wp-block-advanced-gutenberg-blocks-plugin__stars" data-note={ rating }>
-								{ stars }
+								{ this.stars }
 							</span>
 							&nbsp;
 							<span className="wp-block-advanced-gutenberg-blocks-plugin__num-rating">
@@ -114,7 +117,7 @@ export default class Preview extends Component {
 							</span>
 						</p>
 						<p className="wp-block-advanced-gutenberg-blocks-plugin__active" data-installs={ activeInstalls }>
-							<span>{ installs }</span>
+							<span>{ this.installs }</span>
 							&nbsp;
 							{ __( 'Active Installations', 'advanced-gutenberg-blocks' ) }
 						</p>

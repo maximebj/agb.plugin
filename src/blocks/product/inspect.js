@@ -25,7 +25,7 @@ export default class Inspector extends Component {
 
         <PanelBody title={ __( 'Choose a product', 'advanced-gutenberg-blocks' ) }>
           <SearchProduct
-						onChange= { productID => setAttributes( { productID } ) }
+						onChange= { product => setAttributes( { productID: product.id } ) }
 					/>
         </PanelBody>
 

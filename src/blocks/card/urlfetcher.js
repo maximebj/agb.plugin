@@ -27,8 +27,8 @@ export default class URLFetcher extends Component {
 			if ( response.error ) {
 				this.setState( { results: __( "⚠️ Error: Couldn't reach website", 'advanced-gutenberg-blocks' ) } )
 			} else {
-
-				this.props.onChange( response.hybridGraph )
+				//console.log(response)
+				this.props.onChange( response.openGraph )
 			}
 
 		} )

@@ -80,6 +80,9 @@ export default registerBlockType(
       )
     },
     save: props => {
+
+			const { attributes } = props
+
       return (
         <Preview { ...{ attributes } } />
       )

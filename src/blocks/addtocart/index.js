@@ -62,13 +62,6 @@ export default registerBlockType(
 				! attributes.icon && setAttributes( { icon: 'cart' } )
 				! attributes.backgroundColor && setAttributes( { backgroundColor: '#9B6794' } )
 
-				const onChangeProduct = product => {
-	        setAttributes( {
-						productID: product.id,
-						label: __( 'Add', 'advanced-gutenberg-blocks' ) + ' ' + product.title.rendered + ' ' + __( 'to cart', 'advanced-gutenberg-blocks' )
-					} )
-	      }
-
 				const currency = advancedGutenbergBlocksAddtocart.currency
 
 				// Currency before / after
@@ -77,7 +70,7 @@ export default registerBlockType(
 
 	      return (
 	        <Fragment>
-	          <Inspector { ...{ attributes } } />
+	          <Inspector { ...{ attributes, setAttributes } } />
 
 		        <p className="wp-block-advanced-gutenberg-blocks-addtocart">
 		          <a

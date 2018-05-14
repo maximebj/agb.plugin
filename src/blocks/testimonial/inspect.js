@@ -47,7 +47,7 @@ export default class Inspector extends Component {
               id="author-form-toggle"
               label={ __( 'Show Company name?', 'advanced-gutenberg-blocks' ) }
               checked={ showCompany }
-              onChange={ () => setAttributes( { showCompany: ! props.attributes.showCompany } ) }
+              onChange={ () => setAttributes( { showCompany: ! showCompany } ) }
             />
           </PanelRow>
 				</PanelBody>
