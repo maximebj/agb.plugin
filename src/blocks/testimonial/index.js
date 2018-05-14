@@ -123,6 +123,7 @@ export default registerBlockType(
 									value={ name }
 									className='wp-block-advanced-gutenberg-blocks-testimonial__name'
 									onChange={ name => setAttributes( { name } ) }
+									keepPlaceholderOnFocus="true"
 								/>
 
 								{ !! showCompany && (
@@ -132,6 +133,7 @@ export default registerBlockType(
 										value={ company }
 										className='wp-block-advanced-gutenberg-blocks-testimonial__company'
 										onChange={ company => setAttributes( { company } ) }
+										keepPlaceholderOnFocus="true"
 									/>
 								) }
 

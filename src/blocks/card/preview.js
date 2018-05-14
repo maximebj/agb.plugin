@@ -9,7 +9,9 @@ export default class Preview extends Component {
     return (
 			<div className="wp-block-advanced-gutenberg-blocks-card">
 				<a href={ url } className="wp-block-advanced-gutenberg-blocks-card__link" onClick={ e => e.preventDefault() }></a>
-				<img className="wp-block-advanced-gutenberg-blocks-card__image" src={ image } alt={ title } />
+				{ image && (
+					<img className="wp-block-advanced-gutenberg-blocks-card__image" src={ image } alt={ title } />
+				) }
 				<div className="wp-block-advanced-gutenberg-blocks-card__content">
 					<p className="wp-block-advanced-gutenberg-blocks-card__title">{ title }</p>
 					<p className="wp-block-advanced-gutenberg-blocks-card__description">{ description }</p>

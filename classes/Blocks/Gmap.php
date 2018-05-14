@@ -812,7 +812,7 @@ class Gmap {
 				Consts::PLUGIN_NAME . '-gmap',
 				'https://maps.googleapis.com/maps/api/js?key=' . $api_key,
 				[ Consts::BLOCKS_SCRIPT ],
-				true
+        Consts::VERSION
 			);
 		}
 	}

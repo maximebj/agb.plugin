@@ -5,7 +5,7 @@ $js_strings = array(
 	__( 'Put forward a tips or a warning', 'advanced-gutenberg-blocks' ),
 	__( 'ad', 'advanced-gutenberg-blocks' ),
 	__( 'advertising', 'advanced-gutenberg-blocks' ),
-	__( 'publicity', 'advanced-gutenberg-blocks' ),
+	__( 'banner', 'advanced-gutenberg-blocks' ),
 	__( 'An ad will be displayed here in front', 'advanced-gutenberg-blocks' ),
 	__( 'This button allow a customer to quickly add a product to cart', 'advanced-gutenberg-blocks' ),
 	__( 'purchase', 'advanced-gutenberg-blocks' ),

@@ -92,6 +92,7 @@ export default registerBlockType(
 	            value={ content }
 	            className='wp-block-advanced-gutenberg-blocks-notice__content'
 	            onChange={ content => setAttributes( { content } ) }
+              keepPlaceholderOnFocus="true"
 	  				/>
 	        </div>
 

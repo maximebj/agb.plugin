@@ -19,15 +19,23 @@ export default class URLFetcher extends Component {
 		this.setState( { results: __( 'Fetching website...', 'advanced-gutenberg-blocks' ) } )
 
 		fetch(
-			`https://opengraph.io/api/1.0/site/${encodeURIComponent(url)}?app_id=5a9e67e4929fbe0b005d4dd8`
+			`https://opengraph.io/api/1.0/site/${encodeURIComponent(url)}?app_id=${advancedGutenbergBlocksOpenGraph.apiKey}`
 		)
 		.then( response => response.json() )
 		.then( response => {
 
 			if ( response.error ) {
-				this.setState( { results: __( "⚠️ Error: Couldn't reach website", 'advanced-gutenberg-blocks' ) } )
+				this.setState( { results: __( "⚠️ Error: ", 'advanced-gutenberg-blocks' ) + response.error.message } )
+
+			// Fallback for non OG compatible website
+		} else if ( response.openGraph.error ) {
+				this.props.onChange( response.hybridGraph )
 			} else {
-				//console.log(response)
+
+				if ( ! response.openGraph.image && response.hybridGraph.image ) {
+					response.openGraph.image = response.hybridGraph.image
+				}
+
 				this.props.onChange( response.openGraph )
 			}
 

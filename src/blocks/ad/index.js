@@ -16,7 +16,7 @@ export default registerBlockType(
     keywords: [
       __( 'ad', 'advanced-gutenberg-blocks' ),
       __( 'advertising', 'advanced-gutenberg-blocks' ),
-      __( 'publicity', 'advanced-gutenberg-blocks' ),
+      __( 'banner', 'advanced-gutenberg-blocks' ),
     ],
 		edit: props => {
       return (
