@@ -6,12 +6,11 @@
  * Description: Awesome customizable blocks for the new WordPress Editor
  * Author: maximebj
  * Author URI: https://advanced-gutenberg-blocks.com/
- * Version: 1.1.1
+ * Version: 1.2
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *
  * Text Domain: advanced-gutenberg-blocks
- * Domain Path: /languages/
  */
 
 defined('ABSPATH') or die('Cheatin&#8217; uh?');

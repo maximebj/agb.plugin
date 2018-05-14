@@ -2,9 +2,9 @@
 Contributors: maximebj
 Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate blocks, plugin, ad, marketplace, WooCommerce, Product,
 Requires at least: 4.5
-Tested up to: 4.9.4
+Tested up to: 4.9.5
 Requires PHP: 5.6
-Stable tag: 1.1.1
+Stable tag: 1.2
 Donate link: https://advanced-gutenberg-blocks.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -69,6 +69,13 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 
 
 == Changelog ==
+
+= 1.2 (14/05/2018) =
+* WARNING: This version breaks compatibility with previous version. You'll need to recreate your blocks. Sorry for that, it wont happen again : I'm changing the plugin slug, textdomain and blocks ID to avoid conflict with another plugin.
+* Compatibility with Gutenberg 2.8
+* Fixed Post block issues
+* Fixed Website Card issues
+* General improvements
 
 = 1.1.1 (26/03/2018) =
 * Fixed Gmap block
