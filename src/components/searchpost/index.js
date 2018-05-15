@@ -12,7 +12,6 @@ export default class SearchPost extends Component {
 
   state = {
     results: false,
-    types: [ { label: 'Post', value: 'Post' } ],
     currentType: 'Posts',
   }
 
@@ -40,10 +39,6 @@ export default class SearchPost extends Component {
       this.setState( { results: results } )
     } )
   } )
-
-	onChangePostType = value => {
-    this.setState( { currentType: value.toLowerCase() } )
-  }
 
   render() {
     return (
@@ -75,10 +70,9 @@ export default class SearchPost extends Component {
         </div>
 
 				<SelectControl
-					onChange={ this.onChangePostType }
 					label={ __( 'In post type', 'advanced-gutenberg-blocks' ) }
 					options={ JSON.parse( advancedGutenbergBlocksPost.types ) }
-					value={ this.state.currentType }
+					onChange={ value => this.setState( { currentType: value } ) }
 				/>
 
 			</Fragment>
