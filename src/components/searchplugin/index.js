@@ -50,7 +50,6 @@ export default class SearchPlugin extends Component {
 
 				<TextControl
 					type="search"
-					label={ __( 'Search Plugin', 'advanced-gutenberg-blocks' ) }
 					placeholder={ __( "Type a plugin name ", 'advanced-gutenberg-blocks' ) }
 					onChange={ value => this.onSearch( value ) }
 				/>

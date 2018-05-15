@@ -45,17 +45,12 @@ export default class SearchPost extends Component {
     this.setState( { currentType: value.toLowerCase() } )
   }
 
-	onChangeValue = id => {
-		this.props.onChange(  _.find( this.state.results, { id: id} ) )
-	}
-
   render() {
     return (
       <Fragment>
 
 				<TextControl
 					type="search"
-					label={ __( "Search Post", 'advanced-gutenberg-blocks' ) }
 					placeholder={ __( "Type a post title", 'advanced-gutenberg-blocks' ) }
 					onChange={ value => this.onSearch( value ) }
 				/>
@@ -67,9 +62,7 @@ export default class SearchPost extends Component {
               <ul>
                 { this.state.results.map( result => {
                   return (
-                    <li
-                      onClick={ () => this.onChangeValue(result.id) }
-                    >
+                    <li onClick={ () => this.props.onChange( result.id ) }>
                       { result.title.rendered }
                     </li>
                   )

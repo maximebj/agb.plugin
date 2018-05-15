@@ -24,7 +24,7 @@ export default class Inspector extends Component {
 
         <PanelBody title={ __( 'Choose a post', 'advanced-gutenberg-blocks' ) }>
           <SearchPost
-						onChange= { post => setAttributes( { postID: post.id } ) }
+						onChange={ postID => setAttributes( { postID } ) }
 					/>
         </PanelBody>
 

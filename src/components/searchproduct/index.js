@@ -44,7 +44,6 @@ export default class SearchProduct extends Component {
 
 				<TextControl
 					type="search"
-					label={ __( "Search Product", 'advanced-gutenberg-blocks' ) }
 					placeholder={ __( "Type a product name", 'advanced-gutenberg-blocks' ) }
 					onChange={ value => this.onSearch( value ) }
 				/>
