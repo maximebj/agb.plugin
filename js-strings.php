@@ -63,7 +63,7 @@ $js_strings = array(
 	__( 'Active installations', 'advanced-gutenberg-blocks' ),
 	__( 'Plugin page', 'advanced-gutenberg-blocks' ),
 	__( "⚠️ Error: Couldn't reach wp.org", 'advanced-gutenberg-blocks' ),
-	__( 'Search Plugin', 'advanced-gutenberg-blocks' ),
+	__( 'Choose a plugin', 'advanced-gutenberg-blocks' ),
 	__( 'Post', 'advanced-gutenberg-blocks' ),
 	__( 'Display a pretty post link (from any post type)', 'advanced-gutenberg-blocks' ),
 	__( 'Search for a post in the inspector', 'advanced-gutenberg-blocks' ),

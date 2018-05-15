@@ -37,7 +37,7 @@ export default class Inspector extends Component {
     return (
       <InspectorControls>
 
-        <PanelBody title={ __( 'Search plugin', 'advanced-gutenberg-blocks' ) }>
+        <PanelBody title={ __( 'Choose a plugin', 'advanced-gutenberg-blocks' ) }>
           <SearchPlugin
 						onChange={ (plugin) => this.onChangePlugin( plugin ) }
 					/>
