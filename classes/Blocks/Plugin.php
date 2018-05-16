@@ -14,8 +14,8 @@ class Plugin {
 
 		// Register hooks
 		add_action( 'init', array( $this, 'register_render' ) );
-    add_action('wp_ajax_search_plugins', array( $this, 'search_plugins' ));
-    add_action('wp_ajax_get_plugin', array( $this, 'get_plugin' ));
+    add_action( 'wp_ajax_search_plugins', array( $this, 'search_plugins' ) );
+    add_action( 'wp_ajax_get_plugin', array( $this, 'get_plugin' ) );
 
 
 		// Register Block in the plugin settings page

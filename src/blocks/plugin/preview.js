@@ -1,6 +1,6 @@
-const { Component } = wp.element
-
 const { __ } = wp.i18n
+const { Component } = wp.element
+const { Placeholder, Spinner, TextControl } = wp.components
 
 export default class Preview extends Component {
 
@@ -32,7 +32,7 @@ export default class Preview extends Component {
     this.getPlugin()
   }
 
-	componentDidUpdate(lastProps, lastStates) {
+	componentDidUpdate( lastProps, lastStates ) {
 
 		if( lastProps.slug != this.props.slug ) {
 			this.getPlugin()
@@ -46,7 +46,10 @@ export default class Preview extends Component {
 		if( ! this.state.plugin ) {
 
 			return (
-				<p class="AGB-block-message">{ __( 'Loading plugin...', 'advanced-gutenberg-blocks' ) }</p>
+				<p class="AGB-block-message">
+					<Spinner />
+					{ __( 'Loading plugin...', 'advanced-gutenberg-blocks' ) }
+				</p>
 			)
 
 		} else {

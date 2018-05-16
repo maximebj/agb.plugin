@@ -39,6 +39,7 @@ $js_strings = array(
 	__( '⚠️ You need to provide an API key in', 'advanced-gutenberg-blocks' ),
 	__( 'Blocks > Installed Blocks > Google Map', 'advanced-gutenberg-blocks' ),
 	__( 'Blocks > Installed Blocks > Card Preview', 'advanced-gutenberg-blocks' ),
+	__( 'Map options', 'advanced-gutenberg-blocks' ),
 	__( 'Marker Popup Title', 'advanced-gutenberg-blocks' ),
 	__( 'My shop Name', 'advanced-gutenberg-blocks' ),
 	__( 'Zoom', 'advanced-gutenberg-blocks' ),
