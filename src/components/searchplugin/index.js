@@ -18,7 +18,7 @@ export default class SearchPlugin extends Component {
 
     this.setState( { results: __( 'Loading...', 'advanced-gutenberg-blocks' ) } )
 
-    fetch(advancedGutenbergBlocksGlobals.ajaxurl, {
+    fetch( advancedGutenbergBlocksGlobals.ajaxurl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
@@ -26,17 +26,20 @@ export default class SearchPlugin extends Component {
       body: 'action=search_plugins&search=' + encodeURIComponent( search ),
       credentials: 'same-origin'
     } )
-    .then(response => response.json() )
-    .then(response => {
+    .then( response => response.json() )
+    .then( response => {
 
-			if(response.info.results == 0 ) {
+			if( response.info.results == 0 ) {
 				this.setState( { results: __( 'No result', 'advanced-gutenberg-blocks' ) } )
       } else {
 				this.setState( { results: response.plugins } )
 			}
+
     } )
 		.catch( error => {
+
 			this.setState( { results: __( "⚠️ Error: Couldn't reach wp.org", 'advanced-gutenberg-blocks' ) } )
+
 		} )
   } )
 
@@ -61,11 +64,9 @@ export default class SearchPlugin extends Component {
               <ul>
                 { this.state.results.map( plugin => {
 
-                  let icon = (!! plugin.icons['1x']) ? plugin.icons['1x'] : plugin.icons.default
-
                   return (
                     <li onClick={ () => this.onChangeValue( plugin.slug ) } >
-                      <img src={ icon } alt={ plugin.name } />
+                      <img src={ plugin.icon } alt={ plugin.name } />
                       <span>{ plugin.name }</span>
                     </li>
                   )

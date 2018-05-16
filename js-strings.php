@@ -96,4 +96,5 @@ $js_strings = array(
 	__( 'Type a post title', 'advanced-gutenberg-blocks' ),
 	__( 'In post type', 'advanced-gutenberg-blocks' ),
 	__( 'Type a product name', 'advanced-gutenberg-blocks' ),
+	__( 'Loading plugin...', 'advanced-gutenberg-blocks' ),
 );

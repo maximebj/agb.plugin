@@ -19,59 +19,21 @@ export default registerBlockType(
       'plugin',
     ],
     attributes: {
-      title: {
-        source: 'text',
-        selector: '.wp-block-advanced-gutenberg-blocks-plugin__title a',
-      },
-      description: {
-        source: 'text',
-        selector: '.wp-block-advanced-gutenberg-blocks-plugin__desc',
-      },
-      image: {
-        source: 'attribute',
-        selector: '.wp-block-advanced-gutenberg-blocks-plugin__picture img',
-        attribute: 'src',
-      },
-      activeInstalls: {
-        source: 'attribute',
-        selector: '.wp-block-advanced-gutenberg-blocks-plugin__active',
-				attribute: 'data-installs',
-      },
-      downloadLink: {
-        source: 'attribute',
-        selector: '.wp-block-advanced-gutenberg-blocks-plugin__download a',
-        attribute: 'href',
-      },
-      rating: {
-        source: 'attribute',
-        selector: '.wp-block-advanced-gutenberg-blocks-plugin__stars',
-        attribute: 'data-note',
-      },
-			numRatings: {
-				souce: 'text',
-				selector: '.wp-block-advanced-gutenberg-blocks-plugin__num-rating',
-			},
-			author: {
-				source: 'text',
-				selector: '.wp-block-advanced-gutenberg-blocks-plugin__author a',
-			},
-			homepage: {
-				source: 'attribute',
-				selector: '.wp-block-advanced-gutenberg-blocks-plugin__author a',
-				attribute: 'href',
+			slug: {
+				type: 'string',
+				default: false,
 			},
     },
     edit: props => {
 
-			const { attributes, setAttributes } = props
-			const { title } = attributes
+			const { attributes: { slug }, setAttributes } = props
 
       return (
         <Fragment>
-          <Inspector { ...{ attributes, setAttributes } } />
+          <Inspector { ...{ slug, setAttributes } } />
 
-	        { !! title ? (
-	          <Preview { ...{ attributes } } />
+	        { !! slug ? (
+	          <Preview { ...{ slug } } />
 	        ) : (
 	          <p class="AGB-block-message">{ __( 'Search for a plugin in the inspector', 'advanced-gutenberg-blocks' ) }</p>
 	        ) }
@@ -79,13 +41,8 @@ export default registerBlockType(
 				</Fragment>
       )
     },
-    save: props => {
-
-			const { attributes } = props
-
-      return (
-        <Preview { ...{ attributes } } />
-      )
-    },
+		save: props => {
+			return null
+		},
   },
 )
