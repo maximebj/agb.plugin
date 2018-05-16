@@ -71,7 +71,7 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 == Changelog ==
 
 = 1.2.2 (16/05/2018) =
-* Improved Plugin block. Now fully dynamic
+* Improved Plugin block. Now fully dynamic. Warning: You'll need to recreate your Plugin blocks.
 * Fixed post block link
 
 

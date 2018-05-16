@@ -41,7 +41,7 @@ export default class Preview extends Component {
 
   render() {
 
-		const { downloadLink, image, title, description, activeInstalls, homepage, rating, numRatings, author, stars, icon } = this.state.plugin
+		const { downloadLink, image, name, description, activeInstalls, homepage, rating, numRatings, author, stars, icon } = this.state.plugin
 
 		if( ! this.state.plugin ) {
 
