@@ -43,22 +43,25 @@ export default class Gmap extends Component {
 	}
 
 	componentDidMount() {
+		const { latitude, longitude } = this.props.attributes
+
 		const coords = {
-			lat: this.props.attributes.latitude,
-			lng: this.props.attributes.longitude
+			lat: latitude,
+			lng: longitude
 		}
 
-		this.gmapObj.Gmap = this.createMap(coords)
-		this.gmapObj.marker = this.createMarker(this.gmapObj.Gmap, coords)
+		this.gmapObj.Gmap = this.createMap( coords )
+		this.gmapObj.marker = this.createMarker( this.gmapObj.Gmap, coords )
 		this.gmapObj.infoWindow = this.createInfoWindow()
 
-		this.gmapObj.marker.addListener("click", () => {
-			this.gmapObj.infoWindow.open(this.gmapObj.Gmap, this.gmapObj.marker)
+		marker.addListener( "click", () => {
+			infoWindow.open( this.gmapObj.Gmap, this.gmapObj.marker )
 		})
 	}
 
 	componentWillReceiveProps( nextProps ) {
 		const { address, zoom, style, name } = this.props.attributes
+		const { Gmap, marker, infoWindow } = this.gmapObj
 
 		const {
 			address: nextAddress,
@@ -69,8 +72,6 @@ export default class Gmap extends Component {
 			longitude: nextLongitude
 		} = nextProps.attributes
 
-		const { Gmap, marker, infoWindow } = this.gmapObj
-
 		// Update position
 		if ( address != nextAddress ) {
 			const coords = {
@@ -78,9 +79,8 @@ export default class Gmap extends Component {
 				lng: nextLongitude
 			}
 
-			Gmap.setCenter(coords)
-			marker.setPosition(coords)
-			infoWindow.setContent(this.setInfoWindowContent(nextProps.attributes))
+			Gmap.setCenter( coords )
+			marker.setPosition( coords )
 		}
 
 		// Update zoom
@@ -90,7 +90,7 @@ export default class Gmap extends Component {
 
 		// Update style
 		if ( style != nextStyle ) {
-			console.log(style, nextStyle)
+
 			Gmap.setOptions( {
 				styles: styles[nextStyle]
 			} )
@@ -98,7 +98,7 @@ export default class Gmap extends Component {
 
 		// Update infoWindow
 		if (name != nextName) {
-			infoWindow.setContent(this.setInfoWindowContent(nextProps.attributes))
+			infoWindow.setContent( this.setInfoWindowContent( nextProps.attributes ) )
 		}
 	}
 

@@ -39,6 +39,9 @@ export default class SearchProduct extends Component {
 	}
 
   render() {
+
+		const { results } = this.state
+
     return (
       <Fragment>
 
@@ -50,10 +53,10 @@ export default class SearchProduct extends Component {
 
         <div className="AGB-panel-results">
 
-          { !! this.state.results && Array.isArray( this.state.results ) ?
+          { !! results && Array.isArray( results ) ?
             (
               <ul>
-                { this.state.results.map( result => {
+                { results.map( result => {
                   return (
                     <li
                       onClick={ () => this.onChangeValue( result.id ) }
@@ -64,7 +67,7 @@ export default class SearchProduct extends Component {
                 } ) }
               </ul>
             ) : (
-              <p>{this.state.results}</p>
+              <p>{results}</p>
             )
           }
         </div>

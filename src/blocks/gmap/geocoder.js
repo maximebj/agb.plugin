@@ -45,17 +45,10 @@ export default class Geocoder extends Component {
 		} )
   }
 
-  renderResults = () => {
-    return this.state.results.map(result => {
-      return (
-        <li key={`gmap-result-${result.place_id}`} onClick={ () => this.setGeocodedObj(result) }>
-          {result.formatted_address}
-        </li>
-      )
-    } )
-  }
 
   render() {
+
+		const { results } = this.state
 
     return (
 			<Fragment>
@@ -67,10 +60,19 @@ export default class Geocoder extends Component {
 				/>
 
 				<div className="AGB-panel-results">
-					{ !! this.state.results && Array.isArray( this.state.results ) ? (
-						<ul>{ this.renderResults() }</ul>
+					{ !! results && Array.isArray( results ) ? (
+						<ul>
+							{ results.map( result => {
+
+								return (
+									<li onClick={ () => this.setGeocodedObj( result ) }>
+					          {result.formatted_address}
+					        </li>
+								)
+							} ) }
+						</ul>
 					) : (
-						<p>{ this.state.results }</p>
+						<p>{ results }</p>
 					)}
 				</div>
 			</Fragment>
