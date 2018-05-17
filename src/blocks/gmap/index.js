@@ -48,6 +48,7 @@ export default registerBlockType(
 			default: "default"
 		}
 	},
+	useOnce: true,
 	edit: props => {
 
 		const { attributes, setAttributes, isSelected } = props

@@ -54,7 +54,7 @@ export default class Gmap extends Component {
 		this.gmapObj.marker = this.createMarker( this.gmapObj.Gmap, coords )
 		this.gmapObj.infoWindow = this.createInfoWindow()
 
-		marker.addListener( "click", () => {
+		this.gmapObj.marker.addListener( "click", () => {
 			infoWindow.open( this.gmapObj.Gmap, this.gmapObj.marker )
 		})
 	}
