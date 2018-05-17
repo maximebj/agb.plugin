@@ -5,9 +5,6 @@ namespace AdvancedGutenbergBlocks\Blocks;
 use AdvancedGutenbergBlocks\Helpers\Consts;
 use AdvancedGutenbergBlocks\Helpers\Extend;
 
-// Needed for using plugins_api() function
-require_once( ABSPATH . "wp-admin" . '/includes/plugin-install.php' );
-
 class Plugin {
 
   public function run() {
@@ -44,6 +41,8 @@ class Plugin {
 
 	public function render_block( $attributes ) {
 
+		require_once( ABSPATH . "wp-admin" . '/includes/plugin-install.php' );
+
 		if( ! isset( $attributes['slug'] ) ) {
 			return;
 		}
@@ -78,6 +77,8 @@ class Plugin {
 	// Ajax: Search plugins for SearchPlugin component
   public function search_plugins() {
 
+		require_once( ABSPATH . "wp-admin" . '/includes/plugin-install.php' );
+
     $request = array(
       'per_page' => 24,
       'search' => $_POST['search'],
@@ -98,6 +99,8 @@ class Plugin {
 
 	// Ajax: Get plugin data for Preview component
 	public function get_plugin() {
+
+		require_once( ABSPATH . "wp-admin" . '/includes/plugin-install.php' );
 
 		$request = array(
       'slug' => $_POST['slug'],
