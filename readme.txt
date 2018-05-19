@@ -2,7 +2,7 @@
 Contributors: maximebj
 Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate blocks, plugin, ad, marketplace, WooCommerce, Product,
 Requires at least: 4.5
-Tested up to: 4.9.5
+Tested up to: 4.9.6
 Requires PHP: 5.6
 Stable tag: 1.2.3
 Donate link: https://advanced-gutenberg-blocks.com/
