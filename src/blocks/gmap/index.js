@@ -4,8 +4,8 @@ import "./editor.scss"
 import Inspector from "./inspect"
 import Gmap from "./gmap"
 
-const { registerBlockType } = wp.blocks
 const { __ } = wp.i18n
+const { registerBlockType } = wp.blocks
 const { Fragment } = wp.element
 
 export default registerBlockType(

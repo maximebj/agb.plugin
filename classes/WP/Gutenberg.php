@@ -27,7 +27,7 @@ class Gutenberg {
 		wp_enqueue_style(
 			Consts::PLUGIN_NAME . '-style',
 			Consts::get_url() . 'dist/blocks.style.build.css',
-			[ 'wp-blocks', 'wp-edit-post' ],
+			[ 'wp-editor', 'wp-blocks', 'wp-edit-post' ],
 			Consts::VERSION
 		);
 	}
@@ -39,7 +39,7 @@ class Gutenberg {
 		wp_enqueue_script(
 			Consts::BLOCKS_SCRIPT,
 			Consts::get_url() . 'dist/blocks.build.js',
-			[ 'wp-blocks', 'wp-i18n', 'wp-element' ],
+			[ 'wp-editor', 'wp-blocks', 'wp-i18n', 'wp-element' ],
 			Consts::VERSION
 		);
 
@@ -65,7 +65,7 @@ class Gutenberg {
 		wp_enqueue_script(
 			Consts::PLUGIN_NAME . '-deactivator',
 			Consts::get_url() . 'dist/deactivator.build.js',
-			[ 'wp-blocks', 'wp-i18n', 'wp-element' ],
+			[ 'wp-editor', 'wp-blocks', 'wp-i18n', 'wp-element' ],
 			Consts::VERSION,
 			true
 		);

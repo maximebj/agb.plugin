@@ -1,12 +1,8 @@
 import { debounce } from 'throttle-debounce'
 
-const { Component, Fragment } = wp.element
 const { __ } = wp.i18n
-
-const {
-	SelectControl,
-	TextControl,
-} = wp.components
+const { Component, Fragment } = wp.element
+const { SelectControl, TextControl } = wp.components
 
 export default class SearchPost extends Component {
 

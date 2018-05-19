@@ -1,8 +1,8 @@
 import { debounce } from 'throttle-debounce'
 
+const { __ } = wp.i18n
 const { Component, Fragment } = wp.element
 const { TextControl } = wp.components
-const { __ } = wp.i18n
 
 export default class SearchPlugin extends Component {
 

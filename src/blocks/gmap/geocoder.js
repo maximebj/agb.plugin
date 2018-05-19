@@ -1,7 +1,7 @@
 import { debounce } from "throttle-debounce"
 
-const { Component, Fragment } = wp.element
 const { __ } = wp.i18n
+const { Component, Fragment } = wp.element
 const { TextControl } = wp.components
 
 export default class Geocoder extends Component {

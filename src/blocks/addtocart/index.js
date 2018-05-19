@@ -6,12 +6,8 @@ import classnames from 'classnames'
 import Inspector from './inspect'
 
 const { __ } = wp.i18n
-
-const {
-  registerBlockType,
-  RichText,
-} = wp.blocks
-
+const { registerBlockType } = wp.blocks
+const { RichText } = wp.editor
 const { withAPIData } = wp.components
 const { Fragment } = wp.element
 

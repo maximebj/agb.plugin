@@ -2,7 +2,7 @@ import classnames from 'classnames'
 
 const { __ } = wp.i18n
 const { Component } = wp.element
-const { BlockControls } = wp.blocks
+const { BlockControls } = wp.editor
 const {
   Toolbar,
   IconButton,

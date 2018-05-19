@@ -1,16 +1,12 @@
+const { __ } = wp.i18n
 const { Component } = wp.element
-
-const {
-  InspectorControls,
-} = wp.blocks
-
+const { InspectorControls } = wp.editor
 const {
   PanelBody,
 	PanelRow,
 	FormToggle,
 } = wp.components
 
-const { __ } = wp.i18n;
 
 export default class Inspector extends Component {
 

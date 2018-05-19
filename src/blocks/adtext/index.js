@@ -1,15 +1,11 @@
 import './style.scss'
 import './editor.scss'
 
-const { __ } = wp.i18n
-
 import classnames from 'classnames'
 
-const {
-  registerBlockType,
-  RichText,
-} = wp.blocks
-
+const { __ } = wp.i18n
+const { registerBlockType } = wp.blocks
+const { RichText } = wp.editor
 
 export default registerBlockType(
   'advanced-gutenberg-blocks/adtext',
