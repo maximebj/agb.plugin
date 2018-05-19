@@ -40,7 +40,7 @@
 						if( $block['category'] != $key ) {
 							continue;
 						}
-						$active = !in_array( $block['id'], $disabled_blocks );
+						$active = ! in_array( $block['id'], $disabled_blocks );
 				?>
 				<li class="AGB-block<?php if( $active ): ?> is-active<?php endif; ?>" id="<?php echo sanitize_title($block['id']); ?>">
 					<header class="AGB-block__head">

@@ -30,23 +30,23 @@ class Blocks {
 	}
 
 	public function get_disabled_blocks() {
-		$blocks = get_option('gutenberg-blocks-disabled');
+		$disabled_blocks = get_option('advanced-gutenberg-blocks-disabled');
+
+		if ( $disabled_blocks == "" or ! $disabled_blocks ) {
+			$disabled_blocks = array();
+		}
 
     // Disable WooCommerce blocks if Woo is not active
     if ( ! class_exists( 'WooCommerce' ) ) {
-      foreach( $this->registered_blocks as $block ) {
+      foreach( $this->get_registered_blocks() as $block ) {
 
 				if( $block['category'] == "woo" ) {
-					$blocks[] = $block['id'];
+					$disabled_blocks[] = $block['id'];
 				}
       }
     }
 
-		if ( $blocks == "" ) {
-			return array();
-		}
-
-		return $blocks;
+		return $disabled_blocks;
 	}
 
 	public function get_disabled_blocks_js() {
@@ -54,11 +54,10 @@ class Blocks {
 		$blocks = $this->get_disabled_blocks();
 
 		return json_encode($blocks);
-
 	}
 
 	public function set_disabled_blocks($blocks) {
-		update_option('gutenberg-blocks-disabled', $blocks);
+		update_option('advanced-gutenberg-blocks-disabled', $blocks);
 	}
 
 

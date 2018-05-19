@@ -4,7 +4,7 @@ Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate
 Requires at least: 4.5
 Tested up to: 4.9.6
 Requires PHP: 5.6
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 Donate link: https://advanced-gutenberg-blocks.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -70,9 +70,12 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 
 == Changelog ==
 
+= 1.2.5 (21/05/2018) =
+* Fixed disable block functionality thanks to D Willitzer (djdesign)
+
 = 1.2.4 (19/05/2018) =
 * Compatibility with the new Gutenberg 2.9
-* Fixed a bug on plugin activation
+* Fixed a bug on plugin activation thanks to Thierry (Theremingenieur)
 
 = 1.2.3 (17/05/2018) =
 * Fixed a bug occuring in plugins page

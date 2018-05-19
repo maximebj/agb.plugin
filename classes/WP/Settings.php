@@ -115,9 +115,6 @@ class Settings {
 			}
 		}
 
-
-
-
 		$blocks->set_disabled_blocks($disabled_blocks);
 
 		die;
