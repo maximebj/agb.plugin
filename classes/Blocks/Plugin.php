@@ -3,11 +3,10 @@
 namespace AdvancedGutenbergBlocks\Blocks;
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
-use AdvancedGutenbergBlocks\Helpers\Extend;
 
 class Plugin {
 
-  public function run() {
+  public function run( $instance ) {
 
 		// Register hooks
 		add_action( 'init', array( $this, 'register_render' ) );
@@ -23,7 +22,7 @@ class Plugin {
 			'description' => __( 'Display a Plugin informations from the official WordPress repository', 'advanced-gutenberg-blocks' ),
 		);
 
-		Extend::register_block( 'advanced-gutenberg-blocks/plugin', __( 'WordPress Plugin Card', 'advanced-gutenberg-blocks' ), $args );
+		$instance->register_block( 'advanced-gutenberg-blocks/plugin', __( 'WordPress Plugin Card', 'advanced-gutenberg-blocks' ), $args );
   }
 
 	public function register_render() {

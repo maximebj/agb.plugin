@@ -3,12 +3,10 @@
 namespace AdvancedGutenbergBlocks\Blocks;
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
-use AdvancedGutenbergBlocks\Helpers\Extend;
-
 
 class Card {
 
-  public function run() {
+  public function run( $instance ) {
 
 		// Register Hooks
 		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
@@ -22,10 +20,10 @@ class Card {
 			'options_callback' => array( $this, 'settings' ),
 		);
 
-		Extend::register_block( 'advanced-gutenberg-blocks/card', __( 'Website card preview', 'advanced-gutenberg-blocks' ), $args );
+		$instance->register_block( 'advanced-gutenberg-blocks/card', __( 'Website card preview', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
-		Extend::register_setting( 'advanced-gutenberg-blocks-opengraph-api-key' );
+		$instance->register_setting( 'advanced-gutenberg-blocks-opengraph-api-key' );
   }
 
 	public function settings() {

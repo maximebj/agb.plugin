@@ -1,5 +1,6 @@
 .git
 /dev
+/src
 /node_modules
 .DS_Store
 .distignore

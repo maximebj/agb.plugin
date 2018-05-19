@@ -3,12 +3,10 @@
 namespace AdvancedGutenbergBlocks\Blocks;
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
-use AdvancedGutenbergBlocks\Helpers\Extend;
-
 
 class AdText {
 
-  public function run() {
+  public function run( $instance ) {
 
 		// Register hooks
 		add_action( 'enqueue_block_editor_assets', array( $this, 'arguments_for_js' ) );
@@ -22,10 +20,10 @@ class AdText {
 			'options_callback' => array( $this, 'settings' ),
 		);
 
-		Extend::register_block( 'advanced-gutenberg-blocks/adtext', __( 'Text + Rectangle Ad', 'advanced-gutenberg-blocks' ), $args );
+		$instance->register_block( 'advanced-gutenberg-blocks/adtext', __( 'Text + Rectangle Ad', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
-		Extend::register_setting( 'advanced-gutenberg-blocks-adtext-script' );
+		$instance->register_setting( 'advanced-gutenberg-blocks-adtext-script' );
   }
 
 	public function settings() {

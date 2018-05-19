@@ -55,7 +55,6 @@ class AdvancedGutenbergBlocks {
 		// Load Classes
 		require_once $path . 'classes/Helpers/Consts.php';
 		require_once $path . 'classes/Helpers/Dashicons.php';
-		require_once $path . 'classes/Helpers/Extend.php';
 
 		require_once $path . 'classes/Services/Blocks.php';
 
@@ -80,10 +79,7 @@ class AdvancedGutenbergBlocks {
 		require_once $path . 'js-strings.php';
 
 		// Activation / Deactivation hooks
-		register_activation_hook( $path . 'plugin.php' , Installer::activate() );
-		register_deactivation_hook( $path . 'plugin.php' , Installer::deactivate() );
-		register_uninstall_hook( $path . 'plugin.php' , Installer::uninstall() );
-
+		(new Installer)->register_hooks();
 
 		// Init Classes and Hooks
     (new Admin)->register_hooks();
@@ -92,27 +88,64 @@ class AdvancedGutenbergBlocks {
 		(new Settings)->register_hooks();
 
 		// Blocks
-		(new Plugin)->run();
-		(new Notice)->run();
-		(new Ad)->run();
-		(new AdText)->run();
-		(new Product)->run();
-		(new Card)->run();
-		(new AddToCart)->run();
-		(new Post)->run();
-		(new Testimonial)->run();
-		(new Gmap)->run();
+		(new Plugin)->run( $this );
+		(new Notice)->run( $this );
+		(new Ad)->run( $this );
+		(new AdText)->run( $this );
+		(new Product)->run( $this );
+		(new Card)->run( $this );
+		(new AddToCart)->run( $this );
+		(new Post)->run( $this );
+		(new Testimonial)->run( $this );
+		(new Gmap)->run( $this );
 	}
 
-	/**
-	 * Blocs / Settings getter / setters
-	 */
+	 /**
+ 	 *  Register blocks
+ 	 *
+ 	 *  id: (String) block identifier (from JS. Eg: gutenblock/plugin)
+ 	 *  name: (String) Name of the block
+ 	 *  icon: (String) Dashicon class
+ 	 *  svg: (String) SVG image instead of Dashicon
+ 	 *  category: (String) [Common, API, Woo ... ] category to display block
+ 	 *  preview_image: (String) Image URL
+ 	 *	options_callback: (Function) Callback method to display block settings
+ 	 *  available: (Boolean) Set to False to tease a not yet available block
+ 	 */
 
-	public function set_block( $args ) {
+	public function register_block( $id, $name, $args ) {
+
+		$defaults = array(
+			'id' => $id,
+			'name' => $name,
+			'icon' => 'dashicons-slides',
+			'svg' => false,
+			'category' => 'common',
+			'description' => false,
+			'preview_image' => false,
+			'options_callback' => false,
+			'available' => true,
+		);
+
+		$args = wp_parse_args($args, $defaults);
+
 		$this->registered_blocks[] = $args;
 	}
 
-	public function set_setting( $args ) {
+	/**
+	 * Register a setting for the plugin settings page
+	 *
+	 * name: (String) Setting slug
+	 * load_on_editor: (Boolean) define if the option value will be sent to the admin editor
+	 */
+
+	public function register_setting( $setting, $load_on_editor = false ) {
+
+		$args = array(
+			'name' => $setting,
+			'editor' => $load_on_editor,
+		);
+
 		$this->registered_settings[] = $args;
 	}
 

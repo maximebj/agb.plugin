@@ -3,12 +3,10 @@
 namespace AdvancedGutenbergBlocks\Blocks;
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
-use AdvancedGutenbergBlocks\Helpers\Extend;
-
 
 class Gmap {
 
-  public function run() {
+  public function run( $instance ) {
 
 		// Register hooks
 		add_action( 'init', array( $this, 'register_render' ) );
@@ -23,10 +21,10 @@ class Gmap {
 			'options_callback' => array( $this, 'settings' ),
 		);
 
-		Extend::register_block( 'advanced-gutenberg-blocks/gmap', __( 'Google Map', 'advanced-gutenberg-blocks' ), $args );
+		$instance->register_block( 'advanced-gutenberg-blocks/gmap', __( 'Google Map', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
-		Extend::register_setting( 'advanced-gutenberg-blocks-gmap-api-key' );
+		$instance->register_setting( 'advanced-gutenberg-blocks-gmap-api-key' );
   }
 
 	public function settings() {

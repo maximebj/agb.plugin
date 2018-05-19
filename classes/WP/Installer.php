@@ -2,17 +2,25 @@
 
 namespace AdvancedGutenbergBlocks\WP;
 
+use AdvancedGutenbergBlocks\Helpers\Consts;
+
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
 class Installer {
 
-	public static function activate() {
+	public function register_hooks() {
+		register_activation_hook( Consts::get_path() . 'plugin.php' , array( $this, 'activate' ) );
+		register_deactivation_hook( Consts::get_path() . 'plugin.php' , array( $this, 'deactivate' ) );
+		register_uninstall_hook( Consts::get_path() . 'plugin.php' , array( $this, 'uninstall' ) );
 	}
 
-	public static function deactivate() {
+	public function activate() {
 	}
 
-	public static function uninstall() {
+	public function deactivate() {
+	}
+
+	public function uninstall() {
 	}
 
 }

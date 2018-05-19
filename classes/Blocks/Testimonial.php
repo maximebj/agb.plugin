@@ -3,12 +3,10 @@
 namespace AdvancedGutenbergBlocks\Blocks;
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
-use AdvancedGutenbergBlocks\Helpers\Extend;
-
 
 class Testimonial {
 
-  public function run() {
+  public function run( $instance ) {
 
 		$args = array(
 			'icon' => 'dashicons-format-status',
@@ -17,7 +15,7 @@ class Testimonial {
 			'description' => __( "Display a customer testimonial. It's good for the thrust but don't lie to your visitors!", 'advanced-gutenberg-blocks' ),
 		);
 
-		Extend::register_block( 'advanced-gutenberg-blocks/testimonial', __( 'Testimonial', 'advanced-gutenberg-blocks' ), $args );
+		$instance->register_block( 'advanced-gutenberg-blocks/testimonial', __( 'Testimonial', 'advanced-gutenberg-blocks' ), $args );
   }
 
 }
