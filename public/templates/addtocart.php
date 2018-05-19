@@ -3,7 +3,7 @@
     <?php if ( $attributes['hasIcon'] !== false ): ?>
       <span class="dashicons dashicons-<?php echo $attributes['icon']; ?>" ></span>
     <?php endif; ?>
-    <span class="wp-block-advanced-gutenberg-blocks-addtocart__label"><?php echo implode( $attributes['label'] ); ?></span>
+    <span class="wp-block-advanced-gutenberg-blocks-addtocart__label"><?php echo $attributes['label']; ?></span>
     <span class="wp-block-advanced-gutenberg-blocks-addtocart__separator"> • </span>
 		<span class="wp-block-advanced-gutenberg-blocks-addtocart__price">
 			<?php if($product->get_sale_price() == ""): ?>
