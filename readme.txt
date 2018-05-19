@@ -70,6 +70,10 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 
 == Changelog ==
 
+= 1.2.4 (19/05/2018) =
+* Compatibility with the new Gutenberg 2.9
+* Fixed a bug on plugin activation
+
 = 1.2.3 (17/05/2018) =
 * Fixed a bug occuring in plugins page
 
