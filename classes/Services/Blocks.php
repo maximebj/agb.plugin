@@ -30,17 +30,17 @@ class Blocks {
 	}
 
 	public function get_disabled_blocks() {
-		$blocks = get_option('gutenberg-blocks-disabled');
+		$blocks = get_option( 'gutenberg-blocks-disabled' );
 
-    // Disable WooCommerce blocks if Woo is not active
-    if ( ! class_exists( 'WooCommerce' ) ) {
-      foreach( $this->registered_blocks as $block ) {
+		// Disable WooCommerce blocks if Woo is not active
+		if ( ! class_exists( 'WooCommerce' ) && isset( $this->registered_blocks ) ) {
+			foreach ( $this->registered_blocks as $block ) {
 
-				if( $block['category'] == "woo" ) {
+				if ( $block['category'] == "woo" ) {
 					$blocks[] = $block['id'];
 				}
-      }
-    }
+			}
+		}
 
 		if ( $blocks == "" ) {
 			return array();
