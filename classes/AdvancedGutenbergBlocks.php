@@ -165,7 +165,7 @@ class AdvancedGutenbergBlocks {
 	public function check_compatibility() {
 		global $wp_version;
 
-		if ( ! version_compare( $wp_version, '5.1', '>=' ) and ! is_plugin_active( 'gutenberg/gutenberg.php' ) ) {
+		if ( ! version_compare( $wp_version, '5.0', '>=' ) and ! is_plugin_active( 'gutenberg/gutenberg.php' ) ) {
 
 			deactivate_plugins( '/advanced-gutenberg-blocks/plugin.php' );
 			add_action( 'admin_notices', array( $this , 'compatibility_notice') );
