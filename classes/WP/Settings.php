@@ -79,7 +79,7 @@ class Settings {
 		}
 	}
 
-	public function settings_page(){
+	public function settings_page() {
 
 		$blocks = new Blocks();
 
@@ -115,7 +115,7 @@ class Settings {
 			}
 		}
 
-		$blocks->set_disabled_blocks($disabled_blocks);
+		$blocks->set_disabled_blocks( $disabled_blocks );
 
 		die;
 	}
@@ -130,7 +130,6 @@ class Settings {
 	}
 
 	public function demo_page() {
-
 		require_once Consts::get_path() . 'admin/templates/demo.php';
 	}
 
