@@ -12,6 +12,7 @@ class Installer {
 		register_activation_hook( Consts::get_path() . 'plugin.php' , array( $this, 'activate' ) );
 		register_deactivation_hook( Consts::get_path() . 'plugin.php' , array( $this, 'deactivate' ) );
 		register_uninstall_hook( Consts::get_path() . 'plugin.php' , array( $this, 'uninstall' ) );
+		add_action( 'upgrader_process_complete', 'update', 10, 2 );
 	}
 
 	public function activate() {
@@ -21,6 +22,9 @@ class Installer {
 	}
 
 	public function uninstall() {
+	}
+
+	public function update() {
 	}
 
 }
