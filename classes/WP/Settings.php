@@ -69,10 +69,11 @@ class Settings {
 		unset( $submenu[Consts::PLUGIN_NAME][0] );
 	}
 
+	// Register Settings in WordPress
 	public function register_settings() {
 		global $pagenow;
 
-		if ( ! ($pagenow == "admin.php" and isset( $_GET['page'] ) and $_GET['page'] == Consts::PLUGIN_NAME . '-installed' )) {
+		if ( ! ($pagenow == "admin.php" and isset( $_GET['page'] ) and $_GET['page'] == Consts::PLUGIN_NAME . '-installed' ) ) {
 			return;
 		}
 
@@ -94,6 +95,8 @@ class Settings {
     require_once Consts::get_path() . 'admin/templates/settings.php';
 	}
 
+
+	// Ajax function to disable and enable blocks from the settings page
 	public function toggle_block() {
 
 		$block_type = $_POST['block'];
@@ -134,6 +137,4 @@ class Settings {
 	public function demo_page() {
 		require_once Consts::get_path() . 'admin/templates/demo.php';
 	}
-
-
 }
