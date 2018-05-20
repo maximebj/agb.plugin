@@ -17,7 +17,12 @@ use AdvancedGutenbergBlocks\Services\Blocks;
 
 class Gutenberg {
 
-	public function register_hooks() {
+	public $blocks;
+
+	public function register_hooks( $blocks ) {
+
+		$this->blocks = $blocks;
+
 		add_action( 'enqueue_block_assets', array( $this, 'blocks_assets' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
 	}
@@ -60,8 +65,6 @@ class Gutenberg {
 		);
 
 		// Blocks deactivator
-		$blocks = new Blocks();
-
 		wp_enqueue_script(
 			Consts::PLUGIN_NAME . '-deactivator',
 			Consts::get_url() . 'dist/deactivator.build.js',
@@ -73,7 +76,7 @@ class Gutenberg {
 		wp_localize_script(
       Consts::PLUGIN_NAME . '-deactivator',
       'advancedGutenbergBlocksDeactivated',
-      $blocks->get_disabled_blocks_js()
+      $this->blocks->get_disabled_blocks_js()
     );
 
 		// Special styles for the Editor

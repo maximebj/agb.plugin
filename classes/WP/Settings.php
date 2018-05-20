@@ -5,7 +5,6 @@ namespace AdvancedGutenbergBlocks\WP;
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
-use AdvancedGutenbergBlocks\Services\Blocks;
 
 /**
  * Settings page fields registration
@@ -17,7 +16,12 @@ use AdvancedGutenbergBlocks\Services\Blocks;
 
 class Settings {
 
-	public function register_hooks() {
+	public $blocks;
+
+	public function register_hooks( $blocks ) {
+
+		$this->blocks = $blocks;
+
 		add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 
@@ -33,7 +37,7 @@ class Settings {
 			__( 'Installed Blocks' , 'advanced-gutenberg-blocks' ),
 			__( 'Installed Blocks' , 'advanced-gutenberg-blocks' ),
 			'edit_posts',
-			Consts::PLUGIN_NAME.'-installed',
+			Consts::PLUGIN_NAME . '-installed',
 			array( $this, 'settings_page' )
 		);
 
@@ -69,9 +73,13 @@ class Settings {
 	}
 
 	public function register_settings() {
-		global $AdvancedGutenbergBlocks;
+		global $pagenow;
 
-		$settings = $AdvancedGutenbergBlocks->get_settings();
+		if ( ! ($pagenow == "admin.php" and isset( $_GET['page'] ) and $_GET['page'] == Consts::PLUGIN_NAME . '-installed' )) {
+			return;
+		}
+
+		$settings = $this->blocks->get_settings();
 
 		// Register blocks settings
 		foreach( $settings as $setting ) {
@@ -81,12 +89,10 @@ class Settings {
 
 	public function settings_page() {
 
-		$blocks = new Blocks();
-
-		$native_blocks = $blocks->get_native_blocks();
-		$registered_blocks = $blocks->get_registered_blocks();
-		$disabled_blocks = $blocks->get_disabled_blocks();
-		$categories = $blocks->get_categories();
+		$native_blocks = $this->blocks->get_native_blocks();
+		$registered_blocks = $this->blocks->get_registered_blocks();
+		$disabled_blocks = $this->blocks->get_disabled_blocks();
+		$categories = $this->blocks->get_categories();
 
     require_once Consts::get_path() . 'admin/templates/settings.php';
 	}
@@ -96,8 +102,7 @@ class Settings {
 		$block_type = $_POST['block'];
 		$command = $_POST['command'];
 
-		$blocks = new Blocks();
-		$disabled_blocks = $blocks->get_disabled_blocks();
+		$disabled_blocks = $this->blocks->get_disabled_blocks();
 
 		// Add block name in disabled list
 		if ( $command == "disable" ) {

@@ -7,6 +7,8 @@ defined('ABSPATH') or die('Cheatin&#8217; uh?');
 use AdvancedGutenbergBlocks\Helpers\Consts;
 use AdvancedGutenbergBlocks\Helpers\Dashicons;
 
+use AdvancedGutenbergBlocks\Services\Blocks;
+
 use AdvancedGutenbergBlocks\WP\Installer;
 use AdvancedGutenbergBlocks\WP\Admin;
 use AdvancedGutenbergBlocks\WP\Front;
@@ -35,11 +37,14 @@ use AdvancedGutenbergBlocks\Blocks\Gmap;
 
 class AdvancedGutenbergBlocks {
 
-	// List the registered blocks in WP Admin Gutenberg Blocks settings page
-	private $registered_blocks = array();
+	// Will contain the blocks service class
+	public $blocks;
 
 	// List the registered blocks in WP Admin Gutenberg Blocks settings page
-	private $registered_settings = array();
+	public $registered_blocks = array();
+
+	// List the registered blocks in WP Admin Gutenberg Blocks settings page
+	public $registered_settings = array();
 
 	public function run() {
 
@@ -78,83 +83,30 @@ class AdvancedGutenbergBlocks {
 		// Hack to get JS strings translatable by wp.org
 		require_once $path . 'js-strings.php';
 
+
+		// Blocks service
+		$this->blocks = new Blocks( $this );
+
 		// Activation / Deactivation hooks
 		(new Installer)->register_hooks();
 
 		// Init Classes and Hooks
     (new Admin)->register_hooks();
     (new Front)->register_hooks();
-		(new Gutenberg)->register_hooks();
-		(new Settings)->register_hooks();
+		(new Gutenberg)->register_hooks( $this->blocks );
+		(new Settings)->register_hooks( $this->blocks );
 
 		// Blocks
-		(new Plugin)->run( $this );
-		(new Notice)->run( $this );
-		(new Ad)->run( $this );
-		(new AdText)->run( $this );
-		(new Product)->run( $this );
-		(new Card)->run( $this );
-		(new AddToCart)->run( $this );
-		(new Post)->run( $this );
-		(new Testimonial)->run( $this );
-		(new Gmap)->run( $this );
-	}
-
-	 /**
- 	 *  Register blocks
- 	 *
- 	 *  id: (String) block identifier (from JS. Eg: gutenblock/plugin)
- 	 *  name: (String) Name of the block
- 	 *  icon: (String) Dashicon class
- 	 *  svg: (String) SVG image instead of Dashicon
- 	 *  category: (String) [Common, API, Woo ... ] category to display block
- 	 *  preview_image: (String) Image URL
- 	 *	options_callback: (Function) Callback method to display block settings
- 	 *  available: (Boolean) Set to False to tease a not yet available block
- 	 */
-
-	public function register_block( $id, $name, $args ) {
-
-		$defaults = array(
-			'id' => $id,
-			'name' => $name,
-			'icon' => 'dashicons-slides',
-			'svg' => false,
-			'category' => 'common',
-			'description' => false,
-			'preview_image' => false,
-			'options_callback' => false,
-			'available' => true,
-		);
-
-		$args = wp_parse_args($args, $defaults);
-
-		$this->registered_blocks[] = $args;
-	}
-
-	/**
-	 * Register a setting for the plugin settings page
-	 *
-	 * name: (String) Setting slug
-	 * load_on_editor: (Boolean) define if the option value will be sent to the admin editor
-	 */
-
-	public function register_setting( $setting, $load_on_editor = false ) {
-
-		$args = array(
-			'name' => $setting,
-			'editor' => $load_on_editor,
-		);
-
-		$this->registered_settings[] = $args;
-	}
-
-	public function get_blocks() {
-		return $this->registered_blocks;
-	}
-
-	public function get_settings() {
-		return $this->registered_settings;
+		(new Plugin)->run( $this->blocks );
+		// (new Notice)->run( $this );
+		// (new Ad)->run( $this );
+		// (new AdText)->run( $this );
+		// (new Product)->run( $this );
+		// (new Card)->run( $this );
+		// (new AddToCart)->run( $this );
+		// (new Post)->run( $this );
+		// (new Testimonial)->run( $this );
+		// (new Gmap)->run( $this );
 	}
 
 

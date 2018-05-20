@@ -6,7 +6,7 @@ use AdvancedGutenbergBlocks\Helpers\Consts;
 
 class Plugin {
 
-  public function run( $instance ) {
+  public function run( $blocks ) {
 
 		// Register hooks
 		add_action( 'init', array( $this, 'register_render' ) );
@@ -18,11 +18,11 @@ class Plugin {
 		$args = array(
 			'icon' => 'dashicons-admin-plugins',
 			'category' => 'apis',
-			'preview_image' => Consts::get_url().'admin/img/blocks/plugin.jpg',
+			'preview_image' => Consts::get_url() . 'admin/img/blocks/plugin.jpg',
 			'description' => __( 'Display a Plugin informations from the official WordPress repository', 'advanced-gutenberg-blocks' ),
 		);
 
-		$instance->register_block( 'advanced-gutenberg-blocks/plugin', __( 'WordPress Plugin Card', 'advanced-gutenberg-blocks' ), $args );
+		$blocks->register_block( 'advanced-gutenberg-blocks/plugin', __( 'WordPress Plugin Card', 'advanced-gutenberg-blocks' ), $args );
   }
 
 	public function register_render() {
