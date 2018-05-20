@@ -3,10 +3,11 @@
 namespace AdvancedGutenbergBlocks\Blocks;
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Services\Blocks;
 
 class Notice {
 
-  public function run( $instance ) {
+  public function run() {
 
 		// Register Block in the plugin settings page
 		$args = array(
@@ -16,7 +17,7 @@ class Notice {
 			'description' => __( 'Display a sweet Info/Advice/Warning/Avoid/ notice', 'advanced-gutenberg-blocks' ),
 		);
 
-		$instance->register_block( 'advanced-gutenberg-blocks/notice', __( 'Notice', 'advanced-gutenberg-blocks' ), $args );
+		Blocks::register_block( 'advanced-gutenberg-blocks/notice', __( 'Notice', 'advanced-gutenberg-blocks' ), $args );
   }
 
 

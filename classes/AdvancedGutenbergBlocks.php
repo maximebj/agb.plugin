@@ -84,29 +84,26 @@ class AdvancedGutenbergBlocks {
 		require_once $path . 'js-strings.php';
 
 
-		// Blocks service
-		$this->blocks = new Blocks( $this );
-
 		// Activation / Deactivation hooks
 		(new Installer)->register_hooks();
 
 		// Init Classes and Hooks
     (new Admin)->register_hooks();
     (new Front)->register_hooks();
-		(new Gutenberg)->register_hooks( $this->blocks );
-		(new Settings)->register_hooks( $this->blocks );
+		(new Gutenberg)->register_hooks();
+		(new Settings)->register_hooks();
 
 		// Blocks
-		(new Plugin)->run( $this->blocks );
-		// (new Notice)->run( $this );
-		// (new Ad)->run( $this );
-		// (new AdText)->run( $this );
-		// (new Product)->run( $this );
-		// (new Card)->run( $this );
-		// (new AddToCart)->run( $this );
-		// (new Post)->run( $this );
-		// (new Testimonial)->run( $this );
-		// (new Gmap)->run( $this );
+		(new Plugin)->run();
+		(new Notice)->run();
+		(new Ad)->run();
+		(new AdText)->run();
+		(new Product)->run();
+		(new Card)->run();
+		(new AddToCart)->run();
+		(new Post)->run();
+		(new Testimonial)->run();
+		(new Gmap)->run();
 	}
 
 

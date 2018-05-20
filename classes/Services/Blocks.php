@@ -14,19 +14,7 @@ defined('ABSPATH') or die('Cheatin&#8217; uh?');
  * @since 1.0.0
  */
 
-class Blocks {
-
-	// Main plugin instance
-	public $context;
-
-	// Blocks are ranked in categories
-	protected $categories;
-
-	public function __construct( $context ) {
-
-		$this->context = $context;
-
-	}
+abstract class Blocks {
 
 	// BLOCKS
 
@@ -43,7 +31,7 @@ class Blocks {
 	 *  available: (Boolean) Set to False to tease a not yet available block
 	 */
 
-	public function register_block( $id, $name, $args ) {
+	public static function register_block( $id, $name, $args ) {
 
 		$defaults = array(
 			'id' => $id,
@@ -59,15 +47,16 @@ class Blocks {
 
 		$args = wp_parse_args( $args, $defaults );
 
-		$this->context->registered_blocks[] = $args;
+		global $AdvancedGutenbergBlocks;
+		$AdvancedGutenbergBlocks->registered_blocks[] = $args;
 	}
 
-	public function get_registered_blocks() {
-
-		return $this->context->registered_blocks;
+	public static function get_registered_blocks() {
+		global $AdvancedGutenbergBlocks;
+		return $AdvancedGutenbergBlocks->registered_blocks;
 	}
 
-	public function get_disabled_blocks() {
+	public static function get_disabled_blocks( $json = false ) {
 		$disabled_blocks = get_option('advanced-gutenberg-blocks-disabled');
 
 		if ( $disabled_blocks == "" or ! $disabled_blocks ) {
@@ -84,17 +73,14 @@ class Blocks {
       }
     }
 
+		if ( $json ) {
+			return json_encode( $disabled_blocks );
+		}
+
 		return $disabled_blocks;
 	}
 
-	public function get_disabled_blocks_js() {
-
-		$blocks = $this->get_disabled_blocks();
-
-		return json_encode($blocks);
-	}
-
-	public function set_disabled_blocks($blocks) {
+	public static function set_disabled_blocks($blocks) {
 		update_option('advanced-gutenberg-blocks-disabled', $blocks);
 	}
 
@@ -108,25 +94,27 @@ class Blocks {
 	 * load_on_editor: (Boolean) define if the option value will be sent to the admin editor
 	 */
 
-	public function register_setting( $setting, $load_on_editor = false ) {
+	public static function register_setting( $setting, $load_on_editor = false ) {
 
 		$args = array(
 			'name' => $setting,
 			'editor' => $load_on_editor,
 		);
 
-		$this->context->registered_settings[] = $args;
+		global $AdvancedGutenbergBlocks;
+		$AdvancedGutenbergBlocks->registered_settings[] = $args;
 	}
 
 
-	public function get_settings() {
-		return $this->context->registered_settings;
+	public static function get_settings() {
+		global $AdvancedGutenbergBlocks;
+		return $AdvancedGutenbergBlocks->registered_settings;
 	}
 
 
 	// CATEGORIES
 
-	public function get_categories() {
+	public static function get_categories() {
 		$categories = array(
 			'common'    => __( 'Common', 'gutenblobks' ),
 			'woo' 	    => __( 'WooCommerce', 'gutenblobks' ),
@@ -140,7 +128,7 @@ class Blocks {
 	}
 
 
-	public function get_native_blocks_categories() {
+	public static function get_native_blocks_categories() {
 		return array(
 			'common' => __( 'Common', 'gutenblobks' ),
 			'formatting' 	 => __( 'Formatting', 'gutenblobks' ),
@@ -150,7 +138,7 @@ class Blocks {
 		);
 	}
 
-	public function get_native_blocks() {
+	public static function get_native_blocks() {
 		return array(
 			__( 'Common', 'gutenblobks' ) => array(
 				'audio' => array(

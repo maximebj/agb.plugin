@@ -5,6 +5,7 @@ namespace AdvancedGutenbergBlocks\WP;
 defined('ABSPATH') or die('Cheatin&#8217; uh?');
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Services\Blocks;
 
 /**
  * Settings page fields registration
@@ -16,11 +17,7 @@ use AdvancedGutenbergBlocks\Helpers\Consts;
 
 class Settings {
 
-	public $blocks;
-
-	public function register_hooks( $blocks ) {
-
-		$this->blocks = $blocks;
+	public function register_hooks() {
 
 		add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
@@ -79,7 +76,7 @@ class Settings {
 			return;
 		}
 
-		$settings = $this->blocks->get_settings();
+		$settings = Blocks::get_settings();
 
 		// Register blocks settings
 		foreach( $settings as $setting ) {
@@ -89,10 +86,10 @@ class Settings {
 
 	public function settings_page() {
 
-		$native_blocks = $this->blocks->get_native_blocks();
-		$registered_blocks = $this->blocks->get_registered_blocks();
-		$disabled_blocks = $this->blocks->get_disabled_blocks();
-		$categories = $this->blocks->get_categories();
+		$native_blocks = Blocks::get_native_blocks();
+		$registered_blocks = Blocks::get_registered_blocks();
+		$disabled_blocks = Blocks::get_disabled_blocks();
+		$categories = Blocks::get_categories();
 
     require_once Consts::get_path() . 'admin/templates/settings.php';
 	}
@@ -102,7 +99,7 @@ class Settings {
 		$block_type = $_POST['block'];
 		$command = $_POST['command'];
 
-		$disabled_blocks = $this->blocks->get_disabled_blocks();
+		$disabled_blocks = Blocks::get_disabled_blocks();
 
 		// Add block name in disabled list
 		if ( $command == "disable" ) {
@@ -120,7 +117,7 @@ class Settings {
 			}
 		}
 
-		$blocks->set_disabled_blocks( $disabled_blocks );
+		Blocks::set_disabled_blocks( $disabled_blocks );
 
 		die;
 	}

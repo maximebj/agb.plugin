@@ -3,10 +3,11 @@
 namespace AdvancedGutenbergBlocks\Blocks;
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Services\Blocks;
 
 class Ad {
 
-  public function run( $instance ) {
+  public function run() {
 
 		// Register hooks
 		add_action( 'init', array( $this, 'register_render' ) );
@@ -20,10 +21,10 @@ class Ad {
 			'options_callback' => array( $this, 'settings' ),
 		);
 
-		$instance->register_block( 'advanced-gutenberg-blocks/ad', __( 'Banner Ad', 'advanced-gutenberg-blocks' ), $args );
+		Blocks::register_block( 'advanced-gutenberg-blocks/ad', __( 'Banner Ad', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
-		$instance->register_setting( 'advanced-gutenberg-blocks-ad-script' );
+		Blocks::register_setting( 'advanced-gutenberg-blocks-ad-script' );
 
   }
 

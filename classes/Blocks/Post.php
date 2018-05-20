@@ -3,10 +3,11 @@
 namespace AdvancedGutenbergBlocks\Blocks;
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
+use AdvancedGutenbergBlocks\Services\Blocks;
 
 class Post {
 
-  public function run( $instance ) {
+  public function run() {
 
 		// Register hooks
 		add_action( 'init', array( $this, 'register_render' ) );
@@ -20,7 +21,7 @@ class Post {
 			'description' => __( 'Display pretty posts link (from any post type)', 'advanced-gutenberg-blocks' ),
 		);
 
-		$instance->register_block( 'advanced-gutenberg-blocks/post', __( 'Post', 'advanced-gutenberg-blocks' ), $args );
+		Blocks::register_block( 'advanced-gutenberg-blocks/post', __( 'Post', 'advanced-gutenberg-blocks' ), $args );
   }
 
 	public function register_render() {
