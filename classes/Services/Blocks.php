@@ -65,7 +65,7 @@ abstract class Blocks {
 
     // Disable WooCommerce blocks if Woo is not active
     if ( ! class_exists( 'WooCommerce' ) ) {
-      foreach( $this->get_registered_blocks() as $block ) {
+      foreach( Blocks::get_registered_blocks() as $block ) {
 
 				if( $block['category'] == "woo" ) {
 					$disabled_blocks[] = $block['id'];
