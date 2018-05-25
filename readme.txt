@@ -70,8 +70,9 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 
 == Changelog ==
 
-= 1.2.5 (21/05/2018) =
+= 1.2.5 (25/05/2018) =
 * Fixed disable block functionality thanks to D Willitzer (djdesign)
+* Fixed bug on activation
 * Improved code for better performances
 
 = 1.2.4 (19/05/2018) =
