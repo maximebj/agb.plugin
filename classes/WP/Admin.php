@@ -38,6 +38,14 @@ class Admin {
 		wp_enqueue_script(
 			Consts::PLUGIN_NAME.'-settings',
 			Consts::get_url().'admin/js/advanced-gutenberg-blocks-settings.js',
+			array('jquery', 'Listjs'),
+			Consts::VERSION,
+			false
+		);
+
+		wp_enqueue_script(
+			'Listjs',
+			Consts::get_url().'node_modules/list.js/dist/list.min.js',
 			array('jquery'),
 			Consts::VERSION,
 			false

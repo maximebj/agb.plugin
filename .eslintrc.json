@@ -24,7 +24,9 @@
 		"wp": true,
 		"wpApiSettings": true,
 		"window": true,
-		"document": true
+		"document": true,
+		"List": true,
+		"ajaxurl": true
 	},
 	"plugins": ["react", "jsx-a11y", "jest"],
 	"settings": {
