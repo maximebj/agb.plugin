@@ -39,7 +39,7 @@ export default registerBlockType(
     title: __( 'Notice', 'advanced-gutenberg-blocks' ),
     description: __( 'Put forward a tips or a warning', 'advanced-gutenberg-blocks' ),
     category: 'common',
-    icon: 'warning',
+    icon: { background: '#D56561', foreground: "#fff", src: 'warning' },
     keywords: [
       __( 'warning', 'advanced-gutenberg-blocks' ),
       __( 'information', 'advanced-gutenberg-blocks' ),

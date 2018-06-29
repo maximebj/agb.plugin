@@ -14,7 +14,7 @@ export default registerBlockType(
     title: __( 'Post', 'advanced-gutenberg-blocks' ),
     description: __( 'Display a pretty post link (from any post type)', 'advanced-gutenberg-blocks' ),
     category: 'common',
-    icon: 'admin-post',
+    icon: { background: '#D56561', foreground: "#fff", src: 'admin-post' },
     keywords: [
       __( 'link', 'advanced-gutenberg-blocks' ),
     ],

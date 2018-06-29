@@ -14,7 +14,7 @@ export default registerBlockType(
 	title: __( "Google Map", 'advanced-gutenberg-blocks' ),
 	description: __( "Display a customizable Google map", 'advanced-gutenberg-blocks' ),
 	category: "common",
-	icon: "location-alt",
+	icon: { background: '#D56561', foreground: "#fff", src: "location-alt" },
 	keywords: [
     __("gmap", 'advanced-gutenberg-blocks' )
 	],

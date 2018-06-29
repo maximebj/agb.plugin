@@ -16,7 +16,7 @@ export default registerBlockType(
     title: __( 'Testimonial', 'advanced-gutenberg-blocks' ),
     description: __( 'Display a testimonial with a picture, text, name and company', 'advanced-gutenberg-blocks' ),
     category: 'common',
-    icon: 'format-status',
+    icon: { background: '#D56561', foreground: "#fff", src: 'format-status' },
     keywords: [
       __( 'review', 'advanced-gutenberg-blocks' ),
     ],

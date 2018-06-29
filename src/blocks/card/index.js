@@ -15,7 +15,7 @@ export default registerBlockType(
     title: __( 'Website card preview', 'advanced-gutenberg-blocks' ),
     description: __( 'Turn a simple url in a pretty card preview', 'advanced-gutenberg-blocks' ),
     category: 'common',
-    icon: 'admin-links',
+    icon: { background: '#D56561', foreground: "#fff", src: 'admin-links' },
     keywords: [
       __( 'url', 'advanced-gutenberg-blocks' ),
       __( 'link', 'advanced-gutenberg-blocks' ),

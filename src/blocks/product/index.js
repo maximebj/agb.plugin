@@ -15,7 +15,7 @@ export default registerBlockType(
     title: __( 'Product', 'advanced-gutenberg-blocks' ),
     description: __( 'Display WooCommerce Product in your post', 'advanced-gutenberg-blocks' ),
     category: 'common',
-    icon: 'products',
+    icon: { background: '#D56561', foreground: "#fff", src: 'products' },
     keywords: [
       __( 'woocommerce', 'advanced-gutenberg-blocks' ),
     ],
