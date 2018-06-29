@@ -70,16 +70,23 @@ class Gutenberg {
 		);
 
 		wp_localize_script(
-      Consts::PLUGIN_NAME . '-deactivator',
-      'advancedGutenbergBlocksDeactivated',
-      Blocks::get_disabled_blocks( 'json' )
-    );
+			Consts::PLUGIN_NAME . '-deactivator',
+			'advancedGutenbergBlocksDeactivated',
+			Blocks::get_disabled_blocks( 'json' )
+		);
 
 		// Special styles for the Editor
 
 		wp_enqueue_style(
 			'advanced-gutenberg-blocks-editor',
 			Consts::get_url() . 'dist/blocks.editor.build.css',
+			[ 'wp-edit-blocks' ],
+			Consts::VERSION
+		);
+
+		wp_enqueue_style(
+			'advanced-gutenberg-blocks-inserter',
+			Consts::get_url() . 'dist/blocks.inserter.build.css',
 			[ 'wp-edit-blocks' ],
 			Consts::VERSION
 		);

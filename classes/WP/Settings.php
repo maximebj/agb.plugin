@@ -27,16 +27,27 @@ class Settings {
 	}
 
 	public function add_admin_menu() {
-		global $submenu;
 
-		add_submenu_page(
-			Consts::PLUGIN_NAME,
-			__( 'Installed Blocks' , 'advanced-gutenberg-blocks' ),
-			__( 'Installed Blocks' , 'advanced-gutenberg-blocks' ),
+    add_menu_page(
+			__( 'Blocks' , 'advanced-gutenberg-blocks' ),
+			__( 'Blocks' , 'advanced-gutenberg-blocks' ),
 			'edit_posts',
 			Consts::PLUGIN_NAME . '-installed',
-			array( $this, 'settings_page' )
+			array( $this, 'settings_page' ),
+			'dashicons-screenoptions',
+			65
 		);
+
+		// global $submenu;
+    //
+		// add_submenu_page(
+		// 	Consts::PLUGIN_NAME,
+		// 	__( 'Installed Blocks' , 'advanced-gutenberg-blocks' ),
+		// 	__( 'Installed Blocks' , 'advanced-gutenberg-blocks' ),
+		// 	'edit_posts',
+		// 	Consts::PLUGIN_NAME . '-installed',
+		// 	array( $this, 'settings_page' )
+		// );
 
 		// add_submenu_page(
 		// 	Consts::PLUGIN_NAME,
@@ -56,15 +67,6 @@ class Settings {
 		// 	array( $this, 'import_export' )
 		// );
 
-		add_submenu_page(
-			Consts::PLUGIN_NAME,
-			__( 'Demo' , 'advanced-gutenberg-blocks' ),
-			__( 'Demo' , 'advanced-gutenberg-blocks' ),
-			'edit_posts',
-			Consts::PLUGIN_NAME . '-demo',
-			array( $this, 'demo_page' )
-		);
-
 		// Remove default submenu
 		unset( $submenu[Consts::PLUGIN_NAME][0] );
 	}
@@ -72,10 +74,6 @@ class Settings {
 	// Register Settings in WordPress
 	public function register_settings() {
 		global $pagenow;
-
-		if ( ! ($pagenow == "admin.php" and isset( $_GET['page'] ) and $_GET['page'] == Consts::PLUGIN_NAME . '-installed' ) ) {
-			return;
-		}
 
 		$settings = Blocks::get_settings();
 
@@ -134,7 +132,4 @@ class Settings {
 		echo '<h1>Import / Export Settings</h1> <p>Soon...</p';
 	}
 
-	public function demo_page() {
-		require_once Consts::get_path() . 'admin/templates/demo.php';
-	}
 }

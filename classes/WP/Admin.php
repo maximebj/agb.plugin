@@ -46,15 +46,15 @@ class Admin {
 
 	public function add_admin_menu() {
 
-		add_menu_page(
-			__( 'Blocks' , 'advanced-gutenberg-blocks' ),
-			__( 'Blocks' , 'advanced-gutenberg-blocks' ),
-			'edit_posts',
-			Consts::PLUGIN_NAME,
-			null,
-			'dashicons-screenoptions',
-			65
-		);
+		// add_menu_page(
+		// 	__( 'Blocks' , 'advanced-gutenberg-blocks' ),
+		// 	__( 'Blocks' , 'advanced-gutenberg-blocks' ),
+		// 	'edit_posts',
+		// 	Consts::PLUGIN_NAME,
+		// 	null,
+		// 	'dashicons-screenoptions',
+		// 	65
+		// );
 
 	}
 

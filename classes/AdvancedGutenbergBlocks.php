@@ -90,8 +90,8 @@ class AdvancedGutenbergBlocks {
 		// Init Classes and Hooks
     (new Admin)->register_hooks();
     (new Front)->register_hooks();
-		(new Gutenberg)->register_hooks();
-		(new Settings)->register_hooks();
+    (new Gutenberg)->register_hooks();
+    (new Settings)->register_hooks();
 
 		// Blocks
 		(new Plugin)->run();
