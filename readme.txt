@@ -4,7 +4,7 @@ Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate
 Requires at least: 4.5
 Tested up to: 4.9.6
 Requires PHP: 5.6
-Stable tag: 1.2.6
+Stable tag: 1.2.7
 Donate link: https://advanced-gutenberg-blocks.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -69,6 +69,10 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 
 
 == Changelog ==
+
+= 1.2.7 (29/06/2018) =
+* Added background color to blocks in Gutenberg Block list
+* Fixed bug preventing settings to be saved
 
 = 1.2.6 (25/05/2018) =
 * Fixed bug occuring when WooCommerce is not installed/enabled
