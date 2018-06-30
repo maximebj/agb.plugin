@@ -84,11 +84,5 @@ class Gutenberg {
 			Consts::VERSION
 		);
 
-		wp_enqueue_style(
-			'advanced-gutenberg-blocks-inserter',
-			Consts::get_url() . 'dist/blocks.inserter.build.css',
-			[ 'wp-edit-blocks' ],
-			Consts::VERSION
-		);
 	}
 }
