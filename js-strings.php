@@ -98,4 +98,10 @@ $js_strings = array(
 	__( 'In post type', 'advanced-gutenberg-blocks' ),
 	__( 'Type a product name', 'advanced-gutenberg-blocks' ),
 	__( 'Loading plugin...', 'advanced-gutenberg-blocks' ),
+  __( 'Click to tweet', 'advanced-gutenberg-blocks' ),
+  __( 'Display a nice click to tweet box so your user can easily share your most meaningful sentences', 'advanced-gutenberg-blocks' ),
+  __( 'Your tweetable content', 'advanced-gutenberg-blocks' ),
+  __( 'Hashtags', 'advanced-gutenberg-blocks' ),
+  __( 'Add some hashtags (optionnal)', 'advanced-gutenberg-blocks' ),
+  __( 'Comma separated values, don\'t add #', 'advanced-gutenberg-blocks' )
 );

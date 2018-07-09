@@ -15,7 +15,7 @@ export default registerBlockType(
   'advanced-gutenberg-blocks/clicktotweet',
   {
     title: __( 'Click to tweet', 'advanced-gutenberg-blocks' ),
-    description: __( 'Display ', 'advanced-gutenberg-blocks' ),
+    description: __( 'Display a nice click to tweet box so your user can easily share your most meaningful sentences', 'advanced-gutenberg-blocks' ),
     category: 'common',
     icon: { background: '#D56561', foreground: "#fff", src: 'twitter' },
     keywords: [ 'twitter' ],
