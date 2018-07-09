@@ -24,7 +24,7 @@ class ClickToTweet {
 		Blocks::register_block( 'advanced-gutenberg-blocks/card', __( 'Click To Tweet', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
-		Blocks::register_setting( 'advanced-gutenberg-blocks-opengraph-api-key' );
+		Blocks::register_setting( 'advanced-gutenberg-blocks-twitter-username' );
   }
 
 	public function settings() {
