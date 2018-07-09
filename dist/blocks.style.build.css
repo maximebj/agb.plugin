@@ -690,3 +690,137 @@
 
 .wp-block-advanced-gutenberg-blocks-gmap {
   margin: 2em 0; }
+.AGB-block-message {
+  text-align: center;
+  font-style: italic;
+  color: #ccc; }
+
+.AGB-panel-results p {
+  margin: 10px 0;
+  text-align: center; }
+
+.AGB-panel-results ul {
+  margin-top: 10px;
+  list-style-type: none;
+  border: 1px solid #E3E4E7; }
+
+.AGB-panel-results li {
+  overflow: auto;
+  margin: 0;
+  padding: 10px; }
+  .AGB-panel-results li:not(:first-child) {
+    border-top: 1px solid #E3E4E7; }
+  .AGB-panel-results li:hover {
+    background: #efefef;
+    cursor: pointer; }
+
+.AGB-panel-results img {
+  display: inline-block;
+  float: left;
+  margin-right: 4px;
+  width: 32px;
+  height: 32px; }
+
+.wp-block-advanced-gutenberg-blocks-notice {
+  margin: 2em 0;
+  padding: 12px;
+  border: 1px solid #DDD;
+  border-radius: 4px; }
+
+.wp-block-advanced-gutenberg-blocks-notice__title {
+  margin: 0 0 8px 0;
+  font-size: 1.1em; }
+
+.wp-block-advanced-gutenberg-blocks-notice__content {
+  margin: 1em 0 0 0; }
+
+.wp-block-advanced-gutenberg-blocks-notice--advice {
+  border-top: 3px solid #83BD71; }
+  .wp-block-advanced-gutenberg-blocks-notice--advice .wp-block-advanced-gutenberg-blocks-notice__title {
+    color: #83BD71; }
+
+.wp-block-advanced-gutenberg-blocks-notice--avoid {
+  border-top: 3px solid #B54D4D; }
+  .wp-block-advanced-gutenberg-blocks-notice--avoid .wp-block-advanced-gutenberg-blocks-notice__title {
+    color: #B54D4D; }
+
+.wp-block-advanced-gutenberg-blocks-notice--warning {
+  border-top: 3px solid #FFC334; }
+  .wp-block-advanced-gutenberg-blocks-notice--warning .wp-block-advanced-gutenberg-blocks-notice__title {
+    color: #FFC334; }
+
+.wp-block-advanced-gutenberg-blocks-notice--info {
+  border-top: 3px solid #48ADD8; }
+  .wp-block-advanced-gutenberg-blocks-notice--info .wp-block-advanced-gutenberg-blocks-notice__title {
+    color: #48ADD8; }
+.AGB-block-message {
+  text-align: center;
+  font-style: italic;
+  color: #ccc; }
+
+.AGB-panel-results p {
+  margin: 10px 0;
+  text-align: center; }
+
+.AGB-panel-results ul {
+  margin-top: 10px;
+  list-style-type: none;
+  border: 1px solid #E3E4E7; }
+
+.AGB-panel-results li {
+  overflow: auto;
+  margin: 0;
+  padding: 10px; }
+  .AGB-panel-results li:not(:first-child) {
+    border-top: 1px solid #E3E4E7; }
+  .AGB-panel-results li:hover {
+    background: #efefef;
+    cursor: pointer; }
+
+.AGB-panel-results img {
+  display: inline-block;
+  float: left;
+  margin-right: 4px;
+  width: 32px;
+  height: 32px; }
+
+.wp-block-advanced-gutenberg-blocks-clicktotweet {
+  display: block;
+  -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.07);
+          box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.07); }
+
+.wp-block-advanced-gutenberg-blocks-clicktotweet__content {
+  background: #44C6E8;
+  padding: 1.3em 4em 1.3em 1.3em;
+  color: white;
+  font-size: 1.3em;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px; }
+
+.wp-block-advanced-gutenberg-blocks-clicktotweet__footer {
+  position: relative;
+  background: #29A3C3;
+  padding: 10px;
+  color: white;
+  font-size: .8em;
+  text-align: right;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row-reverse;
+      flex-direction: row-reverse;
+  -ms-flex-align: center;
+      align-items: center;
+  border-bottom-right-radius: 3px; }
+  .wp-block-advanced-gutenberg-blocks-clicktotweet__footer:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-right: 16px solid transparent;
+    border-top: 20px solid #29A3C3; }
+  .wp-block-advanced-gutenberg-blocks-clicktotweet__footer svg {
+    display: inline-block;
+    height: 30px; }

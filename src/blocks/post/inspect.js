@@ -2,7 +2,7 @@ import SearchPost from '../../components/searchpost'
 
 const { __ } = wp.i18n
 const { Component } = wp.element
-const { InspectorControls, ColorPalette } = wp.editor
+const { InspectorControls } = wp.editor
 const { PanelBody, ToggleControl } = wp.components
 
 export default class Inspector extends Component {
