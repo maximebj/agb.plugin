@@ -21,9 +21,7 @@ export default registerBlockType(
     keywords: [ 'twitter' ],
     attributes: {
 			content: {
-        source: 'text',
-        type: 'string',
-        selector: '.wp-block-advanced-gutenberg-blocks-clicktotweet__content',
+        type: 'string'
       },
       hashtags: {
         type: 'string'
@@ -42,6 +40,7 @@ export default registerBlockType(
 	        <div className={ className }>
             <RichText
 	            tagName="div"
+              format="string"
 	            value={ content }
 	            className={ `${className}__content` }
 	            onChange={ content => setAttributes( { content } ) }
@@ -57,27 +56,7 @@ export default registerBlockType(
       )
     },
     save: props => {
-
-			const { content, hashtags } = props.attributes
-
-      const url  = encodeURI( document.location.href )
-      const user = encodeURI( advancedGutenbergBlocksClickToTweet.username )
-      const text = encodeURI( content )
-      const tags = typeof( hashtags ) === "undefined" ? '' : encodeURI( hashtags )
-
-      const intentURL = `https://twitter.com/intent/tweet?url=${url}&via=${user}&text=${text}&hashtags=${tags}`
-
-			return (
-        <a href={intentURL} className='wp-block-advanced-gutenberg-blocks-clicktotweet'>
-          <div className='wp-block-advanced-gutenberg-blocks-clicktotweet__content'>
-            {content}
-          </div>
-          <div className='wp-block-advanced-gutenberg-blocks-clicktotweet__footer'>
-            <span>{ __( 'Click to tweet', 'advanced-gutenberg-blocks' ) }</span>
-            {logo}
-          </div>
-        </a>
-      )
-    },
+			return null
+		},
   },
 )

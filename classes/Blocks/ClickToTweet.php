@@ -10,7 +10,7 @@ class ClickToTweet {
   public function run() {
 
 		// Register Hooks
-		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
+    add_action( 'init', array( $this, 'register_render' ) );
 
 		// Register Block in the plugin settings page
 		$args = array(
@@ -26,6 +26,50 @@ class ClickToTweet {
 		// Register settings
 		Blocks::register_setting( 'advanced-gutenberg-blocks-twitter-username' );
   }
+
+
+  public function register_render() {
+
+		if ( ! function_exists( 'register_block_type' ) or is_admin() ) {
+			return;
+		}
+
+		register_block_type(
+			'advanced-gutenberg-blocks/clicktotweet',
+			[ 'render_callback' => array( $this, 'render_block' ) ]
+		);
+
+	}
+
+	public function render_block( $attributes ) {
+
+    $url  = ( isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http" ) . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    $url = urlencode( $url );
+
+    $user = $this->get_agb_or_yoast_twitter_user();
+
+    $content = str_replace( '<br/>', ' ', $attributes['content'] );
+    $content = urlencode( strip_tags( $content ) );
+
+    $hashtags = urlencode( $attributes['hashtags'] );
+
+    $intent_URL = "https://twitter.com/intent/tweet?url=$url&via=$user&text=$content&hashtags=$hashtags";
+
+		// Start cached output
+		$output = "";
+		ob_start();
+
+		// Get template
+		include Consts::get_path() . 'public/templates/clicktotweet.php';
+
+		// En cached output
+		$output = ob_get_contents();
+		ob_end_clean();
+
+		return $output;
+
+	}
+
 
 	public function settings() {
 
@@ -44,25 +88,6 @@ class ClickToTweet {
 				</div>
 			</div>
 		';
-	}
-
-	public function editor_assets() {
-
-    $twitter_username = $this->get_agb_or_yoast_twitter_user();
-
-		$data = array();
-
-		if ( $twitter_username == "" ) {
-			$data['error'] = 'noTwitterUsername';
-		} else {
-			$data['username'] = $twitter_username;
-		}
-
-		wp_localize_script(
-			Consts::BLOCKS_SCRIPT,
-			'advancedGutenbergBlocksClickToTweet',
-			$data
-		);
 	}
 
 
