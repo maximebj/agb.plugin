@@ -14,9 +14,12 @@ export default class Preview extends Component {
 
 	getPost = () => {
 
-		const { postID } = this.props.attributes
+		const { postID, postType } = this.props.attributes
 
-		const postQuery = new wp.api.models.Post( { id: postID } );
+    // Singular - change this shit soon
+    const singularType = postType.substring(0, postType.length-1);
+
+		const postQuery = new wp.api.models[singularType]( { id: postID } );
 
 		// Fetch post via API
 		postQuery.fetch().then( post => {
@@ -27,10 +30,12 @@ export default class Preview extends Component {
 				this.setState( { author: author.attributes.name } )
 			} )
 
-			// Get Categories
-			postQuery.getCategories().done( categories => {
-				this.setState( { category: categories[0].name } )
-			} )
+      // Get Categories
+      if( postType == "Posts") {
+  			postQuery.getCategories().done( categories => {
+  				this.setState( { category: categories[0].name } )
+  			} )
+      }
 
 			// Get Featured Image
 			postQuery.getFeaturedMedia().done( media => {

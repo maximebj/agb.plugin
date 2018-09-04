@@ -23,6 +23,9 @@ export default registerBlockType(
         type: 'string',
 				default: false,
       },
+      postType: {
+        type: 'string',
+      },
 			showCategory: {
         type: 'boolean',
 				default: true,
@@ -39,7 +42,10 @@ export default registerBlockType(
     edit: props => {
 
 			const { attributes, setAttributes } = props
-			const { postID } = attributes
+			const { postID, postType } = attributes
+
+      // Set default values (keep here to save them in html
+      ! postType && setAttributes( { postType: 'Post' } )
 
       return (
 				<Fragment>
