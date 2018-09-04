@@ -38,7 +38,7 @@ class Settings {
 			65
 		);
 
-		// global $submenu;
+		//global $submenu;
     //
 		// add_submenu_page(
 		// 	Consts::PLUGIN_NAME,
@@ -68,7 +68,7 @@ class Settings {
 		// );
 
 		// Remove default submenu
-		unset( $submenu[Consts::PLUGIN_NAME][0] );
+		//unset( $submenu[Consts::PLUGIN_NAME][0] );
 	}
 
 	// Register Settings in WordPress
