@@ -71,8 +71,15 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 == Changelog ==
 
 = 1.3.2 (04/09/2018) =
+* Compatibility with Gutenberg 3.7
 * Fixed a bug causing an error on activation
 * Fixed deactivated blocks to work with the newer Gutenberg versions
+* Rewrote Add To Cart Button because withAPIData has been deprecated in Gutenberg
+* Rewrote Product Block because withAPIData has been deprecated in Gutenberg
+* Fixed accessing WooCommerce API by adding an API Key authentification
+* Fixed dynamic search in Settings page
+*
+*
 *
 
 = 1.3.1 (07/08/2018) =

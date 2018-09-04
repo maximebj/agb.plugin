@@ -55,8 +55,10 @@ class Gutenberg {
 			Consts::BLOCKS_SCRIPT,
 			'advancedGutenbergBlocksGlobals',
 			array(
-				'ajaxurl' => admin_url('admin-ajax.php'),
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 				'pluginurl' => Consts::get_url(),
+        'wooapikey' => get_option( 'AGB_woo_ck' ),
+        'wooapisecret' => get_option( 'AGB_woo_cs' )
 			)
 		);
 

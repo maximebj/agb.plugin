@@ -55,7 +55,7 @@ export default registerBlockType(
 				</Fragment>
       )
   	},
-    save: props => {
+    save: () => {
       return null
     },
   },
