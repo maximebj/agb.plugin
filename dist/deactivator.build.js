@@ -1,6 +1,10 @@
-// Deactivate Blocks
-var deactivatedBlocks = JSON.parse(advancedGutenbergBlocksDeactivated);
+window._wpLoadGutenbergEditor.then( function() {
 
-deactivatedBlocks.forEach( block => {
-	wp.blocks.unregisterBlockType(block);
+  // Deactivate Blocks
+  var deactivatedBlocks = JSON.parse(advancedGutenbergBlocksDeactivated);
+
+  deactivatedBlocks.forEach( block => {
+  	wp.blocks.unregisterBlockType(block);
+  });
+
 });
