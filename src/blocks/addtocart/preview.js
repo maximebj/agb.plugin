@@ -20,7 +20,6 @@ export default class Preview extends Component {
     fetch( `/wp-json/wc/v2/products/${productID}?consumer_key=${ck}&consumer_secret=${cs}` )
     .then( response => response.json() )
     .then( product => {
-      console.log(product)
 			this.setState( { product: product } )
 		} )
 	}
