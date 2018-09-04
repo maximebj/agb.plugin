@@ -79,6 +79,7 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 * Fixed accessing WooCommerce API by adding an API Key authentification
 * Fixed dynamic search in Settings page
 * Fixed Post block when choosing other post types
+* A backend CSS style was loaded in front, causing CSS conflicts with 2 columns block
 
 = 1.3.1 (07/08/2018) =
 * Fixed bad URL in Click To Tweet block
