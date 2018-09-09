@@ -1,10 +1,8 @@
 import './style.scss'
 import './editor.scss'
 
-import classnames from 'classnames'
-import { countBy, flatMap } from 'lodash'
-
 import Inspector from './inspect'
+import List from './list'
 
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
@@ -49,61 +47,13 @@ export default registerBlockType(
     		} = dispatch( 'core/editor' )
 
     		return {
-    			updateAttributes: updateBlockAttributes,
+    			updateBlockAttributes: updateBlockAttributes,
     		}
       } )
     ] ) ( props => {
 
-      // Functions to define headings structure
-      // Inspired by packages/editor/src/components/document-outline/index.js in Gutenberg project
-      const computeOutlineHeadings = ( blocks = [], path = [] ) => {
-      	return flatMap( blocks, ( block = {} ) => {
-      		if ( block.name === 'core/heading' ) {
-
-            let slug = block.attributes.content[0]
-              .replace( /[&\/\\#,!+()$~%.'":*?<>{}]/g, '' )   // remove special chars
-              .replace( /[\s#]/g, '-' )                      // turn spaces to dashes
-              .replace( /-$/, "" )                     // remove eventual last dash
-              .toLowerCase()                               // lowercase it
-
-            let levelClass = 'wp-block-advanced-gutenberg-blocks-summary__level' + block.attributes.level
-
-            props.updateAttributes( block.clientId, { anchor: slug } )
-
-            return {
-      				...block,
-      				path,
-      				isEmpty: isEmptyHeading( block ),
-              slug: slug,
-              levelClass: levelClass
-      			}
-      		}
-
-      		return computeOutlineHeadings( block.innerBlocks, [ ...path, block ] )
-      	} )
-      }
-
-      const isEmptyHeading = ( heading ) => ! heading.attributes.content || heading.attributes.content.length === 0;
-
-      // Block
-
-  		const { attributes, setAttributes, blocks } = props
+  		const { attributes, setAttributes, blocks, updateBlockAttributes } = props
       const { title, ordered } = attributes
-
-      const headings = computeOutlineHeadings( blocks )
-      let prevHeadingLevel = 1;
-
-      const specialClass = ordered ? "wp-block-advanced-gutenberg-blocks-summary__list--ordered" : ""
-
-      // Not super top
-      let summary = ''
-      headings.map( ( item, index ) => {
-        var link = '#' + item.slug
-        if( ! item.isEmpty ) {
-          summary += `<li class='${item.levelClass}'><a href='${link}'>${item.attributes.content}</a></li>`
-        }
-      } )
-      setAttributes( { summary } )
 
       return (
 				<Fragment>
@@ -117,24 +67,7 @@ export default registerBlockType(
 	            className='wp-block-advanced-gutenberg-blocks-summary__title'
 	            onChange={ title => setAttributes( { title } ) }
 	  				/>
-          <ul className={ classnames('wp-block-advanced-gutenberg-blocks-summary__list', specialClass ) }>
-              { headings.length < 1 && (
-                <li className="wp-block-advanced-gutenberg-blocks-summary__none">
-                  { __('(No heading found yet)', 'advanced-gutenberg-blocks' ) }
-                </li>
-
-              ) || headings.map( ( item, index ) => {
-
-                  var link = '#' + item.slug
-
-                  return(
-                    ! item.isEmpty && (
-                      <li className={item.levelClass}><a href={link}>{item.attributes.content}</a></li>
-                    )
-                  )
-                } )
-              }
-            </ul>
+          <List { ...{ ordered, setAttributes, blocks, updateBlockAttributes } } />
 	        </div>
 
 				</Fragment>
@@ -144,18 +77,24 @@ export default registerBlockType(
 
 			const { title, summary, ordered } = props.attributes
 
-      const specialClass = ordered ? "wp-block-advanced-gutenberg-blocks-summary__list--ordered" : ""
-
 			return (
         <div>
           <p className="wp-block-advanced-gutenberg-blocks-summary__title">{title}</p>
-          <ul
-            className={ classnames('wp-block-advanced-gutenberg-blocks-summary__list', specialClass ) }
-            dangerouslySetInnerHTML={ {__html: summary} }
-          >
-          </ul>
+
+          { ordered && (
+              <ol
+                className='wp-block-advanced-gutenberg-blocks-summary__list'
+                dangerouslySetInnerHTML={ {__html: summary} }
+              />
+            ) || (
+              <ul
+                className='wp-block-advanced-gutenberg-blocks-summary__list'
+                dangerouslySetInnerHTML={ {__html: summary} }
+              />
+            )
+          }
         </div>
       )
-    },
-  },
+    }
+  }
 )
