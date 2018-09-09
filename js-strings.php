@@ -103,5 +103,9 @@ $js_strings = array(
   __( 'Your tweetable content', 'advanced-gutenberg-blocks' ),
   __( 'Hashtags', 'advanced-gutenberg-blocks' ),
   __( 'Add some hashtags (optionnal)', 'advanced-gutenberg-blocks' ),
-  __( 'Comma separated values, don\'t add #', 'advanced-gutenberg-blocks' )
+  __( 'Comma separated values, don\'t add #', 'advanced-gutenberg-blocks' ),
+  __( 'Table of contents', 'advanced-gutenberg-blocks' ),
+  __( 'summary', 'advanced-gutenberg-blocks' ),
+  __( '(No heading found yet)', 'advanced-gutenberg-blocks' ),
+  __( 'Ordered list', 'advanced-gutenberg-blocks' ),
 );

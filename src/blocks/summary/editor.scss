@@ -1,0 +1,19 @@
+.edit-post-visual-editor p:first-child {
+  font-size: 1.2em;
+}
+
+.edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-summary__list {
+  margin-left: 30px;
+}
+
+.edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-summary__list ul {
+  margin-left: 15px;
+}
+
+.edit-post-visual-editor ul.wp-block-advanced-gutenberg-blocks-summary__list--ordered {
+  list-style-type: decimal;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary li {
+  margin-bottom: 0;
+}

@@ -434,24 +434,6 @@
   margin-right: 4px;
   width: 32px;
   height: 32px; }
-
-.edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-notice__title {
-  font-size: 1.1em; }
-
-.wp-block-advanced-gutenberg-blocks-notice {
-  margin: 0; }
-
-.AGB-toolbar-icon-advice {
-  color: #83BD71; }
-
-.AGB-toolbar-icon-avoid {
-  color: #B54D4D; }
-
-.AGB-toolbar-icon-warning {
-  color: #FFC334; }
-
-.AGB-toolbar-icon-info {
-  color: #48ADD8; }
 .AGB-block-message {
   text-align: center;
   font-style: italic;
@@ -482,3 +464,18 @@
   margin-right: 4px;
   width: 32px;
   height: 32px; }
+
+.edit-post-visual-editor p:first-child {
+  font-size: 1.2em; }
+
+.edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-summary__list {
+  margin-left: 30px; }
+
+.edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-summary__list ul {
+  margin-left: 15px; }
+
+.edit-post-visual-editor ul.wp-block-advanced-gutenberg-blocks-summary__list--ordered {
+  list-style-type: decimal; }
+
+.wp-block-advanced-gutenberg-blocks-summary li {
+  margin-bottom: 0; }

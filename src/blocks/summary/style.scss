@@ -1,0 +1,52 @@
+.wp-block-advanced-gutenberg-blocks-summary {
+  background: #f0F0F0;
+  padding: 16px;
+  border-radius: 3px;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary__title {
+  font-size: 1.2em;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary__list {
+  margin-left: 30px;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary__list ul {
+  margin-left: 15px;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary__list--ordered {
+  list-style-type: decimal;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary li {
+  padding: 2px 0;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary__none {
+  opacity: .4;
+  font-style: italic;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary__level3 {
+  margin-left: 20px;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary__level4 {
+  margin-left: 40px;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary__level5 {
+  margin-left: 60px;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary__level6 {
+  margin-left: 80px;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary ul li a {
+  color: inherit;
+}
