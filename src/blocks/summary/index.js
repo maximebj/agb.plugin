@@ -29,8 +29,7 @@ export default registerBlockType(
         default: __( "Table of contents", 'advanced-gutenberg-blocks' ),
       },
       summary: {
-        source: 'text',
-        type: 'children',
+        source: 'html',
         selector: '.wp-block-advanced-gutenberg-blocks-summary__list',
       },
       ordered: {
@@ -61,7 +60,12 @@ export default registerBlockType(
       	return flatMap( blocks, ( block = {} ) => {
       		if ( block.name === 'core/heading' ) {
 
-            let slug = block.attributes.content[0].replace( /[\s#]/g, '-' ).toLowerCase()
+            let slug = block.attributes.content[0]
+              .replace( /[&\/\\#,!+()$~%.'":*?<>{}]/g, '' )   // remove special chars
+              .replace( /[\s#]/g, '-' )                      // turn spaces to dashes
+              .replace( /-$/, "" )                     // remove eventual last dash
+              .toLowerCase()                               // lowercase it
+
             let levelClass = 'wp-block-advanced-gutenberg-blocks-summary__level' + block.attributes.level
 
             props.updateAttributes( block.clientId, { anchor: slug } )
