@@ -466,12 +466,13 @@
   height: 32px; }
 
 .edit-post-visual-editor p:first-child {
-  font-size: 1.2em; }
+  font-size: 1.1em; }
 
 .edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-summary__list {
   margin-left: 30px; }
 
-.edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-summary__list ul {
+.edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-summary__list ul,
+.edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-summary__list ol {
   margin-left: 15px; }
 
 .edit-post-visual-editor ul.wp-block-advanced-gutenberg-blocks-summary__list--ordered {

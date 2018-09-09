@@ -5,7 +5,7 @@
 }
 
 .wp-block-advanced-gutenberg-blocks-summary__title {
-  font-size: 1.2em;
+  font-size: 1.1em;
   margin-top: 0;
   margin-bottom: 10px;
 }
@@ -14,8 +14,10 @@
   margin-left: 30px;
 }
 
-.wp-block-advanced-gutenberg-blocks-summary__list ul {
+.wp-block-advanced-gutenberg-blocks-summary__list ul,
+.wp-block-advanced-gutenberg-blocks-summary__list ol {
   margin-left: 15px;
+  font-size: .9em;
 }
 
 .wp-block-advanced-gutenberg-blocks-summary__list--ordered {
@@ -47,6 +49,6 @@
   margin-left: 80px;
 }
 
-.wp-block-advanced-gutenberg-blocks-summary ul li a {
+.wp-block-advanced-gutenberg-blocks-summary li a {
   color: inherit;
 }
