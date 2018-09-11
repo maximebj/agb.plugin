@@ -806,24 +806,29 @@
   margin-bottom: 0;
   font-size: .85em; }
 
-.wp-block-advanced-gutenberg-blocks-summary li {
-  padding: 2px 0; }
-
 .wp-block-advanced-gutenberg-blocks-summary__none {
   opacity: .4;
   font-style: italic; }
 
-.wp-block-advanced-gutenberg-blocks-summary__level3 {
+.wp-block-advanced-gutenberg-blocks-summary ol {
+  counter-reset: item; }
+
+.wp-block-advanced-gutenberg-blocks-summary ol > li {
+  counter-increment: item; }
+
+.wp-block-advanced-gutenberg-blocks-summary ol ol > li {
+  display: block; }
+
+.wp-block-advanced-gutenberg-blocks-summary ol ol > li:before {
+  content: counters(item, ".") ". ";
+  margin-left: -20px; }
+
+.wp-block-advanced-gutenberg-blocks-summary ul ul,
+.wp-block-advanced-gutenberg-blocks-summary ol ol {
   margin-left: 20px; }
 
-.wp-block-advanced-gutenberg-blocks-summary__level4 {
-  margin-left: 40px; }
-
-.wp-block-advanced-gutenberg-blocks-summary__level5 {
-  margin-left: 60px; }
-
-.wp-block-advanced-gutenberg-blocks-summary__level6 {
-  margin-left: 80px; }
+.wp-block-advanced-gutenberg-blocks-summary li {
+  padding: 2px 0; }
 
 .wp-block-advanced-gutenberg-blocks-summary li a {
   color: inherit; }

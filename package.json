@@ -11,9 +11,10 @@
     "cgb-scripts": "1.9.5",
     "list.js": "^1.5.0",
     "lodash": "^4.17.10",
-    "throttle-debounce": "^1.0.1"
+    "performant-array-to-tree": "^1.1.2",
+    "throttle-debounce": "^1.1.0"
   },
   "devDependencies": {
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.6"
   }
 }

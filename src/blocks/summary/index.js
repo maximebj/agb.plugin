@@ -1,7 +1,7 @@
 import './style.scss'
 import './editor.scss'
 
-import Inspector from './inspect'
+import Tools from './tools'
 import List from './list'
 
 const { __ } = wp.i18n
@@ -32,7 +32,7 @@ export default registerBlockType(
       },
       ordered: {
 				type: 'boolean',
-				default: false,
+				default: true,
 			},
     },
     edit: compose(
@@ -58,7 +58,7 @@ export default registerBlockType(
       return (
 				<Fragment>
 
-          <Inspector { ...{ attributes, setAttributes } } />
+          <Tools { ...{ attributes, setAttributes } } />
 
 	        <div className="wp-block-advanced-gutenberg-blocks-summary">
             <RichText
@@ -67,7 +67,7 @@ export default registerBlockType(
 	            className='wp-block-advanced-gutenberg-blocks-summary__title'
 	            onChange={ title => setAttributes( { title } ) }
 	  				/>
-          <List { ...{ ordered, setAttributes, blocks, updateBlockAttributes } } />
+            <List { ...{ ordered, setAttributes, blocks, updateBlockAttributes } } />
 	        </div>
 
 				</Fragment>
