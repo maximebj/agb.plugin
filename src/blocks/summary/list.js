@@ -12,6 +12,7 @@ export default class List extends Component {
   // Inspired by packages/editor/src/components/document-outline/index.js in Gutenberg project
   computeOutlineHeadings = ( blocks = [], path = [] ) => {
     return flatMap( blocks, ( block = {} ) => {
+
       if ( block.name === 'core/heading' ) {
 
         // Define anchor slug
@@ -20,7 +21,6 @@ export default class List extends Component {
           .replace( /[\s#]/g, '-' )                      // turn spaces to dashes
           .replace( /-$/, "" )                          // remove eventual last dash
           .toLowerCase()                               // lowercase it
-
 
         // Update the title block with the anchor slug ID
         this.props.updateBlockAttributes( block.clientId, { anchor: slug } )

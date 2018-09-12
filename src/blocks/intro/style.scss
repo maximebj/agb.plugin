@@ -1,0 +1,19 @@
+.wp-block-advanced-gutenberg-blocks-intro {
+  position: relative;
+  margin-bottom: 3em;
+}
+
+.wp-block-advanced-gutenberg-blocks-intro p {
+  font-size: 1.1em;
+  color: #7b829c;
+}
+
+.wp-block-advanced-gutenberg-blocks-intro:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 150px;
+  border-top: 2px solid #f1f1f1;
+}

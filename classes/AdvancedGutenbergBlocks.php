@@ -27,6 +27,7 @@ use AdvancedGutenbergBlocks\Blocks\Testimonial;
 use AdvancedGutenbergBlocks\Blocks\Gmap;
 use AdvancedGutenbergBlocks\Blocks\ClickToTweet;
 use AdvancedGutenbergBlocks\Blocks\Summary;
+use AdvancedGutenbergBlocks\Blocks\Intro;
 
 
 /**
@@ -83,6 +84,7 @@ class AdvancedGutenbergBlocks {
 		require_once $path . 'classes/Blocks/Gmap.php';
 		require_once $path . 'classes/Blocks/ClickToTweet.php';
 		require_once $path . 'classes/Blocks/Summary.php';
+		require_once $path . 'classes/Blocks/Intro.php';
 
 		// Hack to get JS strings translatable by wp.org
 		require_once $path . 'js-strings.php';
@@ -110,6 +112,7 @@ class AdvancedGutenbergBlocks {
 		(new Gmap)->run();
 		(new ClickToTweet)->run();
 		(new Summary)->run();
+		(new Intro)->run();
 	}
 
 

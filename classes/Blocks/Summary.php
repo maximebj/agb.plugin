@@ -21,7 +21,7 @@ class Summary {
       'options_callback' => array( $this, 'settings' ),
 		);
 
-		Blocks::register_block( 'advanced-gutenberg-blocks/summary', __( 'Summary', 'advanced-gutenberg-blocks' ), $args );
+		Blocks::register_block( 'advanced-gutenberg-blocks/summary', __( 'Table of contents', 'advanced-gutenberg-blocks' ), $args );
 
     // Register settings
 		Blocks::register_setting( 'advanced-gutenberg-blocks-smooth-scrolling' );

@@ -15,7 +15,7 @@ export default registerBlockType(
   'advanced-gutenberg-blocks/summary',
   {
     title: __( 'Table of contents', 'advanced-gutenberg-blocks' ),
-    description: __( 'Display an auto generated summary', 'advanced-gutenberg-blocks' ),
+    description: __( 'Display an auto generated, dynamic table of contents', 'advanced-gutenberg-blocks' ),
     category: 'common',
     icon: { background: '#D56561', foreground: "#fff", src: 'book-alt' },
     keywords: [ __('summary', 'advanced-gutenberg-blocks' ) ],

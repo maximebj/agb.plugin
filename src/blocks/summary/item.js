@@ -28,7 +28,7 @@ export default class Item extends Component {
     const link = '#' + heading.data.slug
 
     return (
-      <li>
+      <li key={heading.data.clientId}>
         <a href={link}>{heading.data.attributes.content}</a>
         { subItems && markup }
       </li>

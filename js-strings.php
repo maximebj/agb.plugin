@@ -108,5 +108,9 @@ $js_strings = array(
   __( 'summary', 'advanced-gutenberg-blocks' ),
   __( '(No heading found yet)', 'advanced-gutenberg-blocks' ),
   __( 'Ordered list', 'advanced-gutenberg-blocks' ),
-  __( 'Unordered list', 'advanced-gutenberg-blocks' )
+  __( 'Unordered list', 'advanced-gutenberg-blocks' ),
+  __( 'introduction', 'advanced-gutenberg-blocks' ),
+  __( 'subhead', 'advanced-gutenberg-blocks' ),
+  __( 'Your introduction here', 'advanced-gutenberg-blocks' ),
+  __( 'chapo', 'advanced-gutenberg-blocks' ),
 );
