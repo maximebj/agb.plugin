@@ -1,0 +1,9 @@
+{
+	"files.associations": {
+		"*.js": "javascriptreact"
+	},
+	"prettier.semi": false,
+	"editor.formatOnSave": true,
+	"prettier.tabWidth": 2,
+	"prettier.singleQuote": true
+}
