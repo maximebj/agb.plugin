@@ -2,36 +2,34 @@ const { __ } = wp.i18n
 const { Component } = wp.element
 
 export default class Item extends Component {
+	render() {
+		const { heading, children, ordered } = this.props
 
-  render() {
+		let subItems = null
 
-    const { heading, children, ordered } = this.props
+		// The node component calls itself if there are children
+		if (children) {
+			subItems = children.map(function(subItem) {
+				return (
+					<Item
+						heading={subItem}
+						children={subItem.children}
+						ordered={ordered}
+					/>
+				)
+			})
+		}
 
-    let subItems = null
+		let markup = ordered ? <ol>{subItems}</ol> : <ul>{subItems}</ul>
 
-    // The node component calls itself if there are children
-    if( children ) {
-      subItems = children.map( function( subItem ) {
-       return (
-         <Item
-          heading={subItem}
-          children={subItem.children}
-          ordered={ordered}
-         />
-       )
-     } )
-    }
+		// Define link to anchor
+		const link = '#' + heading.data.slug
 
-    let markup = ordered ? <ol>{subItems}</ol> : <ul>{subItems}</ul>
-
-    // Define link to anchor
-    const link = '#' + heading.data.slug
-
-    return (
-      <li key={heading.data.clientId}>
-        <a href={link}>{heading.data.attributes.content}</a>
-        { subItems && markup }
-      </li>
-    )
-  }
+		return (
+			<li key={heading.data.clientId}>
+				<a href={link}>{heading.data.attributes.content}</a>
+				{subItems && markup}
+			</li>
+		)
+	}
 }
