@@ -83,11 +83,13 @@ export default registerBlockType(
 
           { ordered && (
               <ol
+                role='directory'
                 className='wp-block-advanced-gutenberg-blocks-summary__list'
                 dangerouslySetInnerHTML={ {__html: summary} }
               />
             ) || (
               <ul
+                role='directory'
                 className='wp-block-advanced-gutenberg-blocks-summary__list'
                 dangerouslySetInnerHTML={ {__html: summary} }
               />
