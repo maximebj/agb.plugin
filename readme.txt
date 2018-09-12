@@ -71,10 +71,10 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 
 == Changelog ==
 
-= 1.4 (10/09/2018) =
-* Added Summary block
-* Added Subhead block
-* Fixed an issue with color selectors
+= 1.4 (12/09/2018) =
+* New block: Table of contents block
+* New block: Subhead block
+* Checking compatibility with Gutenberg 3.8
 
 = 1.3.2 (04/09/2018) =
 * Compatibility with Gutenberg 3.7
