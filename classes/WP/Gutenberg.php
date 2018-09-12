@@ -78,7 +78,6 @@ class Gutenberg {
 		);
 
 		// Special styles for the Editor
-
 		wp_enqueue_style(
 			'advanced-gutenberg-blocks-editor',
 			Consts::get_url() . 'dist/blocks.editor.build.css',
