@@ -13,7 +13,7 @@ export default class List extends Component {
   computeOutlineHeadings = ( blocks = [], path = [] ) => {
     return flatMap( blocks, ( block = {} ) => {
 
-      if ( block.name === 'core/heading' ) {
+      if ( block.name === 'core/heading' && block.attributes.content.length > 0 ) {
 
         // Define anchor slug
         let slug = block.attributes.content[0]
