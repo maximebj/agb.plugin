@@ -68,7 +68,10 @@ export default class SearchPlugin extends Component {
                 { results.map( plugin => {
 
                   return (
-                    <li onClick={ () => this.onChangeValue( plugin.slug ) } >
+                    <li
+                      key={plugin.slug}  
+                      onClick={ () => this.onChangeValue( plugin.slug ) }
+                    >
                       <img src={ plugin.icon } alt={ plugin.name } />
                       <span>{ plugin.name }</span>
                     </li>

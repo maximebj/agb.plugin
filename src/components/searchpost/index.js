@@ -39,7 +39,7 @@ export default class SearchPost extends Component {
   render() {
 
 		const { results, currentType } = this.state
-    
+
     return (
       <Fragment>
 
@@ -56,7 +56,10 @@ export default class SearchPost extends Component {
               <ul>
                 { results.map( result => {
                   return (
-                    <li onClick={ () => this.props.onChange( { id: result.id, type: currentType } ) }>
+                    <li
+                      key={result.id} 
+                      onClick={ () => this.props.onChange( { id: result.id, type: currentType } ) }
+                    >
                       { result.title.rendered }
                     </li>
                   )

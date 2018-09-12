@@ -14,6 +14,7 @@ export default class Item extends Component {
       subItems = children.map( function( subItem ) {
        return (
          <Item
+          key={subItem.data.clientId}
           heading={subItem}
           children={subItem.children}
           ordered={ordered}

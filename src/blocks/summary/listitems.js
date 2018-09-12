@@ -20,6 +20,7 @@ export default class ListItems extends Component {
     let markup = headings.map( heading => {
       return(
         <Item
+          key={heading.data.clientId}
           heading={heading}
           children={heading.children}
           ordered={ordered}

@@ -59,6 +59,7 @@ export default class SearchProduct extends Component {
                 { results.map( result => {
                   return (
                     <li
+                      key={result.id}
                       onClick={ () => this.onChangeValue( result.id ) }
                     >
                       { result.title.rendered }
