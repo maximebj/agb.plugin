@@ -1,7 +1,7 @@
 <div class="wp-block-advanced-gutenberg-blocks-plugin">
 	<div class="wp-block-advanced-gutenberg-blocks-plugin__content">
 		<a href="<?php echo $plugin['downloadLink']; ?>" class="wp-block-advanced-gutenberg-blocks-plugin__picture">
-			<img src="<?php echo $plugin['icon']; ?>" alt="<?php echo $plugin['name']; ?>" />
+			<img src="<?php echo $plugin['icon']; ?>" class="img-fluid" alt="<?php echo $plugin['name']; ?>" />
 		</a>
 
 		<div class="wp-block-advanced-gutenberg-blocks-plugin__main">
