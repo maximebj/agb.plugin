@@ -76,7 +76,7 @@ class Post {
 			}
 
 			// Get template
-			include Consts::get_path() . 'public/templates/post.php';
+      include apply_filters( 'advanced_gutenberg_blocks_template', Consts::get_path() . 'public/templates/post.php', 'post' );
 
 			endwhile;
 			wp_reset_postdata();

@@ -60,7 +60,7 @@ class ClickToTweet {
 		ob_start();
 
 		// Get template
-		include Consts::get_path() . 'public/templates/clicktotweet.php';
+    include apply_filters( 'advanced_gutenberg_blocks_template', Consts::get_path() . 'public/templates/clicktotweet.php', 'clicktotweet' );
 
 		// En cached output
 		$output = ob_get_contents();

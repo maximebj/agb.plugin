@@ -53,7 +53,7 @@ class AddToCart {
 		$ca = ( $currency != "$" ) ? $currency : '';
 
 		ob_start();
-		include Consts::get_path() . 'public/templates/addtocart.php';
+    include apply_filters( 'advanced_gutenberg_blocks_template', Consts::get_path() . 'public/templates/addtocart.php', 'addtocart' );
 		$output = ob_get_contents();
 		ob_end_clean();
 

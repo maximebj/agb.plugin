@@ -63,7 +63,7 @@ class Plugin {
 		ob_start();
 
 		// Get template
-		include Consts::get_path() . 'public/templates/plugin.php';
+    include apply_filters( 'advanced_gutenberg_blocks_template', Consts::get_path() . 'public/templates/plugin.php', 'plugin' );
 
 		// En cached output
 		$output = ob_get_contents();

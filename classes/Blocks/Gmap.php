@@ -783,7 +783,7 @@ class Gmap {
 
 		$output = "";
 		ob_start();
-		include Consts::get_path() . 'public/templates/gmap.php';
+    include apply_filters( 'advanced_gutenberg_blocks_template', Consts::get_path() . 'public/templates/gmap.php', 'gmap' );
 		$output = ob_get_contents();
 		ob_end_clean();
 
