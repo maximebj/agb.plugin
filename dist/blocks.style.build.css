@@ -108,7 +108,9 @@
   height: 128px;
   margin-right: 20px; }
   .wp-block-advanced-gutenberg-blocks-plugin__picture img {
-    display: block; }
+    display: block;
+    max-width: 100%;
+    height: auto; }
 
 .wp-block-advanced-gutenberg-blocks-plugin__main {
   -ms-flex: 1;
