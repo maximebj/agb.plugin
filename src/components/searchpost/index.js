@@ -8,32 +8,27 @@ export default class SearchPost extends Component {
 
   state = {
     results: false,
-    currentType: 'Posts',
+    currentType: 'posts',
   }
 
   onSearch = debounce( 300, search => {
 
-		if( search.length < 3) {
+		if( search.length < 3 ) {
       return
     }
 
     this.setState( { results: __( 'Loading...', 'advanced-gutenberg-blocks' ) } )
 
-    const collection = new wp.api.collections[this.state.currentType]()
-
-    collection.fetch({
-      data: {
-        per_page: 20,
-        search: search,
-      },
-    } )
+    fetch( `/wp-json/wp/v2/${this.state.currentType}/?search=${encodeURI( search )}&per_page=20` )
+    .then( response => response.json() )
     .then( results => {
 
       if(results.length == 0 ) {
         results = __( 'No result', 'advanced-gutenberg-blocks' )
       }
-      this.setState( { results: results } )
-    } )
+
+			this.setState( {  results: results  } )
+		} )
   } )
 
   render() {
@@ -57,7 +52,7 @@ export default class SearchPost extends Component {
                 { results.map( result => {
                   return (
                     <li
-                      key={result.id} 
+                      key={result.id}
                       onClick={ () => this.props.onChange( { id: result.id, type: currentType } ) }
                     >
                       { result.title.rendered }

@@ -102,7 +102,7 @@ class Post {
 
 			$types[] = array(
 				'label' => $type->label,
-				'value' => ucfirst( ( $type->rest_base ) ? $type->rest_base  : $type->name ),
+				'value' => $type->rest_base ? $type->rest_base  : $type->name,
 			);
 		}
 
@@ -114,5 +114,4 @@ class Post {
 			)
 		);
 	}
-
 }

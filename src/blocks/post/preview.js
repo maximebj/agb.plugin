@@ -1,5 +1,3 @@
-import classnames from 'classnames'
-
 const { __ } = wp.i18n
 const { Component } = wp.element
 
@@ -15,34 +13,38 @@ export default class Preview extends Component {
 	getPost = () => {
 
 		const { postID, postType } = this.props.attributes
+	
+		fetch( `/wp-json/wp/v2/${postType}/${postID}` )
+    .then( response => response.json() )
+    .then( post => {
 
-    // Singular - change this shit soon
-    const singularType = postType.substring(0, postType.length-1);
-
-		const postQuery = new wp.api.models[singularType]( { id: postID } );
-
-		// Fetch post via API
-		postQuery.fetch().then( post => {
 			this.setState( { post: post } )
 
-			// Get author
-			postQuery.getAuthorUser().done( author => {
-				this.setState( { author: author.attributes.name } )
+			// Author
+			fetch( `/wp-json/wp/v2/users/${post.author}` )
+			.then( response => response.json() )
+			.then( author => {
+				this.setState( { author: author.name } )
 			} )
 
-      // Get Categories
-      if( postType == "Posts") {
-  			postQuery.getCategories().done( categories => {
-  				this.setState( { category: categories[0].name } )
-  			} )
-      }
+			// Category
+			if (post.categories.length > 0 ) {
+				fetch( `/wp-json/wp/v2/categories/${post.categories[0]}` )
+				.then( response => response.json() )
+				.then( category => {
+					this.setState( { category: category.name } )
+				} )
+			}
 
-			// Get Featured Image
-			postQuery.getFeaturedMedia().done( media => {
-				this.setState( { featuredImage: media.attributes.media_details.sizes.medium.source_url } )
+			// Featured Media
+			fetch( `/wp-json/wp/v2/media/${post.featured_media}` )
+			.then( response => response.json() )
+			.then( featuredImage => {
+				this.setState( { featuredImage: featuredImage.media_details.sizes.large.source_url } )
 			} )
 
 		} )
+		
 	}
 
 	componentWillMount() {
