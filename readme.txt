@@ -71,9 +71,10 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 
 == Changelog ==
 
-= 1.4.2 (17/09/2018) =
+= 1.4.2 (19/09/2018) =
 * Added filters for template files
 * Fixed a bug when searching for a post or a product
+* Removed lodash dependency and use the one in gutenberg
 
 = 1.4.1 (12/09/2018) =
 * Fixed a bug crashing the table of contents

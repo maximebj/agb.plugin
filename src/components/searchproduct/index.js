@@ -17,21 +17,27 @@ export default class SearchProduct extends Component {
 
     this.setState( { results: __( 'Loading...', 'advanced-gutenberg-blocks' ) } )
 
-    const productsCollection = new wp.api.collections.Product()
+    let ck = advancedGutenbergBlocksGlobals.wooapikey
+    let cs = advancedGutenbergBlocksGlobals.wooapisecret
 
-    productsCollection.fetch({
-      data: {
-        per_page: 20,
-        search: search,
-      },
-    } )
-    .then( results => {
+    if ( location.protocol != 'https:' ) {
 
-      if(results.length == 0 ) {
-        results = __( 'No result', 'advanced-gutenberg-blocks' )
-      }
+      let results = __( 'Sorry, HTTPS is required to search Woo Products', 'advanced-gutenberg-blocks' )
       this.setState( { results: results } )
-    } )
+    
+    } else {
+      fetch( `/wp-json/wc/v2/products?search=${search}&per_page=20&consumer_key=${ck}&consumer_secret=${cs}` )
+      .then( response => response.json() )
+      .then( results => {
+
+        if(results.length == 0 ) {
+          results = __( 'No result', 'advanced-gutenberg-blocks' )
+        }
+        this.setState( { results: results } )
+
+		  } )
+    }
+
   } )
 
 	onChangeValue = id => {
@@ -56,13 +62,16 @@ export default class SearchProduct extends Component {
           { !! results && Array.isArray( results ) ?
             (
               <ul>
-                { results.map( result => {
+                { results.map( product => {
                   return (
                     <li
-                      key={result.id}
-                      onClick={ () => this.onChangeValue( result.id ) }
+                      key={product.id}
+                      onClick={ () => this.onChangeValue( product.id ) }
                     >
-                      { result.title.rendered }
+                      { product.images.length > 0 && (
+                        <img src={ product.images[0].src } alt={ product.name } />
+                      ) }
+                      <span>{ product.name }</span>
                     </li>
                   )
                 } ) }
