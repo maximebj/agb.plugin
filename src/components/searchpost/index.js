@@ -49,13 +49,13 @@ export default class SearchPost extends Component {
           { !! results && Array.isArray(results) ?
             (
               <ul>
-                { results.map( result => {
+                { results.map( post => {
                   return (
                     <li
-                      key={result.id}
-                      onClick={ () => this.props.onChange( { id: result.id, type: currentType } ) }
+                      key={post.id}
+                      onClick={ () => this.props.onChange( { id: post.id, type: currentType } ) }
                     >
-                      { result.title.rendered }
+                      <span>{ post.title.rendered }</span>
                     </li>
                   )
                 } ) }
