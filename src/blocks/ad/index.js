@@ -10,7 +10,7 @@ export default registerBlockType(
     title: __( 'Advertisement', 'advanced-gutenberg-blocks' ),
     description: __( 'Put forward a tips or a warning', 'advanced-gutenberg-blocks' ),
     category: 'agb',
-    icon: { background: '#D56561', foreground: "#fff", src: 'megaphone' },
+    icon: { background: '#2F313A', foreground: '#DEBB8F', src: 'megaphone' },
     keywords: [
       __( 'ad', 'advanced-gutenberg-blocks' ),
       __( 'advertising', 'advanced-gutenberg-blocks' ),

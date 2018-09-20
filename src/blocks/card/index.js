@@ -13,7 +13,7 @@ export default registerBlockType(
     title: __( 'Website card preview', 'advanced-gutenberg-blocks' ),
     description: __( 'Turn a simple url in a pretty card preview', 'advanced-gutenberg-blocks' ),
     category: 'agb',
-    icon: { background: '#D56561', foreground: "#fff", src: 'admin-links' },
+    icon: { background: '#2F313A', foreground: '#DEBB8F', src: 'admin-links' },
     keywords: [
       __( 'url', 'advanced-gutenberg-blocks' ),
       __( 'link', 'advanced-gutenberg-blocks' ),

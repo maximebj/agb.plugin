@@ -14,7 +14,7 @@ export default registerBlockType(
     title: __( 'Plugin', 'advanced-gutenberg-blocks' ),
     description: __( 'Display informations from a WordPress plugin', 'advanced-gutenberg-blocks' ),
     category: 'agb',
-    icon: { background: '#D56561', foreground: "#fff", src: 'admin-plugins' },
+    icon: { background: '#2F313A', foreground: '#DEBB8F', src: 'admin-plugins' },
     keywords: [
       'plugin',
     ],
