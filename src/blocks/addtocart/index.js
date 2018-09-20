@@ -16,7 +16,7 @@ export default registerBlockType(
   {
 		title: __( 'Add to cart button', 'advanced-gutenberg-blocks' ),
     description: __( 'This button allow a customer to quickly add a product to cart', 'advanced-gutenberg-blocks' ),
-    category: 'common',
+    category: 'agb',
     icon: { background: '#D56561', foreground: "#fff", src: 'cart' },
     keywords: [
       __( 'purchase', 'advanced-gutenberg-blocks' ),

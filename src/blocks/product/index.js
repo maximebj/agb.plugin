@@ -6,7 +6,6 @@ import Preview from './preview'
 
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
-const {	withAPIData } = wp.components
 const { Fragment } = wp.element
 
 export default registerBlockType(
@@ -14,7 +13,7 @@ export default registerBlockType(
   {
     title: __( 'Product', 'advanced-gutenberg-blocks' ),
     description: __( 'Display WooCommerce Product in your post', 'advanced-gutenberg-blocks' ),
-    category: 'common',
+    category: 'agb',
     icon: { background: '#D56561', foreground: "#fff", src: 'products' },
     keywords: [
       __( 'woocommerce', 'advanced-gutenberg-blocks' ),

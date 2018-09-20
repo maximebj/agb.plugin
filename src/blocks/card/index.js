@@ -1,8 +1,6 @@
 import './style.scss'
 import './editor.scss'
 
-import classnames from 'classnames'
-
 import URLFetcher from './urlfetcher'
 import Preview from './preview'
 
@@ -14,7 +12,7 @@ export default registerBlockType(
   {
     title: __( 'Website card preview', 'advanced-gutenberg-blocks' ),
     description: __( 'Turn a simple url in a pretty card preview', 'advanced-gutenberg-blocks' ),
-    category: 'common',
+    category: 'agb',
     icon: { background: '#D56561', foreground: "#fff", src: 'admin-links' },
     keywords: [
       __( 'url', 'advanced-gutenberg-blocks' ),

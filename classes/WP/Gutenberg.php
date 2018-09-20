@@ -21,6 +21,7 @@ class Gutenberg {
 
 		add_action( 'enqueue_block_assets', array( $this, 'blocks_assets' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
+		add_filter( 'block_categories', array( $this, 'add_block_category' ) );
 	}
 
 
@@ -85,5 +86,14 @@ class Gutenberg {
 			Consts::VERSION
 		);
 
+	}
+
+	public function add_block_category( $categories ) {
+		$categories[] = array(
+			'slug' => 'agb',
+			'title' => __( 'Advanced Gutenberg Blocks', 'advanced-gutenberg-blocks' ),
+		);
+		
+		return $categories;
 	}
 }

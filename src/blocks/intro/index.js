@@ -10,7 +10,7 @@ export default registerBlockType(
   {
     title: __( 'Intro', 'advanced-gutenberg-blocks' ),
     description: __( 'Display a nice introduction text at the beginning of your post', 'advanced-gutenberg-blocks' ),
-    category: 'common',
+    category: 'agb',
     icon: { background: '#D56561', foreground: "#fff", src: 'editor-textcolor' },
     keywords: [
       __( 'introduction', 'advanced-gutenberg-blocks' ),
