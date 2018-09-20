@@ -22,19 +22,21 @@ https://www.youtube.com/watch?v=PBVHKo172mU
 
 = Blocks =
 
-*  Notice: Display a sweet Info/Advice/Warning/Avoid/ notice
-*  Post: Display pretty posts link (from any post type)
-*  WooCommerce Product: Display WooCommerce Product in your post
-*  WooCommerce Add to cart button: An add to cart button to quickly purchase a WooCommerce product
-*  Banner Ad: Monetize your website by inserting banner Ads in your content
-*  Text + rectangle Ad: Monetize your website by inserting Rectangle Ads in your content
-*  WordPress Plugin Card: Display a Plugin informations from the official WordPress repository
-*  Website Card preview: Do you like how Facebook, Twitter or Slack display a sweet preview to a website in a card? Don't be jealous, we've made the same for you in WordPress!
+* Notice: Display a sweet Info/Advice/Warning/Avoid/ notice
+* Post: Display pretty posts link (from any post type)
+* WooCommerce Product: Display WooCommerce Product in your post
+* WooCommerce Add to cart button: An add to cart button to quickly purchase a WooCommerce product
+* Banner Ad: Monetize your website by inserting banner Ads in your content
+* Text + rectangle Ad: Monetize your website by inserting Rectangle Ads in your content
+* WordPress Plugin Card: Display a Plugin informations from the official WordPress repository
+* Website Card preview: Do you like how Facebook, Twitter or Slack display a sweet preview to a website in a card? Don't be jealous, we've made the same for you in WordPress!
 * Testimonial: Display a testimonial with a picture, text, name and company
 * Google Map: Display a customizable Google Map in your content
 * Click to Tweet: a nice click to tweet box featuring a content ready to be retweeted
 * Table of contents: An auto generated, dynamic summary for your long posts
 * Subhead: A nice first paragraph for your posts
+* Giphy: Quickly search and insert a GIF from Giphy
+* Unsplash: Find beautiful pictures from the best free photos stock
 
 = Deactivate unwanted blocks =
 
@@ -70,6 +72,12 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 == Screenshots ==
 
 == Changelog ==
+
+= 1.5 (30/09/2018) =
+* New block: Giphy block
+* New block: Unsplash Block
+* Blocks are now grouped in the same category in the inserter
+* Changed blocks colors in inserter menu
 
 = 1.4.2 (19/09/2018) =
 * Added filters for template files
