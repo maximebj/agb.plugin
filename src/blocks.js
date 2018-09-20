@@ -1,3 +1,7 @@
+// Main functions and styles
+import './components/common'
+
+// Blocks
 import './blocks/notice'
 import './blocks/plugin'
 import './blocks/ad'

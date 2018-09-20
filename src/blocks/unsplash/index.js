@@ -3,6 +3,8 @@ import './editor.scss'
 
 import logo from './logo'
 
+import { debounce } from 'throttle-debounce'
+
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
 const { Fragment } = wp.element

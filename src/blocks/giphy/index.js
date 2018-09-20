@@ -1,6 +1,10 @@
 import './style.scss'
 import './editor.scss'
 
+import logo from './logo'
+
+import { debounce } from 'throttle-debounce'
+
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
 const { Fragment } = wp.element
@@ -31,9 +35,7 @@ export default registerBlockType(
 				<Fragment>
 
 	        <div className="AGB-block-search">
-            <p>
-              <img src={ `${advancedGutenbergBlocksGlobals.pluginurl}/admin/img/services/giphy.png` } />
-            </p>
+            <p>{logo}</p>
             
             <p class="AGB-block-search__input">
               <TextControl
