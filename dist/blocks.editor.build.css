@@ -1,34 +1,3 @@
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-notice__title {
   font-size: 1.1em; }
 
@@ -46,74 +15,14 @@
 
 .AGB-toolbar-icon-info {
   color: #48ADD8; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-ad {
   padding: 0;
   border: 1px solid #DDD;
-  background: #FAFAFA;
+  background: #F1F1F1;
   text-align: center;
   line-height: 90px;
   color: #999; }
+
 .AGB-block-message {
   text-align: center;
   font-style: italic;
@@ -145,45 +54,27 @@
   width: 32px;
   height: 32px; }
 
+.AGB-block-search {
+  background: #F1F1F1;
+  border-radius: 4px;
+  text-align: center;
+  padding: 20px; }
+  .AGB-block-search img, .AGB-block-search svg {
+    height: 32px;
+    display: inline-block; }
+
+.AGB-block-search__input {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto; }
 .wp-block-advanced-gutenberg-blocks-adtext__ad {
   padding: 0;
   border: 1px solid #DDD;
-  background: #FAFAFA;
+  background: #F1F1F1;
   text-align: center;
   line-height: 248px;
   width: 250px;
   color: #999; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-addtocart__label {
   display: inline-block; }
 
@@ -204,37 +95,6 @@
       -webkit-transform: scale(1.02);
           -ms-transform: scale(1.02);
               transform: scale(1.02); }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .AGB-urlfetcher {
   display: -ms-flexbox;
   display: flex;
@@ -250,97 +110,6 @@
   .AGB-urlfetcher input:focus {
     -webkit-box-shadow: none;
             box-shadow: none; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-testimonial__picture {
   position: relative; }
   .wp-block-advanced-gutenberg-blocks-testimonial__picture a {
@@ -361,37 +130,6 @@
 
 .wp-block-advanced-gutenberg-blocks-testimonial__signature {
   min-width: 50px; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .AGB-panel-maps {
   display: -ms-flexbox;
   display: flex;
@@ -404,102 +142,10 @@
   .AGB-panel-maps img {
     display: block;
     cursor: pointer; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-summary__list {
   margin-left: 30px; }
 
 .wp-block-advanced-gutenberg-blocks-summary li {
   margin-bottom: 0; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .editor-block-list__block .wp-block-advanced-gutenberg-blocks-intro p {
   font-size: 1.1em; }

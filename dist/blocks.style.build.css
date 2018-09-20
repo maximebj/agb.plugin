@@ -1,34 +1,3 @@
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-notice {
   margin: 2em 0;
   padding: 12px;
@@ -61,37 +30,6 @@
   border-top: 3px solid #48ADD8; }
   .wp-block-advanced-gutenberg-blocks-notice--info .wp-block-advanced-gutenberg-blocks-notice__title {
     color: #48ADD8; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-plugin {
   margin: 2em 0;
   background: white;
@@ -161,70 +99,8 @@
   .wp-block-advanced-gutenberg-blocks-plugin__download a:hover {
     background-color: #8bc1df;
     color: white; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-ad {
   margin: 2em 0; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-adtext {
   overflow: auto;
   margin: 2em 0; }
@@ -238,37 +114,6 @@
 .wp-block-advanced-gutenberg-blocks-adtext__ad {
   float: right;
   margin: 0 0 20px 20px; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-addtocart {
   text-align: center; }
 
@@ -297,37 +142,6 @@
   font-size: .85em;
   opacity: .7;
   margin-left: 4px; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-card {
   position: relative;
   display: block;
@@ -367,37 +181,6 @@
 .wp-block-advanced-gutenberg-blocks-card__url {
   color: #DDD;
   margin-bottom: 0; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-product {
   display: -ms-flexbox;
   display: flex;
@@ -463,37 +246,6 @@
   .wp-block-advanced-gutenberg-blocks-product__button .dashicons {
     margin-right: 8px; }
 @charset "UTF-8";
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-post {
   display: -ms-flexbox;
   display: flex;
@@ -554,37 +306,6 @@
       color: white;
       background-color: #5e5e5e; }
 @charset "UTF-8";
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-testimonial {
   margin: 2em 0;
   display: -ms-flexbox;
@@ -659,70 +380,8 @@
     margin: 0;
     color: #aaa;
     font-size: .9em; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-gmap {
   margin: 2em 0; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-clicktotweet {
   display: block;
   -webkit-box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.07);
@@ -763,37 +422,6 @@
   .wp-block-advanced-gutenberg-blocks-clicktotweet__footer svg {
     display: inline-block;
     height: 30px; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-summary {
   background: #f0F0F0;
   padding: 16px;
@@ -834,37 +462,6 @@
 
 .wp-block-advanced-gutenberg-blocks-summary li a {
   color: inherit; }
-.AGB-block-message {
-  text-align: center;
-  font-style: italic;
-  color: #ccc; }
-
-.AGB-panel-results p {
-  margin: 10px 0;
-  text-align: center; }
-
-.AGB-panel-results ul {
-  margin-top: 10px;
-  list-style-type: none;
-  border: 1px solid #E3E4E7; }
-
-.AGB-panel-results li {
-  overflow: auto;
-  margin: 0;
-  padding: 10px; }
-  .AGB-panel-results li:not(:first-child) {
-    border-top: 1px solid #E3E4E7; }
-  .AGB-panel-results li:hover {
-    background: #efefef;
-    cursor: pointer; }
-
-.AGB-panel-results img {
-  display: inline-block;
-  float: left;
-  margin-right: 4px;
-  width: 32px;
-  height: 32px; }
-
 .wp-block-advanced-gutenberg-blocks-intro {
   position: relative;
   margin-bottom: 3em; }
