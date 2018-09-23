@@ -17,7 +17,7 @@ class Giphy {
 			'icon' => 'dashicons-images-alt2',
 			'category' => 'apis',
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/giphy.jpg',
-			'description' => __( "Do you like how Facebook, Twitter or Slack display a sweet preview to a website in a card? Don't be jealous, we've made the same for you in WordPress!", 'advanced-gutenberg-blocks' ),
+			'description' => __( "Search and insert a GIF from Giphy", 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
 		);
 
