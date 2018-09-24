@@ -86,12 +86,17 @@ class Plugin {
     );
 
     $results = plugins_api('query_plugins', $request);
+		$data = array();
+		$plugins = array();
 
-    foreach( $results->plugins as &$plugin ) {
-			$plugin = $this->prepare_data( $plugin );
-    }
+    foreach( $results->plugins as $plugin ) {
+			$plugins[] = $this->prepare_data( $plugin );
+		}
+		
+		$data['info'] = $results->info;
+		$data['plugins'] = $plugins;
 
-    echo json_encode($results);
+    echo json_encode($data);
 
     die();
   }

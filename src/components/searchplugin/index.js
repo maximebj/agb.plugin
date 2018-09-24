@@ -32,15 +32,15 @@ export default class SearchPlugin extends Component {
 			if( response.info.results == 0 ) {
 				this.setState( { results: __( 'No result', 'advanced-gutenberg-blocks' ) } )
       } else {
-				this.setState( { results: response.plugins } )
+        this.setState( { results: response.plugins } )
 			}
 
     } )
 		.catch( error => {
 
 			this.setState( { results: __( "⚠️ Error: Couldn't reach wp.org", 'advanced-gutenberg-blocks' ) } )
-
-		} )
+    
+    } )
   } )
 
   onChangeValue = slug => {
