@@ -3,12 +3,16 @@ import IconList from './iconlist'
 
 const { __ } = wp.i18n
 const { Component } = wp.element
-const { InspectorControls, ColorPalette } = wp.editor
+
+const { 
+  InspectorControls, 
+  PanelColorSettings,
+} = wp.editor
+
 const {
   PanelBody,
   PanelRow,
   FormToggle,
-	PanelColor,
 } = wp.components
 
 
@@ -33,15 +37,16 @@ export default class Inspector extends Component {
 					/>
         </PanelBody>
 
-				<PanelColor
-          title={ __( 'Background Color', 'advanced-gutenberg-blocks' ) }
-          colorValue={ backgroundColor }
-          >
-          <ColorPalette
-            value={ backgroundColor }
-            onChange={ backgroundColor => setAttributes( { backgroundColor } ) }
-          />
-        </PanelColor>
+        <PanelColorSettings
+          title={ __( 'Colors', 'advanced-gutenberg-blocks' ) }
+          colorSettings={ [
+            {
+              value: backgroundColor,
+              onChange: backgroundColor => setAttributes( { backgroundColor } ),
+              label: __( 'Background Color', 'advanced-gutenberg-blocks' ),
+            },
+          ] }
+        />
 
         <PanelBody
           title={ __( 'Icon', 'advanced-gutenberg-blocks' ) }
@@ -70,7 +75,6 @@ export default class Inspector extends Component {
           }
 
         </PanelBody>
-
       </InspectorControls>
     )
   }

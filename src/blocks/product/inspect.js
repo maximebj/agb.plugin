@@ -2,8 +2,13 @@ import SearchProduct from '../../components/searchproduct'
 
 const { __ } = wp.i18n
 const { Component } = wp.element
-const { InspectorControls, ColorPalette } = wp.editor
-const { PanelBody, PanelColor } = wp.components
+
+const { 
+	InspectorControls, 
+	PanelColorSettings, 
+} = wp.editor
+
+const { PanelBody } = wp.components
 
 export default class Inspector extends Component {
 
@@ -21,27 +26,21 @@ export default class Inspector extends Component {
         </PanelBody>
 
 				{ !! productID && (
-					<span>
-						<PanelColor
-		          title={ __( 'Price color', 'advanced-gutenberg-blocks' ) }
-		          colorValue={ priceColor }
-		          >
-		          <ColorPalette
-		            value={ priceColor }
-		            onChange={ priceColor => setAttributes( { priceColor } ) }
-		          />
-		        </PanelColor>
-
-						<PanelColor
-		          title={ __( 'Button background color', 'advanced-gutenberg-blocks' ) }
-		          colorValue={ buttonBackgroundColor }
-		          >
-		          <ColorPalette
-		            value={ buttonBackgroundColor }
-		            onChange={ buttonBackgroundColor => setAttributes( { buttonBackgroundColor } ) }
-		          />
-		        </PanelColor>
-					</span>
+					<PanelColorSettings
+						title={ __( 'Colors', 'advanced-gutenberg-blocks' ) }
+						colorSettings={ [
+							{
+								value: priceColor,
+								onChange: priceColor => setAttributes( { priceColor } ),
+								label: __( 'Price color', 'advanced-gutenberg-blocks' ),
+							},
+							{
+								value: buttonBackgroundColor,
+								onChange: buttonBackgroundColor => setAttributes( { buttonBackgroundColor } ),
+								label: __( 'Button background color', 'advanced-gutenberg-blocks' ),
+							},
+						] }
+					/>
 				) }
       </InspectorControls>
     )
