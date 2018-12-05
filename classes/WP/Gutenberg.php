@@ -64,7 +64,7 @@ class Gutenberg {
 		wp_enqueue_script(
 			Consts::PLUGIN_NAME . '-deactivator',
 			Consts::get_url() . 'dist/deactivator.build.js',
-			[ 'wp-edit-post']
+			[ 'wp-edit-post' ]
 		);
 
 		wp_localize_script(

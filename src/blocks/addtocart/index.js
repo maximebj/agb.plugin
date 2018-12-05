@@ -42,7 +42,7 @@ export default registerBlockType(
     },
     edit: props => {
 
-				const { focus, attributes, setAttributes } = props
+				const { attributes, setAttributes } = props
 				const { icon, backgroundColor } = attributes
 
 				// Set default values (keep here to save them in html
@@ -52,7 +52,7 @@ export default registerBlockType(
 	      return (
 	        <Fragment>
 	          <Inspector { ...{ attributes, setAttributes } } />
-            <Preview { ...{ attributes } } />
+            <Preview { ...{ attributes, setAttributes } } />
 					</Fragment>
 	      )
 			},

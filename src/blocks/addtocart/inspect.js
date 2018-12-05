@@ -22,18 +22,11 @@ export default class Inspector extends Component {
 
 		const { attributes: { productID, backgroundColor, hasIcon }, setAttributes } = this.props
 
-		const onChangeProduct = product => {
-			setAttributes( {
-				productID: product.id,
-				label: __( 'Add', 'advanced-gutenberg-blocks' ) + ' ' + product.title.rendered + ' ' + __( 'to cart', 'advanced-gutenberg-blocks' )
-			} )
-		}
-
     return (
       <InspectorControls>
 				<PanelBody title={ __( 'Search Product', 'advanced-gutenberg-blocks' ) }>
           <SearchProduct
-						onChange= { product => onChangeProduct( product ) }
+						onChange= { product => setAttributes( { productID: product.id } ) }
 					/>
         </PanelBody>
 
