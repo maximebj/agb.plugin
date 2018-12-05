@@ -2,9 +2,9 @@
 Contributors: maximebj
 Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate blocks, plugin, ad, marketplace, WooCommerce, Product,
 Requires at least: 4.5
-Tested up to: 4.9.6
+Tested up to: 5.0
 Requires PHP: 5.6
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 Donate link: https://advanced-gutenberg-blocks.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -73,11 +73,13 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 
 == Changelog ==
 
-= 1.5 (30/09/2018) =
-* New block: Giphy block
-* New block: Unsplash Block
+= 1.4.3 (05/12/2018) =
+* Compatible with WordPress 5.0
 * Blocks are now grouped in the same category in the inserter
 * Changed blocks colors in inserter menu
+* Fixed : bug in Post block forgetting its value
+* Fixed : bug in Map block preventing display on front
+* Fixed : bug in Summary code preventing good anchors slugs
 
 = 1.4.2 (19/09/2018) =
 * Added filters for template files
