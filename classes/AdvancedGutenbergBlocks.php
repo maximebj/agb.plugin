@@ -124,7 +124,14 @@ class AdvancedGutenbergBlocks {
 
 	public function check_compatibility() {
 		global $wp_version;
-		if ( ! version_compare( $wp_version, '5.0', '>=' ) and ! is_plugin_active( 'gutenberg/gutenberg.php' ) ) {
+		
+		// Check version 5+ and RC
+		if ( version_compare( $wp_version, '5.0', '>=' ) or strpos( $wp_version, '5.0-RC') !== false ) {
+			return;
+		}
+
+		// WP 4.x Check if plugin is activated 
+		if ( ! is_plugin_active( 'gutenberg/gutenberg.php' ) ) {
 			
 			deactivate_plugins( '/advanced-gutenberg-blocks/plugin.php' );
 			add_action( 'admin_notices', array( $this , 'compatibility_notice') );
