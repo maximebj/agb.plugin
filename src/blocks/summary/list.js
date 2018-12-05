@@ -22,11 +22,12 @@ export default class List extends Component {
       ) {
 
         // Define anchor slug
-        let slug = block.attributes.content[0]
-          .replace( /[&\/\\#,!+()$~%.'":*?<>{}]/g, '' )   // remove special chars
-          .replace( /[\s#]/g, '-' )                      // turn spaces to dashes
-          .replace( /-$/, "" )                          // remove eventual last dash
-          .toLowerCase()                               // lowercase it
+        let slug = block.attributes.content.toString().toLowerCase()
+          .replace(/\s+/g, '-')                           // Replace spaces with -
+          .replace( /[&\/\\#,!+()$~%.'":*?<>{}]/g, '' )   // Remove special chars
+          .replace(/\-\-+/g, '-')                         // Replace multiple - with single -
+          .replace(/^-+/, '')                             // Trim - from start of text
+          .replace(/-+$/, '');                            // Trim - from end of text
 
         // Update the title block with the anchor slug ID
         this.props.updateBlockAttributes( block.clientId, { anchor: slug } )

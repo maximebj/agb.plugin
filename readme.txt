@@ -77,9 +77,11 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 * Compatible with WordPress 5.0
 * Blocks are now grouped in the same category in the inserter
 * Changed blocks colors in inserter menu
-* Fixed : bug in Post block forgetting its value
-* Fixed : bug in Map block preventing display on front
-* Fixed : bug in Summary code preventing good anchors slugs
+* Fixed: bug in Add to cart button
+* Fixed: bug in Summary code preventing good anchors slugs
+* Fixed: bug in Post block forgetting its value
+* Fixed: multiple little things
+
 
 = 1.4.2 (19/09/2018) =
 * Added filters for template files
