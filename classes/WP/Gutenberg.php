@@ -29,7 +29,7 @@ class Gutenberg {
 		wp_enqueue_style(
 			Consts::PLUGIN_NAME . '-style',
 			Consts::get_url() . 'dist/blocks.style.build.css',
-			[ 'wp-editor', 'wp-blocks' ],
+			[ 'wp-editor' ],
 			Consts::VERSION
 		);
 	}
@@ -46,10 +46,7 @@ class Gutenberg {
 		);
 
 		// Get translations
-		$locale  = gutenberg_get_jed_locale_data( 'advanced-gutenberg-blocks' );
-		$content = 'wp.i18n.setLocaleData(' . json_encode( $locale ) . ', "advanced-gutenberg-blocks" );';
-		wp_script_add_data( Consts::BLOCKS_SCRIPT, 'data', $content );
-
+		wp_set_script_translations( Consts::BLOCKS_SCRIPT, 'advanced-gutenberg-blocks' );
 
 		// Set always after script_add_data or it won't show
 		wp_localize_script(
