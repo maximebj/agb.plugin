@@ -46,8 +46,11 @@ class Gutenberg {
 		);
 
 		// Get translations
-		wp_set_script_translations( Consts::BLOCKS_SCRIPT, 'advanced-gutenberg-blocks' );
-
+		// Introduced in WP 5.0
+		if ( function_exists('wp_set_script_translations') ) {
+			wp_set_script_translations( Consts::BLOCKS_SCRIPT, 'advanced-gutenberg-blocks' );
+		}
+		
 		// Set always after script_add_data or it won't show
 		wp_localize_script(
 			Consts::BLOCKS_SCRIPT,
