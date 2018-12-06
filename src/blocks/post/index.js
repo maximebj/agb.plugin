@@ -20,8 +20,7 @@ export default registerBlockType(
     ],
     attributes: {
       postID: {
-        type: 'string',
-				default: false,
+        type: 'integer',
       },
       postType: {
         type: 'string',
@@ -41,8 +40,8 @@ export default registerBlockType(
     },
     edit: props => {
 
-			const { attributes, setAttributes } = props
-			const { postID, postType } = attributes
+      const { attributes, setAttributes } = props
+      const { postID, postType } = attributes
 
       // Set default values (keep here to save them in html
       ! postType && setAttributes( { postType: 'Post' } )

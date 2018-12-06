@@ -74,12 +74,13 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 == Changelog ==
 
 = 1.4.3 (05/12/2018) =
-* Compatible with WordPress 5.0
+* Compatible with WordPress 5.0 and Gutenberg official release!
 * Blocks are now grouped in the same category in the inserter
 * Changed blocks colors in inserter menu
 * Fixed: bug in Add to cart button
 * Fixed: bug in Summary code preventing good anchors slugs
-* Fixed: bug in Post block forgetting its value
+* Fixed: bug in Post block forgetting its ID
+* Fixed: bug in Post block with no thumbnail
 * Fixed: multiple little things
 
 
