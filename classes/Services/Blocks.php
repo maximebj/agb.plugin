@@ -475,7 +475,7 @@ abstract class Blocks {
 			  'screencast' => array(
 			    'id' => 'core-embed/screencast',
 			    'name' => 'Screencast',
-			    'svg' => Dashicons::EMBED_VIDEO,
+			    'svg' => Dashicons::EMBED_GENERIC,
 			    'can_disable' => true,
 			  ),
 			  'scribd' => array(
