@@ -5,6 +5,6 @@ _wpLoadBlockEditor.then( function() {
 
   deactivatedBlocks.forEach( block => {
   	wp.blocks.unregisterBlockType(block);
-  });
+  } );
 
-});
+} );
