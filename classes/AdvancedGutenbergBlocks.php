@@ -28,8 +28,8 @@ use AdvancedGutenbergBlocks\Blocks\Gmap;
 use AdvancedGutenbergBlocks\Blocks\ClickToTweet;
 use AdvancedGutenbergBlocks\Blocks\Summary;
 use AdvancedGutenbergBlocks\Blocks\Intro;
-//use AdvancedGutenbergBlocks\Blocks\Giphy;
-//use AdvancedGutenbergBlocks\Blocks\Unsplash;
+use AdvancedGutenbergBlocks\Blocks\Giphy;
+use AdvancedGutenbergBlocks\Blocks\Unsplash;
 
 
 /**
@@ -87,8 +87,8 @@ class AdvancedGutenbergBlocks {
 		require_once $path . 'classes/Blocks/ClickToTweet.php';
 		require_once $path . 'classes/Blocks/Summary.php';
 		require_once $path . 'classes/Blocks/Intro.php';
-		//require_once $path . 'classes/Blocks/Giphy.php';
-		//require_once $path . 'classes/Blocks/Unsplash.php';
+		require_once $path . 'classes/Blocks/Giphy.php';
+		require_once $path . 'classes/Blocks/Unsplash.php';
 
 		// Activation / Deactivation hooks
 		(new Installer)->register_hooks();
@@ -113,8 +113,8 @@ class AdvancedGutenbergBlocks {
 		(new ClickToTweet)->run();
 		(new Summary)->run();
 		(new Intro)->run();
-		//(new Giphy)->run();
-		//(new Unsplash)->run();
+		(new Giphy)->run();
+		(new Unsplash)->run();
 	}
 
 
