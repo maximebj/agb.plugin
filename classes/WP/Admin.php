@@ -19,53 +19,52 @@ class Admin {
 	public function register_hooks() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 		add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
-
     add_action( 'admin_init', array( $this, 'woocommerce_add_keys') );
 	}
 
 	public function enqueue_assets($hook) {
 
-		if( strpos( $hook, Consts::PLUGIN_NAME ) === false ) {
-			return;
+		// Block management page
+		if( $hook == 'blocks_page_advanced-gutenberg-blocks-manager' ) {
+		
+			wp_enqueue_style(
+				Consts::PLUGIN_NAME,
+				Consts::get_url() . 'admin/css/advanced-gutenberg-blocks-admin.css',
+				array(),
+				Consts::VERSION,
+				'all'
+			);
+
+			wp_enqueue_script(
+				'Listjs',
+				Consts::get_url() . 'admin/js/list.min.js',
+				array('jquery'),
+				Consts::VERSION,
+				false
+			);
+
+			wp_enqueue_script(
+				Consts::PLUGIN_NAME.'-settings',
+				Consts::get_url() . 'admin/js/advanced-gutenberg-blocks-settings.js',
+				array('jquery', 'Listjs'),
+				Consts::VERSION,
+				false
+			);
 		}
-
-		wp_enqueue_style(
-			Consts::PLUGIN_NAME,
-			Consts::get_url() . 'admin/css/advanced-gutenberg-blocks-admin.css',
-			array(),
-			Consts::VERSION,
-			'all'
-		);
-
-    wp_enqueue_script(
-			'Listjs',
-			Consts::get_url() . 'admin/js/list.min.js',
-			array('jquery'),
-			Consts::VERSION,
-			false
-		);
-
-		wp_enqueue_script(
-			Consts::PLUGIN_NAME.'-settings',
-			Consts::get_url() . 'admin/js/advanced-gutenberg-blocks-settings.js',
-			array('jquery', 'Listjs'),
-			Consts::VERSION,
-			false
-		);
 
 	}
 
 	public function add_admin_menu() {
 
-		// add_menu_page(
-		// 	__( 'Blocks' , 'advanced-gutenberg-blocks' ),
-		// 	__( 'Blocks' , 'advanced-gutenberg-blocks' ),
-		// 	'edit_posts',
-		// 	Consts::PLUGIN_NAME,
-		// 	null,
-		// 	'dashicons-screenoptions',
-		// 	65
-		// );
+		add_menu_page(
+			__( 'Blocks' , 'advanced-gutenberg-blocks' ),
+			__( 'Blocks' , 'advanced-gutenberg-blocks' ),
+			'edit_posts',
+			Consts::PLUGIN_NAME,
+			null,
+			'dashicons-screenoptions',
+			65
+		);
 
 	}
 

@@ -3,7 +3,7 @@
 ?>
 <form method="post" action="options.php" class="AGB-settings">
 	<?php settings_fields( Consts::SETTINGS_GROUP ); ?>
-  	<?php do_settings_sections( Consts::SETTINGS_GROUP ); ?>
+  <?php do_settings_sections( Consts::SETTINGS_GROUP ); ?>
 
 	<header class="AGB-settings__header">
 		<div class="AGB-settings__header__inner">

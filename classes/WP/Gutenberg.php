@@ -84,6 +84,32 @@ class Gutenberg {
 			Consts::VERSION
 		);
 
+		// Editor styles
+		if( get_option( 'advanced-gutenberg-blocks_editor_width' ) or get_option( 'advanced-gutenberg-blocks_editor_wide_width' ) ) {
+			$css = "";
+
+			if( $w = get_option( 'advanced-gutenberg-blocks_editor_width' ) ) {
+				$css .= '
+					.wp-block {
+						max-width: ' . $w . 'px;
+					}	
+				';
+			}
+
+			if( $ww = get_option( 'advanced-gutenberg-blocks_editor_wide_width' ) ) {
+				$css .= '
+					.wp-block[data-align="wide"] {
+						max-width: ' . $ww . 'px;
+					}
+					.wp-block[data-align="full"] {
+						max-width: none;
+					}
+				';
+			}
+			
+			wp_add_inline_style( 'wp-edit-blocks', $css ); 
+		}
+
 	}
 
 	public function add_block_category( $categories ) {

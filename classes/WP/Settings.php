@@ -28,47 +28,28 @@ class Settings {
 
 	public function add_admin_menu() {
 
-    add_menu_page(
-			__( 'Blocks' , 'advanced-gutenberg-blocks' ),
-			__( 'Blocks' , 'advanced-gutenberg-blocks' ),
+		global $submenu;
+    
+		add_submenu_page(
+			Consts::PLUGIN_NAME,
+			__( 'Manage Blocks' , 'advanced-gutenberg-blocks' ),
+			__( 'Manage Blocks' , 'advanced-gutenberg-blocks' ),
 			'edit_posts',
-			Consts::PLUGIN_NAME . '-installed',
-			array( $this, 'settings_page' ),
-			'dashicons-screenoptions',
-			65
+			Consts::PLUGIN_NAME . '-manager',
+			array( $this, 'blocks_management' )
 		);
 
-		//global $submenu;
-    //
-		// add_submenu_page(
-		// 	Consts::PLUGIN_NAME,
-		// 	__( 'Installed Blocks' , 'advanced-gutenberg-blocks' ),
-		// 	__( 'Installed Blocks' , 'advanced-gutenberg-blocks' ),
-		// 	'edit_posts',
-		// 	Consts::PLUGIN_NAME . '-installed',
-		// 	array( $this, 'settings_page' )
-		// );
-
-		// add_submenu_page(
-		// 	Consts::PLUGIN_NAME,
-		// 	__( 'Add Block' , 'advanced-gutenberg-blocks' ),
-		// 	__( 'Add Block' , 'advanced-gutenberg-blocks' ),
-		// 	'edit_posts',
-		// 	Consts::PLUGIN_NAME.'-install',
-		// 	array( $this, 'block_install' )
-		// );
-
-		// add_submenu_page(
-		// 	Consts::PLUGIN_NAME,
-		// 	__( 'Import/Export' , 'advanced-gutenberg-blocks' ),
-		// 	__( 'Import/Export' , 'advanced-gutenberg-blocks' ),
-		// 	'edit_posts',
-		// 	Consts::PLUGIN_NAME.'-import',
-		// 	array( $this, 'import_export' )
-		// );
+		add_submenu_page(
+			Consts::PLUGIN_NAME,
+			__( 'Editor Settings' , 'advanced-gutenberg-blocks' ),
+			__( 'Editor Settings' , 'advanced-gutenberg-blocks' ),
+			'edit_posts',
+			Consts::PLUGIN_NAME.'-settings',
+			array( $this, 'editor_settings' )
+		);
 
 		// Remove default submenu
-		//unset( $submenu[Consts::PLUGIN_NAME][0] );
+		unset( $submenu[Consts::PLUGIN_NAME][0] );
 	}
 
 	// Register Settings in WordPress
@@ -81,16 +62,21 @@ class Settings {
 		foreach( $settings as $setting ) {
 			register_setting( Consts::SETTINGS_GROUP, $setting['name'] );
 		}
+
+		// Editor Settings
+		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_width' );
+		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_wide_width' );
+
 	}
 
-	public function settings_page() {
+	public function blocks_management() {
 
 		$native_blocks = Blocks::get_native_blocks();
 		$registered_blocks = Blocks::get_registered_blocks();
 		$disabled_blocks = Blocks::get_disabled_blocks();
 		$categories = Blocks::get_categories();
 
-    require_once Consts::get_path() . 'admin/templates/settings.php';
+    require_once Consts::get_path() . 'admin/templates/blocks_management.php';
 	}
 
 
@@ -124,12 +110,8 @@ class Settings {
 	}
 
 
-	public function block_install() {
-		echo '<h1>Blocks MarketPlace</h1> <p>Soon...</p>';
-	}
-
-	public function import_export() {
-		echo '<h1>Import / Export Settings</h1> <p>Soon...</p';
+	public function editor_settings() {
+    require_once Consts::get_path() . 'admin/templates/editor_settings.php';
 	}
 
 }

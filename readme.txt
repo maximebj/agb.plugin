@@ -38,13 +38,17 @@ https://www.youtube.com/watch?v=PBVHKo172mU
 * Giphy: Quickly search and insert a GIF from Giphy
 * Unsplash: Find beautiful pictures from the best free photos stock
 
-= Deactivate unwanted blocks =
+= Deactivate blocks =
 
 Don't want some of the blocks (from this plugin or the WP default ones) ? Disable them in one click from the blocks management page!
 
 = Centralized settings =
 
 Advanced Gutenberg Blocks features a setting page with all the blocks where you can edit default settings and manage your blocks
+
+= Customize Editor Width = 
+
+Customize Editor default width and wide blocks width without code ! Just choose width in the settings to fit your theme content width.
 
 = Extensible =
 
@@ -76,6 +80,7 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 = 1.5 (/12/2018) =
 * New Block: Giphy
 * New Block: Unsplash
+* New feature: Customize Editor Width (and wide blocks width too)
 * Fixed: 2 bugs on Add to cart block
 
 = 1.4.4 (10/12/2018) =
