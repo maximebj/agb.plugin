@@ -84,7 +84,7 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 
 == Changelog ==
 
-= 1.5 (/12/2018) =
+= 1.5 (17/12/2018) =
 * New Feature: "Editor settings" - tweak editor setting without code!
 * New Editor settings option: Customize Editor Width (and wide blocks width too)
 * New Editor settings option: Customize default colors in color Palette
