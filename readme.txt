@@ -85,7 +85,7 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 == Changelog ==
 
 = 1.5 (/12/2018) =
-* New feature: "Editor settings" - tweak editor setting without code!
+* New Feature: "Editor settings" - tweak editor setting without code!
 * New Editor settings option: Customize Editor Width (and wide blocks width too)
 * New Editor settings option: Customize default colors in color Palette
 * New Editor settings option: Disable custom color button in color Palette
@@ -94,7 +94,8 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 * New Editor settings option: Activate Wide blocks
 * New Editor settings option: Activate Editor blocks defaults stylesheet 
 * New Editor settings option: Activate responsive embeds
-* New Styles: Notice Block now has new styles available
+* New in Notice Block: New styles variations available
+* New in Notice Block: Notices can display an icon
 * Fixed: 2 bugs on Add to cart block
 
 = 1.4.4 (10/12/2018) =

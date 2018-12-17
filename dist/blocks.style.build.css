@@ -11,25 +11,83 @@
 .wp-block-advanced-gutenberg-blocks-notice__content {
   margin: 1em 0 0 0; }
 
-.wp-block-advanced-gutenberg-blocks-notice--advice {
+.wp-block-advanced-gutenberg-blocks-notice.has-icon {
+  position: relative;
+  padding-left: 80px; }
+  .wp-block-advanced-gutenberg-blocks-notice.has-icon svg {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: calc(50% - 20px);
+    left: 20px; }
+
+.wp-block-advanced-gutenberg-blocks-notice.is-variation-advice {
   border-top: 3px solid #83BD71; }
-  .wp-block-advanced-gutenberg-blocks-notice--advice .wp-block-advanced-gutenberg-blocks-notice__title {
+  .wp-block-advanced-gutenberg-blocks-notice.is-variation-advice .wp-block-advanced-gutenberg-blocks-notice__title {
     color: #83BD71; }
+  .wp-block-advanced-gutenberg-blocks-notice.is-variation-advice svg {
+    color: #83BD71; }
+  .wp-block-advanced-gutenberg-blocks-notice.is-variation-advice.is-style-full {
+    border: none;
+    border-left: 4px solid #5b9a48;
+    background: #83BD71;
+    color: white; }
+    .wp-block-advanced-gutenberg-blocks-notice.is-variation-advice.is-style-full .wp-block-advanced-gutenberg-blocks-notice__title {
+      color: white;
+      font-weight: bold; }
+    .wp-block-advanced-gutenberg-blocks-notice.is-variation-advice.is-style-full svg {
+      color: white; }
 
-.wp-block-advanced-gutenberg-blocks-notice--avoid {
+.wp-block-advanced-gutenberg-blocks-notice.is-variation-avoid {
   border-top: 3px solid #B54D4D; }
-  .wp-block-advanced-gutenberg-blocks-notice--avoid .wp-block-advanced-gutenberg-blocks-notice__title {
+  .wp-block-advanced-gutenberg-blocks-notice.is-variation-avoid .wp-block-advanced-gutenberg-blocks-notice__title {
     color: #B54D4D; }
+  .wp-block-advanced-gutenberg-blocks-notice.is-variation-avoid svg {
+    color: #B54D4D; }
+  .wp-block-advanced-gutenberg-blocks-notice.is-variation-avoid.is-style-full {
+    border: none;
+    border-left: 4px solid #923d3d;
+    background: #B54D4D;
+    color: white; }
+    .wp-block-advanced-gutenberg-blocks-notice.is-variation-avoid.is-style-full .wp-block-advanced-gutenberg-blocks-notice__title {
+      color: white;
+      font-weight: bold; }
+    .wp-block-advanced-gutenberg-blocks-notice.is-variation-avoid.is-style-full svg {
+      color: white; }
 
-.wp-block-advanced-gutenberg-blocks-notice--warning {
+.wp-block-advanced-gutenberg-blocks-notice.is-variation-warning {
   border-top: 3px solid #FFC334; }
-  .wp-block-advanced-gutenberg-blocks-notice--warning .wp-block-advanced-gutenberg-blocks-notice__title {
+  .wp-block-advanced-gutenberg-blocks-notice.is-variation-warning .wp-block-advanced-gutenberg-blocks-notice__title {
     color: #FFC334; }
+  .wp-block-advanced-gutenberg-blocks-notice.is-variation-warning svg {
+    color: #FFC334; }
+  .wp-block-advanced-gutenberg-blocks-notice.is-variation-warning.is-style-full {
+    border: none;
+    border-left: 4px solid #e7a200;
+    background: #FFC334;
+    color: white; }
+    .wp-block-advanced-gutenberg-blocks-notice.is-variation-warning.is-style-full .wp-block-advanced-gutenberg-blocks-notice__title {
+      color: white;
+      font-weight: bold; }
+    .wp-block-advanced-gutenberg-blocks-notice.is-variation-warning.is-style-full svg {
+      color: white; }
 
-.wp-block-advanced-gutenberg-blocks-notice--info {
+.wp-block-advanced-gutenberg-blocks-notice.is-variation-info {
   border-top: 3px solid #48ADD8; }
-  .wp-block-advanced-gutenberg-blocks-notice--info .wp-block-advanced-gutenberg-blocks-notice__title {
+  .wp-block-advanced-gutenberg-blocks-notice.is-variation-info .wp-block-advanced-gutenberg-blocks-notice__title {
     color: #48ADD8; }
+  .wp-block-advanced-gutenberg-blocks-notice.is-variation-info svg {
+    color: #48ADD8; }
+  .wp-block-advanced-gutenberg-blocks-notice.is-variation-info.is-style-full {
+    border: none;
+    border-left: 4px solid #2585ae;
+    background: #48ADD8;
+    color: white; }
+    .wp-block-advanced-gutenberg-blocks-notice.is-variation-info.is-style-full .wp-block-advanced-gutenberg-blocks-notice__title {
+      color: white;
+      font-weight: bold; }
+    .wp-block-advanced-gutenberg-blocks-notice.is-variation-info.is-style-full svg {
+      color: white; }
 .wp-block-advanced-gutenberg-blocks-plugin {
   margin: 2em 0;
   background: white;
