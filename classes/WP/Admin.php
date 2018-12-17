@@ -22,7 +22,18 @@ class Admin {
     add_action( 'admin_init', array( $this, 'woocommerce_add_keys') );
 	}
 
-	public function enqueue_assets($hook) {
+	public function enqueue_assets( $hook ) {
+
+		// All AGB admin pages
+		if( strpos( $hook, Consts::PLUGIN_NAME ) !== false ) { 
+			wp_enqueue_style(
+				Consts::PLUGIN_NAME,
+				Consts::get_url() . 'admin/css/advanced-gutenberg-blocks-admin.css',
+				array(),
+				Consts::VERSION,
+				'all'
+			);
+		}
 
 		// Block management page
 		if( $hook == 'blocks_page_advanced-gutenberg-blocks-manager' ) {
@@ -44,9 +55,22 @@ class Admin {
 			);
 
 			wp_enqueue_script(
+				Consts::PLUGIN_NAME.'-management',
+				Consts::get_url() . 'admin/js/advanced-gutenberg-blocks-management.js',
+				array('jquery', 'Listjs'),
+				Consts::VERSION,
+				false
+			);
+		}
+ 
+		if( $hook == 'blocks_page_advanced-gutenberg-blocks-settings' ) {
+			
+			wp_enqueue_style( 'wp-color-picker' );
+
+			wp_enqueue_script(
 				Consts::PLUGIN_NAME.'-settings',
 				Consts::get_url() . 'admin/js/advanced-gutenberg-blocks-settings.js',
-				array('jquery', 'Listjs'),
+				array('jquery', 'wp-color-picker'),
 				Consts::VERSION,
 				false
 			);

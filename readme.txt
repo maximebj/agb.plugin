@@ -13,10 +13,10 @@ Advanced Gutenberg Blocks bring awesome blocks for the new WordPress editor, for
 
 == Description ==
 
-Advanced Gutenberg Blocks bring awesome blocks for the new WordPress editor, for a real WYSIWYG experience.
-For now we only have a few blocks but we will soon add a lot more!
-
-Have a block idea? Contact me at [@maximebj](https://twitter.com/maximebj)
+Advanced Gutenberg Blocks is the perfect tool for the new WordPress Editor:
+* New blocks: Dozen of new and awesome blocks
+* Block management: disable native blocks you don't need
+* Editor tweaks: options to customize the editor experience 
 
 https://www.youtube.com/watch?v=PBVHKo172mU
 
@@ -35,20 +35,27 @@ https://www.youtube.com/watch?v=PBVHKo172mU
 * Click to Tweet: a nice click to tweet box featuring a content ready to be retweeted
 * Table of contents: An auto generated, dynamic summary for your long posts
 * Subhead: A nice first paragraph for your posts
-* Giphy: Quickly search and insert a GIF from Giphy
-* Unsplash: Find beautiful pictures from the best free photos stock
+
+= Block management =
+
+Advanced Gutenberg Blocks features a setting page with all the blocks where you can edit default settings and manage your blocks
 
 = Deactivate blocks =
 
 Don't want some of the blocks (from this plugin or the WP default ones) ? Disable them in one click from the blocks management page!
 
-= Centralized settings =
+= Tweak Editor settings = 
 
-Advanced Gutenberg Blocks features a setting page with all the blocks where you can edit default settings and manage your blocks
+Customize a lot of settings within the editor without a line of code: 
 
-= Customize Editor Width = 
-
-Customize Editor default width and wide blocks width without code ! Just choose width in the settings to fit your theme content width.
+* Customize Editor width (and wide blocks)
+* Customize default colors in palettes
+* Disable custom color button in palettes
+* Customize default font sizes
+* Disable custom font size option
+* Activate Wide blocks 
+* Activate default blocks stylesheet when theme doesn't handle blocks styles
+* Activate responsive embeds
 
 = Extensible =
 
@@ -78,9 +85,16 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 == Changelog ==
 
 = 1.5 (/12/2018) =
-* New Block: Giphy
-* New Block: Unsplash
-* New feature: Customize Editor Width (and wide blocks width too)
+* New feature: "Editor settings" - tweak editor setting without code!
+* New Editor settings option: Customize Editor Width (and wide blocks width too)
+* New Editor settings option: Customize default colors in color Palette
+* New Editor settings option: Disable custom color button in color Palette
+* New Editor settings option: Customize fonts sizes and names in paragraph size selector
+* New Editor settings option: Disable custom font size option in paragraphs
+* New Editor settings option: Activate Wide blocks
+* New Editor settings option: Activate Editor blocks defaults stylesheet 
+* New Editor settings option: Activate responsive embeds
+* New Styles: Notice Block now has new styles available
 * Fixed: 2 bugs on Add to cart block
 
 = 1.4.4 (10/12/2018) =

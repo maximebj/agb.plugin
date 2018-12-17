@@ -34,16 +34,16 @@ class Settings {
 			Consts::PLUGIN_NAME,
 			__( 'Manage Blocks' , 'advanced-gutenberg-blocks' ),
 			__( 'Manage Blocks' , 'advanced-gutenberg-blocks' ),
-			'edit_posts',
+			apply_filters( 'AGB-manage-blocks-capabilities', 'edit_posts' ),
 			Consts::PLUGIN_NAME . '-manager',
 			array( $this, 'blocks_management' )
 		);
 
 		add_submenu_page(
 			Consts::PLUGIN_NAME,
-			__( 'Editor Settings' , 'advanced-gutenberg-blocks' ),
-			__( 'Editor Settings' , 'advanced-gutenberg-blocks' ),
-			'edit_posts',
+			__( 'Tweak Editor' , 'advanced-gutenberg-blocks' ),
+			__( 'Tweak Editor' , 'advanced-gutenberg-blocks' ),
+			apply_filters( 'AGB-editor-settings-capabilities', 'manage_options' ),
 			Consts::PLUGIN_NAME.'-settings',
 			array( $this, 'editor_settings' )
 		);
@@ -66,6 +66,13 @@ class Settings {
 		// Editor Settings
 		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_width' );
 		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_wide_width' );
+		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_colors' );
+		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_custom_color' );
+		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_font_sizes' );
+		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_custom_font_size' );
+		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_default_styles' );
+		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_responsive_embeds' );
+		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_wide_blocks' );
 
 	}
 
