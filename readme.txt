@@ -4,7 +4,7 @@ Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate
 Requires at least: 4.5
 Tested up to: 5.0
 Requires PHP: 5.6
-Stable tag: 1.6
+Stable tag: 1.7
 Donate link: https://paypal.me/maximebj
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -34,7 +34,9 @@ https://www.youtube.com/watch?v=PBVHKo172mU
 * Google Map: Display a customizable Google Map in your content
 * Click to Tweet: a nice click to tweet box featuring a content ready to be retweeted
 * Table of contents: An auto generated, dynamic summary for your long posts
-* Subhead: A nice first paragraph for your posts
+* Intro: A nice first paragraph for your posts
+* Giphy: Quickly search and insert a GIF from Giphy
+* Unsplash: Find beautiful pictures from the best free photos stock
 
 = Block management =
 
@@ -81,6 +83,11 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 == Screenshots ==
 
 == Changelog ==
+
+= 1.7 (21/12/2018) =
+* New Block: Get GIFs from Giphy
+* New Block: Get free images from Unsplash 
+* Fixed: Notice block icon bug
 
 = 1.6 (19/12/2018) =
 * New: Dashboard to manage blocks
