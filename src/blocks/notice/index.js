@@ -121,6 +121,7 @@ export default registerBlockType(
 
 			return (
         <div className={ classnames('wp-block-advanced-gutenberg-blocks-notice',  `is-variation-${ type }`, hasIcon && 'has-icon' ) } data-type={ type }>
+          { hasIcon && icon[type] }
           <p className='wp-block-advanced-gutenberg-blocks-notice__title'>{ title }</p>
           <p className='wp-block-advanced-gutenberg-blocks-notice__content'>{ content }</p>
         </div>
