@@ -7,8 +7,8 @@
   <h1><?php _e( 'Editor settings', 'advanced-gutenberg-blocks' ); ?></h1>
 
   <form method="post" action="options.php">
-    <?php settings_fields( Consts::SETTINGS_GROUP ); ?>
-    <?php do_settings_sections( Consts::SETTINGS_GROUP ); ?>
+    <?php settings_fields( 'advanced-gutenberg-blocks-editor-settings' ); ?>
+    <?php do_settings_sections( 'advanced-gutenberg-blocks-editor-settings' ); ?>
 
     <p>
       <?php _e( "If your theme doesn't handle some Editor features, you can activate them from here.", 'advanced-gutenberg-blocks' ); ?>
@@ -19,7 +19,7 @@
       <tr>
         <th scope="row">
           <label for="advanced-gutenberg-blocks_editor_width">
-            <?php _e('Editor Width', 'advanced-gutenberg-blocks'); ?>
+            <?php _e( 'Editor Width', 'advanced-gutenberg-blocks' ); ?>
           </label>
         </th>
         <td>

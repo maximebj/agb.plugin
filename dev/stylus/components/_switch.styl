@@ -1,0 +1,27 @@
+.AGB-switch
+	position relative
+	display block
+	border 2px solid contrast-color
+	border-radius 10px
+	width 34px
+	height 20px
+
+	&:after
+		content ''
+		display block
+		position absolute
+		left 2px
+		top 2px
+		width 12px
+		height 12px
+		border-radius 6px
+		background contrast-color
+		transition all .3s
+
+.AGB-card.is-active .AGB-switch
+	background on-color
+	border-color darken(on-color, 15%)
+
+	&:after
+		background white
+		left 16px

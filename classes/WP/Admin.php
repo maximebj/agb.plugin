@@ -36,15 +36,10 @@ class Admin {
 		}
 
 		// Block management page
-		if( $hook == 'blocks_page_advanced-gutenberg-blocks-manager' ) {
-		
-			wp_enqueue_style(
-				Consts::PLUGIN_NAME,
-				Consts::get_url() . 'admin/css/advanced-gutenberg-blocks-admin.css',
-				array(),
-				Consts::VERSION,
-				'all'
-			);
+		if( 
+			$hook == 'blocks_page_advanced-gutenberg-blocks-manager' or
+			$hook == 'blocks_page_advanced-gutenberg-blocks-disable'
+		) {
 
 			wp_enqueue_script(
 				'Listjs',

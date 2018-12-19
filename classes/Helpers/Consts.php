@@ -15,8 +15,7 @@ defined('ABSPATH') or die('Cheatin&#8217; uh?');
 abstract class Consts {
 
 	const PLUGIN_NAME = 'advanced-gutenberg-blocks';
-	const VERSION = '1.5';
-	const SETTINGS_GROUP = 'advanced-gutenberg-blocks-settings';
+	const VERSION = '1.6';
 	const BLOCKS_SCRIPT = 'advanced-gutenberg-blocks-editor';
 
 	// Plugin Path for includes

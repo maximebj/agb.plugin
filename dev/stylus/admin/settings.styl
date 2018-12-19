@@ -1,3 +1,5 @@
+// Common styles
+
 html
 	box-sizing border-box
 
@@ -5,6 +7,7 @@ html
 	box-sizing inherit 
 
 body.blocks_page_advanced-gutenberg-blocks-manager
+body.blocks_page_advanced-gutenberg-blocks-disable
 	background background-color
 	
 	#wpcontent
@@ -14,33 +17,36 @@ body.blocks_page_advanced-gutenberg-blocks-manager
 	img
 		max-width 100%
 
-.AGB-search
-	margin 10px auto 0
-	max-width 50rem
-	padding 0
+	.update-nag
+		display none !important
 
-	input
-		width 100%
-		padding .5rem 1rem
+// Main Wrapper
 
 .AGB-settings
-	padding-top 53px
+	position relative
+	padding-top 57px
 
-.AGB-settings__header
+// Header
+
+.AGB-header
+	display flex
 	background white
-	border-bottom 1px solid border-color
-	padding 10px
+	padding 12px
 	position fixed
-	top 32px
-	left 160px
 	right 0
 	z-index 100
 
-.AGB-settings__header__inner
-	max-width 50rem
-	margin 0 auto
-	padding 0 1.5rem
-	display flex
+	+mobile()
+		left 0
+		top 46px
+
+	+tablet()
+		left 32px
+		top 32px
+
+	+desktop()
+		left 160px
+		top 32px
 
 	h1
 		font-weight 500
@@ -54,11 +60,16 @@ body.blocks_page_advanced-gutenberg-blocks-manager
 		height 32px
 		margin-right 6px
 
-.AGB-settings__header__menu
+.AGB-header__menu
 	display flex
+	flex 1
 	justify-content flex-end
 	margin 0
 	flex 1
+
+	+not-desktop()
+		li
+			display none
 
 	li
 		margin-bottom 0
@@ -70,176 +81,100 @@ body.blocks_page_advanced-gutenberg-blocks-manager
 		padding 0 10px
 
 	li + li
-		border-left 1px solid border-color
+		border-left 1px solid darken( background-color, 5% )
 
-.AGB-settings__content
-	max-width 50rem
-	margin 0 auto
-	padding 1.5rem
-
-	h2
-		margin-bottom 0.4em
-
-.AGB-settings__description
-	font-size 13px
-	font-style italic
-	color contrast-text-color
-	margin-top 0
-
-.AGB-list
-	background white
-	border 1px solid border-color
-	margin pad-s 0 3rem
-
-	dl
-		margin 0
-
-.AGB-list__title
-	font-weight 400
-	color contrast-text-color
-	font-size 1.2em
-	letter-spacing .02em
-	padding pad-s
-	margin 0
-	border-bottom 1px solid border-color
-	background #fbfbfb
-
-	&:before
-		content '— '
-		color border-color
-
-.AGB-block
-	margin 0
-	border-bottom 1px solid border-color
-
-	&:before
-		content ""
-		display block
-		height 85px /* fixed header height*/
-		margin -85px 0 0 /* negative fixed header height */
-
-.AGB-block__head
+.AGB-header__search
 	display flex
-	align-items center
-	padding 16px pad-s
+	justify-content flex-end
+	margin 0 0 0 20px
+	min-width 300px
 
-.AGB-block__icon
-	position relative
-	padding-right 8px
-	cursor pointer
+	input
+		width 100%
 
-	&:after
-		content ''
-		display block
-		position absolute
-		top -3px
-		left -3px
-		width 8px
-		height 8px
-		border-radius 50%
-		transition .4s background ease-out
+// Main 
 
-.AGB-block.is-active
-	.AGB-block__icon:after
-		background #8cc44b
+.AGB-main
+	overflow auto
 
-.AGB-block:not(.is-active)
-	.AGB-block__title
-	.AGB-block__icon span
-		opacity .5
+.AGB-cards__title
+	margin-top 20px
+	text-transform uppercase
+	margin-left 30px
+	color #838EAB
 
-	.AGB-block__icon:after
-		background #B54D4D
-
-.AGB-block__title
-	flex 1
-	font-weight bold
-	cursor pointer
-
-	small
-		opacity .5
-
-.AGB-block__actions
-	text-align right
-
-.AGB-block__button
-	font-size .9em
-	display inline-block
-	border 1px solid border-color
-	border-radius 5px
-	color #8D9FB0
-	text-decoration none
-	padding 5px 7px
-	transition .3s all ease-out
-
-	&:hover
-		border-color #454545
-		color #454545
-
-	&:focus
-		box-shadow none
-
-.AGB-block__button + .AGB-block__button
-	margin-left 8px
-
-.AGB-block__panel
-	display none
-	padding 0 20px
-
-.AGB-block__panel__title
-	position relative
-	font-weight bold
-	margin 2em 0 1em
-
-	&:before
-		content ''
-		display block
-		position absolute
-		height 1px
-		width 80px
-		background border-color
-		top -8px
-		left 0
-
-
-.AGB-block__description
-	margin 1.5em 0
-
-	p:last-child
-		margin 0
-		color contrast-text-color
+.AGB-cards__info
+		margin-left 30px
+		color #838EAB
 		font-style italic
 
-.AGB-block__preview
-	img
-		display block
-		margin 0 auto
-		max-width 400px
-
-// .AGB-block__settings
-
-.AGB-block__settings__description
-	font-style italic
-	color contrast-text-color
-
-.AGB-block__settings__option
+.AGB-cards__list
 	display flex
-	margin 1em 0
+	flex-wrap wrap
+	margin 15px
 
-.AGB-block__settings__label
-	width 120px
+	&.is-disabled
+		opacity .7
 
-.AGB-block__settings__field
+.AGB-card
+	background white
+	border-radius 8px
+	margin 15px
+	padding 10px
+	transition all .5s
+	display flex
+	flex-direction column
+
+	+mobile()
+		width calc( 50% - 30px )
+
+	+tablet()
+		width calc( 33.3333333% - 30px )
+
+	+desktop()
+		width calc( 25% - 30px )
+
+	&.is-active
+		border-top 3px solid on-color
+
+	&:not(.is-active)
+		border-top 3px solid off-color
+
+	&:hover
+		transform translateY( -2px )
+		box-shadow 0 8px 15px rgba(0,0,0, .05)
+
+.AGB-card__header
+	display flex
+	align-items center
+	margin-top 5px
+
+.AGB-card__icon
+	margin 5px 10px 0
+
+	.dashicons
+		width 24px
+		height 24px
+
+.AGB-card__title
 	flex 1
+	font-weight bold
+	font-size 1.5em
 
-	textarea
-	input[type=text]
-	input[type=url]
-	input[type=password]
-	input[type=email]
-		width 100%
-		max-width 400px
+.AGB-card__content
+	flex 1
+	padding-left 46px
 
+	p
+		color #7E8492
+
+	p.AGB-card__warning
+		color off-color
+
+.AGB-card__actions
+	text-align right
+
+// Editor settings page
 
 .AGB-multiple
 	margin 0

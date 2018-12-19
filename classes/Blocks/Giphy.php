@@ -17,8 +17,10 @@ class Giphy {
 			'icon' => 'dashicons-images-alt2',
 			'category' => 'apis',
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/giphy.jpg',
-			'description' => __( "Search and insert a GIF from Giphy", 'advanced-gutenberg-blocks' ),
+			'description' => __( "Search and insert a GIF from Giphy.", 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
+			'require' => __('This block requires an API key'),
+			'available' => false,
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/giphy', __( 'Giphy', 'advanced-gutenberg-blocks' ), $args );
@@ -28,18 +30,18 @@ class Giphy {
   }
 
 	public function settings() {
-		echo '
-			<p class="AGB-block__settings__description">' . __( 'The API key is mandatory, you can create one on the <a href="https://www.opengraph.io/" target="_blank">OpenGraph.io API service</a>. ' ) . '</p>
-
-			<div class="AGB-block__settings__option">
-				<div class="AGB-block__settings__label">
+		echo '		
+			<div class="AGB-form__setting">
+				<div class="AGB-form__label">
 					<label for="advanced-gutenberg-blocks-giphy-api-key"> ' . __( 'Api Key', 'advanced-gutenberg-blocks' ) . '</label>
 				</div>
 
-				<div class="AGB-block__settings__field">
+				<div class="AGB-form__field">
 					<input type="text" name="advanced-gutenberg-blocks-giphy-api-key" placeholder="' . __( 'Insert your Giphy API Key here', 'advanced-gutenberg-blocks' ) . '" value="' . get_option( 'advanced-gutenberg-blocks-giphy-api-key' ) . '">
 				</div>
 			</div>
+
+			<p class="AGB-form__help">' . __( 'The API key is mandatory, you can create one on the <a href="https://www.opengraph.io/" target="_blank">OpenGraph.io API service</a>. ' ) . '</p>
 		';
 	}
 

@@ -1,6 +1,7 @@
 ( function( $ ) {
 	'use strict';
 	$( document ).ready( function() {
+		
 		// Smooth Scroll
 		$( 'body' ).on( 'click', 'a[href^=\\#]:not([href=\\#])', function( e ) {
 			e.preventDefault();
@@ -11,30 +12,13 @@
 			);
 		} );
 
-		// Show / Hide settings panel
-		if ( window.location.hash !== '' ) {
-			$( window.location.hash )
-				.find( '.AGB-block__panel' )
-				.slideToggle();
-		}
-
-		$( document ).on( 'click', '.js-AGB-show-panel', function( e ) {
-			e.preventDefault();
-			const $parent = $( this ).parents( '.AGB-block' );
-			const panel = $parent.find( '.AGB-block__panel' );
-			panel.slideToggle();
-		} );
-
 		// Activate / Disable Block
 		$( '.js-AGB-toggle-state' ).click( function( e ) {
 			e.preventDefault();
 
-			const $parent = $( this ).parents( '.AGB-block' );
+			const $parent = $( this ).parents( '.AGB-card' );
 			const $button = $( this );
 			$parent.toggleClass( 'is-active' );
-
-			const $buttonLabel = $button.html();
-			$button.html( '...' );
 
 			const data = {
 				action: 'toggle_block',
@@ -54,24 +38,66 @@
 					$button.attr( 'data-command' )
 				);
 				$button.attr( 'data-command', $invertCommand );
-
-				$button.html( $button.attr( 'data-invert-label' ) );
-				$button.attr( 'data-invert-label', $buttonLabel );
 			} );
 		} );
 
 		// List.js configuration
 		const options = {
-			valueNames: [ 'AGB-block__name' ],
+			valueNames: [ 'AGB-card__title' ],
 		};
 
-		const CustomBlockList = new List( 'AGB-blocks--custom', options );
-		const NativeBlockList = new List( 'AGB-blocks--native', options );
-
+		var lists = [];
+		$('.AGB-cards').each(function() {
+			lists.push( new List( $(this).attr('id'), options ) );
+		});
+		
 		const searchBlocks = $( '#search-blocks' );
 		searchBlocks.on( 'keyup', function() {
-			CustomBlockList.search( searchBlocks.val() );
-			NativeBlockList.search( searchBlocks.val() );
+			
+			for( var i = 0; i < lists.length; i++ ) {
+				lists[i].search( searchBlocks.val() );
+			}
+			
 		} );
+
+		// Modal
+		var $modal = $('.AGB-modal');
+		const URLparams = new URLSearchParams(location.search);
+
+		$('.js-open-modal').on('click', function(e) {
+			e.preventDefault();
+
+			$modal.addClass('is-active');
+			$('body').addClass('has-overlay');
+			$('.AGB-modal__content.is-active', $modal).removeClass('is-active');
+
+			var id = $(this).attr('data-block');
+			$('.AGB-modal__content[id="modal-content-'+id+'"]').addClass('is-active');
+
+			// To reopen modal after save
+			URLparams.set('modal', id);
+			var newURL = decodeURIComponent(location.pathname + '?' + URLparams);
+			window.history.replaceState({}, "", newURL);
+			$('input[name="_wp_http_referer"]').val(newURL);
+
+		});
+
+		$('.js-close-modal').on('click', function(e) {
+			e.preventDefault();
+			
+			$modal.removeClass('is-active');
+			$('body').removeClass('has-overlay');
+
+			URLparams.delete('modal');
+			var newURL = decodeURIComponent(location.pathname + '?' + URLparams);
+			window.history.replaceState({}, "", newURL);
+			$('input[name="_wp_http_referer"]').val(newURL);
+		});
+
+		// Reapply blur
+		if( URLparams.has('modal') ) {
+			$('body').addClass('has-overlay');
+		}
+
 	} );
 }( jQuery ) );

@@ -17,11 +17,12 @@ class ClickToTweet {
 			'icon' => 'dashicons-twitter',
 			'category' => 'marketing',
 			'preview_image' => Consts::get_url().'admin/img/blocks/clicktotweet.jpg',
-			'description' => __( "Allow your visitors to easily share your most inspirationals sentences in a click", 'advanced-gutenberg-blocks' ),
+			'description' => __( "Allow your visitors to easily share your most inspirationals sentences in a click.", 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
+			'require' => __('This block needs your Twitter username'),
 		);
 
-		Blocks::register_block( 'advanced-gutenberg-blocks/card', __( 'Click To Tweet', 'advanced-gutenberg-blocks' ), $args );
+		Blocks::register_block( 'advanced-gutenberg-blocks/clicktotweet', __( 'Click To Tweet', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
 		Blocks::register_setting( 'advanced-gutenberg-blocks-twitter-username' );
@@ -76,17 +77,17 @@ class ClickToTweet {
     $twitter_username = $this->get_agb_or_yoast_twitter_user();
 
 		echo '
-			<p class="AGB-block__settings__description">' . __( 'Provide your twitter website username (without @).' ) . '</p>
-
-			<div class="AGB-block__settings__option">
-				<div class="AGB-block__settings__label">
-					<label for="advanced-gutenberg-blocks-twitter-username"> ' . __( 'Twitter username', 'advanced-gutenberg-blocks' ) . '</label>
+			<div class="AGB-form__setting">
+				<div class="AGB-form__label is-required">
+					<label for="advanced-gutenberg-blocks-twitter-username"> ' . __( 'Username', 'advanced-gutenberg-blocks' ) . '</label>
 				</div>
 
-				<div class="AGB-block__settings__field">
+				<div class="AGB-form__field">
 					<input type="text" name="advanced-gutenberg-blocks-twitter-username" placeholder="AdvancedBlocks" value="' . $twitter_username . '">
 				</div>
 			</div>
+
+			<p class="AGB-form__help">' . __( 'Provide your Twitter username (without @).' ) . '</p>
 		';
 	}
 

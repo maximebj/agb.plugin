@@ -4,7 +4,7 @@ Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate
 Requires at least: 4.5
 Tested up to: 5.0
 Requires PHP: 5.6
-Stable tag: 1.5
+Stable tag: 1.6
 Donate link: https://paypal.me/maximebj
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -69,20 +69,24 @@ Help us making great blocks! Join the project on [Github](https://github.com/max
 
 1. Upload the plugin files to the `/wp-content/plugins` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Go in 'Blocks' menu to manage your blocks
-
-__This plugin requires Gutenberg plugin__
+3. Go in 'Blocks' menu to manage blocks and settings
 
 
 == Frequently Asked Questions ==
 
 = What is Advanced Gutenberg Blocks? =
 
-AGB brings new blocks for the new WordPress editor and a settings page to configure them.
+AGB brings new blocks for the new WordPress editor and a settings page to configure them. AGB also provides a page to tweak the WordPress editor, and deactivate native blocks that you don't want to use.
 
 == Screenshots ==
 
 == Changelog ==
+
+= 1.6 (19/12/2018) =
+* New: Dashboard to manage blocks
+* New: separate Dashboard to disable native blocks
+* Fixed: a bug preventing activation
+* Fixed: loss of options data
 
 = 1.5 (17/12/2018) =
 * New Feature: "Editor settings" - tweak editor setting without code!

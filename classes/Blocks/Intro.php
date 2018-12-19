@@ -14,10 +14,10 @@ class Intro {
 			'icon' => 'dashicons-editor-textcolor',
 			'category' => 'common',
 			'preview_image' => Consts::get_url().'admin/img/blocks/intro.jpg',
-			'description' => __( 'Display a nice introduction text at the beginning of your post', 'advanced-gutenberg-blocks' ),
+			'description' => __( 'Display a nice introduction text at the beginning of your post.', 'advanced-gutenberg-blocks' ),
 		);
 
-		Blocks::register_block( 'advanced-gutenberg-blocks/notice', __( 'Intro', 'advanced-gutenberg-blocks' ), $args );
+		Blocks::register_block( 'advanced-gutenberg-blocks/intro', __( 'Intro', 'advanced-gutenberg-blocks' ), $args );
   }
 
 

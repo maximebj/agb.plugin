@@ -20,6 +20,7 @@ class Gmap {
 			'preview_image' => Consts::get_url().'admin/img/blocks/gmap.jpg',
 			'description' => __( "Insert a Google Map in your content, the easy way.", 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
+			'require' => __('This block requires an API key'),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/gmap', __( 'Google Map', 'advanced-gutenberg-blocks' ), $args );
@@ -30,17 +31,17 @@ class Gmap {
 
 	public function settings() {
 		echo '
-			<p class="AGB-block__settings__description">' . __( 'The API key is mandatory, you can create one on the <a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">Google Maps JS Api page</a>. ' ) . '</p>
-
-			<div class="AGB-block__settings__option">
-				<div class="AGB-block__settings__label">
+			<div class="AGB-form__setting">
+				<div class="AGB-form__label is-required">
 					<label for="advanced-gutenberg-blocks-gmap-api-key"> ' . __( 'Api Key', 'advanced-gutenberg-blocks' ) . '</label>
 				</div>
 
-				<div class="AGB-block__settings__field">
+				<div class="AGB-form__field">
 					<input type="text" name="advanced-gutenberg-blocks-gmap-api-key" placeholder="' . __( 'Insert your Google Maps API Key here', 'advanced-gutenberg-blocks' ) . '" value="' . get_option( 'advanced-gutenberg-blocks-gmap-api-key' ) . '">
 				</div>
 			</div>
+
+			<p class="AGB-form__help">' . __( 'The API key is mandatory.', 'advanced-gutenberg-blocks') . '<br>' . __( 'You can create one on the <a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">Google Maps JS Api page</a>. ' ) . '</p>
 		';
 	}
 

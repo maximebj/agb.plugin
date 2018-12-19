@@ -18,7 +18,7 @@ class AddToCart {
 			'icon' => 'dashicons-cart',
 			'category' => 'woo',
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/addtocart.jpg',
-			'description' => __( 'An add to cart button to quickly purchase a WooCommerce product', 'advanced-gutenberg-blocks' ),
+			'description' => __( 'An add to cart button to quickly purchase a WooCommerce product.', 'advanced-gutenberg-blocks' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/addtocart', __( 'Add to cart button', 'advanced-gutenberg-blocks' ), $args );

@@ -17,8 +17,9 @@ class Ad {
 			'icon' => 'dashicons-megaphone',
 			'category' => 'marketing',
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/banner.jpg',
-			'description' => __( 'Monetize your website by inserting Ads in your content. All you need is to grab a script from Google Adsense or other and paste it below. Best use for banner ads.', 'advanced-gutenberg-blocks' ),
+			'description' => __( 'Monetize your website by inserting Ads in your content. Best use for banner ads.', 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
+			'require' => __('This block requires a Google ads unit code'),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/ad', __( 'Banner Ad', 'advanced-gutenberg-blocks' ), $args );
@@ -30,15 +31,17 @@ class Ad {
 
 	public function settings() {
 		echo '
-		<div class="AGB-block__settings__option">
-			<div class="AGB-block__settings__label">
-				<label for="advanced-gutenberg-blocks-ad-script"> ' . __( 'Js script', 'advanced-gutenberg-blocks' ) . '</label>
+			<div class="AGB-form__setting">
+				<div class="AGB-form__label is-required">
+					<label for="advanced-gutenberg-blocks-ad-script"> ' . __( 'JS unit code', 'advanced-gutenberg-blocks' ) . '</label>
+				</div>
+
+				<div class="AGB-form__field">
+					<textarea name="advanced-gutenberg-blocks-ad-script" rows="4">' . get_option('advanced-gutenberg-blocks-ad-script') . '</textarea>
+				</div>
 			</div>
 
-			<div class="AGB-block__settings__field">
-				<textarea name="advanced-gutenberg-blocks-ad-script" rows="4">' . get_option('advanced-gutenberg-blocks-ad-script') . '</textarea>
-			</div>
-		</div>
+			<p class="AGB-form__help">' . __( 'Grab this code from your Adsense account.', 'advanced-gutenberg-blocks' ) . ' </p>
 		';
 	}
 

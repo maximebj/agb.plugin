@@ -20,7 +20,7 @@ class Plugin {
 			'icon' => 'dashicons-admin-plugins',
 			'category' => 'apis',
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/plugin.jpg',
-			'description' => __( 'Display a Plugin informations from the official WordPress repository', 'advanced-gutenberg-blocks' ),
+			'description' => __( 'Display a Plugin informations from the official WordPress repository.', 'advanced-gutenberg-blocks' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/plugin', __( 'WordPress Plugin Card', 'advanced-gutenberg-blocks' ), $args );

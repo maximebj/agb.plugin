@@ -18,7 +18,7 @@ class Post {
 			'icon' => 'dashicons-admin-post',
 			'category' => 'common',
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/post.jpg',
-			'description' => __( 'Display pretty posts link (from any post type)', 'advanced-gutenberg-blocks' ),
+			'description' => __( 'Display pretty posts link (from any post type).', 'advanced-gutenberg-blocks' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/post', __( 'Post', 'advanced-gutenberg-blocks' ), $args );

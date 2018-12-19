@@ -36,7 +36,16 @@ class Settings {
 			__( 'Manage Blocks' , 'advanced-gutenberg-blocks' ),
 			apply_filters( 'AGB-manage-blocks-capabilities', 'edit_posts' ),
 			Consts::PLUGIN_NAME . '-manager',
-			array( $this, 'blocks_management' )
+			array( $this, 'blocks_management_page' )
+		);
+
+		add_submenu_page(
+			Consts::PLUGIN_NAME,
+			__( 'Disable WP Blocks' , 'advanced-gutenberg-blocks' ),
+			__( 'Disable WP Blocks' , 'advanced-gutenberg-blocks' ),
+			apply_filters( 'AGB-disable-blocks-capabilities', 'manage_options' ),
+			Consts::PLUGIN_NAME . '-disable',
+			array( $this, 'disable_blocks_page' )
 		);
 
 		add_submenu_page(
@@ -45,7 +54,7 @@ class Settings {
 			__( 'Tweak Editor' , 'advanced-gutenberg-blocks' ),
 			apply_filters( 'AGB-editor-settings-capabilities', 'manage_options' ),
 			Consts::PLUGIN_NAME.'-settings',
-			array( $this, 'editor_settings' )
+			array( $this, 'editor_settings_page' )
 		);
 
 		// Remove default submenu
@@ -60,30 +69,20 @@ class Settings {
 
 		// Register blocks settings
 		foreach( $settings as $setting ) {
-			register_setting( Consts::SETTINGS_GROUP, $setting['name'] );
+			register_setting( 'advanced-gutenberg-blocks-settings', $setting['name'] );
 		}
 
 		// Editor Settings
-		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_width' );
-		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_wide_width' );
-		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_colors' );
-		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_custom_color' );
-		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_font_sizes' );
-		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_custom_font_size' );
-		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_default_styles' );
-		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_responsive_embeds' );
-		register_setting( Consts::SETTINGS_GROUP, 'advanced-gutenberg-blocks_editor_wide_blocks' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_width' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_wide_width' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_colors' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_custom_color' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_font_sizes' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_custom_font_size' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_default_styles' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_responsive_embeds' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_wide_blocks' );
 
-	}
-
-	public function blocks_management() {
-
-		$native_blocks = Blocks::get_native_blocks();
-		$registered_blocks = Blocks::get_registered_blocks();
-		$disabled_blocks = Blocks::get_disabled_blocks();
-		$categories = Blocks::get_categories();
-
-    require_once Consts::get_path() . 'admin/templates/blocks_management.php';
 	}
 
 
@@ -117,7 +116,25 @@ class Settings {
 	}
 
 
-	public function editor_settings() {
+	public function blocks_management_page() {
+
+		$native_blocks = Blocks::get_native_blocks(); // To remove
+		$registered_blocks = Blocks::get_registered_blocks();
+		$disabled_blocks = Blocks::get_disabled_blocks();
+		$categories = Blocks::get_categories();
+
+    require_once Consts::get_path() . 'admin/templates/blocks_management.php';
+	}
+
+	public function disable_blocks_page() {
+
+		$native_blocks = Blocks::get_native_blocks();
+		$disabled_blocks = Blocks::get_disabled_blocks();
+
+		require_once Consts::get_path() . 'admin/templates/disable_blocks.php';
+	}
+
+	public function editor_settings_page() {
     require_once Consts::get_path() . 'admin/templates/editor_settings.php';
 	}
 

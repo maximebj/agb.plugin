@@ -18,7 +18,7 @@ class Product {
 			'icon' => 'dashicons-products',
 			'category' => 'woo',
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/product.jpg',
-			'description' => __( 'Display WooCommerce Product in your post', 'advanced-gutenberg-blocks' ),
+			'description' => __( 'Display WooCommerce Product in your post.', 'advanced-gutenberg-blocks' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/product', __( 'Product', 'advanced-gutenberg-blocks' ), $args );
