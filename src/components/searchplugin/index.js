@@ -16,7 +16,7 @@ export default class SearchPlugin extends Component {
       return
     }
 
-    this.setState( { results: __( 'Loading...', 'advanced-gutenberg-blocks' ) } )
+    this.setState( { results: __( 'Loading…', 'advanced-gutenberg-blocks' ) } )
 
     fetch( advancedGutenbergBlocksGlobals.ajaxurl, {
       method: 'POST',

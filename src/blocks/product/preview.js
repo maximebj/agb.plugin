@@ -97,7 +97,7 @@ export default class Preview extends Component {
 					</div>
 				</div>
 			) : (
-				<p class="AGB-block-message">{ __( 'Loading product...', 'advanced-gutenberg-blocks' ) }</p>
+				<p class="AGB-block-message">{ __( 'Loading product…', 'advanced-gutenberg-blocks' ) }</p>
 			)
     )
   }

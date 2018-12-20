@@ -15,7 +15,7 @@ export default class SearchProduct extends Component {
       return
     }
 
-    this.setState( { results: __( 'Loading...', 'advanced-gutenberg-blocks' ) } )
+    this.setState( { results: __( 'Loading…', 'advanced-gutenberg-blocks' ) } )
 
     let ck = advancedGutenbergBlocksGlobals.wooapikey
     let cs = advancedGutenbergBlocksGlobals.wooapisecret

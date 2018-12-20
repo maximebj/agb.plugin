@@ -48,7 +48,7 @@ export default class Preview extends Component {
 			return (
 				<p class="AGB-block-message">
 					<Spinner />
-					{ __( 'Loading plugin...', 'advanced-gutenberg-blocks' ) }
+					{ __( 'Loading plugin…', 'advanced-gutenberg-blocks' ) }
 				</p>
 			)
 

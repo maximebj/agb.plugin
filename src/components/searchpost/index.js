@@ -17,7 +17,7 @@ export default class SearchPost extends Component {
       return
     }
 
-    this.setState( { results: __( 'Loading...', 'advanced-gutenberg-blocks' ) } )
+    this.setState( { results: __( 'Loading…', 'advanced-gutenberg-blocks' ) } )
 
     fetch( `/wp-json/wp/v2/${this.state.currentType}/?search=${encodeURI( search )}&per_page=20` )
     .then( response => response.json() )
