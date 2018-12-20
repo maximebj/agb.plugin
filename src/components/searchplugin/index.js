@@ -43,10 +43,6 @@ export default class SearchPlugin extends Component {
     } )
   } )
 
-  onChangeValue = slug => {
-    this.props.onChange( _.find(this.state.results, { slug: slug} ) )
-  }
-
   render() {
 
 		const { results } = this.state
@@ -70,7 +66,7 @@ export default class SearchPlugin extends Component {
                   return (
                     <li
                       key={plugin.slug}  
-                      onClick={ () => this.onChangeValue( plugin.slug ) }
+                      onClick={ () => this.props.onChange( plugin ) }
                     >
                       <img src={ plugin.icon } alt={ plugin.name } />
                       <span>{ plugin.name }</span>
