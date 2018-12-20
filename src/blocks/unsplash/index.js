@@ -31,21 +31,35 @@ export default registerBlockType(
     },
     edit: props => {
 
-			const { attributes: { content }, className, isSelected, setAttributes } = props
+      const { attributes: { content }, className, isSelected, setAttributes } = props
+      
+      // If API key is not yet provided
+      if ( typeof advancedGutenbergBlocksUnsplash.error !== "undefined" ) {
+        return (
+          <p class="AGB-block-message">
+            {__( "⚠️ You need to provide an API key in ", 'advanced-gutenberg-blocks' )}
+            <a
+              target='_blank'
+              href="/wp-admin/admin.php?page=advanced-gutenberg-blocks-manager&modal=advanced-gutenberg-blocks-unsplash"
+            >
+              {__( "Blocks > Manage Blocks > Unsplash", 'advanced-gutenberg-blocks' )}
+            </a>
+          </p>
+        )
+      }
 
       return (
 				<Fragment>
 
 	        <div className="AGB-block-search">
-            <p>{logo}</p>
-            
-            <p class="AGB-block-search__input">
-              <TextControl
-                type="search"
-                placeholder={ __( "Search a picture", 'advanced-gutenberg-blocks' ) }
-                //onChange={ value => this.onSearch( value ) }
-              />
-            </p>
+            <p className="AGB-block-search__logo">{logo}</p>
+                  
+            <TextControl
+              type="search"
+              className="AGB-block-search__input"
+              placeholder={ __( "Search a picture", 'advanced-gutenberg-blocks' ) }
+              //onChange={ value => this.onSearch( value ) }
+            />        
 	        </div>
 
 				</Fragment>

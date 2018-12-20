@@ -1,14 +1,10 @@
 import './style.scss'
 import './editor.scss'
 
-import logo from './logo'
-
-import { debounce } from 'throttle-debounce'
+import SearchGiphy from './search'
 
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
-const { Fragment } = wp.element
-const { TextControl } = wp.components
 
 export default registerBlockType(
   'advanced-gutenberg-blocks/giphy',
@@ -20,44 +16,36 @@ export default registerBlockType(
     keywords: [
       __( 'gif', 'advanced-gutenberg-blocks' ),
     ],
-    attributes: {
-      content: {
-        type: 'array',
-        source: 'children',
-        selector: '.wp-block-advanced-gutenberg-blocks-notice__content',
-      },
-    },
+    attributes: {},
+
     edit: props => {
 
-			const { attributes: { content }, className, isSelected, setAttributes } = props
+      const { clientId, insertBlocksAfter } = props
+      
+      // If API key is not yet provided
+      if ( typeof advancedGutenbergBlocksGiphy.error !== "undefined" ) {
+        return (
+          <p class="AGB-block-message">
+            {__( "⚠️ You need to provide an API key in ", 'advanced-gutenberg-blocks' )}
+            <a
+              target='_blank'
+              href="/wp-admin/admin.php?page=advanced-gutenberg-blocks-manager&modal=advanced-gutenberg-blocks-giphy"
+            >
+              {__( "Blocks > Manage Blocks > Giphy", 'advanced-gutenberg-blocks' )}
+            </a>
+          </p>
+        )
+      }
 
       return (
-				<Fragment>
-
-	        <div className="AGB-block-search">
-            <p>{logo}</p>
-            
-            <p class="AGB-block-search__input">
-              <TextControl
-                type="search"
-                placeholder={ __( "Search a GIF", 'advanced-gutenberg-blocks' ) }
-                //onChange={ value => this.onSearch( value ) }
-              />
-            </p>
-	        </div>
-
-				</Fragment>
+        <SearchGiphy
+          clientId={clientId}
+          insertBlocksAfter={insertBlocksAfter}
+        />
       )
     },
-    save: props => {
-
-			const { content } = props.attributes
-
-			return (
-        <div>
-
-        </div>
-      )
+    save: () => {
+      return null
     },
   },
 )

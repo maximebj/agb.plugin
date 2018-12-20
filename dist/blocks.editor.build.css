@@ -30,18 +30,38 @@
   height: 32px; }
 
 .AGB-block-search {
-  background: #222;
   border-radius: 4px;
   text-align: center;
-  padding: 20px; }
-  .AGB-block-search img, .AGB-block-search svg {
-    height: 32px;
-    display: inline-block; }
+  padding: 20px;
+  border: 1px solid #DDD; }
+
+.AGB-block-search__logo svg {
+  height: 32px;
+  display: inline-block; }
+
+.AGB-block-search.is-dark {
+  background: #222;
+  color: white;
+  border: none; }
 
 .AGB-block-search__input {
   max-width: 60%;
   margin-left: auto;
   margin-right: auto; }
+
+.editor-styles-wrapper .AGB-block-search__results {
+  list-style-type: none;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-align: center;
+      align-items: center; }
+  .editor-styles-wrapper .AGB-block-search__results li {
+    margin: 10px;
+    text-align: center;
+    width: calc( 33% - 20px);
+    cursor: pointer; }
 .edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-notice__title {
   font-size: 1.1em; }
 

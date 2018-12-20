@@ -20,40 +20,52 @@ class Unsplash {
 			'description' => __( "Find beautiful pictures from the best free photos stock", 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
 			'require' => __('This block requires an API key'),
-			'available' => false,
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/unsplash', __( 'Unsplash', 'advanced-gutenberg-blocks' ), $args );
 
 		// Register settings
-		Blocks::register_setting( 'advanced-gutenberg-blocks-unsplash-api-key' );
+		Blocks::register_setting( 'advanced-gutenberg-blocks-unsplash-access-key' );
+		Blocks::register_setting( 'advanced-gutenberg-blocks-unsplash-secret-key' );
   }
 
 	public function settings() {
 		echo '
 			<div class="AGB-form__setting">
-				<div class="AGB-form__label">
-					<label for="advanced-gutenberg-blocks-unsplash-api-key"> ' . __( 'Api Key', 'advanced-gutenberg-blocks' ) . '</label>
+				<div class="AGB-form__label is-required">
+					<label for="advanced-gutenberg-blocks-unsplash-access-key"> ' . __( 'API Access Key', 'advanced-gutenberg-blocks' ) . '</label>
 				</div>
 
 				<div class="AGB-form__field">
-					<input type="text" name="advanced-gutenberg-blocks-unsplash-api-key" placeholder="' . __( 'Insert your Unsplash API Key here', 'advanced-gutenberg-blocks' ) . '" value="' . get_option( 'advanced-gutenberg-blocks-unsplash-api-key' ) . '">
+					<input type="text" name="advanced-gutenberg-blocks-unsplash-access-key" placeholder="' . __( 'Insert your Access Key here', 'advanced-gutenberg-blocks' ) . '" value="' . get_option( 'advanced-gutenberg-blocks-unsplash-access-key' ) . '">
 				</div>
 			</div>
 
-			<p class="AGB-form__help">' . __( 'The API key is mandatory, you can create one on the <a href="https://www.opengraph.io/" target="_blank">OpenGraph.io API service</a>. ' ) . '</p>
+			<div class="AGB-form__setting">
+				<div class="AGB-form__label is-required">
+					<label for="advanced-gutenberg-blocks-unsplash-secret-key"> ' . __( 'API Secret Key', 'advanced-gutenberg-blocks' ) . '</label>
+				</div>
+
+				<div class="AGB-form__field">
+					<input type="text" name="advanced-gutenberg-blocks-unsplash-secret-key" placeholder="' . __( 'Insert your Secret Key here', 'advanced-gutenberg-blocks' ) . '" value="' . get_option( 'advanced-gutenberg-blocks-unsplash-secret-key' ) . '">
+				</div>
+			</div>
+
+			<p class="AGB-form__help">' . __( 'The API key is mandatory, you can create an App on the <a href="https://unsplash.com/oauth/applications" target="_blank">Unsplash Developers service</a>. ' ) . '</p>
 		';
 	}
 
 	public function editor_assets() {
-		$api_key = get_option( 'advanced-gutenberg-blocks-unsplash-api-key' );
+		$access_key = get_option( 'advanced-gutenberg-blocks-unsplash-access-key' );
+		$secret_key = get_option( 'advanced-gutenberg-blocks-unsplash-secret-key' );
 
 		$data = array();
 
-		if ( $api_key == "" ) {
+		if ( $access_key == "" or $secret_key  == "" ) {
 			$data['error'] = 'noApiKey';
 		} else {
-			$data['apiKey'] = $api_key;
+			$data['accessKey'] = $access_key;
+			$data['secretKey'] = $secret_key;
 		}
 
 		wp_localize_script(

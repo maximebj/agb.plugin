@@ -46,20 +46,40 @@
 
 // Component Search
 
-.AGB-block-search {
-  background: #222;
+.AGB-block-search { 
   border-radius: $radius;
   text-align: center;
   padding: 20px;
+  border: 1px solid $color-neutral;
+}
 
-  img, svg {
-    height: 32px;
-    display: inline-block;
-  }
+.AGB-block-search__logo svg {
+  height: 32px;
+  display: inline-block;
+}
+
+.AGB-block-search.is-dark {
+  background: #222;
+  color: white; 
+  border: none;
 }
 
 .AGB-block-search__input {
   max-width: 60%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.editor-styles-wrapper .AGB-block-search__results {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  li {
+    margin: 10px;
+    text-align: center;
+    width: calc( 33% - 20px );
+    cursor: pointer;
+  }
 }
