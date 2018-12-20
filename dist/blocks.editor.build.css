@@ -62,6 +62,15 @@
     text-align: center;
     width: calc( 33% - 20px);
     cursor: pointer; }
+
+.AGB-block-search__more {
+  text-align: center; }
+  .AGB-block-search__more a {
+    color: #000;
+    text-decoration: underline; }
+
+.AGB-block-search.is-dark .AGB-block-search__more a {
+  color: white; }
 .edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-notice__title {
   font-size: 1.1em; }
 

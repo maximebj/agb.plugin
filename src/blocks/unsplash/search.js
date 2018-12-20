@@ -7,11 +7,14 @@ const { Component } = wp.element
 const { TextControl } = wp.components
 const { withDispatch } = wp.data
 const { createBlock } = wp.blocks
+const { Fragment } = wp.element
 
 class SearchUnsplash extends Component {
 
 	state = {
-		results: false,
+    results: false,
+    search: '',
+    page: 1,
 	}
 
   onSearch = debounce( 300, search => {
@@ -20,11 +23,21 @@ class SearchUnsplash extends Component {
       return
     }
 
-    const accessKey = advancedGutenbergBlocksUnsplash.accessKey
+    this.performSearch( search )
+  } )
 
-    this.setState( { results: __( 'Fetching...', 'advanced-gutenberg-blocks' ) } )
+  nextPage = () => {
+    this.setState( { page: this.state.page++ } )
+    this.performSearch( this.state.search )
+  }
 
-    fetch( `https://api.unsplash.com/search/photos/?client_id=${accessKey}&per_page=15&query=${encodeURI( search )}` )
+  performSearch = search => {
+    this.setState( { 
+      results: __( 'Fetching...', 'advanced-gutenberg-blocks' ),
+      search: search
+    } )
+
+    fetch( `https://api.unsplash.com/search/photos/?client_id=${advancedGutenbergBlocksUnsplash.accessKey}&per_page=15&page=${this.state.page}&query=${encodeURI( search )}` )
     .then( response => response.json() )
     .then( results => {
 
@@ -36,20 +49,21 @@ class SearchUnsplash extends Component {
 
 			this.setState( {  results: results.results  } )
 		} )
-  } )
+  }
 
   onChange = image => {
     
     const block = createBlock( "core/image", {
       url: image.urls.regular,
-      caption: image.description,
-      alt: image.description,
+      caption: image.description || '',
+      alt: image.description || '',
       align: 'center',
     } );
     
     this.props.insertBlocksAfter( block )
     this.props.removeBlock( this.props.clientId )
   }
+
 
   render() {
 
@@ -68,22 +82,32 @@ class SearchUnsplash extends Component {
 
         { results && Array.isArray( results ) ?
           (
-            <ul className="AGB-block-search__results">
-              { results.map( image => {
+            <Fragment>
+              <ul className="AGB-block-search__results">
+                { results.map( image => {
 
-                return (
-                  <li
-                    key={image.id}  
-                    onClick={ () => this.onChange( image ) }
-                  >
-                    <img 
-                      src={ image.urls.thumb } 
-                      alt={ image.description } 
-                    />
-                  </li>
-                )
-              } ) }
-            </ul>
+                  return (
+                    <li
+                      key={image.id}  
+                      onClick={ () => this.onChange( image ) }
+                    >
+                      <img 
+                        src={ image.urls.thumb } 
+                        alt={ image.description || '' } 
+                      />
+                    </li>
+                  )
+                } ) }
+              </ul>
+              <p className="AGB-block-search__more">
+                <a
+                  href="#"
+                  onClick={ () => this.nextPage() } 
+                >
+                  { __( 'More results', 'advanced-gutenberg-blocks' ) }
+                </a>
+              </p>
+            </Fragment>
           ) : (
             <p>{ results }</p>
           )

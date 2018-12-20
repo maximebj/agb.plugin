@@ -83,3 +83,15 @@
     cursor: pointer;
   }
 }
+
+.AGB-block-search__more {
+  text-align: center;
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+}
+
+.AGB-block-search.is-dark .AGB-block-search__more a {
+  color: white;
+}
