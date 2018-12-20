@@ -159,7 +159,7 @@ abstract class Blocks {
 				'list' => array(
 					'id' => 'core/list',
 					'name' => __( 'List'  ),
-					'svg' => Dashicons::LIST,
+					'svg' => Dashicons::LISTE,
 					'can_disable' => true,
 					'description' => __( 'Create a bulleted or numbered list.' ),
 				),
