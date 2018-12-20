@@ -7,24 +7,40 @@ const { Component } = wp.element
 const { TextControl } = wp.components
 const { withDispatch } = wp.data
 const { createBlock } = wp.blocks
+const { Fragment } = wp.element
 
 class SearchGiphy extends Component {
 
 	state = {
-		results: false,
+    results: false,
+    search: '',
+    page: 1,
 	}
 
   onSearch = debounce( 300, search => {
 
-    if( search.length < 3) {
+    if( search.length < 3 ) {
       return
     }
 
-    const key = advancedGutenbergBlocksGiphy.apiKey
+    this.setState( { page: 1 } )
+    this.performSearch( search )
+  } )
 
-    this.setState( { results: __( 'Fetching...', 'advanced-gutenberg-blocks' ) } )
+  nextPage = () => {
+    this.setState( { page: ++this.state.page } )
+    this.performSearch( this.state.search )
 
-    fetch( `http://api.giphy.com/v1/gifs/search?q=${encodeURI( search )}&api_key=${key}&limit=15` )
+    document.getElementById(`block-${this.props.clientId}`).scrollIntoView()
+  }
+
+  performSearch = search => {
+    this.setState( { 
+      results: __( 'Fetching…', 'advanced-gutenberg-blocks' ),
+      search: search,
+    } )
+
+    fetch( `http://api.giphy.com/v1/gifs/search?q=${encodeURI( search )}&api_key=${advancedGutenbergBlocksGiphy.apiKey}&limit=15&offset=${this.state.page}` )
     .then( response => response.json() )
     .then( results => {
 
@@ -34,7 +50,7 @@ class SearchGiphy extends Component {
 
 			this.setState( {  results: results.data  } )
 		} )
-  } )
+  }
 
   onChange = gif => {
     
@@ -66,24 +82,34 @@ class SearchGiphy extends Component {
 
         { results && Array.isArray(results) ?
           (
-            <ul className="AGB-block-search__results">
-              { results.map( gif => {
+            <Fragment>
+              <ul className="AGB-block-search__results">
+                { results.map( gif => {
 
-                return (
-                  <li
-                    key={gif.id}  
-                    onClick={ () => this.onChange( gif ) }
-                  >
-                    <img 
-                      src={ gif.images.downsized.url } 
-                      width={ gif.images.downsized.width + 'px' } 
-                      height={ gif.images.downsized.height + 'px' } 
-                      alt={ gif.title } 
-                    />
-                  </li>
-                )
-              } ) }
-            </ul>
+                  return (
+                    <li
+                      key={gif.id}  
+                      onClick={ () => this.onChange( gif ) }
+                    >
+                      <img 
+                        src={ gif.images.downsized.url } 
+                        width={ gif.images.downsized.width + 'px' } 
+                        height={ gif.images.downsized.height + 'px' } 
+                        alt={ gif.title } 
+                      />
+                    </li>
+                  )
+                } ) }
+              </ul>
+              <p className="AGB-block-search__more">
+                <a
+                  href="#"
+                  onClick={ () => this.nextPage() } 
+                >
+                  { __( 'More GIFs', 'advanced-gutenberg-blocks' ) }
+                </a>
+              </p>
+            </Fragment>
           ) : (
             <p>{ results }</p>
           )

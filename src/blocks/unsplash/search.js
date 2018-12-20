@@ -19,29 +19,30 @@ class SearchUnsplash extends Component {
 
   onSearch = debounce( 300, search => {
 
-    if( search.length < 3) {
+    if( search.length < 3 ) {
       return
     }
-
+    
+    this.setState( { page: 1 } )
     this.performSearch( search )
   } )
 
   nextPage = () => {
-    this.setState( { page: this.state.page++ } )
+    this.setState( { page: ++this.state.page } )
     this.performSearch( this.state.search )
+
+    document.getElementById(`block-${this.props.clientId}`).scrollIntoView()
   }
 
   performSearch = search => {
     this.setState( { 
-      results: __( 'Fetching...', 'advanced-gutenberg-blocks' ),
-      search: search
+      results: __( 'Fetching…', 'advanced-gutenberg-blocks' ),
+      search: search,
     } )
 
     fetch( `https://api.unsplash.com/search/photos/?client_id=${advancedGutenbergBlocksUnsplash.accessKey}&per_page=15&page=${this.state.page}&query=${encodeURI( search )}` )
     .then( response => response.json() )
     .then( results => {
-
-      console.log(results)
 
       if( results.total == 0 ) {
         results = __( 'No result', 'advanced-gutenberg-blocks' )
@@ -104,7 +105,7 @@ class SearchUnsplash extends Component {
                   href="#"
                   onClick={ () => this.nextPage() } 
                 >
-                  { __( 'More results', 'advanced-gutenberg-blocks' ) }
+                  { __( 'More images', 'advanced-gutenberg-blocks' ) }
                 </a>
               </p>
             </Fragment>
