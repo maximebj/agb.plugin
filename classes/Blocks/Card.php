@@ -32,7 +32,7 @@ class Card {
 		echo '
 			<div class="AGB-form__setting">
 				<div class="AGB-form__label is-required">
-					<label for="advanced-gutenberg-blocks-opengraph-api-key"> ' . __( 'Api Key', 'advanced-gutenberg-blocks' ) . '</label>
+					<label for="advanced-gutenberg-blocks-opengraph-api-key"> ' . __( 'API Key', 'advanced-gutenberg-blocks' ) . '</label>
 				</div>
 
 				<div class="AGB-form__field">
