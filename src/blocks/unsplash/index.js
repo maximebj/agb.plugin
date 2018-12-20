@@ -1,14 +1,10 @@
 import './style.scss'
 import './editor.scss'
 
-import logo from './logo'
-
-import { debounce } from 'throttle-debounce'
+import SearchUnsplash from './search'
 
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
-const { Fragment } = wp.element
-const { TextControl } = wp.components
 
 export default registerBlockType(
   'advanced-gutenberg-blocks/unsplash',
@@ -22,16 +18,11 @@ export default registerBlockType(
       __( 'picture', 'advanced-gutenberg-blocks' ),
       __( 'image', 'advanced-gutenberg-blocks' ),
     ],
-    attributes: {
-      content: {
-        type: 'array',
-        source: 'children',
-        selector: '.wp-block-advanced-gutenberg-blocks-notice__content',
-      },
-    },
+    attributes: {},
+
     edit: props => {
 
-      const { attributes: { content }, className, isSelected, setAttributes } = props
+      const { clientId, insertBlocksAfter } = props
       
       // If API key is not yet provided
       if ( typeof advancedGutenbergBlocksUnsplash.error !== "undefined" ) {
@@ -49,31 +40,14 @@ export default registerBlockType(
       }
 
       return (
-				<Fragment>
-
-	        <div className="AGB-block-search">
-            <p className="AGB-block-search__logo">{logo}</p>
-                  
-            <TextControl
-              type="search"
-              className="AGB-block-search__input"
-              placeholder={ __( "Search a picture", 'advanced-gutenberg-blocks' ) }
-              //onChange={ value => this.onSearch( value ) }
-            />        
-	        </div>
-
-				</Fragment>
+				<SearchUnsplash
+          clientId={clientId}
+          insertBlocksAfter={insertBlocksAfter}
+        />
       )
     },
     save: props => {
-
-			const { content } = props.attributes
-
-			return (
-        <div>
-
-        </div>
-      )
+      return null
     },
   },
 )
