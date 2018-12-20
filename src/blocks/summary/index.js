@@ -36,21 +36,13 @@ export default registerBlockType(
 			},
     },
     edit: compose(
-      [ withSelect( ( select ) => {
-        const { getBlocks } = select( 'core/editor' )
-        return { blocks: getBlocks() };
-
-      } ),
-      withDispatch( dispatch => {
-    		const {
-    			updateBlockAttributes,
-    		} = dispatch( 'core/editor' )
-
-    		return {
-    			updateBlockAttributes: updateBlockAttributes,
-    		}
-      } )
-    ] ) ( props => {
+      withSelect( ( select ) => ({
+        blocks: select( 'core/editor' ).getBlocks()
+      })),
+      withDispatch( dispatch => ({
+    		updateBlockAttributes: dispatch( 'core/editor' ).updateBlockAttributes
+      }))
+    ) ( props => {
 
   		const { attributes, setAttributes, blocks, updateBlockAttributes } = props
       const { title, ordered } = attributes
