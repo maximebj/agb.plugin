@@ -4,7 +4,7 @@ import logo from './logo'
 
 const { __ } = wp.i18n
 const { Component } = wp.element
-const { TextControl } = wp.components
+const { TextControl, Button } = wp.components
 const { withDispatch } = wp.data
 const { createBlock } = wp.blocks
 const { Fragment } = wp.element
@@ -15,6 +15,7 @@ class SearchGiphy extends Component {
     results: false,
     search: '',
     page: 1,
+    isRandom: false,
   }
   
   onSearch = debounce( 300, search => {
@@ -48,8 +49,23 @@ class SearchGiphy extends Component {
         results = __( 'No result', 'advanced-gutenberg-blocks' )
       }
 
-			this.setState( {  results: results.data  } )
+			this.setState( { 
+        results: results.data,
+        isRandom: false,
+      } )
 		} )
+  }
+
+  getRandom = () => {
+    fetch( `http://api.giphy.com/v1/gifs/trending?api_key=${advancedGutenbergBlocksGiphy.apiKey}&limit=15` )
+    .then( response => response.json() )
+    .then( results => {
+      console.log(results)
+      this.setState( {  
+        results: results.data, 
+        isRandom: true,
+      } )
+    } )
   }
 
   onChange = gif => {
@@ -67,18 +83,28 @@ class SearchGiphy extends Component {
 
   render() {
 
-    const { results } = this.state
+    const { results, isRandom } = this.state
 
     return (
       <div className="AGB-block-search is-dark">
         <p className="AGB-block-search__logo">{logo}</p>
 
-				<TextControl
-          type="search"
-          className="AGB-block-search__input"
-					placeholder={ __( "Search a GIF", 'advanced-gutenberg-blocks' ) }
-					onChange={ value => this.onSearch( value ) }
-				/>
+        <div className="AGB-block-search__input">
+          <TextControl
+            type="search"
+            placeholder={ __( "Search a GIF", 'advanced-gutenberg-blocks' ) }
+            onChange={ value => this.onSearch( value ) }
+          />
+          <span>
+            { __( 'or', 'advanced-gutenberg-blocks' ) }
+          </span>
+          <Button
+            isDefault
+            onClick={ () => this.getRandom() }
+          >
+            { __('Trending', 'advanced-gutenberg-blocks' ) }
+          </Button>
+        </div>
 
         { results && Array.isArray(results) ?
           (
@@ -101,14 +127,16 @@ class SearchGiphy extends Component {
                   )
                 } ) }
               </ul>
-              <p className="AGB-block-search__more">
-                <a
-                  href="#"
-                  onClick={ () => this.nextPage() } 
-                >
-                  { __( 'More GIFs', 'advanced-gutenberg-blocks' ) }
-                </a>
-              </p>
+              { ! isRandom && (
+                <p className="AGB-block-search__more">
+                  <a
+                    href="#"
+                    onClick={ () => this.nextPage() } 
+                  >
+                    { __( 'More GIFs', 'advanced-gutenberg-blocks' ) }
+                  </a>
+                </p>
+              ) }
             </Fragment>
           ) : (
             <p>{ results }</p>

@@ -167,7 +167,7 @@ class SearchUnsplash extends Component {
         <div className="AGB-block-search__input">
           <TextControl
             type="search"
-            placeholder={ __( "Search a GIF", 'advanced-gutenberg-blocks' ) }
+            placeholder={ __( "Search a picture", 'advanced-gutenberg-blocks' ) }
             onChange={ value => this.onSearch( value ) }
           />
           <span>
