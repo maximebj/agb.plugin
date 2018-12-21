@@ -71,6 +71,37 @@
 
 .AGB-block-search.is-dark .AGB-block-search__more a {
   color: white; }
+
+.AGB-block-search__preview {
+  margin: 0 auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #DDD;
+  -webkit-animation-name: loading;
+          animation-name: loading;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite; }
+
+@-webkit-keyframes loading {
+  from {
+    opacity: .4; }
+  50% {
+    opacity: .8; }
+  to {
+    opacity: .4; } }
+
+@keyframes loading {
+  from {
+    opacity: .4; }
+  50% {
+    opacity: .8; }
+  to {
+    opacity: .4; } }
 .edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-notice__title {
   font-size: 1.1em; }
 

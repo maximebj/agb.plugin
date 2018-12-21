@@ -15,8 +15,8 @@ class SearchGiphy extends Component {
     results: false,
     search: '',
     page: 1,
-	}
-
+  }
+  
   onSearch = debounce( 300, search => {
 
     if( search.length < 3 ) {

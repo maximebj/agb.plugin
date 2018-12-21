@@ -15,6 +15,9 @@ class SearchUnsplash extends Component {
     results: false,
     search: '',
     page: 1,
+    image: null,
+    uploading: false,
+    previewPic: '',
 	}
 
   onSearch = debounce( 300, search => {
@@ -53,22 +56,94 @@ class SearchUnsplash extends Component {
   }
 
   onChange = image => {
-    
-    const block = createBlock( "core/image", {
-      url: image.urls.regular,
-      caption: image.description || '',
-      alt: image.description || '',
-      align: 'center',
-    } );
-    
-    this.props.insertBlocksAfter( block )
-    this.props.removeBlock( this.props.clientId )
+    this.setState( { 
+      loading: true ,
+      previewPic: image.urls.thumb,
+    } )
+
+    this.uploadPhoto(image).then(image => {
+      const block = createBlock( "core/image", {
+        url: image.source_url,
+        id: image.id,
+        caption: image.description || '',
+        alt: image.description || '',
+        align: 'center',
+      } )
+      
+      this.props.insertBlocksAfter( block )
+      this.props.removeBlock( this.props.clientId )
+    } )
   }
 
+  uploadPhoto(image) {
+    if (this.state.image) {
+      return Promise.resolve(this.state.image);
+    }
+     
+    return this.download( image.links.download_location, image.id, { type: "image/jpeg"} )
+    .then( file => {
+      return this.createMediaFromFile( file ).then( image => {
+        this.setState( { image} )
+
+        return image
+      } )
+    } )
+  }
+
+  createMediaFromFile = file => {
+    const data = new window.FormData();
+    data.append("file", file, file.name || file.type.replace("/", "."));
+    return wp.apiRequest( {
+      path: "/wp/v2/media",
+      data,
+      contentType: false,
+      processData: false,
+      method: "POST"
+    } )
+  }
+
+  download = (url, name, options) =>
+    window
+      .fetch(`${url}?client_id=${advancedGutenbergBlocksUnsplash.accessKey}`)
+      .then( response => response.json() )
+      .then( ( { url } ) => {
+        return new Promise(resolve => {
+          const img = new window.Image()
+          const c = document.createElement("canvas")
+          const ctx = c.getContext("2d")
+          img.onload = function() {
+            const maxWidthHeight = 2000
+            const ratio = this.naturalWidth / this.naturalHeight
+            const width = ratio > 1 ? maxWidthHeight : maxWidthHeight * ratio
+            const height = ratio < 1 ? maxWidthHeight : maxWidthHeight / ratio
+            c.width = width
+            c.height = height
+            ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, width, height)
+            c.toBlob(resolve, "image/jpeg", 0.75)
+          };
+          img.crossOrigin = ""
+          img.src = url
+        });
+      })
+      .then( blob => new window.File( [blob], name + ".jpg", options ) )
+ 
 
   render() {
 
-    const { results } = this.state
+    const { results, loading, previewPic } = this.state
+
+    if ( loading ) {
+      return (
+        <div className="AGB-block-search">
+          <p className="AGB-block-search__logo">{logo}</p>
+          <div 
+            className="AGB-block-search__preview" 
+            style={ { backgroundImage: 'url(" ' + previewPic + ' ")' } } 
+          />
+          <p>{ __( 'Uploading picture in media library, please wait…', 'advanced-gutenberg-blocks' ) }</p>
+        </div>
+      )
+    }
 
     return (
       <div className="AGB-block-search">
