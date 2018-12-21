@@ -85,8 +85,8 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 == Changelog ==
 
 = 1.7 (21/12/2018) =
-* New Block: Get GIFs from Giphy
-* New Block: Get free images from Unsplash 
+* New Block: Search and display GIFs from Giphy
+* New Block: Search and import images from Unsplash 
 * Fixed: Notice block icon bug
 
 = 1.6 (19/12/2018) =
