@@ -57,7 +57,7 @@ class SearchGiphy extends Component {
   }
 
   getRandom = () => {
-    fetch( `http://api.giphy.com/v1/gifs/trending?api_key=${advancedGutenbergBlocksGiphy.apiKey}&limit=15` )
+    fetch( `https://api.giphy.com/v1/gifs/trending?api_key=${advancedGutenbergBlocksGiphy.apiKey}&limit=15` )
     .then( response => response.json() )
     .then( results => {
       console.log(results)
