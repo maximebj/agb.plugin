@@ -17,7 +17,7 @@ class SearchUnsplash extends Component {
     page: 1,
     image: null,
     uploading: false,
-    previewPic: '',
+    choosenPic: null,
     isRandom: false,
 	}
 
@@ -73,15 +73,24 @@ class SearchUnsplash extends Component {
   onChange = image => {
     this.setState( { 
       loading: true ,
-      previewPic: image.urls.thumb,
+      choosenPic: image,
     } )
 
-    this.uploadPhoto(image).then(image => {
+    this.uploadPhoto(image).then( image => {
+
+      const { choosenPic } = this.state
+      var description = ''
+      
+      if ( choosenPic.description != null ) {
+        description += choosenPic.description + ' '
+      }
+      description +=  __( 'by', 'advanced-gutenberg-blocks' ) + ' ' + choosenPic.user.name
+
       const block = createBlock( "core/image", {
         url: image.source_url,
         id: image.id,
-        caption: image.description || '',
-        alt: image.description || '',
+        caption: description,
+        alt: description,
         align: 'center',
       } )
       
@@ -107,7 +116,7 @@ class SearchUnsplash extends Component {
 
   createMediaFromFile = file => {
     const data = new window.FormData();
-    data.append("file", file, file.name || file.type.replace("/", "."));
+    data.append( "file", file, file.name || file.type.replace("/", ".") );
     return wp.apiRequest( {
       path: "/wp/v2/media",
       data,
@@ -145,7 +154,7 @@ class SearchUnsplash extends Component {
 
   render() {
 
-    const { results, loading, previewPic, isRandom } = this.state
+    const { results, loading, choosenPic, isRandom } = this.state
 
     if ( loading ) {
       return (
@@ -153,7 +162,7 @@ class SearchUnsplash extends Component {
           <p className="AGB-block-search__logo">{logo}</p>
           <div 
             className="AGB-block-search__preview" 
-            style={ { backgroundImage: 'url(" ' + previewPic + ' ")' } } 
+            style={ { backgroundImage: 'url(" ' + choosenPic.urls.thumb + ' ")' } } 
           />
           <p>{ __( 'Uploading picture in media library, please wait…', 'advanced-gutenberg-blocks' ) }</p>
         </div>

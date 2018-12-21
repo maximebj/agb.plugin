@@ -86,6 +86,7 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 
 = 1.7.1 (21/12/2018) =
 * Fix: Giphy now works on HTTPS sites
+* Fix: Unsplash image description
 
 = 1.7 (21/12/2018) =
 * New Block: Search and display GIFs from Giphy
