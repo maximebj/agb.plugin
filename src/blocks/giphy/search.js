@@ -41,7 +41,7 @@ class SearchGiphy extends Component {
       search: search,
     } )
 
-    fetch( `http://api.giphy.com/v1/gifs/search?q=${encodeURI( search )}&api_key=${advancedGutenbergBlocksGiphy.apiKey}&limit=15&offset=${this.state.page}` )
+    fetch( `https://api.giphy.com/v1/gifs/search?q=${encodeURI( search )}&api_key=${advancedGutenbergBlocksGiphy.apiKey}&limit=15&offset=${this.state.page}` )
     .then( response => response.json() )
     .then( results => {
 
