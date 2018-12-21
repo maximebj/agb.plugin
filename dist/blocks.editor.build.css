@@ -47,7 +47,21 @@
 .AGB-block-search__input {
   max-width: 60%;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  display: -ms-flexbox;
+  display: flex; }
+  .AGB-block-search__input > div:first-child {
+    -ms-flex: 1;
+        flex: 1; }
+  .AGB-block-search__input > span {
+    margin: 0 10px;
+    font-family: sans-serif;
+    font-size: .9em;
+    color: #777;
+    line-height: 32px; }
+  .AGB-block-search__input > .components-button.is-button {
+    height: 32px;
+    line-height: 29px; }
 
 .editor-styles-wrapper .AGB-block-search__results {
   list-style-type: none;

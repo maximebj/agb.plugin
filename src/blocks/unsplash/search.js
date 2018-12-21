@@ -4,7 +4,7 @@ import logo from './logo'
 
 const { __ } = wp.i18n
 const { Component } = wp.element
-const { TextControl } = wp.components
+const { TextControl, Button } = wp.components
 const { withDispatch } = wp.data
 const { createBlock } = wp.blocks
 const { Fragment } = wp.element
@@ -18,6 +18,7 @@ class SearchUnsplash extends Component {
     image: null,
     uploading: false,
     previewPic: '',
+    isRandom: false,
 	}
 
   onSearch = debounce( 300, search => {
@@ -43,16 +44,30 @@ class SearchUnsplash extends Component {
       search: search,
     } )
 
-    fetch( `https://api.unsplash.com/search/photos/?client_id=${advancedGutenbergBlocksUnsplash.accessKey}&per_page=15&page=${this.state.page}&query=${encodeURI( search )}` )
+    fetch( `https://api.unsplash.com/search/photos/?client_id=${advancedGutenbergBlocksUnsplash.accessKey}&per_page=15&page=${this.state.page}&query=${search}` )
     .then( response => response.json() )
     .then( results => {
 
       if( results.total == 0 ) {
         results = __( 'No result', 'advanced-gutenberg-blocks' )
       }
+      this.setState( {  
+        results: results.results,
+        isRandom: false  
+      } )
+    } )
+  }
 
-			this.setState( {  results: results.results  } )
-		} )
+  getRandom = () => {
+    fetch( `https://api.unsplash.com/photos/random/?client_id=${advancedGutenbergBlocksUnsplash.accessKey}&count=15&orientation=landscape&featured=true` )
+    .then( response => response.json() )
+    .then( results => {
+
+      this.setState( {  
+        results: results, 
+        isRandom: true,
+      } )
+    } )
   }
 
   onChange = image => {
@@ -80,10 +95,10 @@ class SearchUnsplash extends Component {
       return Promise.resolve(this.state.image);
     }
      
-    return this.download( image.links.download_location, image.id, { type: "image/jpeg"} )
+    return this.download( image.links.download_location, image.id, { type: "image/jpeg" } )
     .then( file => {
       return this.createMediaFromFile( file ).then( image => {
-        this.setState( { image} )
+        this.setState( { image } )
 
         return image
       } )
@@ -130,7 +145,7 @@ class SearchUnsplash extends Component {
 
   render() {
 
-    const { results, loading, previewPic } = this.state
+    const { results, loading, previewPic, isRandom } = this.state
 
     if ( loading ) {
       return (
@@ -149,12 +164,23 @@ class SearchUnsplash extends Component {
       <div className="AGB-block-search">
         <p className="AGB-block-search__logo">{logo}</p>
 
-				<TextControl
-          type="search"
-          className="AGB-block-search__input"
-					placeholder={ __( "Search a GIF", 'advanced-gutenberg-blocks' ) }
-					onChange={ value => this.onSearch( value ) }
-				/>
+        <div className="AGB-block-search__input">
+          <TextControl
+            type="search"
+            placeholder={ __( "Search a GIF", 'advanced-gutenberg-blocks' ) }
+            onChange={ value => this.onSearch( value ) }
+          />
+          <span>
+            { __( 'or', 'advanced-gutenberg-blocks' ) }
+          </span>
+          <Button
+            isDefault
+            onClick={ () => this.getRandom() }
+          >
+            { __('Random', 'advanced-gutenberg-blocks' ) }
+          </Button>
+        </div>
+				
 
         { results && Array.isArray( results ) ?
           (
@@ -175,6 +201,7 @@ class SearchUnsplash extends Component {
                   )
                 } ) }
               </ul>
+              { ! isRandom && (
               <p className="AGB-block-search__more">
                 <a
                   href="#"
@@ -183,6 +210,7 @@ class SearchUnsplash extends Component {
                   { __( 'More images', 'advanced-gutenberg-blocks' ) }
                 </a>
               </p>
+              ) }
             </Fragment>
           ) : (
             <p>{ results }</p>
