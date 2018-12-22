@@ -10,7 +10,7 @@ export default registerBlockType(
   'advanced-gutenberg-blocks/giphy',
   {
     title: __( 'Giphy', 'advanced-gutenberg-blocks' ),
-    description: __( 'Search and insert a GIF from Giphy', 'advanced-gutenberg-blocks' ),
+    description: __( 'Search and insert a GIF from Giphy.', 'advanced-gutenberg-blocks' ),
     category: 'agb',
     icon: { background: '#2F313A', foreground: '#DEBB8F', src: 'images-alt2' },
     keywords: [

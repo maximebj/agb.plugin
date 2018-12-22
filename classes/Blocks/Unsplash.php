@@ -17,7 +17,7 @@ class Unsplash {
 			'icon' => 'dashicons-camera',
 			'category' => 'apis',
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/unsplash.jpg',
-			'description' => __( "Find beautiful pictures from the best free photos stock", 'advanced-gutenberg-blocks' ),
+			'description' => __( "Find beautiful pictures from the best free photos stock.", 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
 			'require' => __('This block requires an API key'),
 		);

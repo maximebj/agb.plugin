@@ -1,0 +1,39 @@
+.wp-block-advanced-gutenberg-blocks-code {
+ border-radius: 5px;
+ overflow: hidden; 
+}
+
+.wp-block-advanced-gutenberg-blocks-code__header {
+  display: flex;
+}
+
+.wp-block-advanced-gutenberg-blocks-code__lang {
+  width: 100px;
+  letter-spacing: 1px;
+  font-size: .8em;
+  font-weight: bold;
+  line-height: 24px;
+  color: white;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  text-align: center;
+
+  &.is-lang-js { background: #ffc334; }
+}
+
+.wp-block-advanced-gutenberg-blocks-code__file {
+  flex: auto;
+  background: #2F3344;
+  color: #abb2bf;
+  padding: 0 8px;
+  line-height: 24px;
+  font-size: .75em;
+  text-align: right;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.wp-block-advanced-gutenberg-blocks-code__source {
+
+}
+  

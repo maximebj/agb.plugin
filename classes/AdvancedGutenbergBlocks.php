@@ -30,6 +30,7 @@ use AdvancedGutenbergBlocks\Blocks\Summary;
 use AdvancedGutenbergBlocks\Blocks\Intro;
 use AdvancedGutenbergBlocks\Blocks\Giphy;
 use AdvancedGutenbergBlocks\Blocks\Unsplash;
+use AdvancedGutenbergBlocks\Blocks\Code;
 
 
 /**
@@ -89,6 +90,7 @@ class AdvancedGutenbergBlocks {
 		require_once $path . 'classes/Blocks/Intro.php';
 		require_once $path . 'classes/Blocks/Giphy.php';
 		require_once $path . 'classes/Blocks/Unsplash.php';
+		require_once $path . 'classes/Blocks/Code.php';
 
 		// Activation / Deactivation hooks
 		(new Installer)->register_hooks();
@@ -115,6 +117,7 @@ class AdvancedGutenbergBlocks {
 		(new Intro)->run();
 		(new Giphy)->run();
 		(new Unsplash)->run();
+		(new Code)->run();
 	}
 
 

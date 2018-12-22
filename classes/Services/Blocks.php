@@ -116,10 +116,11 @@ abstract class Blocks {
 
 	public static function get_categories() {
 		$categories = array(
-			'common'    => __( 'Common' ),
-			'apis' 	    => __( 'External content' ),
-			'marketing' => __( 'Marketing' ),
-			'woo' 	    => __( 'WooCommerce' ),
+			'common'    => __( 'Common', 'advanced-gutenberg-blocks' ),
+			'apis' 	    => __( 'External content', 'advanced-gutenberg-blocks' ),
+			'marketing' => __( 'Marketing', 'advanced-gutenberg-blocks' ),
+			'woo' 	    => __( 'WooCommerce', 'advanced-gutenberg-blocks' ),
+			'specific'	=> __( 'Specific', 'advanced-gutenberg-blocks' ),
 		);
 
 		$categories = apply_filters( 'gutenberg-blocks/register-block', $categories );
