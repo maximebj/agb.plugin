@@ -1,7 +1,9 @@
 import './style.scss'
 import './editor.scss'
 
-import ListControl from '../../components/listcontrol'
+import React from 'react'
+import Select from 'react-select'
+
 import langList from './languages'
 
 const { __ } = wp.i18n
@@ -27,8 +29,8 @@ export default registerBlockType(
         selector: '.wp-block-advanced-gutenberg-blocks-code__content',
       },
 			language: {
-        type: 'string',
-        default: 'html',
+        type: 'array',
+        default: langList[0],
       },
       file: {
         type: 'string',
@@ -45,7 +47,7 @@ export default registerBlockType(
             <div>           
               <div>
                 { __('Language:', 'advanced-gutenberg-blocks' ) }
-                <ListControl 
+                <Select 
                   value={ language }
                   onChange={ language => setAttributes( { language } ) }
                   options={ langList }
@@ -65,7 +67,7 @@ export default registerBlockType(
           <div className="wp-block-advanced-gutenberg-blocks-code">
             <header className="wp-block-advanced-gutenberg-blocks-code__header">
               <div className="wp-block-advanced-gutenberg-blocks-code__lang is-lang-js">
-                {language}
+                {language.label}
               </div>
               <div className="wp-block-advanced-gutenberg-blocks-code__file">
                 {file}
