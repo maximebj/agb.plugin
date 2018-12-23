@@ -1,5 +1,5 @@
 // Main functions and styles
-import './components/common'
+import './styles/'
 
 // Blocks
 import './blocks/notice'

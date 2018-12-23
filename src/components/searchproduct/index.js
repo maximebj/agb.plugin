@@ -40,10 +40,6 @@ export default class SearchProduct extends Component {
 
   } )
 
-	onChangeValue = id => {
-		this.props.onChange ( _.find( this.state.results, { id: id} ) )
-	}
-
   render() {
 
 		const { results } = this.state
@@ -66,7 +62,7 @@ export default class SearchProduct extends Component {
                   return (
                     <li
                       key={product.id}
-                      onClick={ () => this.onChangeValue( product.id ) }
+                      onClick={ () => this.onChange( product ) }
                     >
                       { product.images.length > 0 && (
                         <img src={ product.images[0].src } alt={ product.name } />

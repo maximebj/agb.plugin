@@ -1,0 +1,20 @@
+.AGB-react-select {
+  .AGB-react-select__control {
+    border-color: #8d96a0;
+    min-height: auto;
+  }
+
+  .AGB-react-select__input input:focus {
+    box-shadow: none;
+  }
+
+  .AGB-react-select__indicator-separator {
+    background-color: #8d96a0;
+  }
+
+  .AGB-react-select__indicator {
+    padding: 4px 6px;
+    color: #8d96a0;
+  }
+
+}

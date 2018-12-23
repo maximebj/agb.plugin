@@ -1,15 +1,14 @@
 import './style.scss'
 import './editor.scss'
 
-import React from 'react'
-import Select from 'react-select'
+import Inspector from './inspect'
+import Preview from './preview'
 
 import langList from './languages'
 
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
 const { Fragment } = wp.element
-const { TextControl } = wp.components
 
 export default registerBlockType(
   'advanced-gutenberg-blocks/code',
@@ -27,56 +26,30 @@ export default registerBlockType(
         type: 'array',
         source: 'children',
         selector: '.wp-block-advanced-gutenberg-blocks-code__content',
+        default: '',
       },
 			language: {
-        type: 'array',
-        default: langList[0],
+        type: 'string',
+        default: langList[0].value,
       },
       file: {
         type: 'string',
         default: '',
       },
+      theme: {
+        type: 'string',
+        default: 'atom-dark-one',
+      },
     },
     edit: props => {
 
-      const { attributes : { source, language, file }, setAttributes, isSelected } = props
+      const { attributes, setAttributes } = props
+      const { source, language, file, theme } = attributes
 
       return (
         <Fragment>
-          {/* { isSelected && ( */}
-            <div>           
-              <div>
-                { __('Language:', 'advanced-gutenberg-blocks' ) }
-                <Select 
-                  value={ language }
-                  onChange={ language => setAttributes( { language } ) }
-                  options={ langList }
-                />
-              </div>
-              <div>
-                { __('File name:', 'advanced-gutenberg-blocks' ) }
-                <TextControl
-                  type="text"
-                  onChange={ file => setAttributes( { file } ) }
-                  placeHolder={ __(' /my/optionnal/file/name.ext', 'advanced-gutenberg-blocks' ) }
-                  value={ file }
-                />
-              </div>
-            </div>
-          {/* ) } */}
-          <div className="wp-block-advanced-gutenberg-blocks-code">
-            <header className="wp-block-advanced-gutenberg-blocks-code__header">
-              <div className="wp-block-advanced-gutenberg-blocks-code__lang is-lang-js">
-                {language.label}
-              </div>
-              <div className="wp-block-advanced-gutenberg-blocks-code__file">
-                {file}
-              </div>
-            </header>
-            <pre className="wp-block-advanced-gutenberg-blocks-code__source">
-              code
-            </pre>
-          </div>
+          <Inspector { ...{ language, file, theme, setAttributes } } />
+          <Preview { ...{ attributes, setAttributes } } />
         </Fragment>
       )
     },
