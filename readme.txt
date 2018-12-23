@@ -4,7 +4,7 @@ Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate
 Requires at least: 4.5
 Tested up to: 5.0
 Requires PHP: 5.6
-Stable tag: 1.7.1
+Stable tag: 1.8
 Donate link: https://paypal.me/maximebj
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -37,6 +37,7 @@ https://www.youtube.com/watch?v=PBVHKo172mU
 * Intro: A nice first paragraph for your posts
 * Giphy: Quickly search and insert a GIF from Giphy
 * Unsplash: Find beautiful pictures from the best free photos stock
+* Code: Finally the code block you deserve with dozens of themes and languages
 
 = Block management =
 
@@ -83,6 +84,10 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 == Screenshots ==
 
 == Changelog ==
+
+= 1.8 (28/12/2018) =
+* New block: Code with syntax highlighting, dozen of themes and languages
+* Fix: Custom Post Types on Post block
 
 = 1.7.1 (21/12/2018) =
 * Fix: Giphy now works on HTTPS sites
