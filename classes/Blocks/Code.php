@@ -19,6 +19,7 @@ class Code {
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/code.jpg',
 			'description' => __( "Syntax highlighting with custom themes for every languages.", 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
+			'credits_callback' => array( $this, 'credits' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/code', __( 'Code', 'advanced-gutenberg-blocks' ), $args );
@@ -39,7 +40,7 @@ class Code {
 			$select_html .= "<option value='$value'$selected>$label</option>";
 		}
 
-		echo '		
+		echo '
 			<div class="AGB-form__setting">
 				<div class="AGB-form__label">
 					<label for="advanced-gutenberg-blocks-bloc-theme"> ' . __( 'Theme', 'advanced-gutenberg-blocks' ) . '</label>
@@ -52,7 +53,13 @@ class Code {
 				</div>
 			</div>
 
-			<p class="AGB-form__help">' . __( 'what does it look like? <a href="https://codemirror.net/demo/theme.html" target="_blank">Find it out here</a>. ' ) . '</p>
+			<p class="AGB-form__help">' . __( 'what does it look like? <a href="https://codemirror.net/demo/theme.html" target="_blank">Find it out here</a>. ', 'advanced-gutenberg-blocks' ) . '</p>
+		';
+	}
+
+	public function credits() {
+		echo '	
+			<p>' . __('This block uses Code Mirror and React Code Mirror from Marijn Haverbeke and Jed Watson.', 'advanced-gutenberg-blocks' ) . '</p>
 		';
 	}
 

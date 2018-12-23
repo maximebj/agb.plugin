@@ -144,6 +144,11 @@
 							<?php if( $block['preview_image'] ): ?>
 								<img src="<?php echo $block['preview_image']; ?>" alt="<?php sprintf( __( '%s example', 'advanced-gutenberg-blocks' ), $block['name'] ); ?>">
 							<?php endif; ?>
+
+							<?php if( $block['credits_callback'] ): ?>
+								<p class="AGB-modal__subtitle"><?php _e('Credits', 'advanced-gutenberg-blocks' ); ?></p>
+								<?php call_user_func( $block['credits_callback'] ); ?>
+							<?php endif; ?>
 						</div>
 					</div>
 					
