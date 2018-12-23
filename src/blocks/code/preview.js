@@ -16,7 +16,7 @@ export default class Preview extends Component {
   render() {
 
     const { attributes, setAttributes, findLabel } = this.props
-    const { source, language, file, showLines, startLine } = attributes
+    const { source, language, file, showLines, startLine, alignment } = attributes
     
     const theme = advancedGutenbergBlocksCode.selectedTheme
 
@@ -30,7 +30,7 @@ export default class Preview extends Component {
 		}
 
     return (
-      <div className="wp-block-advanced-gutenberg-blocks-code">
+      <div className="wp-block-advanced-gutenberg-blocks-code" dataAlign={ alignment }>
         <link rel='stylesheet' href={ `../wp-content/plugins/advanced-gutenberg-blocks/dist/code-mirror-themes/${theme}.css` }type='text/css' />
         <header className="wp-block-advanced-gutenberg-blocks-code__header">
           <div className="wp-block-advanced-gutenberg-blocks-code__lang is-lang-js">

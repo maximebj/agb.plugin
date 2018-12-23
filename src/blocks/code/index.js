@@ -1,6 +1,7 @@
 import './style.scss'
 import './editor.scss'
 
+import Tools from './tools'
 import Inspector from './inspect'
 import Preview from './preview'
 
@@ -42,6 +43,15 @@ export default registerBlockType(
         type: 'integer',
         default: 1,
       },
+      alignment: {
+        type: 'string',
+      },
+    },
+    getEditWrapperProps( attributes ) {
+      const { alignment } = attributes;
+      if ( [ 'wide', 'full', 'left', 'right' ].indexOf( alignment ) !== -1 ) {
+        return { 'data-align': alignment };
+      }
     },
     edit: props => {
 
@@ -54,10 +64,11 @@ export default registerBlockType(
       }
 
       const { attributes, setAttributes } = props
-      const { language, file, showLines, startLine } = attributes
+      const { language, file, showLines, startLine, alignment } = attributes
 
       return (
         <Fragment>
+          <Tools { ...{ alignment, setAttributes } } />
           <Inspector { ...{ language, file, showLines, startLine, setAttributes, findLabel } } />
           <Preview { ...{ attributes, setAttributes, findLabel } } />
         </Fragment>
