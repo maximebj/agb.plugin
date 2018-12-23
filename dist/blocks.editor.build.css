@@ -1,4 +1,6 @@
 @import url(../node_modules/codemirror/lib/codemirror.css);
+.CodeMirror {
+  height: auto; }
 .components-text-control__input--small {
   max-width: 80px; }
 
