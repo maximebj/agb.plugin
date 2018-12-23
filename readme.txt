@@ -64,9 +64,17 @@ Customize a lot of settings within the editor without a line of code:
 
 Create your own blocks and register them in the Advanced Gutenberg Blocks settings page.
 
+= Built with performances in mind = 
+
+Don't worry about performances: only the needed scripts are loaded in frontend. 
+
 = Contribute! =
 
-Help us making great blocks! Join the project on [Github](https://github.com/maximebj/Gutenberg-blocks)
+Help me making great blocks! Join the project on [Github](https://github.com/maximebj/Gutenberg-blocks)
+
+= Credits = 
+
+This plugin uses the awesome [Create-Guten-Block](https://github.com/ahmadawais/create-guten-block) Boilerplate by Ahmad Awais! 
 
 == Installation ==
 
@@ -80,6 +88,14 @@ Help us making great blocks! Join the project on [Github](https://github.com/max
 = What is Advanced Gutenberg Blocks? =
 
 AGB brings new blocks for the new WordPress editor and a settings page to configure them. AGB also provides a page to tweak the WordPress editor, and deactivate native blocks that you don't want to use.
+
+= Does the blocks exists in standalone? =
+
+No, but only the needed scripts are loaded in front, so don't worry about performances
+
+= I have a block idea! How can I reach you? =
+
+Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 
 == Screenshots ==
 
@@ -131,7 +147,6 @@ AGB brings new blocks for the new WordPress editor and a settings page to config
 * Fixed: bug in Post block forgetting its ID
 * Fixed: bug in Post block with no thumbnail
 * Fixed: multiple little things
-
 
 = 1.4.2 (19/09/2018) =
 * Added filters for template files
