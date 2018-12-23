@@ -23,9 +23,7 @@ export default registerBlockType(
     ],
     attributes: {
       source: {
-        type: 'array',
-        source: 'children',
-        selector: '.wp-block-advanced-gutenberg-blocks-code__content',
+        type: 'string',
         default: '',
       },
 			language: {
@@ -36,20 +34,32 @@ export default registerBlockType(
         type: 'string',
         default: '',
       },
-      theme: {
-        type: 'string',
-        default: 'atom-dark-one',
+      showLines: {
+        type: 'boolean',
+        default: true,
+      },
+      startLine: {
+        type: 'integer',
+        default: 1,
       },
     },
     edit: props => {
 
+      const findLabel = ( array, value ) => {
+        let entry = _.find( array, { value: value } )
+        if( _.isUndefined( entry ) ) {
+          return array[0].label
+        }
+        return entry.label
+      }
+
       const { attributes, setAttributes } = props
-      const { source, language, file, theme } = attributes
+      const { language, file, showLines, startLine } = attributes
 
       return (
         <Fragment>
-          <Inspector { ...{ language, file, theme, setAttributes } } />
-          <Preview { ...{ attributes, setAttributes } } />
+          <Inspector { ...{ language, file, showLines, startLine, setAttributes, findLabel } } />
+          <Preview { ...{ attributes, setAttributes, findLabel } } />
         </Fragment>
       )
     },

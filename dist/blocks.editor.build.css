@@ -1,3 +1,7 @@
+@import url(../node_modules/codemirror/lib/codemirror.css);
+.components-text-control__input--small {
+  max-width: 80px; }
+
 .AGB-block-message {
   text-align: center;
   font-style: italic;
