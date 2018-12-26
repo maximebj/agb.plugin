@@ -1,4 +1,4 @@
-<div class="wp-block-advanced-gutenberg-blocks-gmap">
+<div class="wp-block-advanced-gutenberg-blocks-gmap<?php echo $align_class; ?>">
 	<script>
 		function initMap<?php echo $rand; ?>() {
 

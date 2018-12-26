@@ -104,6 +104,8 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 = 1.8 (28/12/2018) =
 * New block: Code with syntax highlighting, dozen of themes and languages
 * Fix: Custom Post Types on Post block
+* Improved: Gmap block supports wide and full alignment
+* Optimization: Better performances
 
 = 1.7.1 (21/12/2018) =
 * Fix: Giphy now works on HTTPS sites

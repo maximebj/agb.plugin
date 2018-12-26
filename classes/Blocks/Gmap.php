@@ -70,13 +70,23 @@ class Gmap {
 		if( ! isset( $attributes['zoom'] ) ) { $attributes['zoom'] = 15; }
 		if( ! isset( $attributes['height'] ) ) { $attributes['height'] = 400; }
 
+		// Define Align Class
+		$align_class = ( isset( $attributes['alignment'] ) ) ? ' align' . $attributes['alignment'] : '';
+
+		// Get API Key
 		$api_key = get_option( 'advanced-gutenberg-blocks-gmap-api-key' );
 
+		// Rand number to allow multiple maps instances
 		$rand = rand();
 
+		
+		// Cached output
 		$output = "";
 		ob_start();
+
+		// Template
     include apply_filters( 'advanced_gutenberg_blocks_template', Consts::get_path() . 'public/templates/gmap.php', 'gmap' );
+		
 		$output = ob_get_contents();
 		ob_end_clean();
 
