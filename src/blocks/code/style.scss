@@ -1,6 +1,11 @@
 .wp-block-advanced-gutenberg-blocks-code {
- border-radius: 5px;
- overflow: hidden; 
+  border-radius: 5px;
+  overflow: hidden; 
+  margin: 3em 0;
+
+  .CodeMirror {
+    height: auto;
+  }
 }
 
 .wp-block-advanced-gutenberg-blocks-code__header {

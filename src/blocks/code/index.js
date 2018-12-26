@@ -5,8 +5,6 @@ import Tools from './tools'
 import Inspector from './inspect'
 import Preview from './preview'
 
-import langList from './languages'
-
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
 const { Fragment } = wp.element
@@ -29,7 +27,7 @@ export default registerBlockType(
       },
 			language: {
         type: 'string',
-        default: langList[0].value,
+        default: advancedGutenbergBlocksCode.languages[0].value,
       },
       file: {
         type: 'string',

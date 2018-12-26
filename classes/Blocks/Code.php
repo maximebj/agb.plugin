@@ -10,6 +10,8 @@ class Code {
   public function run() {
 
 		// Register Hooks
+		add_action( 'init', array( $this, 'register_render' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'front_assets' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
 
 		// Register Block in the plugin settings page
@@ -33,7 +35,7 @@ class Code {
 		$selected_theme = $this->get_selected_theme();
 		$select_html = '';
 
-		foreach( $this->theme_list() as $theme ) {
+		foreach( $this->get_theme_list() as $theme ) {
 			$value = $theme['value'];
 			$label = $theme['label'];
 			$selected = ($theme['value'] == $selected_theme) ? ' selected ' : '';
@@ -69,20 +71,169 @@ class Code {
 			Consts::BLOCKS_SCRIPT,
 			'advancedGutenbergBlocksCode',
 			array(
-				'themes' => $this->theme_list(),
+				'themes' => $this->get_theme_list(),
 				'selectedTheme' => $this->get_selected_theme(),
+				'languages' => $this->get_language_list(),
 			)
 		);
+	}
 
+	public function front_assets() {
+		if ( has_block('advanced-gutenberg-blocks/code') ) {
+			
+			wp_enqueue_style(
+				Consts::PLUGIN_NAME . '-code-mirror',
+				Consts::get_url() . 'vendor/codemirror/codemirror.css',
+				array(),
+				Consts::VERSION
+			);
+
+			// Enqueue Theme
+			$theme = $this->get_selected_theme();
+			
+			wp_enqueue_style(
+				Consts::PLUGIN_NAME . '-code-mirror-theme',
+				Consts::get_url() . "vendor/codemirror/themes/$theme.css",
+				[ Consts::PLUGIN_NAME . '-code-mirror' ],
+				Consts::VERSION
+			);
+
+			wp_enqueue_script(
+				Consts::PLUGIN_NAME . '-code-mirror',
+				Consts::get_url() . 'vendor/codemirror/codemirror.js',
+				array(),
+        Consts::VERSION
+			);
+
+			wp_enqueue_script(
+				Consts::PLUGIN_NAME . '-code-mirror-matchbrackets',
+				Consts::get_url() . 'vendor/codemirror/addons/edit/matchbrackets.js',
+				array(),
+        Consts::VERSION
+			);
+
+			// TODO Send languages array to JS (back and front)
+
+			// Enqueue languages
+
+			// TODO get Content 
+
+			wp_enqueue_script(
+				Consts::PLUGIN_NAME . '-code-mirror-xml',
+				Consts::get_url() . 'vendor/codemirror/modes/xml/xml.js',
+				[ Consts::PLUGIN_NAME . '-code-mirror' ],
+				Consts::VERSION
+			);
+
+
+			wp_enqueue_script(
+				Consts::PLUGIN_NAME . '-code-mirror-php',
+				Consts::get_url() . 'vendor/codemirror/modes/php/php.js',
+				[ Consts::PLUGIN_NAME . '-code-mirror' ],
+				Consts::VERSION
+			);
+
+			// PHP / JAVA / C / C++ / Objective C
+			wp_enqueue_script(
+				Consts::PLUGIN_NAME . '-code-mirror-clike',
+				Consts::get_url() . 'vendor/codemirror/modes/clike/clike.js',
+				[ Consts::PLUGIN_NAME . '-code-mirror' ],
+				Consts::VERSION
+			);
+
+			// HTML / PHP
+			wp_enqueue_script(
+				Consts::PLUGIN_NAME . '-code-mirror-htmlmixed',
+				Consts::get_url() . 'vendor/codemirror/modes/htmlmixed/htmlmixed.js',
+				[ Consts::PLUGIN_NAME . '-code-mirror' ],
+				Consts::VERSION
+			);
+
+			wp_enqueue_script(
+				Consts::PLUGIN_NAME . '-code-mirror-css',
+				Consts::get_url() . 'vendor/codemirror/modes/css/css.js',
+				[ Consts::PLUGIN_NAME . '-code-mirror' ],
+				Consts::VERSION
+			);
+
+		}
+	}
+
+	public function register_render() {
+
+		if ( ! function_exists( 'register_block_type' ) or is_admin() ) {
+			return;
+		}
+
+		register_block_type(
+      'advanced-gutenberg-blocks/code',
+      [ 'render_callback' => array( $this, 'render_block' ) ]
+    );
+
+	}
+
+	public function render_block( $attributes ) {
+		
+		if( ! isset( $attributes['source'] ) ) {
+			return;
+		}
+
+		// Default values
+		if( ! isset( $attributes['language'] ) ) { $attributes['language'] = 'xml'; }
+		if( ! isset( $attributes['startLine'] ) ) { $attributes['startLine'] = 1; }
+		if( ! isset( $attributes['showLines'] ) ) { $attributes['showLines'] = true; }
+
+		// Define Align Class
+		$align_class = ( isset($attributes['alignment']) ) ? ' align' . $attributes['alignment'] : '';
+
+		// Random ID for this code
+		// Allows multiple instances of CodeMirror
+		$rand = rand();
+
+		// Get theme
+		$theme = $this->get_selected_theme();
+
+		// Get language Label
+		$languages = $this->get_language_list();
+		$key = array_search( $attributes['language'], array_column($languages, 'value') );
+		$lang_label = $languages[$key]['label'];
+
+		// Start cached output
+		$output = "";
+		ob_start();
+
+		// Get template
+		include apply_filters( 'advanced_gutenberg_blocks_template', Consts::get_path() . 'public/templates/code.php', 'code' );
+
+		// End cached output
+		$output = ob_get_contents();
+		ob_end_clean();
+
+		return $output;
 	}
 
 	public function get_selected_theme() {
 		$selected_theme = get_option( 'advanced-gutenberg-blocks-code-theme' );
 		
-		return ( $selected_theme == "" ) ? 'dracula' : $selected_theme;
+		return ( ! $selected_theme ) ? 'hopscotch' : $selected_theme;
 	}
 
-	public function theme_list() {
+	public function get_language_list() {
+
+		return array(
+			array( 'value' => 'xml', 'label' => 'HTML' ),
+			array( 'value' => 'css', 'label' => 'CSS' ),
+			array( 'value' => 'php', 'label' => 'PHP' ),
+			array( 'value' => 'javascript', 'label' => 'JS' ),
+			array( 'value' => 'jsx', 'label' => 'JSX' ),
+			array( 'value' => 'xml', 'label' => 'XML' ),
+			array( 'value' => 'less', 'label' => 'Less' ),
+			array( 'value' => 'sass', 'label' => 'sass' ),
+			array( 'value' => 'styl', 'label' => 'Stylus' ),
+		);
+	}
+
+	public function get_theme_list() {
 
 		return array(
 			array( 'value' => '3024-day' , 'label' => '3024 Day' ),

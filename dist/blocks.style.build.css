@@ -540,7 +540,10 @@
   text-align: center; }
 .wp-block-advanced-gutenberg-blocks-code {
   border-radius: 5px;
-  overflow: hidden; }
+  overflow: hidden;
+  margin: 3em 0; }
+  .wp-block-advanced-gutenberg-blocks-code .CodeMirror {
+    height: auto; }
 
 .wp-block-advanced-gutenberg-blocks-code__header {
   display: -ms-flexbox;

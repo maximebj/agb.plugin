@@ -1,5 +1,3 @@
-import langList from './languages'
-
 import React from 'react'
 import Select from 'react-select'
 
@@ -22,9 +20,9 @@ export default class Inspector extends Component {
             label={ __('Language', 'advanced-gutenberg-blocks' ) }
           >
             <Select 
-              value={ { value: language, label: findLabel( langList, language ) } }
+              value={ { value: language, label: findLabel( advancedGutenbergBlocksCode.languages, language ) } }
               onChange={ language => setAttributes( { language: language.value } ) }
-              options={ langList }
+              options={ advancedGutenbergBlocksCode.languages }
               className="AGB-react-select"
               classNamePrefix="AGB-react-select"
             />

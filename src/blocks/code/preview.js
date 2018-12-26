@@ -1,12 +1,17 @@
-import langList from './languages'
-
 import React from 'react'
 import CodeMirror from 'react-codemirror'
 
-require('codemirror/mode/javascript/javascript');
-require('codemirror/mode/xml/xml');
-require('codemirror/mode/css/css');
-require('codemirror/mode/php/php');
+// Require langs for CodeMirror
+// langList.map( lang => { 
+//   require(`codemirror/mode/${lang.value}/${lang.value}`)
+// } )
+require(`codemirror/mode/php/php`)
+require(`codemirror/mode/sass/sass`)
+require(`codemirror/mode/stylus/stylus`)
+
+require(`codemirror/addon/edit/matchbrackets`)
+
+//require(`codemirror/mode/css`)
 
 const { __ } = wp.i18n
 const { Component } = wp.element
@@ -27,14 +32,15 @@ export default class Preview extends Component {
       mode: language,
       indentUnit: 4,
       tabSize: 4,
+      matchBrackets: true,
 		}
 
     return (
       <div className="wp-block-advanced-gutenberg-blocks-code" dataAlign={ alignment }>
-        <link rel='stylesheet' href={ `../wp-content/plugins/advanced-gutenberg-blocks/dist/code-mirror-themes/${theme}.css` }type='text/css' />
+        <link rel='stylesheet' href={ `../wp-content/plugins/advanced-gutenberg-blocks/vendor/codemirror/themes/${theme}.css` }type='text/css' />
         <header className="wp-block-advanced-gutenberg-blocks-code__header">
           <div className="wp-block-advanced-gutenberg-blocks-code__lang is-lang-js">
-            {findLabel( langList, language )}
+            {findLabel( advancedGutenbergBlocksCode.languages, language )}
           </div>
           <div className="wp-block-advanced-gutenberg-blocks-code__file">
             {file}

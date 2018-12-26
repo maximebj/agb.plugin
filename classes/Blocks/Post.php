@@ -82,7 +82,7 @@ class Post {
 			wp_reset_postdata();
 		endif;
 
-		// En cached output
+		// End cached output
 		$output = ob_get_contents();
 		ob_end_clean();
 
