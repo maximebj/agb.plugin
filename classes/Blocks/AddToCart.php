@@ -11,6 +11,7 @@ class AddToCart {
 
 		// Register hooks
 		add_action( 'init', array( $this, 'register_render' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'front_assets' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
 
 		// Register Block in the plugin settings page
@@ -36,6 +37,12 @@ class AddToCart {
       [ 'render_callback' => array( $this, 'render_block' ) ]
     );
 
+	}
+
+	public function front_assets() {
+		if ( has_block('advanced-gutenberg-blocks/addtocart') ) {
+			wp_enqueue_style( 'dashicons' );
+		}
 	}
 
 	public function render_block( $attributes ) {

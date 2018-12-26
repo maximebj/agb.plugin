@@ -11,7 +11,6 @@ use AdvancedGutenbergBlocks\Services\Blocks;
 
 use AdvancedGutenbergBlocks\WP\Installer;
 use AdvancedGutenbergBlocks\WP\Admin;
-use AdvancedGutenbergBlocks\WP\Front;
 use AdvancedGutenbergBlocks\WP\Gutenberg;
 use AdvancedGutenbergBlocks\WP\Settings;
 
@@ -71,7 +70,6 @@ class AdvancedGutenbergBlocks {
 
 		require_once $path . 'classes/WP/Installer.php';
 		require_once $path . 'classes/WP/Admin.php';
-		require_once $path . 'classes/WP/Front.php';
 		require_once $path . 'classes/WP/Gutenberg.php';
 		require_once $path . 'classes/WP/Settings.php';
 
@@ -97,7 +95,6 @@ class AdvancedGutenbergBlocks {
 
 		// Init Classes and Hooks
     (new Admin)->register_hooks();
-    (new Front)->register_hooks();
     (new Gutenberg)->register_hooks();
     (new Settings)->register_hooks();
 
