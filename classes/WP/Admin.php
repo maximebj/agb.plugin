@@ -76,8 +76,8 @@ class Admin {
 	public function add_admin_menu() {
 
 		add_menu_page(
-			__( 'Blocks' , 'advanced-gutenberg-blocks' ),
-			__( 'Blocks' , 'advanced-gutenberg-blocks' ),
+			'Blocks',
+			'Blocks', // Don't translate or css/js will break
 			'edit_posts',
 			Consts::PLUGIN_NAME,
 			null,
