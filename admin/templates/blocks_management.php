@@ -123,6 +123,10 @@
 							<p class="AGB-modal__subtitle"><?php _e( 'Description', 'advanced-gutenberg-blocks' ); ?></p>
 							<p><?php echo $block['description']; ?></p>
 
+							<?php if( $block['credits_callback'] ): ?>
+								<?php call_user_func( $block['credits_callback'] ); ?>
+							<?php endif; ?>
+
 							<p class="AGB-modal__subtitle"><?php _e( 'Options', 'advanced-gutenberg-blocks' ); ?></p>
 
 							<?php if( $block['options_callback'] ): ?>
@@ -143,11 +147,6 @@
 
 							<?php if( $block['preview_image'] ): ?>
 								<img src="<?php echo $block['preview_image']; ?>" alt="<?php sprintf( __( '%s example', 'advanced-gutenberg-blocks' ), $block['name'] ); ?>">
-							<?php endif; ?>
-
-							<?php if( $block['credits_callback'] ): ?>
-								<p class="AGB-modal__subtitle"><?php _e('Credits', 'advanced-gutenberg-blocks' ); ?></p>
-								<?php call_user_func( $block['credits_callback'] ); ?>
 							<?php endif; ?>
 						</div>
 					</div>
