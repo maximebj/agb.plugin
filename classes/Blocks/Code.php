@@ -261,6 +261,8 @@ class Code {
 			array( 'slug' => "objective-c", 'mode' => 'clike', 			'label' => 'Objective C' ),
 			array( 'slug' => "swift", 			'mode' => 'swift', 			'label' => 'Swift' ),
 			array( 'slug' => "twig", 				'mode' => 'twig', 			'label' => 'Twig' ),
+			array( 'slug' => "django", 			'mode' => 'django', 		'label' => 'Django' ),
+			array( 'slug' => "shell", 			'mode' => 'shell', 		  'label' => 'Shell' ),
 		);
 
 		return apply_filters( 'advanced_gutenberg_blocks_code_languages', $languages );
