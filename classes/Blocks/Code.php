@@ -328,6 +328,6 @@ class Code {
 			array( 'value' => 'zenburn' , 'label' => 'Zenburn' ),
 		);
 
-		return apply_filters( 'advanced_gutenberg_blocks_code_themes', $languages );
+		return apply_filters( 'advanced_gutenberg_blocks_code_themes', $themes );
 	}
 }
