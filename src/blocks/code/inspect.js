@@ -9,7 +9,7 @@ const { PanelBody, TextControl, BaseControl, ToggleControl } = wp.components
 export default class Inspector extends Component {
 
   render() {
-    const { language, file, showLines, startLine, setAttributes, findLabel } = this.props
+    const { file, showLines, startLine, entry, setAttributes } = this.props
 
     return (
       <InspectorControls>
@@ -20,8 +20,8 @@ export default class Inspector extends Component {
             label={ __('Language', 'advanced-gutenberg-blocks' ) }
           >
             <Select 
-              value={ { value: language, label: findLabel( advancedGutenbergBlocksCode.languages, language ) } }
-              onChange={ language => setAttributes( { language: language.value } ) }
+              value={ { value: entry.slug, label: entry.label } }
+              onChange={ language => setAttributes( { language: language.slug } ) }
               options={ advancedGutenbergBlocksCode.languages }
               className="AGB-react-select"
               classNamePrefix="AGB-react-select"

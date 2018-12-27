@@ -21,15 +21,15 @@ export default registerBlockType(
       __( 'syntax', 'advanced-gutenberg-blocks' ),
     ],
     attributes: {
-      source: {
+      language: {
         type: 'string',
         default: '',
       },
-			language: {
-        type: 'string',
-        default: advancedGutenbergBlocksCode.languages[0].value,
-      },
       file: {
+        type: 'string',
+        default: '',
+      },
+      source: {
         type: 'string',
         default: '',
       },
@@ -53,22 +53,27 @@ export default registerBlockType(
     },
     edit: props => {
 
-      const findLabel = ( array, value ) => {
-        let entry = _.find( array, { value: value } )
+      const findEntry = () => {
+        let entry = _.find( advancedGutenbergBlocksCode.languages, { slug: language } )
         if( _.isUndefined( entry ) ) {
-          return array[0].label
+          return advancedGutenbergBlocksCode.languages[0]
         }
-        return entry.label
+        return entry
       }
 
       const { attributes, setAttributes } = props
       const { language, file, showLines, startLine, alignment } = attributes
 
+      const entry = findEntry()
+
+      // Force set a language in attributes object
+      if( language == "" ) { setAttributes( { 'language': advancedGutenbergBlocksCode.languages[0].slug } ) }
+  
       return (
         <Fragment>
           <Tools { ...{ alignment, setAttributes } } />
-          <Inspector { ...{ language, file, showLines, startLine, setAttributes, findLabel } } />
-          <Preview { ...{ attributes, setAttributes, findLabel } } />
+          <Inspector { ...{ file, showLines, startLine, setAttributes, entry } } />
+          <Preview { ...{ attributes, setAttributes, entry } } />
         </Fragment>
       )
     },

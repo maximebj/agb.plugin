@@ -1,1 +1,5 @@
 @import "../vendor/codemirror/codemirror.css";
+
+.wp-block-advanced-gutenberg-blocks-code[data-align="full"] {
+  border-radius: 0;
+}

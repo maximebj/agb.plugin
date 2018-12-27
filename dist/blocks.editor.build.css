@@ -1,4 +1,6 @@
 @import url(../vendor/codemirror/codemirror.css);
+.wp-block-advanced-gutenberg-blocks-code[data-align="full"] {
+  border-radius: 0; }
 .components-text-control__input--small {
   max-width: 80px; }
 

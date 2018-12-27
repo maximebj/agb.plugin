@@ -38,7 +38,7 @@ class Code {
 		foreach( $this->get_theme_list() as $theme ) {
 			$value = $theme['value'];
 			$label = $theme['label'];
-			$selected = ($theme['value'] == $selected_theme) ? ' selected ' : '';
+			$selected = ( $theme['value'] == $selected_theme ) ? ' selected ' : '';
 			$select_html .= "<option value='$value'$selected>$label</option>";
 		}
 
@@ -112,50 +112,69 @@ class Code {
         Consts::VERSION
 			);
 
-			// TODO Send languages array to JS (back and front)
-
 			// Enqueue languages
 
-			// TODO get Content 
+			// -- First: get content and fetch used languages
+			$content = get_post( $post_id );
+			$regex = "#<!-- wp:advanced-gutenberg-blocks/code {([^\>]+?)?\"language\":\"(.*?)\"#";
+			preg_match_all( $regex, $content->post_content, $matches );
+			$langs = $matches[2];
 
-			wp_enqueue_script(
-				Consts::PLUGIN_NAME . '-code-mirror-xml',
-				Consts::get_url() . 'vendor/codemirror/modes/xml/xml.js',
-				[ Consts::PLUGIN_NAME . '-code-mirror' ],
-				Consts::VERSION
-			);
+			// -- Second: convert languages to modes
+			$languages = $this->get_language_list();
+			$modes = array();
+			
+			foreach( $langs as $lang ) {
+				$key = array_search( $lang, array_column( $languages, 'slug' ) );
+				$modes[] = $languages[$key]['mode'];
+			}
 
+			$modes = array_unique( $modes );
 
-			wp_enqueue_script(
-				Consts::PLUGIN_NAME . '-code-mirror-php',
-				Consts::get_url() . 'vendor/codemirror/modes/php/php.js',
-				[ Consts::PLUGIN_NAME . '-code-mirror' ],
-				Consts::VERSION
-			);
+			// -- Then: load dependencies according to languages used
+			foreach( $modes as $mode ) {
+				wp_enqueue_script(
+					Consts::PLUGIN_NAME . "-code-mirror-$mode ",
+					Consts::get_url() . "vendor/codemirror/modes/$mode/$mode.js",
+					[ Consts::PLUGIN_NAME . "-code-mirror" ],
+					Consts::VERSION
+				);
+			}
 
-			// PHP / JAVA / C / C++ / Objective C
-			wp_enqueue_script(
-				Consts::PLUGIN_NAME . '-code-mirror-clike',
-				Consts::get_url() . 'vendor/codemirror/modes/clike/clike.js',
-				[ Consts::PLUGIN_NAME . '-code-mirror' ],
-				Consts::VERSION
-			);
+			// -- Finally: load additionnal dependencies needed for some languages
+			// ---- C-Like
+			if ( count ( array_intersect( ['php', 'java'] , $modes) ) > 0 ) {			
+				wp_enqueue_script(
+					Consts::PLUGIN_NAME . '-code-mirror-clike',
+					Consts::get_url() . 'vendor/codemirror/modes/clike/clike.js',
+					[ Consts::PLUGIN_NAME . '-code-mirror' ],
+					Consts::VERSION
+				);
+			} 
 
-			// HTML / PHP
-			wp_enqueue_script(
-				Consts::PLUGIN_NAME . '-code-mirror-htmlmixed',
-				Consts::get_url() . 'vendor/codemirror/modes/htmlmixed/htmlmixed.js',
-				[ Consts::PLUGIN_NAME . '-code-mirror' ],
-				Consts::VERSION
-			);
+			// ---- Front End mixed
+			if ( count ( array_intersect( ['php', 'xml', 'twig'] , $modes) ) > 0 ) {
+				wp_enqueue_script(
+					Consts::PLUGIN_NAME . '-code-mirror-htmlmixed',
+					Consts::get_url() . 'vendor/codemirror/modes/htmlmixed/htmlmixed.js',
+					[ Consts::PLUGIN_NAME . '-code-mirror' ],
+					Consts::VERSION
+				);
 
-			wp_enqueue_script(
-				Consts::PLUGIN_NAME . '-code-mirror-css',
-				Consts::get_url() . 'vendor/codemirror/modes/css/css.js',
-				[ Consts::PLUGIN_NAME . '-code-mirror' ],
-				Consts::VERSION
-			);
+				wp_enqueue_script(
+					Consts::PLUGIN_NAME . '-code-mirror-css',
+					Consts::get_url() . 'vendor/codemirror/modes/css/css.js',
+					[ Consts::PLUGIN_NAME . '-code-mirror' ],
+					Consts::VERSION
+				);
 
+				wp_enqueue_script(
+					Consts::PLUGIN_NAME . '-code-mirror-javascript',
+					Consts::get_url() . 'vendor/codemirror/modes/javascript/javascript.js',
+					[ Consts::PLUGIN_NAME . '-code-mirror' ],
+					Consts::VERSION
+				);
+			}
 		}
 	}
 
@@ -186,26 +205,26 @@ class Code {
 		// Define Align Class
 		$align_class = ( isset($attributes['alignment']) ) ? ' align' . $attributes['alignment'] : '';
 
-		// Random ID for this code
-		// Allows multiple instances of CodeMirror
+		// Random ID for this code to multiple instances of CodeMirror
 		$rand = rand();
 
 		// Get theme
 		$theme = $this->get_selected_theme();
 
-		// Get language Label
+		// Get language Label and Mode
 		$languages = $this->get_language_list();
-		$key = array_search( $attributes['language'], array_column($languages, 'value') );
+		$key = array_search( $attributes['language'], array_column( $languages, 'slug' ) );
+		$lang_slug = $attributes['language'];
 		$lang_label = $languages[$key]['label'];
+		$lang_mode = $languages[$key]['mode'];
 
-		// Start cached output
+		// Cached output
 		$output = "";
 		ob_start();
 
 		// Get template
 		include apply_filters( 'advanced_gutenberg_blocks_template', Consts::get_path() . 'public/templates/code.php', 'code' );
 
-		// End cached output
 		$output = ob_get_contents();
 		ob_end_clean();
 
@@ -220,22 +239,36 @@ class Code {
 
 	public function get_language_list() {
 
-		return array(
-			array( 'value' => 'xml', 'label' => 'HTML' ),
-			array( 'value' => 'css', 'label' => 'CSS' ),
-			array( 'value' => 'php', 'label' => 'PHP' ),
-			array( 'value' => 'javascript', 'label' => 'JS' ),
-			array( 'value' => 'jsx', 'label' => 'JSX' ),
-			array( 'value' => 'xml', 'label' => 'XML' ),
-			array( 'value' => 'less', 'label' => 'Less' ),
-			array( 'value' => 'sass', 'label' => 'sass' ),
-			array( 'value' => 'styl', 'label' => 'Stylus' ),
+		// Some languages uses the same mode in CodeMirror
+		// Eg: PHP and Java uses C-Like mode
+		// More: https://codemirror.net/mode/
+		$languages = array(
+			array( 'slug' => "html", 				'mode' => 'xml', 				'label' => 'HTML' ),
+			array( 'slug' => "css", 				'mode' => 'css', 				'label' => 'CSS' ),
+			array( 'slug' => "php", 				'mode' => 'php', 				'label' => 'PHP' ),
+			array( 'slug' => "js", 					'mode' => 'javascript', 'label' => 'JS' ),
+			array( 'slug' => "jsx", 				'mode' => 'jsx', 				'label' => 'JSX' ),
+			array( 'slug' => "xml", 				'mode' => 'xml', 				'label' => 'XML' ),
+			array( 'slug' => "sass", 	 			'mode' => 'sass', 			'label' => 'Sass' ),
+			array( 'slug' => "stylus", 			'mode' => 'stylus', 		'label' => 'Stylus' ),
+			array( 'slug' => "python", 			'mode' => 'python', 		'label' => 'Python' ),
+			array( 'slug' => "go", 					'mode' => 'go', 				'label' => 'Go' ),
+			array( 'slug' => "ruby", 				'mode' => 'ruby', 			'label' => 'Ruby' ),
+			array( 'slug' => "java", 				'mode' => 'clike', 			'label' => 'Java' ),
+			array( 'slug' => "c", 					'mode' => 'clike', 			'label' => 'C' ),
+			array( 'slug' => "c++", 				'mode' => 'clike', 			'label' => 'C++' ),
+			array( 'slug' => "c#", 					'mode' => 'clike', 			'label' => 'C#' ),
+			array( 'slug' => "objective-c", 'mode' => 'clike', 			'label' => 'Objective C' ),
+			array( 'slug' => "swift", 			'mode' => 'swift', 			'label' => 'Swift' ),
+			array( 'slug' => "twig", 				'mode' => 'twig', 			'label' => 'Twig' ),
 		);
+
+		return apply_filters( 'advanced_gutenberg_blocks_code_languages', $languages );
 	}
 
 	public function get_theme_list() {
 
-		return array(
+		$themes = array(
 			array( 'value' => '3024-day' , 'label' => '3024 Day' ),
 			array( 'value' => '3024-night' , 'label' => '3024 Night' ),
 			array( 'value' => 'abcdef' , 'label' => 'ABCDEF' ),
@@ -292,5 +325,7 @@ class Code {
 			array( 'value' => 'yeti' , 'label' => 'Yeti' ),
 			array( 'value' => 'zenburn' , 'label' => 'Zenburn' ),
 		);
+
+		return apply_filters( 'advanced_gutenberg_blocks_code_themes', $languages );
 	}
 }

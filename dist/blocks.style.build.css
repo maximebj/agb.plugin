@@ -539,9 +539,11 @@
 .wp-block-advanced-gutenberg-blocks-giphy {
   text-align: center; }
 .wp-block-advanced-gutenberg-blocks-code {
-  border-radius: 5px;
+  border-radius: 6px;
   overflow: hidden;
   margin: 3em 0; }
+  .wp-block-advanced-gutenberg-blocks-code.alignfull {
+    border-radius: 0; }
   .wp-block-advanced-gutenberg-blocks-code .CodeMirror {
     height: auto; }
 
@@ -558,9 +560,28 @@
   color: white;
   text-transform: uppercase;
   font-family: sans-serif;
-  text-align: center; }
+  text-align: center;
+  background: #4C607F; }
   .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-js {
     background: #ffc334; }
+  .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-jsx {
+    background: #ffc334; }
+  .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-php {
+    background: #4F5B93; }
+  .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-xml {
+    background: #F16529; }
+  .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-css {
+    background: #48ADD8; }
+  .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-twig {
+    background: #83BD71; }
+  .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-stylus {
+    background: #FF2952; }
+  .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-sass {
+    background: #FF2952; }
+  .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-less {
+    background: #FF2952; }
+  .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-swift {
+    background: #FE5E2F; }
 
 .wp-block-advanced-gutenberg-blocks-code__file {
   -ms-flex: auto;
