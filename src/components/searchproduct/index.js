@@ -62,7 +62,7 @@ export default class SearchProduct extends Component {
                   return (
                     <li
                       key={product.id}
-                      onClick={ () => this.onChange( product ) }
+                      onClick={ () => this.props.onChange( product ) }
                     >
                       { product.images.length > 0 && (
                         <img src={ product.images[0].src } alt={ product.name } />
