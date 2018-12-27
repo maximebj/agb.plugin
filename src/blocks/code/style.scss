@@ -9,6 +9,14 @@
 
   .CodeMirror {
     height: auto;
+
+    pre {
+      font-size: 15px;
+    }
+  }
+  
+  .CodeMirror-linenumber {
+    font-size: 15px;
   }
 }
 
@@ -19,9 +27,9 @@
 .wp-block-advanced-gutenberg-blocks-code__lang {
   width: 100px;
   letter-spacing: 1px;
-  font-size: .8em;
+  font-size: .7em;
   font-weight: bold;
-  line-height: 24px;
+  line-height: 25px;
   color: white;
   text-transform: uppercase;
   font-family: sans-serif;

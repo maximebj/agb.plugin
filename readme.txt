@@ -101,7 +101,7 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 
 == Changelog ==
 
-= 1.8 (28/12/2018) =
+= 1.8 (27/12/2018) =
 * New block: Code with syntax highlighting, dozen of themes and languages
 * Fix: Custom Post Types on Post block
 * Improved: Gmap block supports wide and full alignment

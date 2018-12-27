@@ -546,6 +546,10 @@
     border-radius: 0; }
   .wp-block-advanced-gutenberg-blocks-code .CodeMirror {
     height: auto; }
+    .wp-block-advanced-gutenberg-blocks-code .CodeMirror pre {
+      font-size: 15px; }
+  .wp-block-advanced-gutenberg-blocks-code .CodeMirror-linenumber {
+    font-size: 15px; }
 
 .wp-block-advanced-gutenberg-blocks-code__header {
   display: -ms-flexbox;
@@ -554,9 +558,9 @@
 .wp-block-advanced-gutenberg-blocks-code__lang {
   width: 100px;
   letter-spacing: 1px;
-  font-size: .8em;
+  font-size: .7em;
   font-weight: bold;
-  line-height: 24px;
+  line-height: 25px;
   color: white;
   text-transform: uppercase;
   font-family: sans-serif;
