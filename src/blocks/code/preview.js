@@ -30,8 +30,8 @@ export default class Preview extends Component {
       indentUnit: 4,
       tabSize: 4,
       matchBrackets: true,
-		}
-
+    }
+  
     return (
       <div className="wp-block-advanced-gutenberg-blocks-code" data-align={ alignment }>
         <link rel='stylesheet' href={ `../wp-content/plugins/advanced-gutenberg-blocks/vendor/codemirror/themes/${theme}.css` }type='text/css' />

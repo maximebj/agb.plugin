@@ -570,6 +570,8 @@
     background: #4F5B93; }
   .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-xml {
     background: #F16529; }
+  .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-html {
+    background: #F16529; }
   .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-css {
     background: #48ADD8; }
   .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-twig {
@@ -577,8 +579,6 @@
   .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-stylus {
     background: #FF2952; }
   .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-sass {
-    background: #FF2952; }
-  .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-less {
     background: #FF2952; }
   .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-swift {
     background: #FE5E2F; }
