@@ -4,7 +4,7 @@ Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate
 Requires at least: 4.5
 Tested up to: 5.0
 Requires PHP: 5.6
-Stable tag: 1.8.1
+Stable tag: 1.8.2
 Donate link: https://paypal.me/maximebj
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -100,6 +100,10 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 == Screenshots ==
 
 == Changelog ==
+
+= 1.8.2 (29/12/2018) =
+* Fixed: Bad settings values in CodeMirror
+* Fixed: Bug preventing PHP code in front
 
 = 1.8.1 (28/12/2018) =
 * New Setting: Long lines wrap in Code block

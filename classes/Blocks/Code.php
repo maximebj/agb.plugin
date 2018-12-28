@@ -186,6 +186,13 @@ class Code {
 				);
 
 				wp_enqueue_script(
+					Consts::PLUGIN_NAME . '-code-mirror-xml',
+					Consts::get_url() . 'vendor/codemirror/modes/xml/xml.js',
+					[ Consts::PLUGIN_NAME . '-code-mirror' ],
+					Consts::VERSION
+				);
+
+				wp_enqueue_script(
 					Consts::PLUGIN_NAME . '-code-mirror-css',
 					Consts::get_url() . 'vendor/codemirror/modes/css/css.js',
 					[ Consts::PLUGIN_NAME . '-code-mirror' ],
@@ -220,7 +227,7 @@ class Code {
 		if( ! isset( $attributes['source'] ) ) {
 			return;
 		}
-
+		
 		// Default values
 		if( ! isset( $attributes['language'] ) ) { $attributes['language'] = 'xml'; }
 		if( ! isset( $attributes['startLine'] ) ) { $attributes['startLine'] = 1; }

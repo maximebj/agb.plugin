@@ -17,12 +17,12 @@
       mode: '<?php echo $lang_mode; ?>',
       readOnly: true,
       theme: '<?php echo $theme; ?>', 
-      lineNumbers: <?php echo $attributes['showLines']; ?>,
+      lineNumbers: <?php echo ( $attributes['showLines'] ) ? 'true' : 'false'; ?>,
       firstLineNumber: <?php echo $attributes['startLine']; ?>,
       matchBrackets: true,
       indentUnit: 4,
       tabSize: 4,
-      wrapLine: <?php echo $attributes['wrapLines']; ?>,
+      wrapLine: <?php echo ( $attributes['wrapLines'] ) ? 'true' : 'false'; ?>,
     } )<?php echo $mark_text; ?>; 
   </script>
 </div>
