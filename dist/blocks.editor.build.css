@@ -7,6 +7,14 @@
 .components-text-control__input--small {
   max-width: 80px; }
 
+.AGB-2cols {
+  display: -ms-flexbox;
+  display: flex; }
+  .AGB-2cols > div:first-child {
+    margin-right: 8px; }
+  .AGB-2cols > div:last-child {
+    margin-left: 8px; }
+
 .AGB-block-message {
   text-align: center;
   font-style: italic;

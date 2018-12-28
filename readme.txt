@@ -102,8 +102,11 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 == Changelog ==
 
 = 1.8.1 (28/12/2018) =
+* New Setting: line wrap for Code block
+* New feature: highlight lines in code block
 * Fixed: Custom Post Types on Post block
 * Fixed: Search broken on product block
+* Fixed: Admin CSS/JS didn't load on other languages
 
 = 1.8 (27/12/2018) =
 * New block: Code with syntax highlighting, dozen of themes and languages

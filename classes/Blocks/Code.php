@@ -101,21 +101,45 @@ class Code {
 			wp_enqueue_script(
 				Consts::PLUGIN_NAME . '-code-mirror',
 				Consts::get_url() . 'vendor/codemirror/codemirror.js',
-				array(),
+				[],
         Consts::VERSION
 			);
 
 			wp_enqueue_script(
 				Consts::PLUGIN_NAME . '-code-mirror-matchbrackets',
 				Consts::get_url() . 'vendor/codemirror/addons/edit/matchbrackets.js',
-				array(),
+				[ Consts::PLUGIN_NAME . '-code-mirror' ],
         Consts::VERSION
 			);
+
+			
+			// Define if addons are needed
+			$content = get_post( $post_id );
+			$regex = "#<!-- wp:advanced-gutenberg-blocks/code {([^\>]+?)?\"highlightStart\":\"(.*?)\"#";
+			preg_match_all( $regex, $content->post_content, $matches );
+			$highlights = $matches[2];
+			
+			if( ! empty( $highlights ) ) {
+
+				wp_enqueue_script(
+					Consts::PLUGIN_NAME . '-code-mirror-searchcursor',
+					Consts::get_url() . 'vendor/codemirror/addons/search/searchcursor.js',
+					[ Consts::PLUGIN_NAME . '-code-mirror' ],
+					Consts::VERSION
+				);
+
+				wp_enqueue_script(
+					Consts::PLUGIN_NAME . '-code-mirror-markselection',
+					Consts::get_url() . 'vendor/codemirror/addons/selection/mark-selection.js',
+					[ Consts::PLUGIN_NAME . '-code-mirror' ],
+					Consts::VERSION
+				);
+			}
 
 			// Enqueue languages
 
 			// -- First: get content and fetch used languages
-			$content = get_post( $post_id );
+			
 			$regex = "#<!-- wp:advanced-gutenberg-blocks/code {([^\>]+?)?\"language\":\"(.*?)\"#";
 			preg_match_all( $regex, $content->post_content, $matches );
 			$langs = $matches[2];
@@ -201,6 +225,7 @@ class Code {
 		if( ! isset( $attributes['language'] ) ) { $attributes['language'] = 'xml'; }
 		if( ! isset( $attributes['startLine'] ) ) { $attributes['startLine'] = 1; }
 		if( ! isset( $attributes['showLines'] ) ) { $attributes['showLines'] = true; }
+		if( ! isset( $attributes['wrapLines'] ) ) { $attributes['wrapLines'] = true; }
 
 		// Define Align Class
 		$align_class = ( isset($attributes['alignment']) ) ? ' align' . $attributes['alignment'] : '';
@@ -217,6 +242,20 @@ class Code {
 		$lang_slug = $attributes['language'];
 		$lang_label = $languages[$key]['label'];
 		$lang_mode = $languages[$key]['mode'];
+
+		// Get Marked text
+		$mark_text = '';
+		if( isset( $attributes['highlightStart'] ) and $attributes['highlightStart'] != "" ) {
+			$start = intval( $attributes['highlightStart'] ) - intval( $attributes['startLine'] ) ;
+
+			if( isset( $attributes['highlightEnd'] ) and $attributes['highlightEnd'] != "" ) {
+				$end = intval( $attributes['highlightEnd'] ) - intval( $attributes['startLine'] ) + 1;
+			} else {
+				$end = $start + 1;
+			}
+
+			$mark_text = ".markText( {line: ".$start.", ch: 0}, {line: ".$end.", ch: 0}, {className: 'CodeMirror-styled-background'} );";
+		}
 
 		// Cached output
 		$output = "";

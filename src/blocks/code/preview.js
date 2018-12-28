@@ -18,7 +18,7 @@ export default class Preview extends Component {
   render() {
 
     const { attributes, setAttributes, entry } = this.props
-    const { source, language, file, showLines, startLine, alignment } = attributes
+    const { source, language, file, showLines, startLine, alignment, wrapLines } = attributes
     
     const theme = advancedGutenbergBlocksCode.selectedTheme
 
@@ -30,6 +30,7 @@ export default class Preview extends Component {
       indentUnit: 4,
       tabSize: 4,
       matchBrackets: true,
+      lineWrapping: wrapLines,
     }
   
     return (

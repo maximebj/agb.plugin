@@ -44,6 +44,16 @@ export default registerBlockType(
       alignment: {
         type: 'string',
       },
+      wrapLines: {
+        type: 'boolean',
+        default: true,
+      },
+      highlightStart: {
+        type: 'string',
+      },
+      highlightEnd: {
+        type: 'string',
+      },
     },
     getEditWrapperProps( attributes ) {
       const { alignment } = attributes;
@@ -62,7 +72,7 @@ export default registerBlockType(
       }
 
       const { attributes, setAttributes } = props
-      const { language, file, showLines, startLine, alignment } = attributes
+      const { language, file, showLines, startLine, wrapLines, alignment, highlightStart, highlightEnd } = attributes
 
       const entry = findEntry()
 
@@ -72,7 +82,7 @@ export default registerBlockType(
       return (
         <Fragment>
           <Tools { ...{ alignment, setAttributes } } />
-          <Inspector { ...{ file, showLines, startLine, setAttributes, entry } } />
+          <Inspector { ...{ file, showLines, startLine, wrapLines, highlightStart, highlightEnd, setAttributes, entry } } />
           <Preview { ...{ attributes, setAttributes, entry } } />
         </Fragment>
       )

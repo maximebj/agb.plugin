@@ -11,7 +11,7 @@
     class="wp-block-advanced-gutenberg-blocks-code__source" 
     name="codemirror-<?php echo $rand; ?>" 
     id="codemirror-<?php echo $rand; ?>"
-  ><?php echo htmlspecialchars_decode( $attributes['source'] ); ?></textarea>
+  ><?php echo ( $attributes['source'] ); ?></textarea>
   <script>
     CodeMirror.fromTextArea( document.getElementById('codemirror-<?php echo $rand; ?>'), {
       mode: '<?php echo $lang_mode; ?>',
@@ -22,6 +22,7 @@
       matchBrackets: true,
       indentUnit: 4,
       tabSize: 4,
-    } );
+      wrapLine: <?php echo $attributes['wrapLines']; ?>,
+    } )<?php echo $mark_text; ?>; 
   </script>
 </div>
