@@ -60,7 +60,6 @@ class SearchGiphy extends Component {
     fetch( `https://api.giphy.com/v1/gifs/trending?api_key=${advancedGutenbergBlocksGiphy.apiKey}&limit=15` )
     .then( response => response.json() )
     .then( results => {
-      console.log(results)
       this.setState( {  
         results: results.data, 
         isRandom: true,
