@@ -171,7 +171,7 @@ class Plugin {
 
 	private function format_installs( $installs ) {
 
-		if ( $installs > 1000000 ) {
+		if ( $installs >= 1000000 ) {
 			return __( '1+ Million', 'advanced-gutenberg-blocks' );
 		}
 		else if( $installs < 10 ) {
