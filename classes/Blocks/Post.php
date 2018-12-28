@@ -38,7 +38,6 @@ class Post {
 	}
 
 	public function render_block( $attributes ) {
-		var_dump($attributes);
 		if( ! isset( $attributes['postID'] ) ) {
 			return;
 		}
