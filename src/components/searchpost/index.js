@@ -38,6 +38,12 @@ export default class SearchPost extends Component {
     return (
       <Fragment>
 
+        <SelectControl
+					label={ __( 'Post type', 'advanced-gutenberg-blocks' ) }
+					options={ JSON.parse( advancedGutenbergBlocksPost.types ) }
+					onChange={ value => this.setState( { currentType: value } ) }
+				/>
+
 				<TextControl
 					type="search"
 					placeholder={ __( "Type a post title", 'advanced-gutenberg-blocks' ) }
@@ -65,12 +71,6 @@ export default class SearchPost extends Component {
             )
           }
         </div>
-
-				<SelectControl
-					label={ __( 'In post type', 'advanced-gutenberg-blocks' ) }
-					options={ JSON.parse( advancedGutenbergBlocksPost.types ) }
-					onChange={ value => this.setState( { currentType: value } ) }
-				/>
 
 			</Fragment>
     )

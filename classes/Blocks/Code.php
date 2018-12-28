@@ -228,7 +228,7 @@ class Code {
 		if( ! isset( $attributes['wrapLines'] ) ) { $attributes['wrapLines'] = true; }
 
 		// Define Align Class
-		$align_class = ( isset($attributes['alignment']) ) ? ' align' . $attributes['alignment'] : '';
+		$align_class = ( isset( $attributes['alignment'] ) ) ? ' align' . $attributes['alignment'] : '';
 
 		// Random ID for this code to multiple instances of CodeMirror
 		$rand = rand();

@@ -21,14 +21,16 @@ export default class Preview extends Component {
 			this.setState( { post: post } )
 
 			// Author
-			fetch( `/wp-json/wp/v2/users/${post.author}` )
-			.then( response => response.json() )
-			.then( author => {
-				this.setState( { author: author.name } )
-			} )
+			if ( typeof post.author != "undefined" ) {
+				fetch( `/wp-json/wp/v2/users/${post.author}` )
+				.then( response => response.json() )
+				.then( author => {
+					this.setState( { author: author.name } )
+				} )
+			}
 
 			// Category
-			if (post.categories.length > 0 ) {
+			if ( typeof post.categories != "undefined" ) {
 				fetch( `/wp-json/wp/v2/categories/${post.categories[0]}` )
 				.then( response => response.json() )
 				.then( category => {
@@ -37,14 +39,15 @@ export default class Preview extends Component {
 			}
 
 			// Featured Media
-			fetch( `/wp-json/wp/v2/media/${post.featured_media}` )
-			.then( response => response.json() )
-			.then( featuredImage => {
-				this.setState( { featuredImage: featuredImage.media_details.sizes.large.source_url } )
-			} )
+			if ( typeof post.featured_media != "undefined" && post.featured_media != 0 ) {
+				fetch( `/wp-json/wp/v2/media/${post.featured_media}` )
+				.then( response => response.json() )
+				.then( featuredImage => {
+					this.setState( { featuredImage: featuredImage.media_details.sizes.large.source_url } )
+				} )
+			}
 
-		} )
-		
+		} )		
 	}
 
 	componentWillMount() {
@@ -65,7 +68,7 @@ export default class Preview extends Component {
 
 		// Get HTML Excerpt
 		const getExcerpt = () => {
-  		return {__html: this.state.post.excerpt.rendered }
+			return {__html: ( typeof this.state.post.excerpt != "undefined" ) ?  this.state.post.excerpt.rendered : '' }
 		}
 
     return (

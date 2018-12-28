@@ -106,7 +106,7 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 * New Setting: Highlight lines in Code block
 * Fixed: Custom Post Types on Post block
 * Fixed: Search broken on product block
-* Fixed: Admin CSS/JS didn't load on other languages
+* Fixed: Admin CSS/JS didn't load on non english languages
 
 = 1.8 (27/12/2018) =
 * New block: Code with syntax highlighting, dozen of themes and languages
