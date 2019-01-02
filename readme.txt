@@ -101,9 +101,9 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 
 == Changelog ==
 
-= 1.8.2 (29/12/2018) =
-* Fixed: Bad settings values in CodeMirror
-* Fixed: Bug preventing PHP code in front
+= 1.8.2 (02/01/2019) =
+* Fixed: Bad settings values in CodeMirror in Code Block
+* Fixed: Bug preventing PHP code in front in Code Block
 
 = 1.8.1 (28/12/2018) =
 * New Setting: Long lines wrap in Code block
