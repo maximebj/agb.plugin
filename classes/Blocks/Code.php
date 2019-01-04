@@ -177,7 +177,7 @@ class Code {
 			} 
 
 			// ---- Front End mixed
-			if ( count ( array_intersect( ['php', 'xml', 'twig'] , $modes) ) > 0 ) {
+			if ( count ( array_intersect( ['php', 'xml', 'twig', 'javascript'] , $modes) ) > 0 ) {
 				wp_enqueue_script(
 					Consts::PLUGIN_NAME . '-code-mirror-htmlmixed',
 					Consts::get_url() . 'vendor/codemirror/modes/htmlmixed/htmlmixed.js',
