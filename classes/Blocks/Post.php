@@ -67,16 +67,16 @@ class Post {
 			$author = false;
 			$category = false;
 
-			if( $attributes['showImage'] !== false ) {
+			if( isset( $attributes['showImage'] ) and $attributes['showImage'] !== false ) {
 				$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );
 				$image = $image[0];
 			}
 
-			if( $attributes['showAuthor'] !== false ) {
+			if( isset( $attributes['showAuthor'] ) and $attributes['showAuthor'] !== false ) {
 				$author = get_the_author_meta( 'display_name', $post->author );
 			}
 
-			if( $attributes['showCategory'] !== false ) {
+			if( isset( $attributes['showCategory'] ) and $attributes['showCategory'] !== false ) {
 				$categories = get_the_category();
 
 				if ( ! empty( $categories ) ) {
