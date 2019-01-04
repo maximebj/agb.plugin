@@ -1,6 +1,6 @@
 const { __ } = wp.i18n
 const { Component } = wp.element
-const { Placeholder, Spinner, TextControl } = wp.components
+const { Spinner } = wp.components
 
 export default class Preview extends Component {
 
