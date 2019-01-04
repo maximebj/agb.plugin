@@ -55,7 +55,7 @@ class Code {
 				</div>
 			</div>
 
-			<p class="AGB-form__help">' . __( 'what does it look like? <a href="https://codemirror.net/demo/theme.html" target="_blank">Find it out here</a>. ', 'advanced-gutenberg-blocks' ) . '</p>
+			<p class="AGB-form__help">' . __( 'What does it look like? <a href="https://codemirror.net/demo/theme.html" target="_blank">Find it out here</a>. ', 'advanced-gutenberg-blocks' ) . '</p>
 		';
 	}
 
