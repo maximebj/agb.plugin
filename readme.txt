@@ -105,7 +105,7 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 * French translation up to date
 * Improved: dashboard styles
 * Fixed: Error with Post Block rendering
-* Fixed: Escaped code in code block to avoid issues
+* Fixed: Escaped code in code block to avoid issues (thanks to pwharton)
 
 = 1.8.2 (02/01/2019) =
 * Fixed: Bad settings values in CodeMirror in Code Block
