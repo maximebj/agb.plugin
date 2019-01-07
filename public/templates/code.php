@@ -11,7 +11,7 @@
     class="wp-block-advanced-gutenberg-blocks-code__source" 
     name="codemirror-<?php echo $rand; ?>" 
     id="codemirror-<?php echo $rand; ?>"
-  ><?php echo ( $attributes['source'] ); ?></textarea>
+  ><?php echo esc_html( $attributes['source'] ); ?></textarea>
   <script>
     CodeMirror.fromTextArea( document.getElementById('codemirror-<?php echo $rand; ?>'), {
       mode: '<?php echo $lang_mode; ?>',
