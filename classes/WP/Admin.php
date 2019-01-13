@@ -25,7 +25,7 @@ class Admin {
 	public function enqueue_assets( $hook ) {
 
 		// All AGB admin pages
-		if( strpos( $hook, Consts::PLUGIN_NAME ) !== false ) { 
+		if( strpos( $hook, Consts::PLUGIN_NAME ) !== false ) {
 			wp_enqueue_style(
 				Consts::PLUGIN_NAME,
 				Consts::get_url() . 'admin/css/advanced-gutenberg-blocks-admin.css',
@@ -36,7 +36,7 @@ class Admin {
 		}
 
 		// Block management page
-		if( 
+		if(
 			$hook == 'blocks_page_advanced-gutenberg-blocks-manager' or
 			$hook == 'blocks_page_advanced-gutenberg-blocks-disable'
 		) {
@@ -57,9 +57,9 @@ class Admin {
 				false
 			);
 		}
- 
+
 		if( $hook == 'blocks_page_advanced-gutenberg-blocks-settings' ) {
-			
+
 			wp_enqueue_style( 'wp-color-picker' );
 
 			wp_enqueue_script(
@@ -78,7 +78,7 @@ class Admin {
 		add_menu_page(
 			'Blocks',
 			'Blocks', // Don't translate or css/js will break
-			'edit_posts',
+			'manage_options',
 			Consts::PLUGIN_NAME,
 			null,
 			'dashicons-screenoptions',
