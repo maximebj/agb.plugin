@@ -123,8 +123,10 @@
 							<p class="AGB-modal__subtitle"><?php _e( 'Description', 'advanced-gutenberg-blocks' ); ?></p>
 							<p><?php echo $block['description']; ?></p>
 
-							<?php if( $block['credits_callback'] ): ?>
-								<?php call_user_func( $block['credits_callback'] ); ?>
+							<?php if( array_key_exists( 'credits_callback', $block ) ): ?>
+								<div class="AGB-modal__credits">
+									<?php call_user_func( $block['credits_callback'] ); ?>
+								</div>
 							<?php endif; ?>
 
 							<p class="AGB-modal__subtitle"><?php _e( 'Options', 'advanced-gutenberg-blocks' ); ?></p>
