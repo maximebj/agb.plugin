@@ -59,7 +59,7 @@ abstract class Blocks {
 	public static function get_disabled_blocks( $json = false ) {
 		$disabled_blocks = get_option('advanced-gutenberg-blocks-disabled');
 
-		if ( $disabled_blocks == "" or ! $disabled_blocks ) {
+		if ( ! is_array( $disabled_blocks ) ) {
 			$disabled_blocks = array();
 		}
 
