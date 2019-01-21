@@ -26,7 +26,7 @@ export default class SearchProduct extends Component {
       this.setState( { results: results } )
     
     } else {
-      fetch( `/wp-json/wc/v2/products?search=${search}&per_page=20&consumer_key=${ck}&consumer_secret=${cs}` )
+      fetch( `${this.props.restURL}/products?search=${search}&per_page=20&consumer_key=${ck}&consumer_secret=${cs}` )
       .then( response => response.json() )
       .then( results => {
 

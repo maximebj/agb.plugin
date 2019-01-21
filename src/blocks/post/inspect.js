@@ -17,6 +17,7 @@ export default class Inspector extends Component {
         <PanelBody title={ __( 'Choose a post', 'advanced-gutenberg-blocks' ) }>
           <SearchPost
 						onChange={ result => setAttributes( { postID: result.id, postType: result.type } )  }
+						restURL={ advancedGutenbergBlocksPost.rest }
 					/>
         </PanelBody>
 
