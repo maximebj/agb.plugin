@@ -18,7 +18,7 @@
     width: 40px;
     height: 40px;
     position: absolute;
-    top: calc(50% - 20px);
+    top: 20px;
     left: 20px; }
 
 .wp-block-advanced-gutenberg-blocks-notice.is-variation-advice {
