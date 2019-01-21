@@ -4,7 +4,7 @@ Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate
 Requires at least: 4.5
 Tested up to: 5.0
 Requires PHP: 5.6
-Stable tag: 1.8.2
+Stable tag: 1.8.3
 Donate link: https://paypal.me/maximebj
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -101,11 +101,24 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 
 == Changelog ==
 
-= 1.8.3 (xx/01/2019) =
+= 1.8.3 (22/01/2019) =
 * French translation up to date
-* Improved: dashboard styles
+* New: Code Block now supports plain text (Thanks to ronisbr)
+* Improved: API Key fields in block management page are now only accessible for 'manage_options' capabilities (Thanks to Sebastient Serre)
+* Improved: Dashboard styles
+* Fixed: Some PHP data validation where messy (Thanks to Thierry Pigot)
 * Fixed: Error with Post Block rendering
-* Fixed: Escaped code in code block to avoid issues (thanks to pwharton)
+* Fixed: Code block JSX lang is now properly working
+* Fixed: Code block Rust lang is now properly working
+* Fixed: Code block Shell lang is now properly working
+* Fixed: Escaped code in code block to avoid issues (thanks to Pwharton)
+* Fixed: PHP lang was hard to choose because of a missing CSS z-index attribute
+* Fixed: Plugin without icon now displays a placeholder image
+* Fixed: Get full size image in Post Block thumbnail if Large is not available
+
+* Fixed: Bug with Notice block icon rendering
+* Fixed: Depreciation in Notice block now works
+* Fixed: Code block doesn't transform "" anymore
 
 = 1.8.2 (02/01/2019) =
 * Fixed: Bad settings values in CodeMirror in Code Block
