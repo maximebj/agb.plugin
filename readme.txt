@@ -106,6 +106,7 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 * New: Code Block now supports plain text (Thanks to ronisbr)
 * Improved: API Key fields in block management page are now only accessible for 'manage_options' capabilities (Thanks to Sebastient Serre)
 * Improved: Dashboard styles
+* Improved: Paragraph can now be transformed in Intro block
 * Fixed: Some PHP data validation where messy (Thanks to Thierry Pigot)
 * Fixed: Error with Post Block rendering
 * Fixed: Code block JSX lang is now properly working

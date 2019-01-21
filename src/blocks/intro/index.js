@@ -2,7 +2,7 @@ import './style.scss'
 import './editor.scss'
 
 const { __ } = wp.i18n
-const { registerBlockType } = wp.blocks
+const { registerBlockType, createBlock } = wp.blocks
 const { RichText } = wp.editor
 
 export default registerBlockType(
@@ -25,6 +25,19 @@ export default registerBlockType(
       },
     },
     useOnce: true,
+    transforms: {
+      from: [
+        {
+          type: 'block',
+          blocks: [ 'core/paragraph' ],
+          transform: function ( attributes ) {
+            return createBlock( 'advanced-gutenberg-blocks/intro', {
+                content: attributes.content,
+            } )
+          }
+        }
+      ]
+    },
     edit: props => {
 
 			const { attributes: { content }, setAttributes } = props
