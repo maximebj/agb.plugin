@@ -29,19 +29,7 @@ class Card {
   }
 
 	public function settings() {
-		echo '
-			<div class="AGB-form__setting">
-				<div class="AGB-form__label is-required">
-					<label for="advanced-gutenberg-blocks-opengraph-api-key"> ' . __( 'API Key', 'advanced-gutenberg-blocks' ) . '</label>
-				</div>
-
-				<div class="AGB-form__field">
-					<input type="text" name="advanced-gutenberg-blocks-opengraph-api-key" placeholder="' . __( 'Insert your OpenGraph.io API Key here', 'advanced-gutenberg-blocks' ) . '" value="' . get_option( 'advanced-gutenberg-blocks-opengraph-api-key' ) . '">
-				</div>
-			</div>
-
-			<p class="AGB-form__help">' . __( 'The API key is mandatory, you can create one on the <a href="https://www.opengraph.io/" target="_blank">OpenGraph.io API service</a>. ' ) . '</p>
-		';
+		include Consts::get_path() . 'admin/templates/settings/card.php';
 	}
 
 	public function editor_assets() {

@@ -29,19 +29,7 @@ class Giphy {
   }
 
 	public function settings() {
-		echo '		
-			<div class="AGB-form__setting">
-				<div class="AGB-form__label is-required">
-					<label for="advanced-gutenberg-blocks-giphy-api-key"> ' . __( 'API Key', 'advanced-gutenberg-blocks' ) . '</label>
-				</div>
-
-				<div class="AGB-form__field">
-					<input type="text" name="advanced-gutenberg-blocks-giphy-api-key" placeholder="' . __( 'Insert your Giphy API Key here', 'advanced-gutenberg-blocks' ) . '" value="' . get_option( 'advanced-gutenberg-blocks-giphy-api-key' ) . '">
-				</div>
-			</div>
-
-			<p class="AGB-form__help">' . __( 'The API key is mandatory, you can create an App on the <a href="https://developers.giphy.com/dashboard/" target="_blank">Giphy Developers service</a>. ' ) . '</p>
-		';
+		include Consts::get_path() . 'admin/templates/settings/giphy.php';
 	}
 
 	public function editor_assets() {
