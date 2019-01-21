@@ -4,7 +4,9 @@ import CodeMirror from 'react-codemirror'
 
 // Require langs for CodeMirror
 advancedGutenbergBlocksCode.languages.map( lang => { 
-  require(`codemirror/mode/${lang.mode}/${lang.mode}`)
+  if ( lang.mode != '' ) {
+    require(`codemirror/mode/${lang.mode}/${lang.mode}`)
+  }
 } )
 
 // Addons

@@ -320,6 +320,7 @@ class Code {
 			array( 'slug' => "twig", 				'mode' => 'twig', 			'label' => 'Twig' ),
 			array( 'slug' => "django", 			'mode' => 'django', 		'label' => 'Django' ),
 			array( 'slug' => "shell", 			'mode' => 'shell', 		  'label' => 'Shell' ),
+			array( 'slug' => "plain", 			'mode' => '', 		  		'label' => 'Plain Text' )
 		);
 
 		return apply_filters( 'advanced_gutenberg_blocks_code_languages', $languages );
