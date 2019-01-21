@@ -79,6 +79,7 @@ class AddToCart {
 			'advancedGutenbergBlocksAddtocart',
 			array(
 				'currency' => get_woocommerce_currency_symbol(),
+				'rest' => get_rest_url() . 'wc/v2'
 			)
 		);
 	}

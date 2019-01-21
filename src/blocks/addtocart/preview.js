@@ -18,7 +18,7 @@ export default class Preview extends Component {
     let cs = advancedGutenbergBlocksGlobals.wooapisecret
 
     if( typeof productID !== "undefined" ) {
-      fetch( `/wp-json/wc/v2/products/${productID}?consumer_key=${ck}&consumer_secret=${cs}` )
+      fetch( `${advancedGutenbergBlocksAddtocart.rest}/products/${productID}?consumer_key=${ck}&consumer_secret=${cs}` )
         .then( response => response.json() )
         .then( product => {
           this.setState( { product: product } )

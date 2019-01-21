@@ -114,12 +114,13 @@ class Post {
 				'value' => $type->rest_base ? $type->rest_base  : $type->name,
 			);
 		}
-
+		
 		wp_localize_script(
 			Consts::BLOCKS_SCRIPT,
 			'advancedGutenbergBlocksPost',
 			array(
 				'types' => json_encode( $types ),
+				'rest' => get_rest_url() . 'wp/v2',
 			)
 		);
 	}

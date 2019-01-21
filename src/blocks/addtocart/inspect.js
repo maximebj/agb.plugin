@@ -33,7 +33,8 @@ export default class Inspector extends Component {
       <InspectorControls>
 				<PanelBody title={ __( 'Search Product', 'advanced-gutenberg-blocks' ) }>
           <SearchProduct
-						onChange= { product => onChangeProduct( product ) }
+            onChange= { product => onChangeProduct( product ) }
+            restURL= { advancedGutenbergBlocksAddtocart.rest }
 					/>
         </PanelBody>
 

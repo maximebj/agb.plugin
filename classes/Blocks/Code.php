@@ -167,7 +167,7 @@ class Code {
 
 			// -- Finally: load additionnal dependencies needed for some languages
 			// ---- C-Like
-			if ( count ( array_intersect( ['php', 'java'] , $modes) ) > 0 ) {			
+			if ( count ( array_intersect( ['php'] , $modes) ) > 0 ) {			
 				wp_enqueue_script(
 					Consts::PLUGIN_NAME . '-code-mirror-clike',
 					Consts::get_url() . 'vendor/codemirror/modes/clike/clike.js',
@@ -177,7 +177,7 @@ class Code {
 			} 
 
 			// ---- Front End mixed
-			if ( count ( array_intersect( ['php', 'xml', 'twig', 'javascript'] , $modes) ) > 0 ) {
+			if ( count ( array_intersect( ['php', 'xml', 'twig', 'javascript', 'jsx'] , $modes) ) > 0 ) {
 				wp_enqueue_script(
 					Consts::PLUGIN_NAME . '-code-mirror-htmlmixed',
 					Consts::get_url() . 'vendor/codemirror/modes/htmlmixed/htmlmixed.js',

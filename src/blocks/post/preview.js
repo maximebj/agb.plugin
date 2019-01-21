@@ -14,15 +14,15 @@ export default class Preview extends Component {
 
 		const { postID, postType } = this.props.attributes
 	
-		fetch( `/wp-json/wp/v2/${postType}/${postID}` )
+		fetch( `${advancedGutenbergBlocksPost.rest}/${postType}/${postID}` )
     .then( response => response.json() )
     .then( post => {
 
-			this.setState( { post: post } )
+			this.setState( { post } )
 
 			// Author
 			if ( typeof post.author != "undefined" ) {
-				fetch( `/wp-json/wp/v2/users/${post.author}` )
+				fetch( `${advancedGutenbergBlocksPost.rest}/users/${post.author}` )
 				.then( response => response.json() )
 				.then( author => {
 					this.setState( { author: author.name } )
@@ -31,7 +31,7 @@ export default class Preview extends Component {
 
 			// Category
 			if ( typeof post.categories != "undefined" ) {
-				fetch( `/wp-json/wp/v2/categories/${post.categories[0]}` )
+				fetch( `${advancedGutenbergBlocksPost.rest}/categories/${post.categories[0]}` )
 				.then( response => response.json() )
 				.then( category => {
 					this.setState( { category: category.name } )
@@ -40,7 +40,7 @@ export default class Preview extends Component {
 
 			// Featured Media
 			if ( typeof post.featured_media != "undefined" && post.featured_media != 0 ) {
-				fetch( `/wp-json/wp/v2/media/${post.featured_media}` )
+				fetch( `${advancedGutenbergBlocksPost.rest}/media/${post.featured_media}` )
 				.then( response => response.json() )
 				.then( featuredImage => {
 					this.setState( { featuredImage: featuredImage.media_details.sizes.large.source_url } )
