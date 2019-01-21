@@ -155,6 +155,17 @@ class Code {
 
 			$modes = array_unique( $modes );
 
+			// -- Some languages needs some addons first
+
+			if ( count ( array_intersect( ['rust'] , $modes) ) > 0 ) {			
+				wp_enqueue_script(
+					Consts::PLUGIN_NAME . '-code-mirror-simplemode',
+					Consts::get_url() . 'vendor/codemirror/addons/mode/simple.js',
+					[ Consts::PLUGIN_NAME . '-code-mirror' ],
+					Consts::VERSION
+				);
+			} 
+
 			// -- Then: load dependencies according to languages used
 			foreach( $modes as $mode ) {
 				wp_enqueue_script(
@@ -174,7 +185,7 @@ class Code {
 					[ Consts::PLUGIN_NAME . '-code-mirror' ],
 					Consts::VERSION
 				);
-			} 
+			}
 
 			// ---- Front End mixed
 			if ( count ( array_intersect( ['php', 'xml', 'twig', 'javascript', 'jsx'] , $modes) ) > 0 ) {
