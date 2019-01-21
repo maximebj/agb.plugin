@@ -148,6 +148,12 @@
 .AGB-react-select .AGB-react-select__indicator {
   padding: 4px 6px;
   color: #8d96a0; }
+
+.AGB-react-select .AGB-react-select__menu {
+  z-index: 1000; }
+
+.AGB-react-select .AGB-react-select__option {
+  cursor: pointer; }
 .edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-notice__title {
   font-size: 1.1em; }
 
