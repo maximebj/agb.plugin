@@ -85,7 +85,7 @@ class Plugin {
       'fields' => $this->get_api_fields()
     );
 
-    $results = plugins_api('query_plugins', $request);
+    $results = plugins_api( 'query_plugins', $request );
 		$data = array();
 		$plugins = array();
 
@@ -138,7 +138,7 @@ class Plugin {
 	// --- Datas relative methods
 
 	private function prepare_data( $data ) {
-
+		
 		return array(
 			'slug' => $data->slug,
 			'name' => html_entity_decode( $data->name ),
@@ -159,13 +159,13 @@ class Plugin {
 
 	private function define_image( $icons ) {
 
-		if ( $icons['2x'] ) {
+		if ( array_key_exists( '2x', $icons ) ) {
 			return $icons['2x'];
-		} else if($icons['1x']) {
+		} else if( array_key_exists( '1x', $icons ) ) {
 			return $icons['1x'];
+		} else {
+			return $icons['default'];
 		}
-
-		return $icons->default;
 	}
 
 

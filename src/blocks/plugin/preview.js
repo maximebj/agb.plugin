@@ -22,7 +22,7 @@ export default class Preview extends Component {
     } )
     .then( response => response.json() )
     .then( response => {
-
+		
 			this.setState( { plugin: response } )
 
 		} )
@@ -53,6 +53,8 @@ export default class Preview extends Component {
 			)
 
 		} else {
+
+			console.log(icon)
 
 	    return (
 				<div className="wp-block-advanced-gutenberg-blocks-plugin">
