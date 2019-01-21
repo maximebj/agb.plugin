@@ -43,7 +43,9 @@ export default class Preview extends Component {
 				fetch( `${advancedGutenbergBlocksPost.rest}/media/${post.featured_media}` )
 				.then( response => response.json() )
 				.then( featuredImage => {
-					this.setState( { featuredImage: featuredImage.media_details.sizes.large.source_url } )
+					let size = featuredImage.media_details.sizes.hasOwnProperty('large') ? 'large' : 'full'; 
+					this.setState( { featuredImage: featuredImage.media_details.sizes[size].source_url } )
+		
 				} )
 			}
 
