@@ -102,8 +102,12 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 == Changelog ==
 
 = 1.8.3 (22/01/2019) =
+
+Big update with a few new features but a lot of fixes. I've heard you on wp.org and Github!  
+
 * French translation up to date
 * New: Code Block now supports plain text (Thanks to ronisbr)
+* New: Table of content is now foldable and has more options: default header text, maximum level depth and folded by default
 * Improved: API Key fields in block management page are now only accessible for 'manage_options' capabilities (Thanks to Sebastient Serre)
 * Improved: Dashboard styles
 * Improved: Paragraph can now be transformed in Intro block
@@ -118,10 +122,7 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 * Fixed: Get full size image in Post Block thumbnail if Large is not available
 * Fixed: Bug with Notice block icon rendering
 * Fixed: When a block invites to set API key, the URL to blocks management page is now always good (even on multisite)
-
-
 * Fixed: Depreciation in Notice block now works
-
 
 = 1.8.2 (02/01/2019) =
 * Fixed: Bad settings values in CodeMirror in Code Block

@@ -5,7 +5,9 @@ import classnames from 'classnames'
 
 import Inspector from './inspect'
 import Tools from './tools'
+
 import icon from './icons'
+import deprecated from './deprecated'
 
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
@@ -127,40 +129,6 @@ export default registerBlockType(
         </div>
       )
     },
-    deprecated: [
-      {
-        attributes: {
-          type: {
-            source: 'attribute',
-            selector: '.wp-block-advanced-gutenberg-blocks-notice',
-            attribute: 'data-type',
-            default: types[0].slug,
-          },
-          title: {
-            source: 'text',
-            type: 'string',
-            selector: '.wp-block-advanced-gutenberg-blocks-notice__title',
-            default: types[0].title,
-          },
-          content: {
-            type: 'array',
-            source: 'children',
-            selector: '.wp-block-advanced-gutenberg-blocks-notice__content',
-          },
-        },
-
-        save: props => {
-        
-          const { type, title, content } = props.attributes
-    
-          return (
-            <div className={ `wp-block-advanced-gutenberg-blocks-notice--${ type }` } data-type={ type }>
-              <p className='wp-block-advanced-gutenberg-blocks-notice__title'>{ title }</p>
-              <p className='wp-block-advanced-gutenberg-blocks-notice__content'>{ content }</p>
-            </div>
-          )
-        }
-      }
-    ]
+    deprecated : deprecated
   }
 )
