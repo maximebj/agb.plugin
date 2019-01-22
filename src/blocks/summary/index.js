@@ -4,6 +4,8 @@ import './editor.scss'
 import Tools from './tools'
 import List from './list'
 
+import deprecated from './deprecated'
+
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
 const { RichText } = wp.editor
@@ -72,6 +74,7 @@ export default registerBlockType(
 			return (
         <div>
           <p className="wp-block-advanced-gutenberg-blocks-summary__title">{title}</p>
+          <div className="wp-block-advanced-gutenberg-blocks-summary__fold">^</div>
 
           { ordered && (
               <ol
@@ -90,5 +93,6 @@ export default registerBlockType(
         </div>
       )
     },
+    deprecated: deprecated
   }
 )
