@@ -40,7 +40,7 @@ class AddToCart {
 	}
 
 	public function front_assets() {
-		if ( has_block('advanced-gutenberg-blocks/addtocart') ) {
+		if ( has_block( 'advanced-gutenberg-blocks/addtocart' ) ) {
 			wp_enqueue_style( 'dashicons' );
 		}
 	}

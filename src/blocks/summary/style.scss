@@ -2,11 +2,28 @@
   background: #f0F0F0;
   padding: 16px;
   border-radius: 3px;
+  position: relative;
+
+  &.is-folded {
+    .wp-block-advanced-gutenberg-blocks-summary__fold svg {
+      transform: rotateZ(180deg);
+    }
+
+    .wp-block-advanced-gutenberg-blocks-summary__list {
+      display: none;
+    }
+  }
 }
 
 .wp-block-advanced-gutenberg-blocks-summary__title {
-  margin-top: 0;
-  margin-bottom: 10px;
+  margin: 0;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary__fold {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  cursor: pointer;
 }
 
 .wp-block-advanced-gutenberg-blocks-summary__list {
