@@ -22,15 +22,14 @@ export default class Item extends Component {
        )
      } )
     }
-
-    let markup = ordered ? <ol>{subItems}</ol> : <ul>{subItems}</ul>
-
-    // Define link to anchor
+    
+    const markup = ordered ? <ol>{subItems}</ol> : <ul>{subItems}</ul>
     const link = '#' + heading.data.slug
+    const content = heading.data.attributes.content.replace(/[&]nbsp[;]/gi, ' ' )
 
     return (
       <li key={heading.data.clientId}>
-        <a href={link}>{heading.data.attributes.content}</a>
+        <a href={link}>{content}</a>
         { subItems && markup }
       </li>
     )

@@ -24,7 +24,7 @@ export default registerBlockType(
         source: 'text',
         type: 'string',
         selector: '.wp-block-advanced-gutenberg-blocks-summary__title',
-        default: __( "Table of contents", 'advanced-gutenberg-blocks' ),
+        default: advancedGutenbergBlocksSummary.title,
       },
       summary: {
         source: 'html',
@@ -89,6 +89,6 @@ export default registerBlockType(
           }
         </div>
       )
-    }
+    },
   }
 )

@@ -12,17 +12,22 @@ export default class List extends Component {
   // Functions to define headings structure
   // Inspired by packages/editor/src/components/document-outline/index.js in Gutenberg project
   computeOutlineHeadings = ( blocks = [], path = [] ) => {
+
+    const maxDepth = parseInt( advancedGutenbergBlocksSummary.level )
+
     return flatMap( blocks, ( block = {} ) => {
 
       if (
         block.name === 'core/heading' &&
         block.hasOwnProperty('attributes') &&
         block.attributes.hasOwnProperty('content') &&
-        block.attributes.content.length > 0
+        block.attributes.content.length > 0 &&
+        block.attributes.level <= maxDepth
       ) {
 
         // Define anchor slug
         let slug = block.attributes.content.toString().toLowerCase()
+          .replace(/[&]nbsp[;]/gi, '-' )                  // Replace inseccable spaces
           .replace(/\s+/g, '-')                           // Replace spaces with -
           .replace( /[&\/\\#,!+()$~%.'":*?<>{}]/g, '' )   // Remove special chars
           .replace(/\-\-+/g, '-')                         // Replace multiple - with single -
@@ -45,17 +50,17 @@ export default class List extends Component {
   }
 
   // The find your parent function by Victor Sabatier
-  compute(blocks) {
-    return blocks.map( (block, index) => {
+  compute( blocks ) {
+    return blocks.map( ( block, index ) => {
       const blockLevel = block.attributes.level
       if( blockLevel === 0 ) {
-        return { ...block, parentId: null };
+        return { ...block, parentId: null }
       }
       let parentId = null
-      for(let i = index - 1; i >= 0; i-- ) {
+      for( let i = index - 1; i >= 0; i-- ) {
         const currentLevel = blocks[i].attributes.level
         if( blockLevel > currentLevel ) {
-          parentId = blocks[i].clientId;
+          parentId = blocks[i].clientId
           break
         }
       }
@@ -74,7 +79,7 @@ export default class List extends Component {
     const headingsRaw = this.computeOutlineHeadings( blocks )
 
     // Get parents Id in order to make a tree for nested ul/ol > li
-    const headingsFlat = this.compute(headingsRaw)
+    const headingsFlat = this.compute( headingsRaw )
 
     // Make the tree
     const headings = arrayToTree( headingsFlat, { id: 'clientId', parentId: 'parentId' } )

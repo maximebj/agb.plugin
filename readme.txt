@@ -103,7 +103,7 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 
 = 1.8.3 (22/01/2019) =
 
-Big update with a few new features but a lot of fixes. I've heard you on wp.org and Github!  
+Big update with a few new features but a lot of fixes. I've heard you on wp.org and Github! Thanks for your support.  
 
 * French translation up to date
 * New: Code Block now supports plain text (Thanks to ronisbr)
@@ -123,6 +123,7 @@ Big update with a few new features but a lot of fixes. I've heard you on wp.org 
 * Fixed: Bug with Notice block icon rendering
 * Fixed: When a block invites to set API key, the URL to blocks management page is now always good (even on multisite)
 * Fixed: Depreciation in Notice block now works
+* Fixed: &nbsp; chars are no longer appearing in Table of Contents Block
 
 = 1.8.2 (02/01/2019) =
 * Fixed: Bad settings values in CodeMirror in Code Block
