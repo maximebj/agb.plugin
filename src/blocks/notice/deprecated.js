@@ -1,8 +1,6 @@
 const { __ } = wp.i18n
 
 import classnames from 'classnames'
-import icon from './icons'
-
 
 const attrsv1 = {
   type: {

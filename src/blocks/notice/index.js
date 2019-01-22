@@ -129,6 +129,6 @@ export default registerBlockType(
         </div>
       )
     },
-    deprecated : deprecated
+    deprecated
   }
 )
