@@ -123,15 +123,14 @@
 							<p class="AGB-modal__subtitle"><?php _e( 'Description', 'advanced-gutenberg-blocks' ); ?></p>
 							<p><?php echo $block['description']; ?></p>
 							
-							<?php if( array_key_exists( 'credits_callback', $block ) ): ?>
+							<?php if( array_key_exists( 'credits_callback', $block ) and $block['credits_callback'] ): ?>
 								<div class="AGB-modal__credits">
 									<?php call_user_func( $block['credits_callback'] ); ?>
 								</div>
 							<?php endif; ?>
 
 							<p class="AGB-modal__subtitle"><?php _e( 'Options', 'advanced-gutenberg-blocks' ); ?></p>
-
-							<?php if( array_key_exists( 'options_callback', $block ) ): ?>
+							<?php if( array_key_exists( 'options_callback', $block ) and $block['options_callback'] ): ?>
 								<div class="AGB-modal__form AGB-form">
 									<?php call_user_func( $block['options_callback'] ); ?>
 								</div>
@@ -147,7 +146,7 @@
 						<div class="AGB-modal__cols__right">
 							<p class="AGB-modal__subtitle"><?php _e('Preview', 'advanced-gutenberg-blocks' ); ?></p>
 
-							<?php if( array_key_exists( 'preview_image', $block ) ): ?>
+							<?php if( array_key_exists( 'preview_image', $block ) and $block['preview_image'] ): ?>
 								<img src="<?php echo $block['preview_image']; ?>" alt="<?php sprintf( __( '%s example', 'advanced-gutenberg-blocks' ), $block['name'] ); ?>">
 							<?php endif; ?>
 						</div>
