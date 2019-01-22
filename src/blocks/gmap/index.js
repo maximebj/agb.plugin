@@ -71,7 +71,7 @@ export default registerBlockType(
 					{__( "⚠️ You need to provide an API key in ", 'advanced-gutenberg-blocks' )}
 					<a
 						target='_blank'
-						href="/wp-admin/admin.php?page=advanced-gutenberg-blocks-manager&modal=advanced-gutenberg-blocks-gmap"
+						href={ `${advancedGutenbergBlocksGlobals.adminurl}admin.php?page=advanced-gutenberg-blocks-manager&modal=advanced-gutenberg-blocks-gmap` }
 					>
 						{__( "Blocks > Installed Blocks > Google Map", 'advanced-gutenberg-blocks' )}
 					</a>

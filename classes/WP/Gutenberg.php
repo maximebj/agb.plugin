@@ -48,7 +48,7 @@ class Gutenberg {
 
 		// Get translations
 		// Introduced in WP 5.0
-		if ( function_exists('wp_set_script_translations') ) {
+		if ( function_exists( 'wp_set_script_translations' ) ) {
 			wp_set_script_translations( Consts::BLOCKS_SCRIPT, 'advanced-gutenberg-blocks' );
 		}
 		
@@ -58,6 +58,7 @@ class Gutenberg {
 			'advancedGutenbergBlocksGlobals',
 			array(
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'adminurl' => admin_url(),
 				'pluginurl' => Consts::get_url(),
         'wooapikey' => get_option( 'AGB_woo_ck' ),
         'wooapisecret' => get_option( 'AGB_woo_cs' )

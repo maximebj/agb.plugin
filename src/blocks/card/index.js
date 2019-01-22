@@ -62,7 +62,8 @@ export default registerBlockType(
 					<p class="AGB-block-message">
 						{__( "⚠️ You need to provide an API key in ", 'advanced-gutenberg-blocks' )}
 						<a
-							target='_blank' href="/wp-admin/admin.php?page=advanced-gutenberg-blocks-manager&modal=advanced-gutenberg-blocks-card"
+              target='_blank' 
+              href={ `${advancedGutenbergBlocksGlobals.adminurl}admin.php?page=advanced-gutenberg-blocks-manager&modal=advanced-gutenberg-blocks-card` }
 						>
 							{__( "Blocks > Installed Blocks > Card Preview", 'advanced-gutenberg-blocks' )}
 						</a>

@@ -112,14 +112,16 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 * Fixed: Code block JSX lang is now properly working
 * Fixed: Code block Rust lang is now properly working
 * Fixed: Code block Shell lang is now properly working
-* Fixed: Escaped code in code block to avoid issues (thanks to Pwharton)
+* Fixed: Escaped code in code block to avoid issues with apostrophes (thanks to Pwharton)
 * Fixed: PHP lang was hard to choose because of a missing CSS z-index attribute
 * Fixed: Plugin without icon now displays a placeholder image
 * Fixed: Get full size image in Post Block thumbnail if Large is not available
-
 * Fixed: Bug with Notice block icon rendering
+* Fixed: When a block invites to set API key, the URL to blocks management page is now always good (even on multisite)
+
+
 * Fixed: Depreciation in Notice block now works
-* Fixed: Code block doesn't transform "" anymore
+
 
 = 1.8.2 (02/01/2019) =
 * Fixed: Bad settings values in CodeMirror in Code Block
