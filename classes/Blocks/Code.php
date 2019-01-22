@@ -42,21 +42,7 @@ class Code {
 			$select_html .= "<option value='$value'$selected>$label</option>";
 		}
 
-		echo '
-			<div class="AGB-form__setting">
-				<div class="AGB-form__label">
-					<label for="advanced-gutenberg-blocks-bloc-theme"> ' . __( 'Theme', 'advanced-gutenberg-blocks' ) . '</label>
-				</div>
-
-				<div class="AGB-form__field">
-					<select name="advanced-gutenberg-blocks-code-theme">
-						' . $select_html . '
-					</select>
-				</div>
-			</div>
-
-			<p class="AGB-form__help">' . __( 'What does it look like? <a href="https://codemirror.net/demo/theme.html" target="_blank">Find it out here</a>. ', 'advanced-gutenberg-blocks' ) . '</p>
-		';
+		include Consts::get_path() . 'admin/templates/settings/code.php';
 	}
 
 	public function credits() {

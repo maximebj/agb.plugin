@@ -30,19 +30,7 @@ class Ad {
   }
 
 	public function settings() {
-		echo '
-			<div class="AGB-form__setting">
-				<div class="AGB-form__label is-required">
-					<label for="advanced-gutenberg-blocks-ad-script"> ' . __( 'JS unit code', 'advanced-gutenberg-blocks' ) . '</label>
-				</div>
-
-				<div class="AGB-form__field">
-					<textarea name="advanced-gutenberg-blocks-ad-script" rows="4">' . get_option('advanced-gutenberg-blocks-ad-script') . '</textarea>
-				</div>
-			</div>
-
-			<p class="AGB-form__help">' . __( 'Grab this code from your Adsense account.', 'advanced-gutenberg-blocks' ) . ' </p>
-		';
+		include Consts::get_path() . 'admin/templates/settings/ad.php';
 	}
 
 	public function register_render() {

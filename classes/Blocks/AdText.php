@@ -29,19 +29,7 @@ class AdText {
   }
 
 	public function settings() {
-		echo '
-			<div class="AGB-form__setting">
-				<div class="AGB-form__label is-required">
-					<label for="advanced-gutenberg-blocks-adtext-script"> ' . __( 'JS unit code', 'advanced-gutenberg-blocks' ) . '</label>
-				</div>
-
-				<div class="AGB-form__field">
-					<textarea name="advanced-gutenberg-blocks-adtext-script" rows="4">' . get_option('advanced-gutenberg-blocks-adtext-script') . '</textarea>
-				</div>
-			</div>
-
-			<p class="AGB-form__help">' . __( 'Grab this code from your Adsense account.', 'advanced-gutenberg-blocks' ) . ' </p>
-		';
+		include Consts::get_path() . 'admin/templates/settings/adtext.php';
 	}
 
 	public function arguments_for_js() {

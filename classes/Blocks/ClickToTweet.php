@@ -74,21 +74,9 @@ class ClickToTweet {
 
 	public function settings() {
 
-    $twitter_username = $this->get_agb_or_yoast_twitter_user();
-
-		echo '
-			<div class="AGB-form__setting">
-				<div class="AGB-form__label is-required">
-					<label for="advanced-gutenberg-blocks-twitter-username"> ' . __( 'Username', 'advanced-gutenberg-blocks' ) . '</label>
-				</div>
-
-				<div class="AGB-form__field">
-					<input type="text" name="advanced-gutenberg-blocks-twitter-username" placeholder="AdvancedBlocks" value="' . $twitter_username . '">
-				</div>
-			</div>
-
-			<p class="AGB-form__help">' . __( 'Provide your Twitter username (without @).' ) . '</p>
-		';
+		$twitter_username = $this->get_agb_or_yoast_twitter_user();
+			
+		include Consts::get_path() . 'admin/templates/settings/clicktotweet.php';
 	}
 
 
