@@ -10,7 +10,7 @@ class Summary {
   public function run() {
 
     // Register Hooks
-    add_action( 'wp_enqueue_scripts', array( $this, 'add_scripts' ) );
+    add_action( 'wp_footer', array( $this, 'add_scripts' ), 10000 );
     add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
 
 		// Register Block in the plugin settings page
@@ -72,44 +72,48 @@ class Summary {
       return;
     }
 
+    $output = ' 
+      <script type="text/javascript"> 
+        (function($) {
+        $(document).ready(function(){
+    ';
+
+    // We don't use wp_add_inline_script because for some unknow reason it doesnt work when people deregister and register a newer version of jQuery
+
     // Add Smooth Scrolling
     if( get_option( 'advanced-gutenberg-blocks-smooth-scrolling') != '' ) {
 
-      wp_add_inline_script( 'jquery', '
-        (function($) {
-          $(document).ready(function(){
-            $("body").on("click", ".wp-block-advanced-gutenberg-blocks-summary__list a", function(e){
-              e.preventDefault();
-              var anchor = $(this).attr("href");
-              $("html,body").animate({scrollTop: $(anchor).offset().top}, 300);
-            });
-          });
-        })(jQuery);
-      ');
+      $output .= '
+        $("body").on("click", ".wp-block-advanced-gutenberg-blocks-summary__list a", function(e){
+          e.preventDefault();
+          var anchor = $(this).attr("href");
+          $("html,body").animate({scrollTop: $(anchor).offset().top}, 300);
+        });
+      ';
     }
 
     // Fold Arrow
-    wp_add_inline_script( 'jquery', '
-      (function($) {
-        $(document).ready(function(){
-          $("body").on("click", ".wp-block-advanced-gutenberg-blocks-summary__fold", function(e){
-            e.preventDefault();
-            var parent = $(this).parents(".wp-block-advanced-gutenberg-blocks-summary").toggleClass("is-folded");
-          });
-        });
-      })(jQuery);
-    ');
+    $output .= '
+      $("body").on("click", ".wp-block-advanced-gutenberg-blocks-summary__fold", function(e){
+        e.preventDefault();
+        var parent = $(this).parents(".wp-block-advanced-gutenberg-blocks-summary").toggleClass("is-folded");
+      });
+    ';
 
     // Auto Fold option
     if( get_option( 'advanced-gutenberg-blocks-summary-folded') != '' ) {
-      wp_add_inline_script( 'jquery-migrate', '
-        (function($) {
-          $(document).ready(function(){
-            $(".wp-block-advanced-gutenberg-blocks-summary").addClass("is-folded");
-          });
-        })(jQuery);
-      ');
-    }
-  }
 
+      $output .= '
+        $(".wp-block-advanced-gutenberg-blocks-summary").addClass("is-folded");  
+      ';
+    }
+
+    $output .= '
+          });
+        })(jQuery);  
+      </script>
+    ';
+
+    echo $output;
+  }
 }
