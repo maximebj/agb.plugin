@@ -107,7 +107,7 @@ Big update with a few new features but a lot of fixes. I've heard you on wp.org 
 
 * French translation up to date
 * New: Code Block now supports plain text (Thanks to ronisbr)
-* New: Table of content is now foldable and has more options: default header text, maximum level depth and folded by default
+* New: Table of content is now foldable (Thanks to fethomm) and has more options: default header text, maximum level depth and folded by default
 * Improved: API Key fields in block management page are now only accessible for 'manage_options' capabilities (Thanks to Sebastient Serre)
 * Improved: Dashboard styles
 * Improved: Paragraph can now be transformed in Intro block

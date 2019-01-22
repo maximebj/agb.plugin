@@ -27,7 +27,7 @@ class Summary {
     // Register settings
     Blocks::register_setting( 'advanced-gutenberg-blocks-smooth-scrolling' );
     Blocks::register_setting( 'advanced-gutenberg-blocks-summary-title' );
-    Blocks::register_setting( 'eded' );
+    Blocks::register_setting( 'advanced-gutenberg-blocks-summary-folded' );
     Blocks::register_setting( 'advanced-gutenberg-blocks-summary-max-depth' );
   }
 
