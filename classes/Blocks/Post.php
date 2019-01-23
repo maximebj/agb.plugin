@@ -38,25 +38,28 @@ class Post {
 	}
 
 	public function render_block( $attributes ) {
+		
 		if( ! isset( $attributes['postID'] ) ) {
 			return;
 		}
 
-		$id = $attributes['postID'];
-		$cpt = $attributes['postType'];
+		// Default values
+
+		$postID = $attributes['postID'];
+		$postType = array_key_exists( 'postType', $attributes ) ? $attributes['postType'] : 'posts';
 
 		// Start cached output
 		$output = "";
 		ob_start();
 
-		if( $cpt == "posts" ) {
-			$args = array( 'p' => $id );
+		if( $postType == "posts" ) {
+			$args = array( 'p' => $postID );
 		} 
-		elseif( $cpt == 'pages' ) {
-			$args = array( 'page_id' => $id );
+		elseif( $postType == 'pages' ) {
+			$args = array( 'page_id' => $postID );
 		} 
 		else {
-			$args = array( 'post_type' => $cpt, 'p' => $id  );
+			$args = array( 'post_type' => $postType, 'p' => $postID  );
 		}
 		
 		$query = new \WP_Query( $args );
