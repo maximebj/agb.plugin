@@ -226,13 +226,15 @@ class Code {
 		}
 		
 		// Default values
-		if( ! isset( $attributes['language'] ) ) { $attributes['language'] = 'xml'; }
-		if( ! isset( $attributes['startLine'] ) ) { $attributes['startLine'] = 1; }
-		if( ! isset( $attributes['showLines'] ) ) { $attributes['showLines'] = true; }
-		if( ! isset( $attributes['wrapLines'] ) ) { $attributes['wrapLines'] = true; }
-
-		// Define Align Class
-		$align_class = ( isset( $attributes['alignment'] ) ) ? ' align' . $attributes['alignment'] : '';
+		$source = $attributes['source'];
+		$file 		 = array_key_exists( 'file', $attributes )      ? $attributes['file'] 		 : '';
+		$language  = array_key_exists( 'language', $attributes )  ? $attributes['language']  : 'xml';
+		$startLine = array_key_exists( 'startLine', $attributes ) ? $attributes['startLine'] : 1;
+		$showLines = array_key_exists( 'showLines', $attributes ) ? $attributes['showLines'] : true;
+		$wrapLines = array_key_exists( 'wrapLines', $attributes ) ? $attributes['wrapLines'] : true;
+		$alignment = array_key_exists( 'alignment', $attributes ) ? ' align' . $attributes['alignment'] : '';
+		$highlightStart = array_key_exists( 'highlightStart', $attributes ) ? $attributes['highlightStart'] : '';
+		$highlightEnd = array_key_exists( 'highlightEnd', $attributes ) ? $attributes['highlightEnd'] : '';
 
 		// Random ID for this code to multiple instances of CodeMirror
 		$rand = rand();
@@ -242,18 +244,18 @@ class Code {
 
 		// Get language Label and Mode
 		$languages = $this->get_language_list();
-		$key = array_search( $attributes['language'], array_column( $languages, 'slug' ) );
-		$lang_slug = $attributes['language'];
+		$key = array_search( $language, array_column( $languages, 'slug' ) );
+		$lang_slug = $language;
 		$lang_label = $languages[$key]['label'];
 		$lang_mode = $languages[$key]['mode'];
 
 		// Get Marked text
 		$mark_text = '';
-		if( isset( $attributes['highlightStart'] ) and $attributes['highlightStart'] != "" ) {
-			$start = intval( $attributes['highlightStart'] ) - intval( $attributes['startLine'] ) ;
+		if( $highlightStart != "" ) {
+			$start = intval( $highlightStart ) - intval( $startLine ) ;
 
-			if( isset( $attributes['highlightEnd'] ) and $attributes['highlightEnd'] != "" ) {
-				$end = intval( $attributes['highlightEnd'] ) - intval( $attributes['startLine'] ) + 1;
+			if( $highlightEnd != "" ) {
+				$end = intval( $highlightEnd ) - intval( $startLine ) + 1;
 			} else {
 				$end = $start + 1;
 			}
