@@ -44,9 +44,11 @@ class Post {
 		}
 
 		// Default values
-
 		$postID = $attributes['postID'];
-		$postType = array_key_exists( 'postType', $attributes ) ? $attributes['postType'] : 'posts';
+		$postType 		= array_key_exists( 'postType', $attributes ) 		? $attributes['postType'] 		: 'posts';
+		$showImage 		= array_key_exists( 'showImage', $attributes ) 		? $attributes['showImage'] 		: true;
+		$showAuthor 	= array_key_exists( 'showAuthor', $attributes ) 	? $attributes['showAuthor'] 	: true;
+		$showCategory = array_key_exists( 'showCategory', $attributes ) ? $attributes['showCategory'] : true;
 
 		// Start cached output
 		$output = "";
@@ -70,16 +72,16 @@ class Post {
 			$author = false;
 			$category = false;
 
-			if( isset( $attributes['showImage'] ) and $attributes['showImage'] !== false ) {
+			if( $showImage !== false ) {
 				$image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );
 				$image = $image[0];
 			}
 
-			if( isset( $attributes['showAuthor'] ) and $attributes['showAuthor'] !== false ) {
+			if( $showAuthor !== false ) {
 				$author = get_the_author_meta( 'display_name', $post->author );
 			}
 
-			if( isset( $attributes['showCategory'] ) and $attributes['showCategory'] !== false ) {
+			if( $showCategory !== false ) {
 				$categories = get_the_category();
 
 				if ( ! empty( $categories ) ) {
