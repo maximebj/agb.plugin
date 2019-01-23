@@ -45,21 +45,22 @@ class Gmap {
     );
 	}
 
-	public function render_block( $attributes ) {
-
-		$available_styles = $this->get_styles();
-
-		$style = ( isset( $available_styles[ $attributes['style'] ] ) ) ? $available_styles[ $attributes['style'] ] : '"default"';	 
+	public function render_block( $attributes ) {	 
 
 		// Default values
-		if( ! isset( $attributes['address'] ) ) { $attributes['address'] = 'Paris'; }
-		if( ! isset( $attributes['latitude'] ) ) { $attributes['latitude'] = 48.8566; }
-		if( ! isset( $attributes['longitude'] ) ) { $attributes['longitude'] = 2.3522; }
-		if( ! isset( $attributes['zoom'] ) ) { $attributes['zoom'] = 15; }
-		if( ! isset( $attributes['height'] ) ) { $attributes['height'] = 400; }
+		$address   = array_key_exists( 'address', $attributes )   ? $attributes['address']	 : 'Paris';
+		$name   	 = array_key_exists( 'name', $attributes )      ? $attributes['name'] 		 : '';
+		$latitude  = array_key_exists( 'latitude', $attributes )  ? $attributes['latitude']  : 48.8566;
+		$longitude = array_key_exists( 'longitude', $attributes ) ? $attributes['longitude'] : 2.3522;
+		$zoom  		 = array_key_exists( 'zoom', $attributes )  		? $attributes['zoom']  		 : 15;
+		$height    = array_key_exists( 'height', $attributes )  	? $attributes['height']  	 : 400;
+		$style  	 = array_key_exists( 'style', $attributes )  		? $attributes['style']   	 : '';
+		$alignment = array_key_exists( 'alignment', $attributes ) ? ' align' . $attributes['alignment']  : '';
+		
 
-		// Define Align Class
-		$align_class = ( isset( $attributes['alignment'] ) ) ? ' align' . $attributes['alignment'] : '';
+		// Get Google Map JSON styles
+		$available_styles = $this->get_styles();
+		$styles = isset( $available_styles[ $style ] ) ? $available_styles[ $style ] : '"default"';
 
 		// Get API Key
 		$api_key = get_option( 'advanced-gutenberg-blocks-gmap-api-key' );
@@ -67,7 +68,7 @@ class Gmap {
 		// Rand number to allow multiple maps instances
 		$rand = rand();
 
-		
+
 		// Cached output
 		$output = "";
 		ob_start();
