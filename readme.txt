@@ -18,7 +18,7 @@ Advanced Gutenberg Blocks is the perfect tool for the new WordPress Editor:
 * Block management: disable native blocks you don't need
 * Editor tweaks: options to customize the editor experience 
 
-https://www.youtube.com/watch?v=PBVHKo172mU
+https://www.youtube.com/watch?v=P7UsHBSuAvE
 
 = Blocks =
 
@@ -102,11 +102,10 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 == Changelog ==
 
 
-= 1.8.5 (xx/01/2019) =
+= 1.8.5 (24/01/2019) =
 
-* Fixed: PHP error on Click to tweet block rendering 
-*
-
+* Fixed: Better default values handling in PHP rendered blocks
+* Fixed: Post block didn't display post Thumbnail anymore
 
 = 1.8.4 (22/01/2019) =
 
