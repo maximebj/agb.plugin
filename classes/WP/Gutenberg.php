@@ -30,7 +30,7 @@ class Gutenberg {
 		wp_enqueue_style(
 			Consts::PLUGIN_NAME . '-style',
 			Consts::get_url() . 'dist/blocks.style.build.css',
-			[ 'wp-editor' ],
+			array( 'wp-editor' ),
 			Consts::VERSION
 		);
 	}
@@ -42,7 +42,7 @@ class Gutenberg {
 		wp_enqueue_script(
 			Consts::BLOCKS_SCRIPT,
 			Consts::get_url() . 'dist/blocks.build.js',
-			[ 'wp-editor', 'wp-blocks', 'wp-i18n', 'wp-element' ],
+			array( 'wp-editor', 'wp-blocks', 'wp-i18n', 'wp-element' ),
 			Consts::VERSION
 		);
 
@@ -69,7 +69,7 @@ class Gutenberg {
 		wp_enqueue_script(
 			Consts::PLUGIN_NAME . '-deactivator',
 			Consts::get_url() . 'dist/deactivator.build.js',
-			[ 'wp-edit-post' ]
+			array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' )
 		);
 
 		wp_localize_script(
@@ -82,7 +82,7 @@ class Gutenberg {
 		wp_enqueue_style(
 			'advanced-gutenberg-blocks-editor',
 			Consts::get_url() . 'dist/blocks.editor.build.css',
-			[ 'wp-edit-blocks' ],
+			array( 'wp-edit-blocks' ),
 			Consts::VERSION
 		);
 

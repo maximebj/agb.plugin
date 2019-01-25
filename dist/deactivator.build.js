@@ -1,4 +1,4 @@
-_wpLoadBlockEditor.then( function() {
+wp.domReady( function() {
 
   // Deactivate Blocks
   var deactivatedBlocks = JSON.parse(advancedGutenbergBlocksDeactivated);
