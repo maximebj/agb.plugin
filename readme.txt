@@ -16,7 +16,8 @@ Advanced Gutenberg Blocks bring awesome blocks for the new WordPress editor, for
 Advanced Gutenberg Blocks is the perfect tool for the new WordPress Editor:
 * New blocks: Dozen of new and awesome blocks
 * Block management: disable native blocks you don't need
-* Editor tweaks: options to customize the editor experience 
+* Editor tweaks: options to customize the editor experience
+* RichText tools: missing the old TinyMCE buttons? Bring them back in a click
 
 https://www.youtube.com/watch?v=P7UsHBSuAvE
 
@@ -59,6 +60,10 @@ Customize a lot of settings within the editor without a line of code:
 * Activate Wide blocks 
 * Activate default blocks stylesheet when theme doesn't handle blocks styles
 * Activate responsive embeds
+
+= RichText Tools =
+
+Bring back your Tiny MCE buttons in the editor toolbar in a click to improve your writing experience
 
 = Extensible =
 
@@ -103,6 +108,7 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 
 = 1.8.6 (xx/xx/2019) =
 
+* New: You can now add buttons to the editor Toolbar to improve the Tiny MCE experience
 * Improved: Updated the way the plugin unregister blocks (following [this issue](https://www.google.com/url?q=https://github.com/WordPress/gutenberg/pull/12613%23issuecomment-457563671&source=gmail&ust=1548507266759000&usg=AFQjCNFe04mgNvl8DIH6jxFgV4FTQwwgGw))
 
 = 1.8.5 (24/01/2019) =

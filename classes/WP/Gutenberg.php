@@ -112,6 +112,13 @@ class Gutenberg {
 			wp_add_inline_style( 'wp-edit-blocks', $css ); 
 		}
 
+		// Toolbar Formats Script
+		wp_enqueue_script(
+			Consts::PLUGIN_NAME . '-formats',
+			Consts::get_url() . 'dist/formats.build.js',
+			array( 'wp-rich-text' )
+		);
+
 	}
 
 	public function editor_tweaks() {
