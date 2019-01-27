@@ -65,7 +65,7 @@
               type="checkbox" 
               id="advanced-gutenberg-blocks_editor_default_styles" 
               value="1" 
-              <?php echo checked( 1, get_option( 'advanced-gutenberg-blocks_editor_default_styles' ), false ); ?>
+              <?php checked( 1, get_option( 'advanced-gutenberg-blocks_editor_default_styles' ) ); ?>
             >
             <?php _e( 'Activate front stylesheet for default blocks styles', 'advanced-gutenberg-blocks' ); ?>
           </label>
@@ -83,7 +83,7 @@
               type="checkbox" 
               id="advanced-gutenberg-blocks_editor_responsive_embeds" 
               value="1" 
-              <?php echo checked( 1, get_option( 'advanced-gutenberg-blocks_editor_responsive_embeds' ), false ); ?>
+              <?php checked( 1, get_option( 'advanced-gutenberg-blocks_editor_responsive_embeds' ) ); ?>
             >
             <?php _e( 'Activate responsive Embeds styles', 'advanced-gutenberg-blocks' ); ?>
           </label>
@@ -101,7 +101,7 @@
               type="checkbox" 
               id="advanced-gutenberg-blocks_editor_wide_blocks" 
               value="1" 
-              <?php echo checked( 1, get_option( 'advanced-gutenberg-blocks_editor_wide_blocks' ), false ); ?>
+              <?php checked( 1, get_option( 'advanced-gutenberg-blocks_editor_wide_blocks' ) ); ?>
             >
             <?php _e( 'Activate Wide blocks', 'advanced-gutenberg-blocks' ); ?>
           </label>
@@ -158,7 +158,7 @@
               type="checkbox" 
               id="advanced-gutenberg-blocks_editor_custom_color" 
               value="1" 
-              <?php echo checked( 1, get_option( 'advanced-gutenberg-blocks_editor_custom_color' ), false ); ?>
+              <?php checked( 1, get_option( 'advanced-gutenberg-blocks_editor_custom_color' ) ); ?>
             >
             <?php _e( 'Disable custom color button in Color Palette', 'advanced-gutenberg-blocks' ); ?>
           </label>
@@ -216,7 +216,7 @@
               type="checkbox" 
               id="advanced-gutenberg-blocks_editor_custom_font_size" 
               value="1" 
-              <?php echo checked( 1, get_option( 'advanced-gutenberg-blocks_editor_custom_font_size' ), false ); ?>
+              <?php checked( 1, get_option( 'advanced-gutenberg-blocks_editor_custom_font_size' ) ); ?>
             >
             <?php _e( 'Disable custom font size input in Paragraph Block', 'advanced-gutenberg-blocks' ); ?>
           </label>
