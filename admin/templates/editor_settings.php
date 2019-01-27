@@ -1,7 +1,3 @@
-<?php
-  use AdvancedGutenbergBlocks\Helpers\Consts;
-?>
-
 <div class="wrap">
   
   <h1><?php _e( 'Editor settings', 'advanced-gutenberg-blocks' ); ?></h1>

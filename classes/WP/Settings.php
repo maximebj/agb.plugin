@@ -57,6 +57,15 @@ class Settings {
 			array( $this, 'editor_settings_page' )
 		);
 
+		add_submenu_page(
+			Consts::PLUGIN_NAME,
+			__( 'Rich Text Tools' , 'advanced-gutenberg-blocks' ),
+			__( 'Rich Text Tools' , 'advanced-gutenberg-blocks' ),
+			apply_filters( 'AGB-editor-settings-capabilities', 'manage_options' ),
+			Consts::PLUGIN_NAME.'-richtext',
+			array( $this, 'richtext_settings_page' )
+		);
+
 		// Remove default submenu
 		unset( $submenu[Consts::PLUGIN_NAME][0] );
 	}
@@ -82,6 +91,9 @@ class Settings {
 		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_default_styles' );
 		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_responsive_embeds' );
 		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_wide_blocks' );
+
+		// RichText settings
+		register_setting( 'advanced-gutenberg-blocks-richtext-settings', 'advanced-gutenberg-blocks_richtext_buttons' );
 
 	}
 
@@ -136,6 +148,10 @@ class Settings {
 
 	public function editor_settings_page() {
     require_once Consts::get_path() . 'admin/templates/editor_settings.php';
+	}
+
+	public function richtext_settings_page() {
+    require_once Consts::get_path() . 'admin/templates/richtext_settings.php';
 	}
 
 }

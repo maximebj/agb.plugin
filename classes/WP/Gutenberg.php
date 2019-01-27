@@ -119,6 +119,14 @@ class Gutenberg {
 			array( 'wp-rich-text' )
 		);
 
+		wp_localize_script(
+			Consts::PLUGIN_NAME . '-formats',
+			'advancedGutenbergBlocksFormats',
+			array(
+				'buttons' => get_option( 'advanced-gutenberg-blocks_richtext_buttons' ),
+			)
+		);
+
 	}
 
 	public function editor_tweaks() {
