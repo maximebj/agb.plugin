@@ -9,9 +9,7 @@ const {
   Tooltip,
 } = wp.components
 
-
 export default class Tools extends Component {
-
   render() {
 
 		const { type, types, setAttributes } = this.props

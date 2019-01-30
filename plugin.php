@@ -2,11 +2,11 @@
 
 /**
  * Plugin Name: Advanced Gutenberg Blocks
- * Plugin URI: #
+ * Plugin URI: https://advanced-gutenberg-blocks.com
  * Description: Awesome customizable blocks for the new WordPress Editor
  * Author: maximebj
  * Author URI: https://advanced-gutenberg-blocks.com/
- * Version: 1.2.6
+ * Version: 1.8.6
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  *

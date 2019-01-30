@@ -3,12 +3,16 @@ import IconList from './iconlist'
 
 const { __ } = wp.i18n
 const { Component } = wp.element
-const { InspectorControls, ColorPalette } = wp.editor
+
+const { 
+  InspectorControls, 
+  PanelColorSettings,
+} = wp.editor
+
 const {
   PanelBody,
   PanelRow,
   FormToggle,
-	PanelColor,
 } = wp.components
 
 
@@ -16,12 +20,12 @@ export default class Inspector extends Component {
 
   render() {
 
-		const { attributes: { productID, backgroundColor, hasIcon }, setAttributes } = this.props
-
-		const onChangeProduct = product => {
+    const { attributes: { productID, backgroundColor, hasIcon }, setAttributes } = this.props
+    
+    const onChangeProduct = product => {
 			setAttributes( {
 				productID: product.id,
-				label: __( 'Add', 'advanced-gutenberg-blocks' ) + ' ' + product.title.rendered + ' ' + __( 'to cart', 'advanced-gutenberg-blocks' )
+				label: __( 'Add', 'advanced-gutenberg-blocks' ) + ' ' + product.name + ' ' + __( 'to cart', 'advanced-gutenberg-blocks' )
 			} )
 		}
 
@@ -29,19 +33,21 @@ export default class Inspector extends Component {
       <InspectorControls>
 				<PanelBody title={ __( 'Search Product', 'advanced-gutenberg-blocks' ) }>
           <SearchProduct
-						onChange= { product => onChangeProduct( product ) }
+            onChange= { product => onChangeProduct( product ) }
+            restURL= { advancedGutenbergBlocksAddtocart.rest }
 					/>
         </PanelBody>
 
-				<PanelColor
-          title={ __( 'Background Color', 'advanced-gutenberg-blocks' ) }
-          colorValue={ backgroundColor }
-          >
-          <ColorPalette
-            value={ backgroundColor }
-            onChange={ backgroundColor => setAttributes( { backgroundColor } ) }
-          />
-        </PanelColor>
+        <PanelColorSettings
+          title={ __( 'Colors', 'advanced-gutenberg-blocks' ) }
+          colorSettings={ [
+            {
+              value: backgroundColor,
+              onChange: backgroundColor => setAttributes( { backgroundColor } ),
+              label: __( 'Background Color', 'advanced-gutenberg-blocks' ),
+            },
+          ] }
+        />
 
         <PanelBody
           title={ __( 'Icon', 'advanced-gutenberg-blocks' ) }
@@ -70,7 +76,6 @@ export default class Inspector extends Component {
           }
 
         </PanelBody>
-
       </InspectorControls>
     )
   }

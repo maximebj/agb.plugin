@@ -1,7 +1,10 @@
 .git
+.vscode
 /dev
 /src
 /node_modules
+/scripts
+/config
 .DS_Store
 .distignore
 .editorconfig

@@ -1,0 +1,66 @@
+.wp-block-advanced-gutenberg-blocks-code {
+  border-radius: 6px;
+  overflow: hidden; 
+  margin: 3em 0;
+
+  &.alignfull {
+    border-radius: 0;
+  }
+
+  .CodeMirror {
+    height: auto;
+
+    pre {
+      font-size: 15px;
+    }
+  }
+  
+  .CodeMirror-linenumber {
+    font-size: 15px;
+  }
+
+  .CodeMirror-styled-background { 
+    background-color: rgba(255,255,117, .1); 
+  }
+}
+
+.wp-block-advanced-gutenberg-blocks-code__header {
+  display: flex;
+}
+
+.wp-block-advanced-gutenberg-blocks-code__lang {
+  width: 100px;
+  letter-spacing: 1px;
+  font-size: .7em;
+  font-weight: bold;
+  line-height: 25px;
+  color: white;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  text-align: center;
+  background: #4C607F;
+
+  &.is-lang-js     { background: #ffc334; }
+  &.is-lang-jsx    { background: #ffc334; }
+  &.is-lang-php    { background: #4F5B93; }
+  &.is-lang-xml    { background: #F16529; }
+  &.is-lang-html   { background: #F16529; }
+  &.is-lang-css    { background: #48ADD8; }
+  &.is-lang-twig   { background: #83BD71; }
+  &.is-lang-stylus { background: #FF2952; }
+  &.is-lang-sass   { background: #FF2952; }
+  &.is-lang-swift  { background: #FE5E2F; }
+}
+
+.wp-block-advanced-gutenberg-blocks-code__file {
+  flex: auto;
+  background: #2F3344;
+  color: #abb2bf;
+  padding: 0 8px;
+  line-height: 24px;
+  font-family: sans-serif;
+  font-size: .75em;
+  text-align: right;
+  overflow: hidden;
+  white-space: nowrap;
+}

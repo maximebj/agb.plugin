@@ -1,0 +1,45 @@
+@import 'vars';
+
+.wp-block-advanced-gutenberg-blocks-clicktotweet {
+  display: block;
+  box-shadow: 4px 4px 0 rgba(0,0,0, .07);
+}
+
+.wp-block-advanced-gutenberg-blocks-clicktotweet__content {
+  background: #44C6E8;
+  padding: 1.3em 4em 1.3em 1.3em;
+  color: white;
+  font-size: 1.3em;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.wp-block-advanced-gutenberg-blocks-clicktotweet__footer {
+  position: relative;
+  background: #29A3C3;
+  padding: 10px;
+  color: white;
+  font-size: .8em;
+  text-align: right;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  border-bottom-right-radius: 3px;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-right: 16px solid transparent;
+    border-top: 20px solid #29A3C3;
+  }
+
+  svg {
+    display: inline-block;
+    height: 30px;
+  }
+}

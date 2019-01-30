@@ -27,42 +27,43 @@ class Settings {
 	}
 
 	public function add_admin_menu() {
-		global $submenu;
 
+		global $submenu;
+    
 		add_submenu_page(
 			Consts::PLUGIN_NAME,
-			__( 'Installed Blocks' , 'advanced-gutenberg-blocks' ),
-			__( 'Installed Blocks' , 'advanced-gutenberg-blocks' ),
-			'edit_posts',
-			Consts::PLUGIN_NAME . '-installed',
-			array( $this, 'settings_page' )
+			__( 'Manage Blocks' , 'advanced-gutenberg-blocks' ),
+			__( 'Manage Blocks' , 'advanced-gutenberg-blocks' ),
+			apply_filters( 'AGB-manage-blocks-capabilities', 'edit_posts' ),
+			Consts::PLUGIN_NAME . '-manager',
+			array( $this, 'blocks_management_page' )
 		);
 
-		// add_submenu_page(
-		// 	Consts::PLUGIN_NAME,
-		// 	__( 'Add Block' , 'advanced-gutenberg-blocks' ),
-		// 	__( 'Add Block' , 'advanced-gutenberg-blocks' ),
-		// 	'edit_posts',
-		// 	Consts::PLUGIN_NAME.'-install',
-		// 	array( $this, 'block_install' )
-		// );
-
-		// add_submenu_page(
-		// 	Consts::PLUGIN_NAME,
-		// 	__( 'Import/Export' , 'advanced-gutenberg-blocks' ),
-		// 	__( 'Import/Export' , 'advanced-gutenberg-blocks' ),
-		// 	'edit_posts',
-		// 	Consts::PLUGIN_NAME.'-import',
-		// 	array( $this, 'import_export' )
-		// );
+		add_submenu_page(
+			Consts::PLUGIN_NAME,
+			__( 'Disable WP Blocks' , 'advanced-gutenberg-blocks' ),
+			__( 'Disable WP Blocks' , 'advanced-gutenberg-blocks' ),
+			apply_filters( 'AGB-disable-blocks-capabilities', 'manage_options' ),
+			Consts::PLUGIN_NAME . '-disable',
+			array( $this, 'disable_blocks_page' )
+		);
 
 		add_submenu_page(
 			Consts::PLUGIN_NAME,
-			__( 'Demo' , 'advanced-gutenberg-blocks' ),
-			__( 'Demo' , 'advanced-gutenberg-blocks' ),
-			'edit_posts',
-			Consts::PLUGIN_NAME . '-demo',
-			array( $this, 'demo_page' )
+			__( 'Tweak Editor' , 'advanced-gutenberg-blocks' ),
+			__( 'Tweak Editor' , 'advanced-gutenberg-blocks' ),
+			apply_filters( 'AGB-editor-settings-capabilities', 'manage_options' ),
+			Consts::PLUGIN_NAME.'-settings',
+			array( $this, 'editor_settings_page' )
+		);
+
+		add_submenu_page(
+			Consts::PLUGIN_NAME,
+			__( 'Rich Text Tools' , 'advanced-gutenberg-blocks' ),
+			__( 'Rich Text Tools' , 'advanced-gutenberg-blocks' ),
+			apply_filters( 'AGB-editor-settings-capabilities', 'manage_options' ),
+			Consts::PLUGIN_NAME.'-richtext',
+			array( $this, 'richtext_settings_page' )
 		);
 
 		// Remove default submenu
@@ -73,26 +74,27 @@ class Settings {
 	public function register_settings() {
 		global $pagenow;
 
-		if ( ! ($pagenow == "admin.php" and isset( $_GET['page'] ) and $_GET['page'] == Consts::PLUGIN_NAME . '-installed' ) ) {
-			return;
-		}
-
 		$settings = Blocks::get_settings();
 
 		// Register blocks settings
 		foreach( $settings as $setting ) {
-			register_setting( Consts::SETTINGS_GROUP, $setting['name'] );
+			register_setting( 'advanced-gutenberg-blocks-settings', $setting['name'] );
 		}
-	}
 
-	public function settings_page() {
+		// Editor Settings
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_width' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_wide_width' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_colors' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_custom_color' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_font_sizes' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_custom_font_size' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_default_styles' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_responsive_embeds' );
+		register_setting( 'advanced-gutenberg-blocks-editor-settings', 'advanced-gutenberg-blocks_editor_wide_blocks' );
 
-		$native_blocks = Blocks::get_native_blocks();
-		$registered_blocks = Blocks::get_registered_blocks();
-		$disabled_blocks = Blocks::get_disabled_blocks();
-		$categories = Blocks::get_categories();
+		// RichText settings
+		register_setting( 'advanced-gutenberg-blocks-richtext-settings', 'advanced-gutenberg-blocks_richtext_buttons' );
 
-    require_once Consts::get_path() . 'admin/templates/settings.php';
 	}
 
 
@@ -126,15 +128,30 @@ class Settings {
 	}
 
 
-	public function block_install() {
-		echo '<h1>Blocks MarketPlace</h1> <p>Soon...</p>';
+	public function blocks_management_page() {
+
+		$native_blocks = Blocks::get_native_blocks(); // To remove
+		$registered_blocks = Blocks::get_registered_blocks();
+		$disabled_blocks = Blocks::get_disabled_blocks();
+		$categories = Blocks::get_categories();
+
+    require_once Consts::get_path() . 'admin/templates/blocks_management.php';
 	}
 
-	public function import_export() {
-		echo '<h1>Import / Export Settings</h1> <p>Soon...</p';
+	public function disable_blocks_page() {
+
+		$native_blocks = Blocks::get_native_blocks();
+		$disabled_blocks = Blocks::get_disabled_blocks();
+
+		require_once Consts::get_path() . 'admin/templates/disable_blocks.php';
 	}
 
-	public function demo_page() {
-		require_once Consts::get_path() . 'admin/templates/demo.php';
+	public function editor_settings_page() {
+    require_once Consts::get_path() . 'admin/templates/editor_settings.php';
 	}
+
+	public function richtext_settings_page() {
+    require_once Consts::get_path() . 'admin/templates/richtext_settings.php';
+	}
+
 }

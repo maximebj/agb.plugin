@@ -12,8 +12,8 @@ export default registerBlockType(
   {
     title: __( 'Text + Ad', 'advanced-gutenberg-blocks' ),
     description: __( 'Display a text on the left and a rectangle ad on the right', 'advanced-gutenberg-blocks' ),
-    category: 'common',
-    icon: 'align-right',
+    category: 'agb',
+    icon: { background: '#2F313A', foreground: '#DEBB8F', src: 'align-right' },
     keywords: [
       __( 'ad', 'advanced-gutenberg-blocks' ),
       __( 'advertising', 'advanced-gutenberg-blocks' ),

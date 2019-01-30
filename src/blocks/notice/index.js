@@ -3,7 +3,11 @@ import './editor.scss'
 
 import classnames from 'classnames'
 
+import Inspector from './inspect'
 import Tools from './tools'
+
+import icon from './icons'
+import deprecated from './deprecated'
 
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
@@ -38,12 +42,23 @@ export default registerBlockType(
   {
     title: __( 'Notice', 'advanced-gutenberg-blocks' ),
     description: __( 'Put forward a tips or a warning', 'advanced-gutenberg-blocks' ),
-    category: 'common',
-    icon: 'warning',
+    category: 'agb',
+    icon: { background: '#2F313A', foreground: '#DEBB8F', src: 'warning' },
     keywords: [
       __( 'warning', 'advanced-gutenberg-blocks' ),
       __( 'information', 'advanced-gutenberg-blocks' ),
       __( 'tips', 'advanced-gutenberg-blocks' ),
+    ],
+    styles: [
+      {
+        name: 'default',
+        label: __( 'Top Line', 'advanced-gutenberg-blocks' ),
+        isDefault: true
+      },
+      {
+        name: 'full',
+        label: __( 'Full', 'advanced-gutenberg-blocks' )
+      },
     ],
     attributes: {
       type: {
@@ -58,6 +73,10 @@ export default registerBlockType(
         selector: '.wp-block-advanced-gutenberg-blocks-notice__title',
 				default: types[0].title,
       },
+      hasIcon: {
+        type: 'boolean',
+        default: false,
+      },
       content: {
         type: 'array',
         source: 'children',
@@ -66,14 +85,17 @@ export default registerBlockType(
     },
     edit: props => {
 
-			const { attributes: { type, content, title }, className, isSelected, setAttributes } = props
+			const { attributes: { type, content, title, hasIcon }, className, setAttributes } = props
 
       return (
 				<Fragment>
 
+          <Inspector { ...{ hasIcon, setAttributes } } />
 					<Tools { ...{ type, types, setAttributes } } />
 
-	        <div className={ classnames( className, `${className}--${type}` ) }>
+	        <div className={ classnames( className, `is-variation-${type}`, hasIcon && 'has-icon' ) }>
+
+            { hasIcon && icon[type] }
 
 						<RichText
 	            tagName="p"
@@ -97,14 +119,16 @@ export default registerBlockType(
     },
     save: props => {
 
-			const { type, title, content } = props.attributes
+			const { type, title, content, hasIcon } = props.attributes
 
 			return (
-        <div className={ `wp-block-advanced-gutenberg-blocks-notice--${ type }` } data-type={ type }>
+        <div className={ classnames('wp-block-advanced-gutenberg-blocks-notice',  `is-variation-${ type }`, hasIcon && 'has-icon' ) } data-type={ type }>
+          { hasIcon && icon[type] }
           <p className='wp-block-advanced-gutenberg-blocks-notice__title'>{ title }</p>
           <p className='wp-block-advanced-gutenberg-blocks-notice__content'>{ content }</p>
         </div>
       )
     },
-  },
+    deprecated
+  }
 )

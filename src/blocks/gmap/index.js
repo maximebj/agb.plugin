@@ -1,6 +1,7 @@
 import "./style.scss"
 import "./editor.scss"
 
+import Tools from './tools'
 import Inspector from "./inspect"
 import Gmap from "./gmap"
 
@@ -13,8 +14,8 @@ export default registerBlockType(
 	{
 	title: __( "Google Map", 'advanced-gutenberg-blocks' ),
 	description: __( "Display a customizable Google map", 'advanced-gutenberg-blocks' ),
-	category: "common",
-	icon: "location-alt",
+	category: 'agb',
+	icon: { background: '#2F313A', foreground: '#DEBB8F', src: "location-alt" },
 	keywords: [
     __("gmap", 'advanced-gutenberg-blocks' )
 	],
@@ -46,13 +47,22 @@ export default registerBlockType(
 		style: {
 			type: "string",
 			default: "default"
-		}
+		},
+		alignment: {
+			type: 'string',
+		},
 	},
 	useOnce: true,
+	getEditWrapperProps( attributes ) {
+		const { alignment } = attributes;
+		if ( [ 'wide', 'full', 'left', 'right' ].indexOf( alignment ) !== -1 ) {
+			return { 'data-align': alignment };
+		}
+	},
 	edit: props => {
 
-		const { attributes, setAttributes, isSelected } = props
-		const { address, name, zoom, height, style } = attributes
+		const { attributes, setAttributes } = props
+		const { alignment } = attributes
 
 		// If API key is not yet provided
 		if ( typeof advancedGutenbergBlocksGmap.error !== "undefined" ) {
@@ -61,7 +71,7 @@ export default registerBlockType(
 					{__( "⚠️ You need to provide an API key in ", 'advanced-gutenberg-blocks' )}
 					<a
 						target='_blank'
-						href="/wp-admin/admin.php?page=advanced-gutenberg-blocks-installed#advanced-gutenberg-blocks-gmap"
+						href={ `${advancedGutenbergBlocksGlobals.adminurl}admin.php?page=advanced-gutenberg-blocks-manager&modal=advanced-gutenberg-blocks-gmap` }
 					>
 						{__( "Blocks > Installed Blocks > Google Map", 'advanced-gutenberg-blocks' )}
 					</a>
@@ -71,9 +81,10 @@ export default registerBlockType(
 
 		return (
 			<Fragment>
+				<Tools { ...{ alignment, setAttributes } } />
 				<Inspector { ...{ attributes, setAttributes } } />
 
-				<div className="wp-block-advanced-gutenberg-blocks-gmap">
+				<div className="wp-block-advanced-gutenberg-blocks-gmap" dataAlign={ alignment }>
 					<Gmap { ...{ attributes } } />
 				</div>
 			</Fragment>

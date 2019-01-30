@@ -8,40 +8,41 @@ export default class SearchPost extends Component {
 
   state = {
     results: false,
-    currentType: 'Posts',
+    currentType: 'posts',
   }
 
   onSearch = debounce( 300, search => {
 
-		if( search.length < 3) {
+		if( search.length < 3 ) {
       return
     }
 
-    this.setState( { results: __( 'Loading...', 'advanced-gutenberg-blocks' ) } )
-
-    const collection = new wp.api.collections[this.state.currentType]()
-
-    collection.fetch({
-      data: {
-        per_page: 20,
-        search: search,
-      },
-    } )
+    this.setState( { results: __( 'Loading…', 'advanced-gutenberg-blocks' ) } )
+    
+    fetch( `${this.props.restURL}/${this.state.currentType}/?search=${encodeURI( search )}&per_page=20` )
+    .then( response => response.json() )
     .then( results => {
 
       if(results.length == 0 ) {
         results = __( 'No result', 'advanced-gutenberg-blocks' )
       }
-      this.setState( { results: results } )
-    } )
+
+			this.setState( {  results: results  } )
+		} )
   } )
 
   render() {
 
-		const { results } = this.state
+		const { results, currentType } = this.state
 
     return (
       <Fragment>
+
+        <SelectControl
+					label={ __( 'Post type', 'advanced-gutenberg-blocks' ) }
+					options={ JSON.parse( advancedGutenbergBlocksPost.types ) }
+					onChange={ value => this.setState( { currentType: value } ) }
+				/>
 
 				<TextControl
 					type="search"
@@ -54,10 +55,13 @@ export default class SearchPost extends Component {
           { !! results && Array.isArray(results) ?
             (
               <ul>
-                { results.map( result => {
+                { results.map( post => {
                   return (
-                    <li onClick={ () => this.props.onChange( result.id ) }>
-                      { result.title.rendered }
+                    <li
+                      key={post.id}
+                      onClick={ () => this.props.onChange( { id: post.id, type: currentType } ) }
+                    >
+                      <span>{ post.title.rendered }</span>
                     </li>
                   )
                 } ) }
@@ -67,12 +71,6 @@ export default class SearchPost extends Component {
             )
           }
         </div>
-
-				<SelectControl
-					label={ __( 'In post type', 'advanced-gutenberg-blocks' ) }
-					options={ JSON.parse( advancedGutenbergBlocksPost.types ) }
-					onChange={ value => this.setState( { currentType: value } ) }
-				/>
 
 			</Fragment>
     )

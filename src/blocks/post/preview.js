@@ -1,5 +1,3 @@
-import classnames from 'classnames'
-
 const { __ } = wp.i18n
 const { Component } = wp.element
 
@@ -14,30 +12,44 @@ export default class Preview extends Component {
 
 	getPost = () => {
 
-		const { postID } = this.props.attributes
+		const { postID, postType } = this.props.attributes
+	
+		fetch( `${advancedGutenbergBlocksPost.rest}/${postType}/${postID}` )
+    .then( response => response.json() )
+    .then( post => {
 
-		const postQuery = new wp.api.models.Post( { id: postID } );
+			this.setState( { post } )
 
-		// Fetch post via API
-		postQuery.fetch().then( post => {
-			this.setState( { post: post } )
+			// Author
+			if ( typeof post.author != "undefined" ) {
+				fetch( `${advancedGutenbergBlocksPost.rest}/users/${post.author}` )
+				.then( response => response.json() )
+				.then( author => {
+					this.setState( { author: author.name } )
+				} )
+			}
 
-			// Get author
-			postQuery.getAuthorUser().done( author => {
-				this.setState( { author: author.attributes.name } )
-			} )
+			// Category
+			if ( typeof post.categories != "undefined" ) {
+				fetch( `${advancedGutenbergBlocksPost.rest}/categories/${post.categories[0]}` )
+				.then( response => response.json() )
+				.then( category => {
+					this.setState( { category: category.name } )
+				} )
+			}
 
-			// Get Categories
-			postQuery.getCategories().done( categories => {
-				this.setState( { category: categories[0].name } )
-			} )
+			// Featured Media
+			if ( typeof post.featured_media != "undefined" && post.featured_media != 0 ) {
+				fetch( `${advancedGutenbergBlocksPost.rest}/media/${post.featured_media}` )
+				.then( response => response.json() )
+				.then( featuredImage => {
+					let size = featuredImage.media_details.sizes.hasOwnProperty('large') ? 'large' : 'full'; 
+					this.setState( { featuredImage: featuredImage.media_details.sizes[size].source_url } )
+		
+				} )
+			}
 
-			// Get Featured Image
-			postQuery.getFeaturedMedia().done( media => {
-				this.setState( { featuredImage: media.attributes.media_details.sizes.medium.source_url } )
-			} )
-
-		} )
+		} )		
 	}
 
 	componentWillMount() {
@@ -58,7 +70,7 @@ export default class Preview extends Component {
 
 		// Get HTML Excerpt
 		const getExcerpt = () => {
-  		return {__html: this.state.post.excerpt.rendered }
+			return {__html: ( typeof this.state.post.excerpt != "undefined" ) ?  this.state.post.excerpt.rendered : '' }
 		}
 
     return (
@@ -99,7 +111,7 @@ export default class Preview extends Component {
 					</div>
 				</div>
 			) : (
-				<p class="AGB-block-message">{ __( 'Loading post...', 'advanced-gutenberg-blocks' ) }</p>
+				<p class="AGB-block-message">{ __( 'Loading post…', 'advanced-gutenberg-blocks' ) }</p>
 			)
     )
   }

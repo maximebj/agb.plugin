@@ -5,10 +5,39 @@ const { Component } = wp.element
 
 export default class Preview extends Component {
 
+  state = {
+		product: false,
+	}
+
+	getProduct = () => {
+
+		const { productID } = this.props.attributes
+
+    let ck = advancedGutenbergBlocksGlobals.wooapikey
+    let cs = advancedGutenbergBlocksGlobals.wooapisecret
+
+    fetch( `${advancedGutenbergBlocksProduct.rest}/products/${productID}?consumer_key=${ck}&consumer_secret=${cs}` )
+    .then( response => response.json() )
+    .then( product => {
+			this.setState( { product: product } )
+		} )
+	}
+
+	componentWillMount() {
+    this.getProduct()
+  }
+
+	componentDidUpdate(lastProps, lastStates) {
+
+		if( lastProps.attributes.productID != this.props.attributes.productID ) {
+			this.getProduct()
+		}
+	}
+
   render() {
 
 		const { attributes: { priceColor, buttonBackgroundColor } } = this.props
-		const product = this.props.product.data
+		const { product } = this.state
 
 		const getDescription = () => {
 			const description = ( product.short_description !='' ) ? product.short_description : product.description
@@ -68,7 +97,7 @@ export default class Preview extends Component {
 					</div>
 				</div>
 			) : (
-				<p class="AGB-block-message">{ __( 'Loading product...', 'advanced-gutenberg-blocks' ) }</p>
+				<p class="AGB-block-message">{ __( 'Loading product…', 'advanced-gutenberg-blocks' ) }</p>
 			)
     )
   }

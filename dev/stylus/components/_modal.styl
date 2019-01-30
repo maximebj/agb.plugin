@@ -1,0 +1,134 @@
+.AGB-modal
+  opacity 0
+  display flex
+  justify-content center
+  align-items center
+
+  background rgba(0,0,0, .4)
+  position fixed
+  z-index 1000
+  top 0
+  right 0
+  bottom 0
+
+  +desktop()
+    left 160px
+
+  +tablet()
+    left 32px
+
+  +mobile() 
+    left 0
+  
+  cursor pointer
+  pointer-events none
+  transition opacity .5s
+
+  &.is-active
+    opacity 1
+    pointer-events auto
+    backdrop-filter blur(6px)
+
+.AGB-modal__window
+  position relative
+  z-index 1
+  background white
+  border-radius 4px
+  width 100%
+  max-width 900px
+  padding 36px 24px
+  box-shadow 0 4px 10px 2px rgba(0,0,0, .1)
+
+.AGB-modal__close
+  position absolute
+  top 40px
+  right 40px
+  text-decoration none
+  font-size 2.4em
+  font-weight bold
+  color #545454
+  transition all .3s
+
+  &:hover
+    color #222
+    transform scale(1.2)
+
+  &:focus
+    box-shadow: none
+
+.AGB-modal__content
+  display none
+
+  &.is-active
+    display block
+
+.AGB-modal__header
+	display flex
+	align-items center
+	margin-bottom 40px
+
+.AGB-modal__icon
+	margin 5px 10px 0
+
+	.dashicons
+		width 24px
+		height 24px
+
+.AGB-modal__title
+	font-weight bold
+	font-size 1.7em
+
+.AGB-modal__cols
+  display flex
+
+  p
+    margin-top 0
+	  color #7E8492
+
+  .AGB-modal__subtitle
+    font-weight bold
+    text-transform uppercase
+    font-size 1.1em
+    margin-top 0
+    color #545454
+
+    &:not(:first-child)
+      margin-top 10px
+
+  .AGB-modal__credits
+    font-style italic
+    padding 8px 10px
+    border-left 2px solid darken( background-color, 15% )
+    background background-color
+
+    p:last-child
+      margin-bottom 0
+
+.AGB-modal__cols__left
+  flex 6
+  padding 0 20px 0 46px
+  display flex
+  flex-direction column
+
+.AGB-modal__cols__right
+  flex 5
+  padding 10px
+  border-left 1px solid darken( background-color, 5% )
+
+.AGB-modal__form
+  flex 1
+
+.AGB-modal__action
+  margin-top 20px
+  text-align center
+
+body.has-overlay
+  overflow hidden
+
+  .AGB-header
+  .AGB-main
+    filter blur(7px)
+
+.AGB-header
+.AGB-main
+  transition filter .5s

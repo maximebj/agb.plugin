@@ -14,7 +14,7 @@ class Notice {
 			'icon' => 'dashicons-warning',
 			'category' => 'common',
 			'preview_image' => Consts::get_url().'admin/img/blocks/notice.jpg',
-			'description' => __( 'Display a sweet Info/Advice/Warning/Avoid/ notice', 'advanced-gutenberg-blocks' ),
+			'description' => __( 'Display a sweet Info/Advice/Warning/Avoid/ notice.', 'advanced-gutenberg-blocks' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/notice', __( 'Notice', 'advanced-gutenberg-blocks' ), $args );

@@ -17,7 +17,7 @@ export default class Geocoder extends Component {
     }
 
     this.setState( {
-      results: __( "Loading...", 'advanced-gutenberg-blocks' )
+      results: __( "Loading…", 'advanced-gutenberg-blocks' )
     } )
 
     const geocoder = new google.maps.Geocoder()

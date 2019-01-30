@@ -1,0 +1,70 @@
+.wp-block-advanced-gutenberg-blocks-summary {
+  background: #f0F0F0;
+  padding: 16px;
+  border-radius: 3px;
+  position: relative;
+
+  &.is-folded {
+    .wp-block-advanced-gutenberg-blocks-summary__fold svg {
+      transform: rotateZ(180deg);
+    }
+
+    .wp-block-advanced-gutenberg-blocks-summary__list {
+      display: none;
+    }
+  }
+}
+
+.wp-block-advanced-gutenberg-blocks-summary__title {
+  margin: 0;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary__fold {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  cursor: pointer;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary__list {
+  margin-left: 30px;
+  margin-bottom: 0;
+  font-size: .85em;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary__none {
+  opacity: .4;
+  font-style: italic;
+}
+
+// Magic trick to get some 1.1 1.2.1 ... in lists
+.wp-block-advanced-gutenberg-blocks-summary ol {
+  counter-reset: item;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary ol > li {
+  counter-increment: item;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary ol ol > li {
+  display: block;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary ol ol > li:before {
+  content: counters(item, ".") ". ";
+  margin-left: -20px;
+}
+
+
+.wp-block-advanced-gutenberg-blocks-summary ul ul,
+.wp-block-advanced-gutenberg-blocks-summary ol ol {
+  margin-left: 20px;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary li {
+  padding: 2px 0;
+}
+
+.wp-block-advanced-gutenberg-blocks-summary li a {
+  color: inherit;
+}

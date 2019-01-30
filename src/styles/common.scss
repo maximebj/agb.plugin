@@ -1,0 +1,15 @@
+.components-text-control__input--small {
+  max-width: 80px;
+}
+
+.AGB-2cols {
+  display: flex;
+
+  & > div:first-child {
+    margin-right: 8px;
+  }
+
+  & > div:last-child {
+    margin-left: 8px;
+  }
+}

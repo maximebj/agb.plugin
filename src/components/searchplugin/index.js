@@ -16,7 +16,7 @@ export default class SearchPlugin extends Component {
       return
     }
 
-    this.setState( { results: __( 'Loading...', 'advanced-gutenberg-blocks' ) } )
+    this.setState( { results: __( 'Loading…', 'advanced-gutenberg-blocks' ) } )
 
     fetch( advancedGutenbergBlocksGlobals.ajaxurl, {
       method: 'POST',
@@ -32,20 +32,16 @@ export default class SearchPlugin extends Component {
 			if( response.info.results == 0 ) {
 				this.setState( { results: __( 'No result', 'advanced-gutenberg-blocks' ) } )
       } else {
-				this.setState( { results: response.plugins } )
+        this.setState( { results: response.plugins } )
 			}
 
     } )
 		.catch( error => {
 
 			this.setState( { results: __( "⚠️ Error: Couldn't reach wp.org", 'advanced-gutenberg-blocks' ) } )
-
-		} )
+    
+    } )
   } )
-
-  onChangeValue = slug => {
-    this.props.onChange( _.find(this.state.results, { slug: slug} ) )
-  }
 
   render() {
 
@@ -68,7 +64,10 @@ export default class SearchPlugin extends Component {
                 { results.map( plugin => {
 
                   return (
-                    <li onClick={ () => this.onChangeValue( plugin.slug ) } >
+                    <li
+                      key={plugin.slug}  
+                      onClick={ () => this.props.onChange( plugin ) }
+                    >
                       <img src={ plugin.icon } alt={ plugin.name } />
                       <span>{ plugin.name }</span>
                     </li>

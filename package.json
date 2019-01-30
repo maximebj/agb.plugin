@@ -9,11 +9,16 @@
   },
   "dependencies": {
     "cgb-scripts": "1.9.5",
+    "codemirror": "^5.43.0",
     "list.js": "^1.5.0",
-    "lodash": "^4.17.5",
-    "throttle-debounce": "^1.0.1"
+    "performant-array-to-tree": "^1.1.2",
+    "react": "^16.7.0",
+    "react-codemirror": "^1.0.0",
+    "react-dom": "^16.7.0",
+    "react-select": "^2.3.0",
+    "throttle-debounce": "^1.1.0"
   },
   "devDependencies": {
-    "classnames": "^2.2.5"
+    "classnames": "^2.2.6"
   }
 }

@@ -20,7 +20,7 @@ class Plugin {
 			'icon' => 'dashicons-admin-plugins',
 			'category' => 'apis',
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/plugin.jpg',
-			'description' => __( 'Display a Plugin informations from the official WordPress repository', 'advanced-gutenberg-blocks' ),
+			'description' => __( 'Display a Plugin informations from the official WordPress repository.', 'advanced-gutenberg-blocks' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/plugin', __( 'WordPress Plugin Card', 'advanced-gutenberg-blocks' ), $args );
@@ -63,7 +63,7 @@ class Plugin {
 		ob_start();
 
 		// Get template
-		include Consts::get_path() . 'public/templates/plugin.php';
+    include apply_filters( 'advanced_gutenberg_blocks_template', Consts::get_path() . 'public/templates/plugin.php', 'plugin' );
 
 		// En cached output
 		$output = ob_get_contents();
@@ -85,13 +85,18 @@ class Plugin {
       'fields' => $this->get_api_fields()
     );
 
-    $results = plugins_api('query_plugins', $request);
+    $results = plugins_api( 'query_plugins', $request );
+		$data = array();
+		$plugins = array();
 
-    foreach( $results->plugins as &$plugin ) {
-			$plugin = $this->prepare_data( $plugin );
-    }
+    foreach( $results->plugins as $plugin ) {
+			$plugins[] = $this->prepare_data( $plugin );
+		}
+		
+		$data['info'] = $results->info;
+		$data['plugins'] = $plugins;
 
-    echo json_encode($results);
+    echo json_encode($data);
 
     die();
   }
@@ -133,7 +138,7 @@ class Plugin {
 	// --- Datas relative methods
 
 	private function prepare_data( $data ) {
-
+		
 		return array(
 			'slug' => $data->slug,
 			'name' => html_entity_decode( $data->name ),
@@ -154,19 +159,19 @@ class Plugin {
 
 	private function define_image( $icons ) {
 
-		if ( $icons['2x'] ) {
+		if ( array_key_exists( '2x', $icons ) ) {
 			return $icons['2x'];
-		} else if($icons['1x']) {
+		} else if( array_key_exists( '1x', $icons ) ) {
 			return $icons['1x'];
+		} else {
+			return $icons['default'];
 		}
-
-		return $icons->default;
 	}
 
 
 	private function format_installs( $installs ) {
 
-		if ( $installs > 1000000 ) {
+		if ( $installs >= 1000000 ) {
 			return __( '1+ Million', 'advanced-gutenberg-blocks' );
 		}
 		else if( $installs < 10 ) {

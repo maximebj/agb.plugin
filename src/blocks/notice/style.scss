@@ -16,34 +16,133 @@
 	margin: 1em 0 0 0;
 }
 
-.wp-block-advanced-gutenberg-blocks-notice--advice {
+
+// Icon
+
+.wp-block-advanced-gutenberg-blocks-notice.has-icon {
+  position: relative;
+  padding-left: 80px;
+
+  svg {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+}
+
+// Variations
+
+.wp-block-advanced-gutenberg-blocks-notice.is-variation-advice {
   border-top: 3px solid $color-advice;
 
   .wp-block-advanced-gutenberg-blocks-notice__title {
     color: $color-advice;
-	}
+  }
+
+  svg {
+    color: $color-advice;
+  }
+
+  &.is-style-full {
+    border: none;
+    border-left: 4px solid darken( $color-advice, 15% );
+    background: $color-advice;
+    color: white;
+
+    .wp-block-advanced-gutenberg-blocks-notice__title {
+      color: white;
+      font-weight: bold;
+    }
+
+    svg {
+      color: white;
+    }
+  }
+   
 }
 
-.wp-block-advanced-gutenberg-blocks-notice--avoid {
+.wp-block-advanced-gutenberg-blocks-notice.is-variation-avoid {
   border-top: 3px solid $color-avoid;
 
   .wp-block-advanced-gutenberg-blocks-notice__title {
     color: $color-avoid;
-	}
+  }
+
+  svg {
+    color: $color-avoid;
+  }
+  
+  &.is-style-full {
+    border: none;
+    border-left: 4px solid darken( $color-avoid, 10% );
+    background: $color-avoid;
+    color: white;
+
+    .wp-block-advanced-gutenberg-blocks-notice__title {
+      color: white;
+      font-weight: bold;
+    }
+
+    svg {
+      color: white;
+    }
+  }
 }
 
-.wp-block-advanced-gutenberg-blocks-notice--warning {
+.wp-block-advanced-gutenberg-blocks-notice.is-variation-warning {
   border-top: 3px solid $color-warning;
 
   .wp-block-advanced-gutenberg-blocks-notice__title {
     color: $color-warning;
-	}
+  }
+
+  svg {
+    color: $color-warning;
+  }
+  
+  &.is-style-full {
+    border: none;
+    border-left: 4px solid darken( $color-warning, 15% );
+    background: $color-warning;
+    color: white;
+
+    .wp-block-advanced-gutenberg-blocks-notice__title {
+      color: white;
+      font-weight: bold;
+    }
+
+    svg {
+      color: white;
+    }
+  }
 }
 
-.wp-block-advanced-gutenberg-blocks-notice--info {
+.wp-block-advanced-gutenberg-blocks-notice.is-variation-info {
   border-top: 3px solid $color-info;
 
   .wp-block-advanced-gutenberg-blocks-notice__title {
     color: $color-info;
-	}
+  }
+
+  svg {
+    color: $color-info;
+  }
+  
+  &.is-style-full {
+    border: none;
+    border-left: 4px solid darken( $color-info, 15% );
+    background: $color-info;
+    color: white;
+
+    .wp-block-advanced-gutenberg-blocks-notice__title {
+      color: white;
+      font-weight: bold;
+    }
+
+    svg {
+      color: white;
+    }
+  }
 }

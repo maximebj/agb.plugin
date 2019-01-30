@@ -13,8 +13,8 @@ export default registerBlockType(
   {
     title: __( 'Plugin', 'advanced-gutenberg-blocks' ),
     description: __( 'Display informations from a WordPress plugin', 'advanced-gutenberg-blocks' ),
-    category: 'common',
-    icon: 'admin-plugins',
+    category: 'agb',
+    icon: { background: '#2F313A', foreground: '#DEBB8F', src: 'admin-plugins' },
     keywords: [
       'plugin',
     ],

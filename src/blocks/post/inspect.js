@@ -2,7 +2,7 @@ import SearchPost from '../../components/searchpost'
 
 const { __ } = wp.i18n
 const { Component } = wp.element
-const { InspectorControls, ColorPalette } = wp.editor
+const { InspectorControls } = wp.editor
 const { PanelBody, ToggleControl } = wp.components
 
 export default class Inspector extends Component {
@@ -16,7 +16,8 @@ export default class Inspector extends Component {
 
         <PanelBody title={ __( 'Choose a post', 'advanced-gutenberg-blocks' ) }>
           <SearchPost
-						onChange={ postID => setAttributes( { postID } ) }
+						onChange={ result => setAttributes( { postID: result.id, postType: result.type } )  }
+						restURL={ advancedGutenbergBlocksPost.rest }
 					/>
         </PanelBody>
 

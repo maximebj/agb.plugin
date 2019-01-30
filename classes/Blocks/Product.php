@@ -18,7 +18,7 @@ class Product {
 			'icon' => 'dashicons-products',
 			'category' => 'woo',
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/product.jpg',
-			'description' => __( 'Display WooCommerce Product in your post', 'advanced-gutenberg-blocks' ),
+			'description' => __( 'Display WooCommerce Product in your post.', 'advanced-gutenberg-blocks' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/product', __( 'Product', 'advanced-gutenberg-blocks' ), $args );
@@ -59,7 +59,7 @@ class Product {
 		$ca = ( $currency != "$" ) ? $currency : '';
 
 		ob_start();
-		include Consts::get_path() . 'public/templates/product.php';
+    include apply_filters( 'advanced_gutenberg_blocks_template', Consts::get_path() . 'public/templates/product.php', 'product' );
 		$output = ob_get_contents();
 		ob_end_clean();
 
@@ -78,6 +78,7 @@ class Product {
 			'advancedGutenbergBlocksProduct',
 			array(
 				'currency' => get_woocommerce_currency_symbol(),
+				'rest' => get_rest_url() . 'wc/v2'
 			)
 		);
 	}

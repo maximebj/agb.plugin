@@ -1,0 +1,46 @@
+.AGB-form__setting
+  display flex
+  margin 1em 0
+
+.AGB-form__label
+  width 120px
+  line-height 35px
+
+  &.is-required
+    color off-color
+
+    &:before 
+      content ''
+      display inline-block
+      width 6px
+      height 6px
+      border-radius 50%
+      background off-color
+
+.AGB-form__field
+  flex 1
+  line-height 35px
+
+  textarea
+  input[type=text]
+  input[type=url]
+  input[type=password]
+  input[type=email]
+    width 100%
+    padding 8px
+
+  input[type=checkbox]
+    transform translateY(3px)
+
+  select
+    line-height 35px
+    height 35px
+    min-width 70%
+
+  input:disabled
+    background background-color
+    font-style italic
+    font-size .9em
+
+.AGB-form__help
+  padding-left 120px

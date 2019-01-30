@@ -1,0 +1,33 @@
+.AGB-button
+	font-size .9em
+	display inline-block
+	border 2px solid darken( background-color, 8% )
+	border-radius 6px
+	color darken( background-color, 30% )
+	text-decoration none
+	padding 5px 7px
+	transition .3s all ease-out
+
+	&:hover
+		border-color #545454
+		color #545454
+
+	&:focus
+		box-shadow none
+
+.AGB-button + .AGB-button
+	margin-left 8px
+
+.AGB-submit
+	background on-color
+	color white
+	font-weight bold
+	padding 1em 2em
+	border-radius 6px
+	border none 
+	cursor pointer
+	transition .3s all
+	outline none
+
+	&:hover
+		background darken( on-color, 15% )

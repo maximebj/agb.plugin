@@ -19,6 +19,7 @@ class Card {
 			'preview_image' => Consts::get_url().'admin/img/blocks/card.jpg',
 			'description' => __( "Do you like how Facebook, Twitter or Slack display a sweet preview to a website in a card? Don't be jealous, we've made the same for you in WordPress!", 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
+			'require' => __('This block requires an API key'),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/card', __( 'Website card preview', 'advanced-gutenberg-blocks' ), $args );
@@ -28,19 +29,7 @@ class Card {
   }
 
 	public function settings() {
-		echo '
-			<p class="AGB-block__settings__description">' . __( 'The API key is mandatory, you can create one on the <a href="https://www.opengraph.io/" target="_blank">OpenGraph.io API service</a>. ' ) . '</p>
-
-			<div class="AGB-block__settings__option">
-				<div class="AGB-block__settings__label">
-					<label for="advanced-gutenberg-blocks-opengraph-api-key"> ' . __( 'Api Key', 'advanced-gutenberg-blocks' ) . '</label>
-				</div>
-
-				<div class="AGB-block__settings__field">
-					<input type="text" name="advanced-gutenberg-blocks-opengraph-api-key" placeholder="' . __( 'Insert your OpenGraph.io API Key here', 'advanced-gutenberg-blocks' ) . '" value="' . get_option( 'advanced-gutenberg-blocks-opengraph-api-key' ) . '">
-				</div>
-			</div>
-		';
+		include Consts::get_path() . 'admin/templates/settings/card.php';
 	}
 
 	public function editor_assets() {
