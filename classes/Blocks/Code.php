@@ -100,7 +100,7 @@ class Code {
 
 			
 			// Define if addons are needed
-			$content = get_post( $post_id );
+			$content = get_post();
 			$regex = "#<!-- wp:advanced-gutenberg-blocks/code {([^\>]+?)?\"highlightStart\":\"(.*?)\"#";
 			preg_match_all( $regex, $content->post_content, $matches );
 			$highlights = $matches[2];
