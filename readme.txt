@@ -4,7 +4,7 @@ Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate
 Requires at least: 4.5
 Tested up to: 5.0
 Requires PHP: 5.6
-Stable tag: 1.8.6
+Stable tag: 1.9
 Donate link: https://paypal.me/maximebj
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -112,7 +112,7 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 
 == Changelog ==
 
-= 1.8.6 (07/03/2019) =
+= 1.9 (07/03/2019) =
 
 * New: You can now add buttons to the editor Toolbar to improve the Tiny MCE experience
 * Improved: Updated the way the plugin unregister blocks (following [this issue](https://www.google.com/url?q=https://github.com/WordPress/gutenberg/pull/12613%23issuecomment-457563671&source=gmail&ust=1548507266759000&usg=AFQjCNFe04mgNvl8DIH6jxFgV4FTQwwgGw))
