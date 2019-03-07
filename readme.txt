@@ -63,7 +63,13 @@ Customize a lot of settings within the editor without a line of code:
 
 = RichText Tools =
 
-Bring back your Tiny MCE buttons in the editor toolbar in a click to improve your writing experience
+Bring back your Tiny MCE buttons in the editor toolbar in a click to improve your writing experience.
+
+* Code
+* Striketrough
+* Sub and sup
+* Selected text color (text and background)
+* Remove formatting
 
 = Extensible =
 
@@ -106,7 +112,7 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 
 == Changelog ==
 
-= 1.8.6 (xx/xx/2019) =
+= 1.8.6 (07/03/2019) =
 
 * New: You can now add buttons to the editor Toolbar to improve the Tiny MCE experience
 * Improved: Updated the way the plugin unregister blocks (following [this issue](https://www.google.com/url?q=https://github.com/WordPress/gutenberg/pull/12613%23issuecomment-457563671&source=gmail&ust=1548507266759000&usg=AFQjCNFe04mgNvl8DIH6jxFgV4FTQwwgGw))

@@ -1,3 +1,6 @@
+<?php
+	use AdvancedGutenbergBlocks\Helpers\Consts;
+?>
 <div class="wrap">
   
   <h1><?php _e( 'Rich Text Tools', 'advanced-gutenberg-blocks' ); ?></h1>
@@ -119,5 +122,10 @@
     </table>
 
     <?php submit_button(); ?>
+
+    <p>
+      <img src="<?php echo Consts::get_url() . 'admin/img/editor-tools.jpg'; ?>" width="700" alt="The editor with more options">
+    </p>
+
   </form>
 </div>

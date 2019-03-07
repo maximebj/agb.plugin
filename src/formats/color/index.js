@@ -1,147 +1,77 @@
-( function( wp ) {
+const { __ } = wp.i18n
+const { registerFormatType, applyFormat, removeFormat, getActiveFormat } = wp.richText
+const { InspectorControls, PanelColorSettings } = wp.editor
+
+if( advancedGutenbergBlocksFormats.buttons.includes( 'color' ) ) {
+    
+  const type = 'advanced-gutenberg-blocks/color-format'
   
-  if( advancedGutenbergBlocksFormats.buttons.includes('color') ) {
-    wp.richText.registerFormatType(
-      'advanced-gutenberg-blocks/color-format', {
-      title: wp.i18n.__( 'Color', 'advanced-gutenberg-blocks' ),
-      tagName: 'span',
-      className: null,
-      edit: function( props ) {
-        return wp.element.createElement(
-          wp.editor.RichTextToolbarButton, {
-            icon: 'admin-appearance',
-            title: wp.i18n.__( 'Color', 'advanced-gutenberg-blocks' ),
-            onClick: function() {
-              props.onChange( wp.richText.toggleFormat(
-                props.value,
-                { type: 'advanced-gutenberg-blocks/color-format' }
-              ) );
-            },
-            isActive: props.isActive,
-          }
-        );
-      }
-    } );  
-  }
+  registerFormatType( type, {
+    title: __( 'Selected Text Color', 'advanced-gutenberg-blocks' ),
+    tagName: 'span',
+    className: 'color',
+    attributes: {
+      style: 'style'
+    },
+    edit: props => {
+      
+      const { isActive, value, onChange } = props
 
-  if( advancedGutenbergBlocksFormats.buttons.includes('code') ) {
-    wp.richText.registerFormatType(
-      'advanced-gutenberg-blocks/code-format', {
-      title: wp.i18n.__( 'Code', 'advanced-gutenberg-blocks' ),
-      tagName: 'code',
-      className: null,
-      edit: function( props ) {
-        return wp.element.createElement(
-          wp.editor.RichTextToolbarButton, {
-            icon: 'editor-code',
-            title: wp.i18n.__( 'Code', 'advanced-gutenberg-blocks' ),
-            onClick: function() {
-              props.onChange( wp.richText.toggleFormat(
-                props.value,
-                { type: 'advanced-gutenberg-blocks/code-format' }
-              ) );
-            },
-            isActive: props.isActive,
-          }
-        );
-      }
-    } );
-  }
+      let activeColor
+      let activeBGColor
 
-  if( advancedGutenbergBlocksFormats.buttons.includes('strike') ) {
-    wp.richText.registerFormatType(
-      'advanced-gutenberg-blocks/strike-format', {
-      title: wp.i18n.__( 'Strike Trough', 'advanced-gutenberg-blocks' ),
-      tagName: 'del',
-      className: null,
-      edit: function( props ) {
-        return wp.element.createElement(
-          wp.editor.RichTextToolbarButton, {
-            icon: 'editor-strikethrough',
-            title: wp.i18n.__( 'Strike Trough', 'advanced-gutenberg-blocks' ),
-            onClick: function() {
-              props.onChange( wp.richText.toggleFormat(
-                props.value,
-                { type: 'advanced-gutenberg-blocks/strike-format' }
-              ) );
-            },
-            isActive: props.isActive,
-          }
-        );
-      }
-    } );
-  }
+      if ( isActive ) {
+        const activeFormat = getActiveFormat( value, type )
+        const style = activeFormat.attributes.style
 
-  if( advancedGutenbergBlocksFormats.buttons.includes('superscript') ) {
-    wp.richText.registerFormatType(
-      'advanced-gutenberg-blocks/sup-format', {
-      title: wp.i18n.__( 'Superscript', 'advanced-gutenberg-blocks' ),
-      tagName: 'sup',
-      className: null,
-      edit: function( props ) {
-        return wp.element.createElement(
-          wp.editor.RichTextToolbarButton, {
-            icon: 'editor-textcolor',
-            title: wp.i18n.__( 'Superscript', 'advanced-gutenberg-blocks' ),
-            onClick: function() {
-              props.onChange( wp.richText.toggleFormat(
-                props.value,
-                { type: 'advanced-gutenberg-blocks/sup-format' }
-              ) );
-            },
-            isActive: props.isActive,
-          }
-        );
+        activeColor = style.replace( new RegExp(`^color:\\s*`), '' )
+        activeBGColor = style.replace( new RegExp(`^background-color:\\s*`), '' )
       }
-    } );
-  }
 
-  if( advancedGutenbergBlocksFormats.buttons.includes('subscript') ) {
-    wp.richText.registerFormatType(
-      'advanced-gutenberg-blocks/sub-format', {
-      title: wp.i18n.__( 'Subrscript', 'advanced-gutenberg-blocks' ),
-      tagName: 'sub',
-      className: null,
-      edit: function( props ) {
-        return wp.element.createElement(
-          wp.editor.RichTextToolbarButton, {
-            icon: 'editor-textcolor',
-            title: wp.i18n.__( 'Subscript', 'advanced-gutenberg-blocks' ),
-            onClick: function() {
-              props.onChange( wp.richText.toggleFormat(
-                props.value,
-                { type: 'advanced-gutenberg-blocks/sub-format' }
-              ) );
-            },
-            isActive: props.isActive,
-          }
-        );
-      }
-    } );
-  }
+      return (
+        <InspectorControls>
+          <PanelColorSettings
+            title={ __( 'Selected Text color', 'advanced-gutenberg-blocks' ) }
+            colorSettings={ [
+              {
+                value: activeColor,
+                onChange: ( color ) => {
+                  if ( color ) {
+                    onChange( applyFormat( value, {
+                      type,
+                      attributes: {
+                        style: `color:${color}`
+                      }
+                    } ) )
+                    return
+                  }
 
-  if( advancedGutenbergBlocksFormats.buttons.includes('remove') ) {
-    wp.richText.registerFormatType(
-      'advanced-gutenberg-blocks/remove-format', {
-      title: wp.i18n.__( 'Remove formatting', 'advanced-gutenberg-blocks' ),
-      tagName: '<span>',
-      className: null,
-      edit: function( props ) {
-        return wp.element.createElement(
-          wp.editor.RichTextToolbarButton, {
-            icon: 'editor-removeformatting',
-            title: wp.i18n.__( 'Remove formatting', 'advanced-gutenberg-blocks' ),
-            onClick: function() {
-              props.onChange( wp.richText.removeFormat(
-                props.value,
-                { type: 'advanced-gutenberg-blocks/remove-format' }
-              ) );
-            },
-            isActive: props.isActive,
-          }
-        );
-      }
-    } );
-  }
+                  onChange( removeFormat( value, type ) )
+                },
+                label: __( 'Text color', 'advanced-gutenberg-blocks' )
+              },
+              {
+                value: activeBGColor,
+                onChange: ( color ) => {
+                  if ( color ) {
+                    onChange( applyFormat( value, {
+                      type,
+                      attributes: {
+                        style: `background-color:${color}`
+                      }
+                    } ) )
+                    return
+                  }
 
-} )( window.wp );
+                  onChange( removeFormat( value, type ) )
+                },
+                label: __( 'Background color', 'advanced-gutenberg-blocks' )
+              },
+            ] }
+          />
+        </InspectorControls>
+      )
+    }
+  } )
+  
+}
