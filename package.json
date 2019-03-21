@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js"
+    "build": "node scripts/build.js & npm run pot-to-php",
+    "pot-to-php": "./bin/pot-to-php.js languages/agb.pot languages/agb.php advanced-gutenberg-blocks"
   },
   "dependencies": {
     "autoprefixer": "^7.2.4",
@@ -13,15 +14,15 @@
     "babel-loader": "^7.1.1",
     "babel-preset-cgb": "^1.4.0",
     "cgb-dev-utils": "^1.4.0",
-    "chalk": "^2.3.0",
-    "codemirror": "^5.43.0",
+    "chalk": "^2.4.2",
+    "codemirror": "^5.45.0",
     "cross-env": "^5.0.1",
     "cross-spawn": "^5.1.0",
     "eslint": "^4.15.0",
     "eslint-config-wordpress": "^2.0.0",
     "eslint-plugin-jest": "^21.6.1",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-wordpress": "^0.1.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "filesize": "^3.5.11",
@@ -34,10 +35,10 @@
     "performant-array-to-tree": "^1.1.2",
     "postcss-loader": "^2.0.10",
     "raw-loader": "^0.5.1",
-    "react": "^16.7.0",
+    "react": "^16.8.4",
     "react-codemirror": "^1.0.0",
-    "react-dom": "^16.7.0",
-    "react-select": "^2.3.0",
+    "react-dom": "^16.8.4",
+    "react-select": "^2.4.2",
     "resolve-pkg": "^1.0.0",
     "sass-loader": "^6.0.6",
     "shelljs": "^0.8.0",
@@ -47,6 +48,7 @@
     "webpack": "^3.1.0"
   },
   "devDependencies": {
+    "@wordpress/babel-plugin-makepot": "^3.0.0",
     "classnames": "^2.2.6"
   },
   "babel": {
@@ -70,6 +72,12 @@
       ]
     ],
     "plugins": [
+      [
+        "@wordpress/babel-plugin-makepot",
+        {
+          "output": "languages/agb.pot"
+        }
+      ],
       [
         "transform-class-properties"
       ],

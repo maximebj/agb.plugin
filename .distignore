@@ -1,5 +1,6 @@
 .git
 .vscode
+/bin
 /dev
 /src
 /node_modules
