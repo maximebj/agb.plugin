@@ -5,7 +5,7 @@ const { RichTextToolbarButton, RichTextShortcut } = wp.editor
 
 import icon from './icon'
 
-const type = 'advanced-gutenberg-bloc/sub-format'
+const type = 'advanced-gutenberg-blocks/sub-format'
 
 if( advancedGutenbergBlocksFormats.buttons.includes( 'subscript' ) ) {
 
