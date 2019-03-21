@@ -161,6 +161,7 @@ msgid "Comma separated values, don't add #"
 msgstr ""
 
 #: src/blocks/code/index.js:15
+#: src/formats/code/index.js:29
 msgid "Code"
 msgstr ""
 
@@ -628,4 +629,36 @@ msgstr ""
 
 #: src/components/searchproduct/index.js:52
 msgid "Type a product name"
+msgstr ""
+
+#: src/formats/color/index.js:10
+msgid "Selected Text Color"
+msgstr ""
+
+#: src/formats/color/index.js:34
+msgid "Selected Text color"
+msgstr ""
+
+#: src/formats/color/index.js:51
+msgid "Text color"
+msgstr ""
+
+#: src/formats/color/index.js:68
+msgid "Background color"
+msgstr ""
+
+#: src/formats/remove/index.js:20
+msgid "Remove formatting"
+msgstr ""
+
+#: src/formats/strike/index.js:18
+msgid "Strike Trough"
+msgstr ""
+
+#: src/formats/subscript/index.js:31
+msgid "Subscript"
+msgstr ""
+
+#: src/formats/superscript/index.js:31
+msgid "Superscript"
 msgstr ""

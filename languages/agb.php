@@ -121,6 +121,7 @@ $generated_i18n_strings = array(
 	__( 'Comma separated values, don\'t add #', 'advanced-gutenberg-blocks' ),
 
 	// Reference: src/blocks/code/index.js:15
+	// Reference: src/formats/code/index.js:29
 	__( 'Code', 'advanced-gutenberg-blocks' ),
 
 	// Reference: src/blocks/code/index.js:16
@@ -474,6 +475,30 @@ $generated_i18n_strings = array(
 	__( 'Sorry, HTTPS is required to search Woo Products', 'advanced-gutenberg-blocks' ),
 
 	// Reference: src/components/searchproduct/index.js:52
-	__( 'Type a product name', 'advanced-gutenberg-blocks' )
+	__( 'Type a product name', 'advanced-gutenberg-blocks' ),
+
+	// Reference: src/formats/color/index.js:10
+	__( 'Selected Text Color', 'advanced-gutenberg-blocks' ),
+
+	// Reference: src/formats/color/index.js:34
+	__( 'Selected Text color', 'advanced-gutenberg-blocks' ),
+
+	// Reference: src/formats/color/index.js:51
+	__( 'Text color', 'advanced-gutenberg-blocks' ),
+
+	// Reference: src/formats/color/index.js:68
+	__( 'Background color', 'advanced-gutenberg-blocks' ),
+
+	// Reference: src/formats/remove/index.js:20
+	__( 'Remove formatting', 'advanced-gutenberg-blocks' ),
+
+	// Reference: src/formats/strike/index.js:18
+	__( 'Strike Trough', 'advanced-gutenberg-blocks' ),
+
+	// Reference: src/formats/subscript/index.js:31
+	__( 'Subscript', 'advanced-gutenberg-blocks' ),
+
+	// Reference: src/formats/superscript/index.js:31
+	__( 'Superscript', 'advanced-gutenberg-blocks' )
 );
 /* THIS IS THE END OF THE GENERATED FILE */
