@@ -30,6 +30,7 @@ use AdvancedGutenbergBlocks\Blocks\Intro;
 use AdvancedGutenbergBlocks\Blocks\Giphy;
 use AdvancedGutenbergBlocks\Blocks\Unsplash;
 use AdvancedGutenbergBlocks\Blocks\Code;
+use AdvancedGutenbergBlocks\Blocks\Button;
 
 
 /**
@@ -58,6 +59,9 @@ class AdvancedGutenbergBlocks {
 
 		// Load text domain
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
+
+		// Fixes problem with rel="noopener noreferer". Docs: https://github.com/WordPress/gutenberg/issues/9731#issuecomment-475382493
+		add_filter( 'wp_targeted_link_rel', array( $this, 'my_links_control' ), 10, 2 );
 
 		// Plugin path
 		$path = plugin_dir_path( __DIR__ );
@@ -89,6 +93,7 @@ class AdvancedGutenbergBlocks {
 		require_once $path . 'classes/Blocks/Giphy.php';
 		require_once $path . 'classes/Blocks/Unsplash.php';
 		require_once $path . 'classes/Blocks/Code.php';
+		require_once $path . 'classes/Blocks/Button.php';
 
 		// Activation / Deactivation hooks
 		(new Installer)->register_hooks();
@@ -115,6 +120,7 @@ class AdvancedGutenbergBlocks {
 		(new Giphy)->run();
 		(new Unsplash)->run();
 		(new Code)->run();
+		(new Button)->run();
 	}
 
 
@@ -153,5 +159,9 @@ class AdvancedGutenbergBlocks {
 
 	public function load_textdomain() {
 	  load_plugin_textdomain( 'advanced-gutenberg-blocks', false, plugin_dir_path( __DIR__ ) . '/languages' );
+	}
+
+	public function my_links_control( $rel, $link ) {
+		return false;
 	}
 }
