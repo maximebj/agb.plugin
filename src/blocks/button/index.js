@@ -33,13 +33,28 @@ export default registerBlockType("advanced-gutenberg-blocks/button", {
 			type: "boolean",
 			default: true
 		},
+		btnBackgroundColor: {
+			type: "string",
+			default: "#333333"
+		},
+		btnTextColor: {
+			type: "string",
+			default: "#ffffff"
+		},
 		buttonClass: {
 			default: "start"
 		}
 	},
 	edit: props => {
 		const {
-			attributes: { url, buttonClass, isBlank, label },
+			attributes: {
+				url,
+				buttonClass,
+				btnBackgroundColor,
+				btnTextColor,
+				isBlank,
+				label
+			},
 			setAttributes
 		} = props;
 
@@ -50,6 +65,8 @@ export default registerBlockType("advanced-gutenberg-blocks/button", {
 						url,
 						isBlank,
 						buttonClass,
+						btnBackgroundColor,
+						btnTextColor,
 						setAttributes
 					}}
 				/>
@@ -64,6 +81,10 @@ export default registerBlockType("advanced-gutenberg-blocks/button", {
 						<RichText
 							tagname="span"
 							placeholder="Inserisci testo"
+							style={{
+								color: btnTextColor,
+								backgroundColor: btnBackgroundColor
+							}}
 							value={label}
 							onChange={label => setAttributes({ label })}
 						/>
@@ -73,7 +94,14 @@ export default registerBlockType("advanced-gutenberg-blocks/button", {
 		);
 	},
 	save: props => {
-		const { buttonClass, label, url, isBlank } = props.attributes;
+		const {
+			buttonClass,
+			btnBackgroundColor,
+			btnTextColor,
+			label,
+			url,
+			isBlank
+		} = props.attributes;
 
 		return (
 			<div className="wp-block-advanced-gutenberg-blocks-button">
@@ -81,6 +109,10 @@ export default registerBlockType("advanced-gutenberg-blocks/button", {
 					href={url}
 					target={isBlank && "_blank"}
 					className={classnames("button", `button--${buttonClass}`)}
+					style={{
+						backgroundColor: btnBackgroundColor,
+						color: btnTextColor
+					}}
 					data-type={buttonClass}
 				>
 					<span>{label}</span>

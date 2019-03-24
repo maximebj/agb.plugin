@@ -1,5 +1,5 @@
 const { Component } = wp.element;
-const { InspectorControls } = wp.editor;
+const { InspectorControls, PanelColorSettings } = wp.editor;
 const { PanelBody, ToggleControl, ColorPalette, TextControl } = wp.components;
 
 export default class Inspector extends Component {
@@ -22,6 +22,24 @@ export default class Inspector extends Component {
 						onChange={() => setAttributes({ isBlank: !isBlank })}
 					/>
 				</PanelBody>
+				<PanelColorSettings
+					title="Background Color"
+					initialOpen={false}
+					colorSettings={[
+						{
+							value: btnBackgroundColor,
+							onChange: value =>
+								setAttributes({ btnBackgroundColor: value }),
+							label: "Background Color"
+						},
+						{
+							value: btnTextColor,
+							onChange: value =>
+								setAttributes({ btnTextColor: value }),
+							label: "Text Color"
+						}
+					]}
+				/>
 			</InspectorControls>
 		);
 	}
