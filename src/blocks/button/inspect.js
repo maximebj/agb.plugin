@@ -1,10 +1,16 @@
 const { Component } = wp.element;
 const { InspectorControls, PanelColorSettings } = wp.editor;
-const { PanelBody, ToggleControl, ColorPalette, TextControl } = wp.components;
+const { PanelBody, ToggleControl, TextControl } = wp.components;
 
 export default class Inspector extends Component {
 	render() {
-		const { url, isBlank, setAttributes } = this.props;
+		const {
+			url,
+			isBlank,
+			btnBackgroundColor,
+			btnTextColor,
+			setAttributes
+		} = this.props;
 
 		return (
 			<InspectorControls>
@@ -23,7 +29,7 @@ export default class Inspector extends Component {
 					/>
 				</PanelBody>
 				<PanelColorSettings
-					title="Background Color"
+					title="Button Colors"
 					initialOpen={false}
 					colorSettings={[
 						{

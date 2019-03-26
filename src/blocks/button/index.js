@@ -3,6 +3,7 @@ import "./editor.scss";
 
 import classnames from "classnames";
 import Inspector from "./inspect";
+import Tools from "./tools";
 
 const { __ } = wp.i18n;
 const { registerBlockType, createBlock } = wp.blocks;
@@ -43,6 +44,19 @@ export default registerBlockType("advanced-gutenberg-blocks/button", {
 		},
 		buttonClass: {
 			default: "start"
+		},
+		blockAlignment: {
+			type: "string",
+			default: "center"
+		}
+	},
+	getEditWrapperProps({ blockAlignment }) {
+		if (
+			"left" === blockAlignment ||
+			"right" === blockAlignment ||
+			"center" === blockAlignment
+		) {
+			return { "data-align": blockAlignment };
 		}
 	},
 	edit: props => {
@@ -52,6 +66,7 @@ export default registerBlockType("advanced-gutenberg-blocks/button", {
 				buttonClass,
 				btnBackgroundColor,
 				btnTextColor,
+				blockAlignment,
 				isBlank,
 				label
 			},
@@ -70,6 +85,7 @@ export default registerBlockType("advanced-gutenberg-blocks/button", {
 						setAttributes
 					}}
 				/>
+				<Tools {...{ blockAlignment, setAttributes }} />
 
 				<div className="wp-block-advanced-gutenberg-blocks-button">
 					<div
@@ -77,13 +93,16 @@ export default registerBlockType("advanced-gutenberg-blocks/button", {
 							"editor-button",
 							`button--${buttonClass}`
 						)}
+						style={{
+							backgroundColor: btnBackgroundColor
+						}}
 					>
 						<RichText
 							tagname="span"
 							placeholder="Inserisci testo"
+							formattingControls={["bold", "italic"]}
 							style={{
-								color: btnTextColor,
-								backgroundColor: btnBackgroundColor
+								color: btnTextColor
 							}}
 							value={label}
 							onChange={label => setAttributes({ label })}
@@ -100,18 +119,24 @@ export default registerBlockType("advanced-gutenberg-blocks/button", {
 			btnTextColor,
 			label,
 			url,
-			isBlank
+			isBlank,
+			blockAlignment
 		} = props.attributes;
 
 		return (
-			<div className="wp-block-advanced-gutenberg-blocks-button">
+			<div
+				className={classnames(
+					"wp-block-advanced-gutenberg-blocks-button",
+					`align${blockAlignment}`
+				)}
+			>
 				<a
 					href={url}
 					target={isBlank && "_blank"}
 					className={classnames("button", `button--${buttonClass}`)}
 					style={{
-						backgroundColor: btnBackgroundColor,
-						color: btnTextColor
+						color: btnTextColor,
+						backgroundColor: btnBackgroundColor
 					}}
 					data-type={buttonClass}
 				>

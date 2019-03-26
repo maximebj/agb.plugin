@@ -3,18 +3,18 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: src/blocks/button/index.js:13
+#: src/blocks/button/index.js:14
 msgid "Button"
 msgstr ""
 
-#: src/blocks/button/index.js:14
+#: src/blocks/button/index.js:15
 msgid "An advanced kind of button."
 msgstr ""
 
-#: src/blocks/button/index.js:18
+#: src/blocks/button/index.js:19
 msgid "button"
 msgstr ""
 
-#: src/blocks/button/index.js:19
+#: src/blocks/button/index.js:20
 msgid "cta"
 msgstr ""
