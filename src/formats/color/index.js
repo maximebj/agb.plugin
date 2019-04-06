@@ -31,7 +31,7 @@ if( advancedGutenbergBlocksFormats.buttons.includes( 'color' ) ) {
       return (
         <InspectorControls>
           <PanelColorSettings
-            title={ __( 'Selected Text color', 'advanced-gutenberg-blocks' ) }
+            title={ __( 'Selected Text Color', 'advanced-gutenberg-blocks' ) }
             colorSettings={ [
               {
                 value: activeColor,
