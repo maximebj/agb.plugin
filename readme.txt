@@ -114,7 +114,8 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 
 = 1.9.2 (06/04/2019) =
 
-* Fixed: 
+* Fixed: Issue in website block
+* Warning: OpenGraph API has changed plans. You must login and accept new free plan so the website block works again.
 
 = 1.9.1 (21/03/2019) =
 

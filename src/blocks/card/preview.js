@@ -4,7 +4,7 @@ export default class Preview extends Component {
 
   render() {
 
-		const { attributes: { url, title, image, description, siteUrl } } = this.props
+		const { attributes: { url, title, image, description } } = this.props
 
     return (
 			<div className="wp-block-advanced-gutenberg-blocks-card">

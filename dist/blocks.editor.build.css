@@ -15,6 +15,15 @@
   .AGB-2cols > div:last-child {
     margin-left: 8px; }
 
+.AGB-fetch {
+  -ms-flex: 100%;
+      flex: 100%;
+  font-size: 18px; }
+
+.editor-styles-wrapper .AGB-fetch p {
+  font-size: 14px;
+  display: inline-block; }
+
 .AGB-block-message {
   text-align: center;
   font-style: italic;

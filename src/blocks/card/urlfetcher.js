@@ -27,13 +27,25 @@ export default class URLFetcher extends Component {
 			if ( response.error ) {
 				this.setState( { results: __( "⚠️ Error: ", 'advanced-gutenberg-blocks' ) + response.error.message } )
 
-			// Fallback for non OG compatible website
-		} else if ( response.openGraph.error ) {
+			} else if ( response.openGraph.error ) {
+
+				// Fallback for non OG datas
 				this.props.onChange( response.hybridGraph )
 			} else {
 
+				// Sometimes OG datas has no image, we get it on hybrid datas
 				if ( ! response.openGraph.image && response.hybridGraph.image ) {
 					response.openGraph.image = response.hybridGraph.image
+				}
+
+				// Sometimes OG datas has no description, we get it on hybrid datas
+				if ( ! response.openGraph.description && response.hybridGraph.description ) {
+					response.openGraph.description = response.hybridGraph.description
+				}
+
+				// Sometimes Og data provides an object of images
+				if( typeof response.openGraph.image === "object" ) {
+					response.openGraph.image = response.openGraph.image.url
 				}
 
 				this.props.onChange( response.openGraph )
@@ -43,8 +55,6 @@ export default class URLFetcher extends Component {
 	} )
 
   render() {
-
-		const { isSelected } = this.props
 
     return (
 			<Placeholder
@@ -58,10 +68,9 @@ export default class URLFetcher extends Component {
 				/>
 
 				{ this.state.results && (
-					<p>
-						<Spinner />
-						{ this.state.results }
-					</p>
+					<div className="AGB-fetch">
+						<p>{ this.state.results } <Spinner /></p>
+					</div>
 				) }
 			</Placeholder>
     )

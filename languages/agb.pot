@@ -3,6 +3,22 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
+#: src/blocks/card/urlfetcher.js:19
+msgid "Fetching website..."
+msgstr ""
+
+#: src/blocks/card/urlfetcher.js:28
+msgid "⚠️ Error: "
+msgstr ""
+
+#: src/blocks/card/urlfetcher.js:62
+msgid "Website card preview"
+msgstr ""
+
+#: src/blocks/card/urlfetcher.js:67
+msgid "Paste URL here"
+msgstr ""
+
 #: src/formats/color/index.js:34
 msgid "Selected Text Color"
 msgstr ""
