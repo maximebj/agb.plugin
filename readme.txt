@@ -1,10 +1,10 @@
 === Advanced Gutenberg Blocks ===
 Contributors: maximebj
 Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate blocks, plugin, ad, marketplace, WooCommerce, Product,
-Requires at least: 4.5
-Tested up to: 5.0
+Requires at least: 5.0
+Tested up to: 5.2
 Requires PHP: 5.6
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 Donate link: https://paypal.me/maximebj
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -111,6 +111,10 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 == Screenshots ==
 
 == Changelog ==
+
+= 1.9.2 (06/04/2019) =
+
+* Fixed: 
 
 = 1.9.1 (21/03/2019) =
 
