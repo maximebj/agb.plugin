@@ -13,4 +13,4 @@
   </div>
 </div>
 
-<p class="AGB-form__help"><?php _e( 'The API key is mandatory.', 'advanced-gutenberg-blocks'); ?><br><?php _e( 'You can create one on the <a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">Google Maps JS Api page</a>. ' ); ?></p>
+<p class="AGB-form__help"><?php _e( 'The API key is mandatory.', 'advanced-gutenberg-blocks'); ?><br><?php _e( 'You can create one on the <a href="https://console.cloud.google.com/apis/credentials" target="_blank">Google Maps JS Api page</a>. ' ); ?></p>
