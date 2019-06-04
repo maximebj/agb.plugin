@@ -14,7 +14,7 @@
   ><?php echo esc_html( $source ); ?></textarea>
   <script>
     CodeMirror.fromTextArea( document.getElementById('codemirror-<?php echo $rand; ?>'), {
-      mode: '<?php echo $lang_mode; ?>',
+      mode: '<?php echo $lang_mime ?: $lang_mode; ?>',
       readOnly: true,
       theme: '<?php echo $theme; ?>', 
       lineNumbers: <?php echo ( $showLines ) ? 'true' : 'false'; ?>,

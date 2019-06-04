@@ -248,6 +248,7 @@ class Code {
 		$lang_slug = $language;
 		$lang_label = $languages[$key]['label'];
 		$lang_mode = $languages[$key]['mode'];
+		$lang_mime = $languages[$key]['mime'];
 
 		// Get Marked text
 		$mark_text = '';
@@ -292,6 +293,8 @@ class Code {
 			array( 'slug' => "css", 				'mode' => 'css', 				'label' => 'CSS' ),
 			array( 'slug' => "php", 				'mode' => 'php', 				'label' => 'PHP' ),
 			array( 'slug' => "js", 					'mode' => 'javascript', 'label' => 'JS' ),
+			array( 'slug' => "ts", 					'mode' => 'javascript',   'mime' => 'application/typescript',   'label' => 'TypeScript' ),
+			array( 'slug' => "json", 				'mode' => 'javascript',   'mime' => 'application/json',   'label' => 'JSON' ),
 			array( 'slug' => "jsx", 				'mode' => 'jsx', 				'label' => 'JSX' ),
 			array( 'slug' => "xml", 				'mode' => 'xml', 				'label' => 'XML' ),
 			array( 'slug' => "sass", 	 			'mode' => 'sass', 			'label' => 'Sass' ),

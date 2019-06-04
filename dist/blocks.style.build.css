@@ -584,6 +584,10 @@
     background: #ffc334; }
   .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-jsx {
     background: #ffc334; }
+  .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-json {
+    background: #7197cf; }
+  .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-ts {
+    background: #e8b12c; }
   .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-php {
     background: #4F5B93; }
   .wp-block-advanced-gutenberg-blocks-code__lang.is-lang-xml {
