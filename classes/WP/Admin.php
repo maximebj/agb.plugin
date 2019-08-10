@@ -20,12 +20,13 @@ class Admin {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 		add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
     add_action( 'admin_init', array( $this, 'woocommerce_add_keys') );
+    add_filter('rank_math/researches/toc_plugins', array( $this, 'toc_plugin') );
 	}
 
 	public function enqueue_assets( $hook ) {
 
 		// All AGB admin pages
-		if( strpos( $hook, Consts::PLUGIN_NAME ) !== false ) { 
+		if( strpos( $hook, Consts::PLUGIN_NAME ) !== false ) {
 			wp_enqueue_style(
 				Consts::PLUGIN_NAME,
 				Consts::get_url() . 'admin/css/advanced-gutenberg-blocks-admin.css',
@@ -36,7 +37,7 @@ class Admin {
 		}
 
 		// Block management page
-		if( 
+		if(
 			$hook == 'blocks_page_advanced-gutenberg-blocks-manager' or
 			$hook == 'blocks_page_advanced-gutenberg-blocks-disable'
 		) {
@@ -57,9 +58,9 @@ class Admin {
 				false
 			);
 		}
- 
+
 		if( $hook == 'blocks_page_advanced-gutenberg-blocks-settings' ) {
-			
+
 			wp_enqueue_style( 'wp-color-picker' );
 
 			wp_enqueue_script(
@@ -128,5 +129,15 @@ class Admin {
       }
     }
   }
+
+  /**
+	 * Rank Math SEO filter to add kb-elementor to the TOC list.
+	 *
+	 * @param array TOC plugins.
+	 */
+	public function toc_plugin( $plugins ) {
+		$plugins['advanced-gutenberg-blocks/plugin.php'] = 'Advanced Gutenberg Blocks';
+  	return $plugins;
+	}
 
 }
