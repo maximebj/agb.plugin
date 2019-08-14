@@ -152,6 +152,6 @@ class AdvancedGutenbergBlocks {
 	 */
 
 	public function load_textdomain() {
-	  load_plugin_textdomain( 'advanced-gutenberg-blocks', false, plugin_dir_path( __DIR__ ) . '/languages' );
+	  load_plugin_textdomain( 'advanced-gutenberg-blocks', false, 'advanced-gutenberg-blocks/languages' );
 	}
 }
