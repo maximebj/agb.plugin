@@ -2,7 +2,7 @@
 Contributors: maximebj
 Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate blocks, plugin, ad, marketplace, WooCommerce, Product,
 Requires at least: 5.0
-Tested up to: 5.2
+Tested up to: 5.3
 Requires PHP: 5.6
 Stable tag: 1.9.3
 Donate link: https://paypal.me/maximebj
@@ -116,6 +116,10 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 * Fixed: Text domain wasn't properly called
 * Fixed: Removed WP texturize in block content to avoid -- being transformed in – thanks to @lukaszmn
 * Fixed: Table of content entities and tags are handled better thanks to @lukaszmn
+* Improved: Added support for new languages: TypeScript and JSON thanks to lukaszmn
+* Fixed: Code block line Wrapping works fine thanks to @mcbenton
+* Fixed: Plugin blocks works again thanks to @dezodev
+* General improvements
 
 = 1.9.2 (06/04/2019) =
 

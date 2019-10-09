@@ -71,7 +71,7 @@ $generated_i18n_strings = array(
 	__( 'Write text here', 'advanced-gutenberg-blocks' ),
 
 	// Reference: src/blocks/card/index.js:13
-	// Reference: src/blocks/card/urlfetcher.js:52
+	// Reference: src/blocks/card/urlfetcher.js:62
 	__( 'Website card preview', 'advanced-gutenberg-blocks' ),
 
 	// Reference: src/blocks/card/index.js:14
@@ -99,7 +99,7 @@ $generated_i18n_strings = array(
 	// Reference: src/blocks/card/urlfetcher.js:28
 	__( '⚠️ Error: ', 'advanced-gutenberg-blocks' ),
 
-	// Reference: src/blocks/card/urlfetcher.js:57
+	// Reference: src/blocks/card/urlfetcher.js:67
 	__( 'Paste URL here', 'advanced-gutenberg-blocks' ),
 
 	// Reference: src/blocks/clicktotweet/index.js:18
@@ -477,11 +477,8 @@ $generated_i18n_strings = array(
 	// Reference: src/components/searchproduct/index.js:52
 	__( 'Type a product name', 'advanced-gutenberg-blocks' ),
 
-	// Reference: src/formats/color/index.js:10
-	__( 'Selected Text Color', 'advanced-gutenberg-blocks' ),
-
 	// Reference: src/formats/color/index.js:34
-	__( 'Selected Text color', 'advanced-gutenberg-blocks' ),
+	__( 'Selected Text Color', 'advanced-gutenberg-blocks' ),
 
 	// Reference: src/formats/color/index.js:51
 	__( 'Text color', 'advanced-gutenberg-blocks' ),
