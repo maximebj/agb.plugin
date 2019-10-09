@@ -13,6 +13,9 @@ class Code {
 		add_action( 'init', array( $this, 'register_render' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'front_assets' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
+		
+		// Exclude Code from wptexturize()
+		add_filter('no_texturize_tags', array($this, 'add_not_texturized_tags'));
 
 		// Register Block in the plugin settings page
 		$args = array(
@@ -378,5 +381,11 @@ class Code {
 		);
 
 		return apply_filters( 'advanced_gutenberg_blocks_code_themes', $themes );
+	}
+
+	// Avoid issues with texturize in code for --checkout (in git codes)
+	public function add_not_texturized_tags($tags) {
+		$tags[] = 'textarea';
+		return $tags;
 	}
 }
