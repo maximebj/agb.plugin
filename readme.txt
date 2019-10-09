@@ -4,7 +4,7 @@ Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate
 Requires at least: 5.0
 Tested up to: 5.2
 Requires PHP: 5.6
-Stable tag: 1.9.2
+Stable tag: 1.9.3
 Donate link: https://paypal.me/maximebj
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -111,6 +111,11 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 == Screenshots ==
 
 == Changelog ==
+
+= 1.9.3 (09/10/2019) =
+* Fixed: Text domain wasn't properly called
+* Fixed: Removed WP texturize in block content to avoid -- being transformed in – thanks to @lukaszmn
+* Fixed: Table of content entities and tags are handled better thanks to @lukaszmn
 
 = 1.9.2 (06/04/2019) =
 
