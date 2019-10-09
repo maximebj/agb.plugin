@@ -22,10 +22,31 @@ export default class Item extends Component {
        )
      } )
     }
-    
+
+    // (C) https://stackoverflow.com/a/9609450/1454656
+    const decodeEntities = (function() {
+      // this prevents any overhead from creating the object each time
+      const element = document.createElement('div');
+
+      function decodeHTMLEntities (str) {
+        if (str && typeof str === 'string') {
+          // strip script/html tags
+          str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+          str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+          element.innerHTML = str;
+          str = element.textContent;
+          element.textContent = '';
+        }
+
+        return str;
+      }
+
+      return decodeHTMLEntities;
+    })();
+
     const markup = ordered ? <ol>{subItems}</ol> : <ul>{subItems}</ul>
     const link = '#' + heading.data.slug
-    const content = heading.data.attributes.content.replace(/[&]nbsp[;]/gi, ' ' )
+    const content = decodeEntities(heading.data.attributes.content);
 
     return (
       <li key={heading.data.clientId}>

@@ -27,9 +27,10 @@ export default class List extends Component {
 
         // Define anchor slug
         let slug = block.attributes.content.toString().toLowerCase()
-          .replace(/[&]nbsp[;]/gi, '-' )                  // Replace inseccable spaces
+          .replace(/[&]nbsp[;]/gi, '-')                   // Replace inseccable spaces
           .replace(/\s+/g, '-')                           // Replace spaces with -
-          .replace( /[&\/\\#,!+()$~%.'":*?<>{}]/g, '' )   // Remove special chars
+          .replace(/<[^<>]+>/g, '')                       // Remove tags
+          .replace(/[&\/\\#,!+()$~%.'":*?<>{}]/g, '')     // Remove special chars
           .replace(/\-\-+/g, '-')                         // Replace multiple - with single -
           .replace(/^-+/, '')                             // Trim - from start of text
           .replace(/-+$/, '');                            // Trim - from end of text
