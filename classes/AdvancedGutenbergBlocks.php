@@ -59,6 +59,9 @@ class AdvancedGutenbergBlocks {
 		// Load text domain
 		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 
+		// Exclude Code from wptexturize()
+		add_filter('no_texturize_tags', array($this, 'add_not_texturized_tags'));
+
 		// Plugin path
 		$path = plugin_dir_path( __DIR__ );
 
@@ -152,6 +155,12 @@ class AdvancedGutenbergBlocks {
 	 */
 
 	public function load_textdomain() {
-	  load_plugin_textdomain( 'advanced-gutenberg-blocks', false, plugin_dir_path( __DIR__ ) . '/languages' );
+	  load_plugin_textdomain( 'advanced-gutenberg-blocks', false, 'advanced-gutenberg-blocks/languages' );
+	}
+
+
+	public function add_not_texturized_tags($tags) {
+		$tags[] = 'textarea';
+		return $tags;
 	}
 }
