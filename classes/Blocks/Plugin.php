@@ -138,8 +138,11 @@ class Plugin {
 	// --- Datas relative methods
 
 	private function prepare_data( $data ) {
-		
-		return array(
+
+		// Force object
+		if(is_array($data)){  $data = (object) $data; } 
+
+		$plugin_data = array(
 			'slug' => $data->slug,
 			'name' => html_entity_decode( $data->name ),
 			'description' => html_entity_decode( $data->short_description ),
@@ -153,6 +156,8 @@ class Plugin {
 			'homepage' => $data->homepage,
 			'numRatings' => $data->num_ratings,
 		);
+		
+		return $plugin_data;
 
 	}
 
