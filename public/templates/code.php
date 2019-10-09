@@ -22,7 +22,7 @@
       matchBrackets: true,
       indentUnit: 4,
       tabSize: 4,
-      wrapLine: <?php echo ( $wrapLines ) ? 'true' : 'false'; ?>,
+      lineWrapping: <?php echo ( $wrapLines ) ? 'true' : 'false'; ?>,
     } )<?php echo $mark_text; ?>; 
   </script>
 </div>
