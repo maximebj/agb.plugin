@@ -19,24 +19,24 @@ class Gutenberg {
 
 	public function register_hooks() {
 
-		add_action( 'enqueue_block_assets', array( $this, 'blocks_assets' ) );
-		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'front_assets' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'back_editor_assets' ) );
 		add_action( 'after_setup_theme', array( $this, 'editor_tweaks' ) );
 		add_filter( 'block_categories', array( $this, 'add_block_category' ) );
 	}
 
 
-	public function blocks_assets() {
+	public function front_assets() {
 		wp_enqueue_style(
 			Consts::PLUGIN_NAME . '-style',
 			Consts::get_url() . 'dist/blocks.style.build.css',
-			array( 'wp-editor' ),
+			[],
 			Consts::VERSION
 		);
 	}
 
 
-	public function editor_assets() {
+	public function back_editor_assets() {
 
 		// Custom blocks
 		wp_enqueue_script(
@@ -76,6 +76,14 @@ class Gutenberg {
 			Consts::PLUGIN_NAME . '-deactivator',
 			'advancedGutenbergBlocksDeactivated',
 			Blocks::get_disabled_blocks( 'json' )
+		);
+
+		// Blocks styles
+		wp_enqueue_style(
+			Consts::PLUGIN_NAME . '-style',
+			Consts::get_url() . 'dist/blocks.style.build.css',
+			[],
+			Consts::VERSION
 		);
 
 		// Special styles for the Editor

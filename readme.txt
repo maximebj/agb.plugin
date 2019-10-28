@@ -4,7 +4,7 @@ Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate
 Requires at least: 5.0
 Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 1.9.3
+Stable tag: 1.9.4
 Donate link: https://paypal.me/maximebj
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -111,6 +111,10 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 == Screenshots ==
 
 == Changelog ==
+
+= 1.9.4 (28/10/2019) =
+* Ready for WordPress 5.3
+* Fixed: Some styles, script and the Noto font were loading in front, increasing HTTP requests for nothing
 
 = 1.9.3 (09/10/2019) =
 * Fixed: Text domain wasn't properly called
