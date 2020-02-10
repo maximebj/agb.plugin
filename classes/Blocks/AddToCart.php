@@ -56,8 +56,8 @@ class AddToCart {
 		$add_to_cart_url = get_site_url() . '?add-to-cart=' . $attributes['productID'];
 
 		$currency = get_woocommerce_currency_symbol();
-		$cb = ( $currency == "$" ) ? $currency : '';
-		$ca = ( $currency != "$" ) ? $currency : '';
+		$cb = ( $currency == "&#36;" ) ? $currency : '';
+		$ca = ( $currency != "&#36;" ) ? $currency : '';
 
 		ob_start();
     include apply_filters( 'advanced_gutenberg_blocks_template', Consts::get_path() . 'public/templates/addtocart.php', 'addtocart' );
