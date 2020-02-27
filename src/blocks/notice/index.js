@@ -10,7 +10,7 @@ import icon from './icons'
 import deprecated from './deprecated'
 
 const { __ } = wp.i18n
-const { registerBlockType } = wp.blocks
+const { registerBlockType, createBlock } = wp.blocks
 const { RichText } = wp.editor
 const { Fragment } = wp.element
 
@@ -82,6 +82,30 @@ export default registerBlockType(
         source: 'children',
         selector: '.wp-block-advanced-gutenberg-blocks-notice__content',
       },
+    },
+    transforms: {
+      from: [
+        {
+          type: 'block',
+          blocks: [ 'core/paragraph' ],
+          transform: function ( attributes ) {
+            return createBlock( 'advanced-gutenberg-blocks/notice', {
+                content: attributes.content,
+            } )
+          }
+        }
+      ],
+      to: [
+        {
+          type: 'block',
+          blocks: [ 'core/paragraph' ],
+          transform: function ( attributes ) {
+            return createBlock( 'core/paragraph', {
+                content: attributes.content,
+            } )
+          }
+        }
+      ]
     },
     edit: props => {
 

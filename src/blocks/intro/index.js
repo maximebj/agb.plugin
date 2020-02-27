@@ -36,6 +36,17 @@ export default registerBlockType(
             } )
           }
         }
+      ],
+      to: [
+        {
+          type: 'block',
+          blocks: [ 'core/paragraph' ],
+          transform: function ( attributes ) {
+            return createBlock( 'core/paragraph', {
+                content: attributes.content,
+            } )
+          }
+        }
       ]
     },
     edit: props => {
