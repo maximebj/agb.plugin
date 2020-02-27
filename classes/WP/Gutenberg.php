@@ -19,35 +19,52 @@ class Gutenberg {
 
 	public function register_hooks() {
 
-		add_action( 'wp_enqueue_scripts', array( $this, 'front_assets' ) );
-		add_action( 'enqueue_block_editor_assets', array( $this, 'back_editor_assets' ) );
+		add_action( 'init', array( $this, 'blocks_assets' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'additionnal_assets' ) );
 		add_action( 'after_setup_theme', array( $this, 'editor_tweaks' ) );
 		add_filter( 'block_categories', array( $this, 'add_block_category' ) );
 	}
 
 
-	public function front_assets() {
-		wp_enqueue_style(
+	public function blocks_assets() {
+
+		// Blocks Styles (Front + Editor)
+		wp_register_style(
 			Consts::PLUGIN_NAME . '-style',
 			Consts::get_url() . 'dist/blocks.style.build.css',
-			[],
+			is_admin() ? array( 'wp-editor' ) : null,
 			Consts::VERSION
 		);
-	}
 
-
-	public function back_editor_assets() {
-
-		// Custom blocks
-		wp_enqueue_script(
+		// Blocks scripts (Editor)
+		wp_register_script(
 			Consts::BLOCKS_SCRIPT,
 			Consts::get_url() . 'dist/blocks.build.js',
 			array( 'wp-editor', 'wp-blocks', 'wp-i18n', 'wp-element' ),
+			Consts::VERSION,
+			true
+		);
+
+		// Special styles (Editor)
+		wp_register_style(
+			Consts::PLUGIN_NAME . '-editor',
+			Consts::get_url() . 'dist/blocks.editor.build.css',
+			array( 'wp-edit-blocks' ),
 			Consts::VERSION
 		);
 
+		// Register block to load assets
+		register_block_type(
+			'agb/blocks', array(
+				'style'         => Consts::PLUGIN_NAME . '-style',
+				'editor_script' => Consts::BLOCKS_SCRIPT,
+				'editor_style'  => Consts::PLUGIN_NAME . '-editor',
+			)
+		);
+
+
+
 		// Get translations
-		// Introduced in WP 5.0
 		if ( function_exists( 'wp_set_script_translations' ) ) {
 			wp_set_script_translations( Consts::BLOCKS_SCRIPT, 'advanced-gutenberg-blocks' );
 		}
@@ -64,35 +81,10 @@ class Gutenberg {
         'wooapisecret' => get_option( 'AGB_woo_cs' )
 			)
 		);
+	}
+		
 
-		// Blocks deactivator
-		wp_enqueue_script(
-			Consts::PLUGIN_NAME . '-deactivator',
-			Consts::get_url() . 'dist/deactivator.build.js',
-			array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' )
-		);
-
-		wp_localize_script(
-			Consts::PLUGIN_NAME . '-deactivator',
-			'advancedGutenbergBlocksDeactivated',
-			Blocks::get_disabled_blocks( 'json' )
-		);
-
-		// Blocks styles
-		wp_enqueue_style(
-			Consts::PLUGIN_NAME . '-style',
-			Consts::get_url() . 'dist/blocks.style.build.css',
-			[],
-			Consts::VERSION
-		);
-
-		// Special styles for the Editor
-		wp_enqueue_style(
-			'advanced-gutenberg-blocks-editor',
-			Consts::get_url() . 'dist/blocks.editor.build.css',
-			array( 'wp-edit-blocks' ),
-			Consts::VERSION
-		);
+	public function additionnal_assets() {
 
 		// Editor styles
 		if( get_option( 'advanced-gutenberg-blocks_editor_width' ) or get_option( 'advanced-gutenberg-blocks_editor_wide_width' ) ) {
@@ -136,6 +128,7 @@ class Gutenberg {
 		);
 
 	}
+
 
 	public function editor_tweaks() {
 
