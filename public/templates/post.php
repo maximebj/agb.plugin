@@ -1,4 +1,4 @@
-<div class="wp-block-advanced-gutenberg-blocks-post">
+<div class="wp-block-advanced-gutenberg-blocks-post<?php echo $customClass; ?>">
 	<?php if( $image ): ?>
 		<a href="<?php the_permalink(); ?>" class="wp-block-advanced-gutenberg-blocks-post__image" style="background-image: url('<?php echo $image; ?>')">
 		</a>

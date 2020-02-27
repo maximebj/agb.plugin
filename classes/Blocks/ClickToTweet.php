@@ -46,7 +46,8 @@ class ClickToTweet {
 
 		// Default values
 		$content = array_key_exists( 'content', $attributes ) ? $attributes['content'] : '';
-		$hashtags =  array_key_exists( 'hashtags', $attributes ) ? $attributes['hashtags'] : '';
+		$hashtags = array_key_exists( 'hashtags', $attributes ) ? $attributes['hashtags'] : '';
+		$customClass = array_key_exists( 'className', $attributes ) ? ' ' . $attributes['className'] : '';
 
     $url  = ( isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http" ) . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     $url = urlencode( $url );

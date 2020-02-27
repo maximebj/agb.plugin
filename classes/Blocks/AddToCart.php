@@ -54,6 +54,7 @@ class AddToCart {
 		$has_icon = $attributes['hasIcon'] ?? false;
 		$product = wc_get_product( $attributes['productID'] );
 		$add_to_cart_url = get_site_url() . '?add-to-cart=' . $attributes['productID'];
+		$customClass = array_key_exists( 'className', $attributes ) ? ' ' . $attributes['className'] : '';
 
 		ob_start();
     include apply_filters( 'advanced_gutenberg_blocks_template', Consts::get_path() . 'public/templates/addtocart.php', 'addtocart' );

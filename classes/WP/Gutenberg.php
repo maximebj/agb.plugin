@@ -93,7 +93,7 @@ class Gutenberg {
 			if( $w = get_option( 'advanced-gutenberg-blocks_editor_width' ) ) {
 				$css .= '
 					.wp-block {
-						max-width: ' . $w . 'px;
+						width: ' . $w . 'px !important;
 					}	
 				';
 			}
@@ -101,10 +101,10 @@ class Gutenberg {
 			if( $ww = get_option( 'advanced-gutenberg-blocks_editor_wide_width' ) ) {
 				$css .= '
 					.wp-block[data-align="wide"] {
-						max-width: ' . $ww . 'px;
+						width: ' . $ww . 'px !important;
 					}
 					.wp-block[data-align="full"] {
-						max-width: none;
+						width: none !important;
 					}
 				';
 			}

@@ -1,4 +1,4 @@
-<a href="<?php echo $intent_URL; ?>" target="_blank" class='wp-block-advanced-gutenberg-blocks-clicktotweet'>
+<a href="<?php echo $intent_URL; ?>" target="_blank" class='wp-block-advanced-gutenberg-blocks-clicktotweet<?php echo $customClass; ?>'>
   <div class='wp-block-advanced-gutenberg-blocks-clicktotweet__content'>
     <?php echo $attributes['content']; ?>
   </div>

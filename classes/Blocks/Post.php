@@ -45,10 +45,11 @@ class Post {
 
 		// Default values
 		$postID = $attributes['postID'];
-		$postType 		= array_key_exists( 'postType', $attributes ) 		? $attributes['postType'] 		: 'posts';
-		$showImage 		= array_key_exists( 'showImage', $attributes ) 		? $attributes['showImage'] 		: true;
-		$showAuthor 	= array_key_exists( 'showAuthor', $attributes ) 	? $attributes['showAuthor'] 	: true;
-		$showCategory = array_key_exists( 'showCategory', $attributes ) ? $attributes['showCategory'] : true;
+		$postType 		= array_key_exists( 'postType', $attributes ) 		? $attributes['postType'] 		   : 'posts';
+		$showImage 		= array_key_exists( 'showImage', $attributes ) 		? $attributes['showImage'] 		   : true;
+		$showAuthor 	= array_key_exists( 'showAuthor', $attributes ) 	? $attributes['showAuthor'] 	   : true;
+		$showCategory = array_key_exists( 'showCategory', $attributes ) ? $attributes['showCategory']    : true;
+		$customClass  = array_key_exists( 'className', $attributes )    ? ' ' . $attributes['className'] : '';
 
 		// Start cached output
 		$output = "";

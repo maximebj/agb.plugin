@@ -238,6 +238,7 @@ class Code {
 		$alignment = array_key_exists( 'alignment', $attributes ) ? ' align' . $attributes['alignment'] : '';
 		$highlightStart = array_key_exists( 'highlightStart', $attributes ) ? $attributes['highlightStart'] : '';
 		$highlightEnd = array_key_exists( 'highlightEnd', $attributes ) ? $attributes['highlightEnd'] : '';
+		$customClass  = array_key_exists( 'className', $attributes )    ? ' ' . $attributes['className'] : '';
 
 		// Random ID for this code to multiple instances of CodeMirror
 		$rand = rand();

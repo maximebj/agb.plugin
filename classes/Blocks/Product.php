@@ -43,8 +43,11 @@ class Product {
 			return;
 		}
 
-		$product = wc_get_product( $attributes['productID'] );
+		// Defaults
+		$customClass  = array_key_exists( 'className', $attributes )    ? ' ' . $attributes['className'] : '';
 
+		// Get Product
+		$product = wc_get_product( $attributes['productID'] );
 		$description = $product->get_short_description();
 
 		if( $description == "" ) {

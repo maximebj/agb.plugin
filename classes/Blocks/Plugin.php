@@ -47,6 +47,9 @@ class Plugin {
 			return;
 		}
 
+		// Defaults
+		$customClass = array_key_exists( 'className', $attributes )    ? ' ' . $attributes['className'] : '';
+
 		$request = array(
       'slug' => $attributes['slug'],
 			'fields' => $this->get_api_fields()

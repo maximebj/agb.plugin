@@ -1,4 +1,4 @@
-<div class="wp-block-advanced-gutenberg-blocks-product">
+<div class="wp-block-advanced-gutenberg-blocks-product<?php echo $customClass; ?>">
 	<?php if ( $product->get_image() ): ?>
 		<a href="<?php echo $url; ?>" class="wp-block-advanced-gutenberg-blocks-product__image">
 			<?php echo $product->get_image(); ?>

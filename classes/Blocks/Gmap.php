@@ -48,15 +48,15 @@ class Gmap {
 	public function render_block( $attributes ) {	 
 
 		// Default values
-		$address   = array_key_exists( 'address', $attributes )   ? $attributes['address']	 : 'Paris';
-		$name   	 = array_key_exists( 'name', $attributes )      ? $attributes['name'] 		 : '';
-		$latitude  = array_key_exists( 'latitude', $attributes )  ? $attributes['latitude']  : 48.8566;
-		$longitude = array_key_exists( 'longitude', $attributes ) ? $attributes['longitude'] : 2.3522;
-		$zoom  		 = array_key_exists( 'zoom', $attributes )  		? $attributes['zoom']  		 : 15;
-		$height    = array_key_exists( 'height', $attributes )  	? $attributes['height']  	 : 400;
-		$style  	 = array_key_exists( 'style', $attributes )  		? $attributes['style']   	 : '';
-		$alignment = array_key_exists( 'alignment', $attributes ) ? ' align' . $attributes['alignment']  : '';
-		
+		$address   	 = array_key_exists( 'address', $attributes )   ? $attributes['address']	 : 'Paris';
+		$name   	 	 = array_key_exists( 'name', $attributes )      ? $attributes['name'] 		 : '';
+		$latitude  	 = array_key_exists( 'latitude', $attributes )  ? $attributes['latitude']  : 48.8566;
+		$longitude 	 = array_key_exists( 'longitude', $attributes ) ? $attributes['longitude'] : 2.3522;
+		$zoom  		 	 = array_key_exists( 'zoom', $attributes )  		? $attributes['zoom']  		 : 15;
+		$height    	 = array_key_exists( 'height', $attributes )  	? $attributes['height']  	 : 400;
+		$style  	 	 = array_key_exists( 'style', $attributes )  		? $attributes['style']   	 : '';
+		$alignment 	 = array_key_exists( 'alignment', $attributes ) ? ' align' . $attributes['alignment']  : '';
+		$customClass = array_key_exists( 'className', $attributes ) ? ' ' . $attributes['className'] : '';
 
 		// Get Google Map JSON styles
 		$available_styles = $this->get_styles();

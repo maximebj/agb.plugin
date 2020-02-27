@@ -1,4 +1,4 @@
-<div class="wp-block-advanced-gutenberg-blocks-plugin">
+<div class="wp-block-advanced-gutenberg-blocks-plugin<?php echo $customClass; ?>">
 	<div class="wp-block-advanced-gutenberg-blocks-plugin__content">
 		<a href="<?php echo $plugin['downloadLink']; ?>" class="wp-block-advanced-gutenberg-blocks-plugin__picture">
 			<img src="<?php echo $plugin['icon']; ?>" alt="<?php echo $plugin['name']; ?>" />
