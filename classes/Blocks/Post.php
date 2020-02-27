@@ -79,6 +79,7 @@ class Post {
 			}
 
 			if( $showAuthor !== false ) {
+				global $post;
 				$author = get_the_author_meta( 'display_name', $post->author );
 			}
 
