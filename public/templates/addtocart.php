@@ -1,6 +1,6 @@
 <p class="wp-block-advanced-gutenberg-blocks-addtocart">
   <a style="background-color: <?php echo $attributes['backgroundColor']; ?>" class="wp-block-advanced-gutenberg-blocks-addtocart__button" href="<?php echo $add_to_cart_url; ?>">
-    <?php if ( $attributes['hasIcon'] !== false ): ?>
+    <?php if ( $has_icon ): ?>
       <span class="dashicons dashicons-<?php echo $attributes['icon']; ?>" ></span>
     <?php endif; ?>
     <span class="wp-block-advanced-gutenberg-blocks-addtocart__label"><?php echo $attributes['label']; ?></span>
