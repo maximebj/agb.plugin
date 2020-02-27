@@ -94,6 +94,7 @@ class Gutenberg {
 				$css .= '
 					.wp-block {
 						width: ' . $w . 'px !important;
+						max-width: ' . $w . 'px !important;
 					}	
 				';
 			}
@@ -102,9 +103,10 @@ class Gutenberg {
 				$css .= '
 					.wp-block[data-align="wide"] {
 						width: ' . $ww . 'px !important;
+						max-width: ' . $ww . 'px !important;
 					}
 					.wp-block[data-align="full"] {
-						width: none !important;
+						max-width: none !important;
 					}
 				';
 			}
