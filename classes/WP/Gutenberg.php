@@ -86,7 +86,37 @@ class Gutenberg {
 
 	public function additionnal_assets() {
 
-		// Editor styles
+		// Deactivator 
+		wp_enqueue_script(
+			Consts::PLUGIN_NAME . '-deactivator',
+			Consts::get_url() . 'dist/deactivator.build.js',
+			array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' )
+		);
+
+		wp_localize_script(
+			Consts::PLUGIN_NAME . '-deactivator',
+			'advancedGutenbergBlocksDeactivated',
+			Blocks::get_disabled_blocks( 'json' )
+		);
+
+
+		// Toolbar Formats Script
+		wp_enqueue_script(
+			Consts::PLUGIN_NAME . '-formats',
+			Consts::get_url() . 'dist/formats.build.js',
+			array( 'wp-rich-text' )
+		);
+
+		wp_localize_script(
+			Consts::PLUGIN_NAME . '-formats',
+			'advancedGutenbergBlocksFormats',
+			array(
+				'buttons' => get_option( 'advanced-gutenberg-blocks_richtext_buttons' ),
+			)
+		);
+
+
+		// Editor width styles
 		if( get_option( 'advanced-gutenberg-blocks_editor_width' ) or get_option( 'advanced-gutenberg-blocks_editor_wide_width' ) ) {
 			$css = "";
 
@@ -113,21 +143,6 @@ class Gutenberg {
 			
 			wp_add_inline_style( 'wp-edit-blocks', $css ); 
 		}
-
-		// Toolbar Formats Script
-		wp_enqueue_script(
-			Consts::PLUGIN_NAME . '-formats',
-			Consts::get_url() . 'dist/formats.build.js',
-			array( 'wp-rich-text' )
-		);
-
-		wp_localize_script(
-			Consts::PLUGIN_NAME . '-formats',
-			'advancedGutenbergBlocksFormats',
-			array(
-				'buttons' => get_option( 'advanced-gutenberg-blocks_richtext_buttons' ),
-			)
-		);
 
 	}
 

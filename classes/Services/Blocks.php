@@ -60,7 +60,7 @@ abstract class Blocks {
 		$disabled_blocks = get_option('advanced-gutenberg-blocks-disabled');
 
 		if ( ! is_array( $disabled_blocks ) ) {
-			$disabled_blocks = array();
+			return null;
 		}
 
     // Disable WooCommerce blocks if Woo is not active

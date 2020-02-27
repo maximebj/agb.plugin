@@ -1,10 +1,13 @@
-wp.domReady( function() {
+wp.domReady(function () {
 
   // Deactivate Blocks
-  var deactivatedBlocks = JSON.parse(advancedGutenbergBlocksDeactivated);
+  if (advancedGutenbergBlocksDeactivated) {
+ 
+    var deactivatedBlocks = JSON.parse(advancedGutenbergBlocksDeactivated);
 
-  deactivatedBlocks.forEach( block => {
-  	wp.blocks.unregisterBlockType(block);
-  } );
+    deactivatedBlocks.forEach(block => {
+      wp.blocks.unregisterBlockType(block);
+    });
+  }
 
-} );
+});
