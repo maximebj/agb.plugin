@@ -10,10 +10,10 @@
 		</p>
 		<p class="wp-block-advanced-gutenberg-blocks-product__price" style="color: <?php echo $attributes['priceColor']; ?>">
 			<?php if($product->get_sale_price() == ""): ?>
-				<?php echo $cb.$product->get_price().$ca; ?></span>
+				<?php echo wc_price( $product->get_price() ); ?></span>
 			<?php else: ?>
-		    <?php echo $cb.$product->get_price().$ca; ?>
-				<del class="wp-block-advanced-gutenberg-blocks-product__sale"><?php echo $cb.$product->get_regular_price().$ca; ?></del>
+		    <?php echo wc_price( $product->get_price() ); ?>
+				<del class="wp-block-advanced-gutenberg-blocks-product__sale"><?php echo wc_price( $product->get_regular_price() ); ?></del>
 			<?php endif; ?>
 		</p>
 		<div class="wp-block-advanced-gutenberg-blocks-product__description">

@@ -7,10 +7,10 @@
     <span class="wp-block-advanced-gutenberg-blocks-addtocart__separator"> • </span>
 		<span class="wp-block-advanced-gutenberg-blocks-addtocart__price">
 			<?php if($product->get_sale_price() == ""): ?>
-				<?php echo $cb.$product->get_price().$ca; ?></span>
+				<?php echo wc_price( $product->get_price() ); ?></span>
 			<?php else: ?>
-		    <?php echo $cb.$product->get_price().$ca; ?>
-				<del class="wp-block-advanced-gutenberg-blocks-addtocart__sale"><?php echo $cb.$product->get_regular_price().$ca; ?></del>
+		    <?php echo wc_price( $product->get_price() ); ?>
+				<del class="wp-block-advanced-gutenberg-blocks-addtocart__sale"><?php echo wc_price( $product->get_regular_price() ); ?></del>
 			<?php endif; ?>
 		</span>
   </a>
