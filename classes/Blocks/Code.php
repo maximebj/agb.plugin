@@ -252,7 +252,7 @@ class Code {
 		$lang_slug = $language;
 		$lang_label = $languages[$key]['label'];
 		$lang_mode = $languages[$key]['mode'];
-		$lang_mime = $languages[$key]['mime'];
+		$lang_mime = $languages[$key]['mime'] ?? '';
 
 		// Get Marked text
 		$mark_text = '';
