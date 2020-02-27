@@ -1,7 +1,12 @@
-.edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-summary__list {
-  margin-left: 30px;
-}
+.editor-styles-wrapper { 
+  .wp-block-advanced-gutenberg-blocks-summary__title {
+    margin: 0;
+  }
+  .wp-block-advanced-gutenberg-blocks-summary__list {
+    margin: 0 0 0 30px;
+  }
 
-.wp-block-advanced-gutenberg-blocks-summary li {
-  margin-bottom: 0;
+  .wp-block-advanced-gutenberg-blocks-summary li {
+    margin-bottom: 0;
+  }
 }

@@ -29,6 +29,7 @@
 }
 
 .wp-block-advanced-gutenberg-blocks-card__content {
+	background: white;
 	padding: .75em 1em;
 	border-top: 1px solid $color-neutral;
 
@@ -47,4 +48,5 @@
 .wp-block-advanced-gutenberg-blocks-card__url {
 	color: $color-neutral;
 	margin-bottom: 0;
+	line-height: 1.2;
 }

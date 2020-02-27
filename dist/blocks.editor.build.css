@@ -163,8 +163,12 @@
 
 .AGB-react-select .AGB-react-select__option {
   cursor: pointer; }
-.edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-notice__title {
-  font-size: 1.1em; }
+.editor-styles-wrapper .wp-block-advanced-gutenberg-blocks-notice p {
+  margin: 0; }
+
+.editor-styles-wrapper .wp-block-advanced-gutenberg-blocks-notice p.wp-block-advanced-gutenberg-blocks-notice__title {
+  font-size: 1.1em;
+  margin: .3em 0; }
 
 .wp-block-advanced-gutenberg-blocks-notice {
   margin: 0; }
@@ -180,6 +184,15 @@
 
 .AGB-toolbar-icon-info {
   color: #48ADD8; }
+.editor-styles-wrapper .wp-block-advanced-gutenberg-blocks-plugin p {
+  margin: 0; }
+
+.editor-styles-wrapper .wp-block-advanced-gutenberg-blocks-plugin a {
+  color: white;
+  text-decoration: none; }
+
+.editor-styles-wrapper .wp-block-advanced-gutenberg-blocks-plugin__button {
+  color: white; }
 .wp-block-advanced-gutenberg-blocks-ad {
   padding: 0;
   border: 1px solid #DDD;
@@ -195,8 +208,11 @@
   line-height: 248px;
   width: 250px;
   color: #999; }
-.wp-block-advanced-gutenberg-blocks-addtocart__label {
+.editor-styles-wrapper .wp-block-advanced-gutenberg-blocks-addtocart__label {
   display: inline-block; }
+
+.editor-styles-wrapper .wp-block-advanced-gutenberg-blocks-addtocart__button {
+  color: white; }
 
 .advanced-gutenberg-blocks-panel-buttons {
   display: -ms-inline-flexbox;
@@ -215,6 +231,11 @@
       -webkit-transform: scale(1.02);
           -ms-transform: scale(1.02);
               transform: scale(1.02); }
+.editor-styles-wrapper .wp-block-advanced-gutenberg-blocks-card__url {
+  margin-bottom: 0;
+  line-height: 1.2;
+  margin-top: 1em; }
+
 .AGB-urlfetcher {
   display: -ms-flexbox;
   display: flex;
@@ -230,6 +251,17 @@
   .AGB-urlfetcher input:focus {
     -webkit-box-shadow: none;
             box-shadow: none; }
+.editor-styles-wrapper .wp-block-advanced-gutenberg-blocks-product p {
+  margin: 0; }
+
+.editor-styles-wrapper .wp-block-advanced-gutenberg-blocks-product p:last-child {
+  margin-top: 1em; }
+
+.editor-styles-wrapper .wp-block-advanced-gutenberg-blocks-product .wp-block-advanced-gutenberg-blocks-product__button {
+  color: white; }
+.editor-styles-wrapper .wp-block-advanced-gutenberg-blocks-product__actions a {
+  color: white;
+  text-decoration: none; }
 .wp-block-advanced-gutenberg-blocks-testimonial__picture {
   position: relative; }
   .wp-block-advanced-gutenberg-blocks-testimonial__picture a {
@@ -262,10 +294,13 @@
   .AGB-panel-maps img {
     display: block;
     cursor: pointer; }
-.edit-post-visual-editor .wp-block-advanced-gutenberg-blocks-summary__list {
-  margin-left: 30px; }
+.editor-styles-wrapper .wp-block-advanced-gutenberg-blocks-summary__title {
+  margin: 0; }
 
-.wp-block-advanced-gutenberg-blocks-summary li {
+.editor-styles-wrapper .wp-block-advanced-gutenberg-blocks-summary__list {
+  margin: 0 0 0 30px; }
+
+.editor-styles-wrapper .wp-block-advanced-gutenberg-blocks-summary li {
   margin-bottom: 0; }
 .editor-block-list__block .wp-block-advanced-gutenberg-blocks-intro p {
   font-size: 1.1em; }

@@ -1,8 +1,14 @@
 @import 'vars';
 
-.edit-post-visual-editor {
-	.wp-block-advanced-gutenberg-blocks-notice__title {
-		font-size: $size-title;
+.editor-styles-wrapper {
+	.wp-block-advanced-gutenberg-blocks-notice {
+		p {
+			margin: 0;
+		}
+		p.wp-block-advanced-gutenberg-blocks-notice__title {
+			font-size: $size-title;
+			margin: .3em 0;
+		}
 	}
 }
 

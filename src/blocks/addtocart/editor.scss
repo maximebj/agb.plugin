@@ -1,7 +1,12 @@
 // Block
 
-.wp-block-advanced-gutenberg-blocks-addtocart__label {
-	display: inline-block;
+.editor-styles-wrapper {
+  .wp-block-advanced-gutenberg-blocks-addtocart__label {
+    display: inline-block
+  }
+  .wp-block-advanced-gutenberg-blocks-addtocart__button {
+    color: white;
+  }
 }
 
 

@@ -113,7 +113,13 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 == Changelog ==
 
 = 1.9.5 (27/02/2020) =
-* Fixed some bugs in e-commerce blocks thanks to Julià Mestieri
+* Fixed: some bugs in e-commerce blocks thanks to Julià Mestieri
+* Improved: the way styles and scripts are loaded
+* Fixed: overrided editor and theme annoying styles in editor
+* Fixed: Blocks deactivation
+* Fixed: Custom editor width that didn't worked anymore on some themes
+* Fixed: some blocks that couldn't get custom classes thanks to Theremingenieur
+* Fixed: multiple errors 
 
 = 1.9.4 (28/10/2019) =
 * Ready for WordPress 5.3

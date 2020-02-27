@@ -1,0 +1,15 @@
+.editor-styles-wrapper {
+  .wp-block-advanced-gutenberg-blocks-product {
+    p {
+      margin: 0;
+    }
+
+    p:last-child {
+      margin-top: 1em;
+    }
+
+    .wp-block-advanced-gutenberg-blocks-product__button {
+      color: white;
+    }
+  }
+}

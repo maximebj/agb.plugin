@@ -226,6 +226,7 @@
   margin: 0 auto; }
 
 .wp-block-advanced-gutenberg-blocks-card__content {
+  background: white;
   padding: .75em 1em;
   border-top: 1px solid #DDD; }
   .wp-block-advanced-gutenberg-blocks-card__content .wp-block-advanced-gutenberg-blocks-card__title {
@@ -238,7 +239,8 @@
 
 .wp-block-advanced-gutenberg-blocks-card__url {
   color: #DDD;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  line-height: 1.2; }
 .wp-block-advanced-gutenberg-blocks-product {
   display: -ms-flexbox;
   display: flex;
@@ -326,7 +328,7 @@
 .wp-block-advanced-gutenberg-blocks-post__content {
   -ms-flex: 2;
       flex: 2;
-  padding: 12px; }
+  padding: 1em; }
   .wp-block-advanced-gutenberg-blocks-post__content .wp-block-advanced-gutenberg-blocks-post__title {
     margin: 0 0 .5em 0; }
     .wp-block-advanced-gutenberg-blocks-post__content .wp-block-advanced-gutenberg-blocks-post__title a {
@@ -392,7 +394,8 @@
   border-radius: 12px;
   padding: 12px;
   -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
-          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05); }
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+  background: white; }
 
 .wp-block-advanced-gutenberg-blocks-testimonial__bubble--with-arrow:before {
   content: '';
