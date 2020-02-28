@@ -7,7 +7,7 @@ import Inspector from "./inspect";
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { RichText, MediaUpload } = wp.editor;
+const { RichText, MediaUpload } = wp.blockEditor;
 const { Fragment } = wp.element;
 
 export default registerBlockType("advanced-gutenberg-blocks/testimonial", {

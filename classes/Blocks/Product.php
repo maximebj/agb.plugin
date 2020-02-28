@@ -2,6 +2,8 @@
 
 namespace AdvancedGutenbergBlocks\Blocks;
 
+defined( 'ABSPATH' ) || exit;
+
 use AdvancedGutenbergBlocks\Helpers\Consts;
 use AdvancedGutenbergBlocks\Services\Blocks;
 

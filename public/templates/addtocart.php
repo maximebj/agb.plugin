@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || exit; ?>
 <p class="wp-block-advanced-gutenberg-blocks-addtocart<?php echo $customClass; ?>">
   <a style="background-color: <?php echo $attributes['backgroundColor']; ?>" class="wp-block-advanced-gutenberg-blocks-addtocart__button" href="<?php echo $add_to_cart_url; ?>">
     <?php if ( $has_icon ): ?>

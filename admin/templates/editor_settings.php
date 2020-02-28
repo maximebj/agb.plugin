@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || exit; ?>
 <div class="wrap">
   
   <h1><?php _e( 'Editor settings', 'advanced-gutenberg-blocks' ); ?></h1>

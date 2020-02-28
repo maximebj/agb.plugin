@@ -13,7 +13,7 @@
  * Text Domain: advanced-gutenberg-blocks
  */
 
-defined('ABSPATH') or die('Cheatin&#8217; uh?');
+defined( 'ABSPATH' ) || exit;
 
 use AdvancedGutenbergBlocks\AdvancedGutenbergBlocks;
 

@@ -4,7 +4,7 @@ namespace AdvancedGutenbergBlocks\Services;
 
 use AdvancedGutenbergBlocks\Helpers\Dashicons;
 
-defined('ABSPATH') or die('Cheatin&#8217; uh?');
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Handle blocks registration

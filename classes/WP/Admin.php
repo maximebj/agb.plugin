@@ -2,7 +2,7 @@
 
 namespace AdvancedGutenbergBlocks\WP;
 
-defined('ABSPATH') or die('Cheatin&#8217; uh?');
+defined( 'ABSPATH' ) || exit;
 
 use AdvancedGutenbergBlocks\Helpers\Consts;
 

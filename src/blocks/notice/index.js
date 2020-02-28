@@ -11,7 +11,7 @@ import deprecated from './deprecated'
 
 const { __ } = wp.i18n
 const { registerBlockType, createBlock } = wp.blocks
-const { RichText } = wp.editor
+const { RichText } = wp.blockEditor
 const { Fragment } = wp.element
 
 const types = [

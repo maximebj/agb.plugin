@@ -1,6 +1,6 @@
 const { __ } = wp.i18n
 const { registerFormatType } = wp.richText
-const { RichTextToolbarButton } = wp.editor
+const { RichTextToolbarButton } = wp.blockEditor
 
 const type = 'advanced-gutenberg-bloc/remove-format'
 

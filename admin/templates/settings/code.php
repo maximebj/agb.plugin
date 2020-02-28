@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || exit; ?>
 <div class="AGB-form__setting">
   <div class="AGB-form__label">
     <label for="advanced-gutenberg-blocks-bloc-theme"><?php _e( 'Theme', 'advanced-gutenberg-blocks' ); ?></label>

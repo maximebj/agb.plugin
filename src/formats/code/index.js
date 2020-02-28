@@ -1,7 +1,7 @@
 const { __ } = wp.i18n
 const { Fragment } = wp.element
 const { registerFormatType, toggleFormat } = wp.richText
-const { RichTextToolbarButton, RichTextShortcut } = wp.editor
+const { RichTextToolbarButton, RichTextShortcut } = wp.blockEditor
 
 const type = 'advanced-gutenberg-blocks/code-format'
 

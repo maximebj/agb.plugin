@@ -1,10 +1,11 @@
+<?php defined( 'ABSPATH' ) || exit; ?>
 <div class="AGB-form__setting">
   <div class="AGB-form__label">
     <label for="advanced-gutenberg-blocks-summary-title"><?php _e( 'Default title', 'advanced-gutenberg-blocks' ); ?></label>
   </div>
 
   <div class="AGB-form__field">
-    <input type="text" name="advanced-gutenberg-blocks-summary-title" placeholder="<?php _e( 'Table of contents', 'advanced-gutenberg-blocks' ); ?>" value="<?php echo get_option( 'advanced-gutenberg-blocks-summary-title' ); ?>">
+    <input type="text" name="advanced-gutenberg-blocks-summary-title" placeholder="<?php _e( 'Table of contents', 'advanced-gutenberg-blocks' ); ?>" value="<?php echo esc_attr( get_option( 'advanced-gutenberg-blocks-summary-title' ) ); ?>">
   </div>
 </div>
 

@@ -1,4 +1,5 @@
 <?php
+	defined( 'ABSPATH' ) || exit;
 	use AdvancedGutenbergBlocks\Helpers\Consts;
 ?>
 <form method="post" action="options.php" class="AGB-settings">

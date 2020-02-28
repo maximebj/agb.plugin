@@ -5,7 +5,7 @@ import classnames from 'classnames'
 
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
-const { RichText } = wp.editor
+const { RichText } = wp.blockEditor
 
 export default registerBlockType(
   'advanced-gutenberg-blocks/adtext',

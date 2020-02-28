@@ -3,7 +3,7 @@ import Select from 'react-select'
 
 const { __ } = wp.i18n
 const { Component } = wp.element
-const { InspectorControls } = wp.editor
+const { InspectorControls } = wp.blockEditor
 const { PanelBody, TextControl, BaseControl, ToggleControl } = wp.components
 
 export default class Inspector extends Component {

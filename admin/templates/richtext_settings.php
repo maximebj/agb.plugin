@@ -1,4 +1,5 @@
 <?php
+  defined( 'ABSPATH' ) || exit;
 	use AdvancedGutenbergBlocks\Helpers\Consts;
 ?>
 <div class="wrap">

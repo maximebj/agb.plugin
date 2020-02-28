@@ -1,6 +1,6 @@
 const { __ } = wp.i18n
 const { registerFormatType, applyFormat, removeFormat, getActiveFormat } = wp.richText
-const { InspectorControls, PanelColorSettings } = wp.editor
+const { InspectorControls, PanelColorSettings } = wp.blockEditor
 
 if( advancedGutenbergBlocksFormats.buttons.includes( 'color' ) ) {
     

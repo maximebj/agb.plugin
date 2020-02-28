@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 
 const { __ } = wp.i18n
-const { RichText } = wp.editor
+const { RichText } = wp.blockEditor
 const { Component } = wp.element
 
 export default class Preview extends Component {

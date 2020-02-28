@@ -3,7 +3,7 @@ import './editor.scss'
 
 const { __ } = wp.i18n
 const { registerBlockType, createBlock } = wp.blocks
-const { RichText } = wp.editor
+const { RichText } = wp.blockEditor
 
 export default registerBlockType(
   'advanced-gutenberg-blocks/intro',

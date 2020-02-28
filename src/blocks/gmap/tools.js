@@ -1,5 +1,5 @@
 const { Component } = wp.element
-const { BlockControls, BlockAlignmentToolbar } = wp.editor
+const { BlockControls, BlockAlignmentToolbar } = wp.blockEditor
 
 export default class Tools extends Component {
   render() {

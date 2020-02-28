@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || exit; ?>
 <a href="<?php echo $intent_URL; ?>" target="_blank" class='wp-block-advanced-gutenberg-blocks-clicktotweet<?php echo $customClass; ?>'>
   <div class='wp-block-advanced-gutenberg-blocks-clicktotweet__content'>
     <?php echo $attributes['content']; ?>

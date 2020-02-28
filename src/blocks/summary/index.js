@@ -8,7 +8,7 @@ import deprecated from './deprecated'
 
 const { __ } = wp.i18n
 const { registerBlockType } = wp.blocks
-const { RichText } = wp.editor
+const { RichText } = wp.blockEditor
 const { Fragment } = wp.element
 const { withSelect, withDispatch } = wp.data
 const { compose } = wp.compose

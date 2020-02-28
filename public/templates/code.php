@@ -1,3 +1,4 @@
+<?php defined( 'ABSPATH' ) || exit; ?>
 <div class="wp-block-advanced-gutenberg-blocks-code<?php echo $alignment; ?><?php echo $customClass; ?>">
   <header class="wp-block-advanced-gutenberg-blocks-code__header">
     <div class="wp-block-advanced-gutenberg-blocks-code__lang is-lang-<?php echo $lang_slug; ?>">
