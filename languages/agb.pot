@@ -3,6 +3,51 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
+#: src/blocks/ad/index.js:10
+#: src/blocks/adtext/index.js:41
+msgid "Advertisement"
+msgstr ""
+
+#: src/blocks/ad/index.js:11
+#: src/blocks/notice/index.js:44
+msgid "Put forward a tips or a warning"
+msgstr ""
+
+#: src/blocks/ad/index.js:15
+#: src/blocks/adtext/index.js:18
+msgid "ad"
+msgstr ""
+
+#: src/blocks/ad/index.js:16
+#: src/blocks/adtext/index.js:19
+msgid "advertising"
+msgstr ""
+
+#: src/blocks/ad/index.js:17
+msgid "banner"
+msgstr ""
+
+#: src/blocks/ad/index.js:22
+msgid "An ad will be displayed here in front"
+msgstr ""
+
+#: src/blocks/addtocart/index.js:15
+msgid "Add to cart button"
+msgstr ""
+
+#: src/blocks/addtocart/index.js:16
+msgid "This button allow a customer to quickly add a product to cart"
+msgstr ""
+
+#: src/blocks/addtocart/index.js:20
+msgid "purchase"
+msgstr ""
+
+#: src/blocks/addtocart/index.js:38
+#: src/blocks/product/preview.js:94
+msgid "Add to cart"
+msgstr ""
+
 #: src/blocks/addtocart/inspect.js:28
 msgid "Add"
 msgstr ""
@@ -40,24 +85,53 @@ msgstr ""
 msgid "Display a text on the left and a rectangle ad on the right"
 msgstr ""
 
-#: src/blocks/adtext/index.js:18
-msgid "ad"
-msgstr ""
-
-#: src/blocks/adtext/index.js:19
-msgid "advertising"
-msgstr ""
-
 #: src/blocks/adtext/index.js:20
 msgid "publicity"
 msgstr ""
 
-#: src/blocks/adtext/index.js:41
-msgid "Advertisement"
-msgstr ""
-
 #: src/blocks/adtext/index.js:46
 msgid "Write text here"
+msgstr ""
+
+#: src/blocks/card/index.js:13
+#: src/blocks/card/urlfetcher.js:62
+msgid "Website card preview"
+msgstr ""
+
+#: src/blocks/card/index.js:14
+msgid "Turn a simple url in a pretty card preview"
+msgstr ""
+
+#: src/blocks/card/index.js:18
+msgid "url"
+msgstr ""
+
+#: src/blocks/card/index.js:19
+#: src/blocks/post/index.js:19
+msgid "link"
+msgstr ""
+
+#: src/blocks/card/index.js:63
+#: src/blocks/giphy/index.js:29
+#: src/blocks/gmap/index.js:71
+#: src/blocks/unsplash/index.js:31
+msgid "⚠️ You need to provide an API key in "
+msgstr ""
+
+#: src/blocks/card/index.js:68
+msgid "Blocks > Installed Blocks > Card Preview"
+msgstr ""
+
+#: src/blocks/card/urlfetcher.js:19
+msgid "Fetching website..."
+msgstr ""
+
+#: src/blocks/card/urlfetcher.js:28
+msgid "⚠️ Error: "
+msgstr ""
+
+#: src/blocks/card/urlfetcher.js:67
+msgid "Paste URL here"
 msgstr ""
 
 #: src/blocks/clicktotweet/index.js:18
@@ -84,6 +158,23 @@ msgstr ""
 
 #: src/blocks/clicktotweet/inspect.js:19
 msgid "Comma separated values, don't add #"
+msgstr ""
+
+#: src/blocks/code/index.js:15
+#: src/formats/code/index.js:29
+msgid "Code"
+msgstr ""
+
+#: src/blocks/code/index.js:16
+msgid "Syntax highlighting with custom themes for every languages."
+msgstr ""
+
+#: src/blocks/code/index.js:20
+msgid "highlight"
+msgstr ""
+
+#: src/blocks/code/index.js:21
+msgid "syntax"
 msgstr ""
 
 #: src/blocks/code/inspect.js:17
@@ -120,6 +211,88 @@ msgstr ""
 
 #: src/blocks/code/inspect.js:78
 msgid "End line"
+msgstr ""
+
+#: src/blocks/giphy/index.js:12
+msgid "Giphy"
+msgstr ""
+
+#: src/blocks/giphy/index.js:13
+msgid "Search and insert a GIF from Giphy."
+msgstr ""
+
+#: src/blocks/giphy/index.js:17
+msgid "gif"
+msgstr ""
+
+#: src/blocks/giphy/index.js:34
+msgid "Blocks > Manage Blocks > Giphy"
+msgstr ""
+
+#: src/blocks/giphy/search.js:104
+msgid "Trending"
+msgstr ""
+
+#: src/blocks/giphy/search.js:135
+msgid "More GIFs"
+msgstr ""
+
+#: src/blocks/giphy/search.js:40
+#: src/blocks/unsplash/search.js:43
+msgid "Fetching…"
+msgstr ""
+
+#: src/blocks/giphy/search.js:49
+#: src/blocks/gmap/geocoder.js:28
+#: src/blocks/unsplash/search.js:52
+#: src/components/searchplugin/index.js:33
+#: src/components/searchpost/index.js:27
+#: src/components/searchproduct/index.js:34
+msgid "No result"
+msgstr ""
+
+#: src/blocks/giphy/search.js:94
+msgid "Search a GIF"
+msgstr ""
+
+#: src/blocks/giphy/search.js:98
+#: src/blocks/unsplash/search.js:183
+msgid "or"
+msgstr ""
+
+#: src/blocks/gmap/geocoder.js:20
+#: src/components/searchplugin/index.js:19
+#: src/components/searchpost/index.js:20
+#: src/components/searchproduct/index.js:18
+msgid "Loading…"
+msgstr ""
+
+#: src/blocks/gmap/geocoder.js:34
+msgid "Geocode was not successful for the following reason:"
+msgstr ""
+
+#: src/blocks/gmap/geocoder.js:57
+msgid "Address"
+msgstr ""
+
+#: src/blocks/gmap/geocoder.js:58
+msgid "Type an address"
+msgstr ""
+
+#: src/blocks/gmap/index.js:15
+msgid "Google Map"
+msgstr ""
+
+#: src/blocks/gmap/index.js:16
+msgid "Display a customizable Google map"
+msgstr ""
+
+#: src/blocks/gmap/index.js:20
+msgid "gmap"
+msgstr ""
+
+#: src/blocks/gmap/index.js:76
+msgid "Blocks > Installed Blocks > Google Map"
 msgstr ""
 
 #: src/blocks/gmap/inspect.js:18
@@ -195,10 +368,6 @@ msgstr ""
 msgid "Notice"
 msgstr ""
 
-#: src/blocks/notice/index.js:44
-msgid "Put forward a tips or a warning"
-msgstr ""
-
 #: src/blocks/notice/index.js:48
 msgid "warning"
 msgstr ""
@@ -228,8 +397,49 @@ msgstr ""
 msgid "Show icon"
 msgstr ""
 
+#: src/blocks/plugin/index.js:14
+msgid "Plugin"
+msgstr ""
+
+#: src/blocks/plugin/index.js:15
+msgid "Display informations from a WordPress plugin"
+msgstr ""
+
+#: src/blocks/plugin/index.js:38
+msgid "Search for a plugin in the inspector"
+msgstr ""
+
 #: src/blocks/plugin/inspect.js:16
 msgid "Choose a plugin"
+msgstr ""
+
+#: src/blocks/plugin/preview.js:102
+msgid "Plugin page"
+msgstr ""
+
+#: src/blocks/plugin/preview.js:51
+msgid "Loading plugin…"
+msgstr ""
+
+#: src/blocks/plugin/preview.js:70
+#: src/blocks/post/preview.js:98
+msgid "By"
+msgstr ""
+
+#: src/blocks/plugin/preview.js:94
+msgid "Active Installations"
+msgstr ""
+
+#: src/blocks/post/index.js:14
+msgid "Post"
+msgstr ""
+
+#: src/blocks/post/index.js:15
+msgid "Display a pretty post link (from any post type)"
+msgstr ""
+
+#: src/blocks/post/index.js:57
+msgid "Search for a post in the inspector"
 msgstr ""
 
 #: src/blocks/post/inspect.js:17
@@ -249,6 +459,34 @@ msgstr ""
 msgid "Show Category?"
 msgstr ""
 
+#: src/blocks/post/preview.js:108
+msgid "Read more"
+msgstr ""
+
+#: src/blocks/post/preview.js:114
+msgid "Loading post…"
+msgstr ""
+
+#: src/blocks/post/preview.js:95
+msgid "In"
+msgstr ""
+
+#: src/blocks/product/index.js:14
+msgid "Product"
+msgstr ""
+
+#: src/blocks/product/index.js:15
+msgid "Display WooCommerce Product in your post"
+msgstr ""
+
+#: src/blocks/product/index.js:19
+msgid "woocommerce"
+msgstr ""
+
+#: src/blocks/product/index.js:48
+msgid "Search for a product in the inspector"
+msgstr ""
+
 #: src/blocks/product/inspect.js:22
 msgid "Choose a product"
 msgstr ""
@@ -261,6 +499,10 @@ msgstr ""
 msgid "Button background color"
 msgstr ""
 
+#: src/blocks/product/preview.js:100
+msgid "Loading product…"
+msgstr ""
+
 #: src/blocks/summary/index.js:19
 msgid "Table of contents"
 msgstr ""
@@ -271,6 +513,10 @@ msgstr ""
 
 #: src/blocks/summary/index.js:23
 msgid "summary"
+msgstr ""
+
+#: src/blocks/summary/listitems.js:34
+msgid "(No heading found yet)"
 msgstr ""
 
 #: src/blocks/summary/tools.js:22
@@ -317,8 +563,72 @@ msgstr ""
 msgid "Show Company name?"
 msgstr ""
 
-#: src/formats/code/index.js:29
-msgid "Code"
+#: src/blocks/unsplash/index.js:12
+msgid "Unsplash"
+msgstr ""
+
+#: src/blocks/unsplash/index.js:13
+msgid "Find beautiful pictures from the best free photos stock"
+msgstr ""
+
+#: src/blocks/unsplash/index.js:17
+msgid "photo"
+msgstr ""
+
+#: src/blocks/unsplash/index.js:18
+msgid "picture"
+msgstr ""
+
+#: src/blocks/unsplash/index.js:19
+msgid "image"
+msgstr ""
+
+#: src/blocks/unsplash/index.js:36
+msgid "Blocks > Manage Blocks > Unsplash"
+msgstr ""
+
+#: src/blocks/unsplash/search.js:167
+msgid "Uploading picture in media library, please wait…"
+msgstr ""
+
+#: src/blocks/unsplash/search.js:179
+msgid "Search a picture"
+msgstr ""
+
+#: src/blocks/unsplash/search.js:189
+msgid "Random"
+msgstr ""
+
+#: src/blocks/unsplash/search.js:219
+msgid "More images"
+msgstr ""
+
+#: src/blocks/unsplash/search.js:87
+msgid "by"
+msgstr ""
+
+#: src/components/searchplugin/index.js:41
+msgid "⚠️ Error: Couldn't reach wp.org"
+msgstr ""
+
+#: src/components/searchplugin/index.js:55
+msgid "Type a plugin name "
+msgstr ""
+
+#: src/components/searchpost/index.js:42
+msgid "Post type"
+msgstr ""
+
+#: src/components/searchpost/index.js:49
+msgid "Type a post title"
+msgstr ""
+
+#: src/components/searchproduct/index.js:25
+msgid "Sorry, HTTPS is required to search Woo Products"
+msgstr ""
+
+#: src/components/searchproduct/index.js:52
+msgid "Type a product name"
 msgstr ""
 
 #: src/formats/color/index.js:34

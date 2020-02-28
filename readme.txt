@@ -116,7 +116,7 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 * Added: You can now transform text and intro in notices blocks thanks to Frederico Bond
 * Improved: the way styles and scripts are loaded
 * Improved: Updated code to handle depreciations
-* Improved: Some security improvments
+* Improved: Some security improvments (Thanks to Camilo517)
 * Fixed: some bugs in e-commerce blocks thanks to Julià Mestieri
 * Fixed: overrided editor and theme annoying styles in editor
 * Fixed: Blocks deactivation
