@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js & npm run pot-to-php",
-    "pot-to-php": "node ./bin/pot-to-php.js languages/agb.pot languages/agb.php advanced-gutenberg-blocks"
+    "pot-to-php": "node ./bin/pot-to-php.js languages/agb.pot languages/agb.php advanced-gutenberg-blocks",
+    "build": "node scripts/build.js"
   },
   "dependencies": {
     "autoprefixer": "^7.2.4",

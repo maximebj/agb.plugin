@@ -4,11 +4,11 @@
       margin: 0;
     }
     a {
-      color: white;
+      color: #444;
       text-decoration: none;
     }
-  }
-  .wp-block-advanced-gutenberg-blocks-plugin__button {
-    color: white;
+    a.wp-block-advanced-gutenberg-blocks-plugin__button {
+      color: white;
+    }
   }
 }
