@@ -21,7 +21,7 @@ class AdText {
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/ad.jpg',
 			'description' => __( 'Monetize your website by inserting Ads in your content. This blocks allows you to write a text on the left and display ad on the right.', 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
-			'require' => __('This block requires a Google ads unit code'),
+			'require' => __( 'This block requires a Google ads unit code', 'advanced-gutenberg-blocks' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/adtext', __( 'Text + Rectangle Ad', 'advanced-gutenberg-blocks' ), $args );
@@ -39,7 +39,7 @@ class AdText {
       Consts::BLOCKS_SCRIPT,
       'advancedGutenbergBlocksAdTextSettings',
       array(
-        'script' => get_option('advanced-gutenberg-blocks-adtext-script'),
+        'script' => get_option( 'advanced-gutenberg-blocks-adtext-script' ),
       )
     );
 	}

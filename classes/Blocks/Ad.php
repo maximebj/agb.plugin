@@ -21,7 +21,7 @@ class Ad {
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/banner.jpg',
 			'description' => __( 'Monetize your website by inserting Ads in your content. Best use for banner ads.', 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
-			'require' => __('This block requires a Google ads unit code'),
+			'require' => __( 'This block requires a Google ads unit code', 'advanced-gutenberg-blocks' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/ad', __( 'Banner Ad', 'advanced-gutenberg-blocks' ), $args );
@@ -49,7 +49,7 @@ class Ad {
 
 	public function render_block() {
 
-		return '<div class="wp-block-advanced-gutenberg-blocks-ad">' . get_option('advanced-gutenberg-blocks-ad-script') . '</div>';
+		return '<div class="wp-block-advanced-gutenberg-blocks-ad">' . get_option( 'advanced-gutenberg-blocks-ad-script' ) . '</div>';
 	}
 
 }
