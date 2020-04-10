@@ -21,7 +21,7 @@ class Unsplash {
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/unsplash.jpg',
 			'description' => __( "Find beautiful pictures from the best free photos stock.", 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
-			'require' => __('This block requires an API key'),
+			'require' => __( 'This block requires an API key', 'advanced-gutenberg-blocks' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/unsplash', __( 'Unsplash', 'advanced-gutenberg-blocks' ), $args );

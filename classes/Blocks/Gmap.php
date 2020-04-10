@@ -22,7 +22,7 @@ class Gmap {
 			'preview_image' => Consts::get_url().'admin/img/blocks/gmap.jpg',
 			'description' => __( "Insert a Google Map in your content, the easy way.", 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
-			'require' => __('This block requires an API key'),
+			'require' => __( 'This block requires an API key', 'advanced-gutenberg-blocks' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/gmap', __( 'Google Map', 'advanced-gutenberg-blocks' ), $args );

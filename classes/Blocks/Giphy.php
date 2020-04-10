@@ -21,7 +21,7 @@ class Giphy {
 			'preview_image' => Consts::get_url() . 'admin/img/blocks/giphy.jpg',
 			'description' => __( "Search and insert a GIF from Giphy.", 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
-			'require' => __('This block requires an API key'),
+			'require' => __( 'This block requires an API key', 'advanced-gutenberg-blocks' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/giphy', __( 'Giphy', 'advanced-gutenberg-blocks' ), $args );

@@ -21,7 +21,7 @@ class Card {
 			'preview_image' => Consts::get_url().'admin/img/blocks/card.jpg',
 			'description' => __( "Do you like how Facebook, Twitter or Slack display a sweet preview to a website in a card? Don't be jealous, we've made the same for you in WordPress!", 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
-			'require' => __('This block requires an API key'),
+			'require' => __( 'This block requires an API key', 'advanced-gutenberg-blocks' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/card', __( 'Website card preview', 'advanced-gutenberg-blocks' ), $args );

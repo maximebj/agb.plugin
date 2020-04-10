@@ -19,7 +19,7 @@
 		</ul>
 		
 		<div class="AGB-header__search">
-			<input type="text" id="search-blocks" placeholder="Start typing to filter…">
+			<input type="text" id="search-blocks" placeholder="<?php _e( 'Start typing to filter…', 'advanced-gutenberg-blocks' ); ?>">
 		</div>
 	</header>
 
@@ -32,7 +32,7 @@
 			<div class="AGB-cards" id="list-<?php echo sanitize_title( $cat ); ?>">
 				<h2 class="AGB-cards__title" id="<?php echo sanitize_title( $cat ); ?>"> 	–– <?php echo $cat; ?></h2>
 				<?php if ( $no_woo ) : ?>
-					<p class="AGB-cards__info"><?php _e('WooCommerce is not activated on this website.', 'advanced-gutenberg-block'); ?></p>
+					<p class="AGB-cards__info"><?php _e( 'WooCommerce is not activated on this website.', 'advanced-gutenberg-blocks' ); ?></p>
 				<?php endif; ?>
 				<ul class="AGB-cards__list list<?php if ($no_woo): ?> is-disabled<?php endif; ?>">
 					<?php
