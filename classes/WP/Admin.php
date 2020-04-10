@@ -92,12 +92,12 @@ class Admin {
 
     // WooCommerce is activated ?
     if ( class_exists( 'WooCommerce' ) ) {
-
-      // Is the
+     
       $results = $wpdb->get_results( "SELECT key_id FROM {$wpdb->prefix}woocommerce_api_keys WHERE description = 'Advanced Gutenberg Blocks'", OBJECT );
 
-      if( count( $results ) == 0 ) {
-
+			// Sometimes API key is lost. in this case AGB_woo_ck is empty
+      if( count( $results ) == 0 or get_option( 'AGB_woo_ck' ) == "" ) {
+				
         $consumer_key    = 'ck_' . wc_rand_hash();
 				$consumer_secret = 'cs_' . wc_rand_hash();
 
