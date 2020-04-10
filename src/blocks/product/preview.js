@@ -19,7 +19,14 @@ export default class Preview extends Component {
     fetch( `${advancedGutenbergBlocksProduct.rest}/products/${productID}?consumer_key=${ck}&consumer_secret=${cs}` )
     .then( response => response.json() )
     .then( product => {
-			this.setState( { product: product } )
+			if ( product['product'] === undefined ) {
+				// Handles API v2.
+				this.setState( { product: product } )
+			} else {
+				// Handles API v3.
+				this.setState( { product: product.product } )
+			}
+
 		} )
 	}
 

@@ -72,13 +72,22 @@ class AddToCart {
 			return;
 		}
 
+		$rest_endpoint = get_rest_url() . 'wc/v2';
+		// Use WC API v3 in case exists.
+		if ( class_exists( 'WooCommerce' ) ) {
+			global $woocommerce;
+			if ( version_compare( $woocommerce->version, '3.0', ">=" ) ) {
+				$rest_endpoint = get_site_url( null, '/wc-api/v3');
+			}
+		}
+
 		// This block needs the currency symbol
 		wp_localize_script(
 			Consts::BLOCKS_SCRIPT,
 			'advancedGutenbergBlocksAddtocart',
 			array(
 				'currency' => get_woocommerce_currency_symbol(),
-				'rest' => get_rest_url() . 'wc/v2'
+				'rest' => $rest_endpoint
 			)
 		);
 	}
