@@ -9,7 +9,7 @@ import Tools from './tools'
 import icon from './icons'
 import deprecated from './deprecated'
 
-const { __ } = wp.i18n
+import { __ } from '@wordpress/i18n'
 const { registerBlockType, createBlock } = wp.blocks
 const { RichText } = wp.blockEditor
 const { Fragment } = wp.element
@@ -75,7 +75,7 @@ export default registerBlockType(
       },
       hasIcon: {
         type: 'boolean',
-        default: false,
+        default: true,
       },
       content: {
         type: 'array',

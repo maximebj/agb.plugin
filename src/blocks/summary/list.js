@@ -3,7 +3,7 @@ import { arrayToTree } from 'performant-array-to-tree'
 
 import ListItems from './listitems'
 
-const { __ } = wp.i18n
+import { __ } from '@wordpress/i18n'
 const { Component } = wp.element
 const { flatMap } = lodash
 

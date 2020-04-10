@@ -40,7 +40,7 @@
 							if( $block['category'] != $key ) {
 								continue;
 							}
-							$active = ! in_array( $block['id'], $disabled_blocks );
+							$active = ( isset( $disabled_blocks ) and ! in_array( $block['id'], $disabled_blocks ) );
 					?>		
 						<li class="AGB-card<?php if ( $active ) : ?> is-active<?php endif; ?>">
 							<header class="AGB-card__header">
@@ -81,7 +81,7 @@
 							<div class="AGB-card__actions">
 								<?php if( $block['available'] ): ?>
 									<a href="#" class="AGB-button js-open-modal" data-block="<?php echo sanitize_title( $block['id'] ); ?>">
-										<?php _e( 'Configure Block', 'advanced-gutenberg-block' ); ?>
+										<?php _e( 'Configure Block', 'advanced-gutenberg-blocks' ); ?>
 									</a>
 								<?php endif; ?>
 							</div>

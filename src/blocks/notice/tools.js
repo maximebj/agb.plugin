@@ -1,11 +1,11 @@
 import classnames from 'classnames'
 
-const { __ } = wp.i18n
+import { __ } from '@wordpress/i18n'
 const { Component } = wp.element
 const { BlockControls } = wp.blockEditor
 const {
   Toolbar,
-  IconButton,
+  Button,
   Tooltip,
 } = wp.components
 
@@ -23,7 +23,7 @@ export default class Tools extends Component {
 						return(
 
 							<Tooltip text={ option.title  }>
-								<IconButton
+								<Button
 									icon={ option.icon }
 									className={ classnames(
 										'components-icon-button',

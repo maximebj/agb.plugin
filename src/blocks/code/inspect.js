@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from 'react-select'
 
-const { __ } = wp.i18n
+import { __ } from '@wordpress/i18n'
 const { Component } = wp.element
 const { InspectorControls } = wp.blockEditor
 const { PanelBody, TextControl, BaseControl, ToggleControl } = wp.components

@@ -1,7 +1,7 @@
 import Geocoder from "./geocoder"
 import StyleSelector from "./styleselector"
 
-const { __ } = wp.i18n
+import { __ } from '@wordpress/i18n'
 const { Component } = wp.element
 const { InspectorControls } = wp.blockEditor
 const { PanelBody, BaseControl, TextControl, RangeControl } = wp.components

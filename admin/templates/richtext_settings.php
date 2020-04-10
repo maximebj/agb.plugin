@@ -22,54 +22,6 @@
         </th>
         <td>
           <p>
-            <label for="advanced-gutenberg-blocks_richtext_buttons_color">
-              <input 
-                name="advanced-gutenberg-blocks_richtext_buttons[]" 
-                type="checkbox" 
-                id="advanced-gutenberg-blocks_richtext_buttons_color" 
-                value="color" 
-                <?php 
-                  if ( get_option( 'advanced-gutenberg-blocks_richtext_buttons' ) ) {
-                    echo in_array( 'color', get_option( 'advanced-gutenberg-blocks_richtext_buttons' ), false ) ? 'checked' : '';
-                  } 
-                ?>
-              >
-              <?php _e( 'Color button', 'advanced-gutenberg-blocks' ); ?>
-            </label>
-          </p>
-          <p>
-            <label for="advanced-gutenberg-blocks_richtext_buttons_code">
-              <input 
-                name="advanced-gutenberg-blocks_richtext_buttons[]" 
-                type="checkbox" 
-                id="advanced-gutenberg-blocks_richtext_buttons_code" 
-                value="code" 
-                <?php 
-                  if ( get_option( 'advanced-gutenberg-blocks_richtext_buttons' ) ) {
-                    echo in_array( 'code', get_option( 'advanced-gutenberg-blocks_richtext_buttons' ), false ) ? 'checked' : '';
-                  } 
-                ?>
-              >
-              <?php _e( 'Code button', 'advanced-gutenberg-blocks' ); ?>
-            </label>
-          </p>
-          <p>
-            <label for="advanced-gutenberg-blocks_richtext_buttons_strike">
-              <input 
-                name="advanced-gutenberg-blocks_richtext_buttons[]" 
-                type="checkbox" 
-                id="advanced-gutenberg-blocks_richtext_buttons_strike" 
-                value="strike" 
-                <?php 
-                  if ( get_option( 'advanced-gutenberg-blocks_richtext_buttons' ) ) {
-                    echo in_array( 'strike', get_option( 'advanced-gutenberg-blocks_richtext_buttons' ), false ) ? 'checked' : '';
-                  } 
-                ?> 
-              >
-              <?php _e( 'Strike through button', 'advanced-gutenberg-blocks' ); ?>
-            </label>
-          </p>
-          <p>
             <label for="advanced-gutenberg-blocks_richtext_buttons_superscript">
               <input 
                 name="advanced-gutenberg-blocks_richtext_buttons[]" 
@@ -115,6 +67,45 @@
                 ?>
               >
               <?php _e( 'Remove formatting button', 'advanced-gutenberg-blocks' ); ?>
+            </label>
+          </p>
+          <p>
+            <label for="advanced-gutenberg-blocks_richtext_buttons_color">
+              <input 
+                name="advanced-gutenberg-blocks_richtext_buttons[]" 
+                type="checkbox" 
+                id="advanced-gutenberg-blocks_richtext_buttons_color" 
+                value="color" 
+                checked
+                disabled
+              >
+              <?php _e( 'Color button', 'advanced-gutenberg-blocks' ); ?> <?php _e( '(native)', 'advanced-gutenberg-blocks' ); ?>
+            </label>
+          </p>
+          <p>
+            <label for="advanced-gutenberg-blocks_richtext_buttons_code">
+              <input 
+                name="advanced-gutenberg-blocks_richtext_buttons[]" 
+                type="checkbox" 
+                id="advanced-gutenberg-blocks_richtext_buttons_code" 
+                value="code" 
+                checked
+                disabled
+              >
+              <?php _e( 'Code button', 'advanced-gutenberg-blocks' ); ?> <?php _e( '(native)', 'advanced-gutenberg-blocks' ); ?>
+            </label>
+          </p>
+          <p>
+            <label for="advanced-gutenberg-blocks_richtext_buttons_strike">
+              <input 
+                name="advanced-gutenberg-blocks_richtext_buttons[]" 
+                type="checkbox" 
+                id="advanced-gutenberg-blocks_richtext_buttons_strike" 
+                value="strike" 
+                checked
+                disabled
+              >
+              <?php _e( 'Strike through button', 'advanced-gutenberg-blocks' ); ?> <?php _e( '(native)', 'advanced-gutenberg-blocks' ); ?>
             </label>
           </p>
         </td>

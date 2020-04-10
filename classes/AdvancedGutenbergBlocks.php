@@ -56,9 +56,6 @@ class AdvancedGutenbergBlocks {
 		// Check compatibility (WP 5.1 or gutenberg plugin is activated)
 		add_action( 'admin_init', array( $this, 'check_compatibility' ), 1 );
 
-		// Load text domain
-		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
-
 		// Plugin path
 		$path = plugin_dir_path( __DIR__ );
 
@@ -146,12 +143,4 @@ class AdvancedGutenbergBlocks {
 		<?php
 	}
 
-
-	/**
-	 * Load text domain
-	 */
-
-	public function load_textdomain() {
-	  load_plugin_textdomain( 'advanced-gutenberg-blocks', false, 'advanced-gutenberg-blocks/languages' );
-	}
 }

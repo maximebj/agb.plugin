@@ -2,9 +2,9 @@
 Contributors: maximebj
 Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate blocks, plugin, ad, marketplace, WooCommerce, Product,
 Requires at least: 5.0
-Tested up to: 5.3
+Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 1.9.5.1
+Stable tag: 1.9.6
 Donate link: https://paypal.me/maximebj
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -65,11 +65,11 @@ Customize a lot of settings within the editor without a line of code:
 
 Bring back your Tiny MCE buttons in the editor toolbar in a click to improve your writing experience.
 
-* Code
-* Striketrough
 * Sub and sup
-* Selected text color (text and background)
 * Remove formatting
+* Code (now native)
+* Striketrough (now native)
+* Selected text color (now native)
 
 = Extensible =
 
@@ -111,6 +111,13 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 == Screenshots ==
 
 == Changelog ==
+
+= 1.9.6 (10/04/2020) =
+* Fixed: translations in blocks weren't properly loaded
+* Fixed: issue in add to cart button
+* Fixed: an error causing every block to crash (due to formats doubles)
+* Improved: remove formats that are now in core (strikethrough, inline code, color)
+* Improved: updated some depreciated code
 
 = 1.9.5.1 (02/03/2020) =
 * Fixed: a bug with plugin block and missing strings for translation

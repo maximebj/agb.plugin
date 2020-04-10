@@ -78,6 +78,9 @@ module.exports = {
 		'./dist/blocks.build': paths.pluginBlocksJs,
 		'./dist/formats.build': paths.pluginFormatsJs,
 	},
+	externals: {
+		'@wordpress/i18n': 'wp.i18n'
+	},
 	output: {
 		// Add /* filename */ comments to generated require()s in the output.
 		pathinfo: true,

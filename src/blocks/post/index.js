@@ -4,7 +4,7 @@ import './editor.scss'
 import Inspector from './inspect'
 import Preview from './preview'
 
-const { __ } = wp.i18n
+import { __ } from '@wordpress/i18n'
 const { registerBlockType } = wp.blocks
 const { Fragment } = wp.element
 

@@ -3,7 +3,7 @@ import './editor.scss'
 
 import SearchUnsplash from './search'
 
-const { __ } = wp.i18n
+import { __ } from '@wordpress/i18n'
 const { registerBlockType } = wp.blocks
 
 export default registerBlockType(

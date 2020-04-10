@@ -2,7 +2,7 @@ import { debounce } from 'throttle-debounce'
 
 import logo from './logo'
 
-const { __ } = wp.i18n
+import { __ } from '@wordpress/i18n'
 const { Component } = wp.element
 const { TextControl, Button } = wp.components
 const { withDispatch } = wp.data

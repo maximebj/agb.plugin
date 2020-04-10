@@ -1,6 +1,6 @@
 import { debounce } from "throttle-debounce"
 
-const { __ } = wp.i18n
+import { __ } from '@wordpress/i18n'
 const { Component, Fragment } = wp.element
 const { TextControl } = wp.components
 

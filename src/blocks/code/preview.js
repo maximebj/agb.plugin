@@ -12,7 +12,7 @@ advancedGutenbergBlocksCode.languages.map( lang => {
 // Addons
 require(`codemirror/addon/edit/matchbrackets`)
 
-const { __ } = wp.i18n
+import { __ } from '@wordpress/i18n'
 const { Component } = wp.element
 
 export default class Preview extends Component {
