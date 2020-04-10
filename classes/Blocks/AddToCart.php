@@ -53,7 +53,7 @@ class AddToCart {
 			return;
 		}
 
-		$has_icon = $attributes['hasIcon'] ?? false;
+		$has_icon = isset( $attributes['hasIcon'] ) ? $attributes['hasIcon'] : false;
 		$product = wc_get_product( $attributes['productID'] );
 		$add_to_cart_url = get_site_url() . '?add-to-cart=' . $attributes['productID'];
 		$customClass = array_key_exists( 'className', $attributes ) ? ' ' . $attributes['className'] : '';
