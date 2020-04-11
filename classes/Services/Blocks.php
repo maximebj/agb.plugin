@@ -131,7 +131,7 @@ abstract class Blocks {
 
 	public static function get_native_blocks_categories() {
 		return array(
-			'common' => __( 'Common' ),
+			'common' => __( 'Common', 'advanced-gutenberg-blocks' ),
 			'formatting' 	 => __( 'Formatting' ),
 			'layout' 	 => __( 'Layout' ),
 			'widgets' 	 => __( 'Widgets' ),
@@ -139,10 +139,10 @@ abstract class Blocks {
 		);
 	}
 
-	
+
 	public static function get_native_blocks() {
 		return array(
-			__( 'Common' ) => array(
+			__( 'Common', 'advanced-gutenberg-blocks' ) => array(
 				'paragraph' => array(
 					'id' => 'core/paragraph',
 					'name' => __( 'Paragraph'  ),
@@ -191,7 +191,7 @@ abstract class Blocks {
 					'svg' => Dashicons::QUOTE,
 					'can_disable' => true,
 					'description' => __( 'Give quoted text visual emphasis. "In quoting others, we cite ourselves." — Julio Cortázar' ),
-				),		
+				),
 				'file' => array(
 					'id' => 'core/file',
 					'name' => __( 'File'  ),
@@ -214,7 +214,7 @@ abstract class Blocks {
 					'description' => __( 'Embed a video from your media library or upload a new one.' ),
 				),
 			),
-			
+
 			__( 'Formatting' ) => array(
 
 				'code' => array(
