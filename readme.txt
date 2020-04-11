@@ -4,7 +4,7 @@ Tags: Gutenberg blocks, Customizable block, Google Maps, testimonial, deactivate
 Requires at least: 5.0
 Tested up to: 5.4
 Requires PHP: 7.0
-Stable tag: 1.9.6
+Stable tag: 1.9.7
 Donate link: https://paypal.me/maximebj
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -112,7 +112,7 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 
 == Changelog ==
 
-= 1.9.6.1 (11/04/2020) =
+= 1.9.7 (11/04/2020) =
 * Fixed: missing strings in translation
 
 = 1.9.6 (10/04/2020) =
