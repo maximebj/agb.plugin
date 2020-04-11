@@ -112,6 +112,9 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 
 == Changelog ==
 
+= 1.9.6.1 (11/04/2020) =
+* Fixed: missing strings in translation
+
 = 1.9.6 (10/04/2020) =
 * Fixed: translations in editor weren't properly loaded
 * Fixed: issue in add to cart button
