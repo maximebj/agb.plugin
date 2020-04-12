@@ -9,4 +9,4 @@
   </div>
 </div>
 
-<p class="AGB-form__help"><?php _e( 'Provide your Twitter username (without @).' ); ?></p>
+<p class="AGB-form__help"><?php _e( 'Provide your Twitter username (without @).', 'advanced-gutenberg-blocks' ); ?></p>

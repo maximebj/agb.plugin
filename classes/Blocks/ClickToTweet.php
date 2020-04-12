@@ -21,7 +21,7 @@ class ClickToTweet {
 			'preview_image' => Consts::get_url().'admin/img/blocks/clicktotweet.jpg',
 			'description' => __( "Allow your visitors to easily share your most inspirationals sentences in a click.", 'advanced-gutenberg-blocks' ),
 			'options_callback' => array( $this, 'settings' ),
-			'require' => __('This block needs your Twitter username'),
+			'require' => __('This block needs your Twitter username', 'advanced-gutenberg-blocks' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/clicktotweet', __( 'Click To Tweet', 'advanced-gutenberg-blocks' ), $args );
@@ -82,7 +82,7 @@ class ClickToTweet {
 	public function settings() {
 
 		$twitter_username = $this->get_agb_or_yoast_twitter_user();
-			
+
 		include Consts::get_path() . 'admin/templates/settings/clicktotweet.php';
 	}
 

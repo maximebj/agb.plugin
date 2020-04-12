@@ -9,15 +9,15 @@
 	<header class="AGB-header">
 		<img src="<?php echo Consts::get_url() . 'admin/img/logo.svg' ?>" alt="Advanced Gutenberg Blocks Logo">
 		<h1>
-			<?php _e('Advanced Gutenberg Blocks'); ?>
+			<?php _e( 'Advanced Gutenberg Blocks', 'advanced-gutenberg-blocks' ); ?>
 		</h1>
-		
+
 		<ul class="AGB-header__menu">
 			<?php foreach( $categories as $cat ): ?>
 				<li><a href="#<?php echo sanitize_title( $cat ); ?>"><?php echo $cat; ?></a></li>
 			<?php endforeach; ?>
 		</ul>
-		
+
 		<div class="AGB-header__search">
 			<input type="text" id="search-blocks" placeholder="<?php _e( 'Start typing to filter…', 'advanced-gutenberg-blocks' ); ?>">
 		</div>
@@ -41,13 +41,13 @@
 								continue;
 							}
 							$active = ( isset( $disabled_blocks ) and ! in_array( $block['id'], $disabled_blocks ) );
-					?>		
+					?>
 						<li class="AGB-card<?php if ( $active ) : ?> is-active<?php endif; ?>">
 							<header class="AGB-card__header">
 								<div class="AGB-card__icon">
 									<span class="dashicons <?php echo $block['icon']; ?>"></span>
 								</div>
-								
+
 								<div class="AGB-card__title">
 									<?php echo $block['name']; ?>
 
@@ -69,7 +69,7 @@
 									<?php endif; ?>
 								</div>
 							</header>
-							
+
 							<div class="AGB-card__content">
 								<p><?php echo $block['description']; ?></p>
 
@@ -85,7 +85,7 @@
 									</a>
 								<?php endif; ?>
 							</div>
-							
+
 						</li>
 					<?php endforeach; ?>
 				</ul>
@@ -93,18 +93,18 @@
 		<?php endforeach; ?>
 	</main>
 
-	<?php 
+	<?php
 		$modal = isset( $_GET['modal'] ) ? $_GET['modal'] : false;
 	?>
 	<div class="AGB-modal<?php if( $modal ): ?> is-active<?php endif; ?>">
 		<div class="AGB-modal__overlay js-close-modal"></div>
 		<div class="AGB-modal__window">
 			<a href="#" class="AGB-modal__close js-close-modal">×</a>
-			
-			<?php 
-				foreach( $registered_blocks as $block ): 
+
+			<?php
+				foreach( $registered_blocks as $block ):
 					$slug = sanitize_title( $block['id'] );
-			?>	
+			?>
 				<div class="AGB-modal__content<?php if( $modal == $slug ): ?> is-active<?php endif; ?>" id="modal-content-<?php echo $slug; ?>">
 					<header class="AGB-modal__header">
 						<div class="AGB-modal__icon">
@@ -114,16 +114,16 @@
 						<div class="AGB-modal__title">
 							<?php echo $block['name']; ?>
 						</div>
-					
+
 					</header>
 
 					<div class="AGB-modal__cols">
 
 						<div class="AGB-modal__cols__left">
-							
+
 							<p class="AGB-modal__subtitle"><?php _e( 'Description', 'advanced-gutenberg-blocks' ); ?></p>
 							<p><?php echo $block['description']; ?></p>
-							
+
 							<?php if( array_key_exists( 'credits_callback', $block ) and $block['credits_callback'] ): ?>
 								<div class="AGB-modal__credits">
 									<?php call_user_func( $block['credits_callback'] ); ?>
@@ -138,7 +138,7 @@
 								<div class="AGB-modal__action">
 									<input type="submit" class="AGB-submit" value="<?php _e( 'Save Changes', 'advanced-gutenberg-blocks' ); ?>">
 								</div>
-								
+
 							<?php else: ?>
 								<p><?php _e( 'No settings for this block.', 'advanced-gutenberg-blocks'); ?></p>
 							<?php endif; ?>
@@ -152,7 +152,7 @@
 							<?php endif; ?>
 						</div>
 					</div>
-					
+
 				</div>
 			<?php endforeach; ?>
 		</div>
