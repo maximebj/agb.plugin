@@ -13,8 +13,8 @@
 		</h1>
 
 		<ul class="AGB-header__menu">
-			<?php foreach( $categories as $cat ): ?>
-				<li><a href="#<?php echo sanitize_title( $cat ); ?>"><?php echo $cat; ?></a></li>
+			<?php foreach( $categories as $key => $cat ): ?>
+				<li><a href="#<?php echo esc_attr( $key ); ?>"><?php echo $cat; ?></a></li>
 			<?php endforeach; ?>
 		</ul>
 
@@ -27,10 +27,10 @@
 		<?php
 			foreach( $categories as $key => $cat ):
 				// Check for WooCommerce
-				$no_woo = ( $cat == "WooCommerce" and ! class_exists( 'WooCommerce' ) );
+				$no_woo = ( $key == "woo" and ! class_exists( 'WooCommerce' ) );
 		?>
-			<div class="AGB-cards" id="list-<?php echo sanitize_title( $cat ); ?>">
-				<h2 class="AGB-cards__title" id="<?php echo sanitize_title( $cat ); ?>"> 	–– <?php echo $cat; ?></h2>
+			<div class="AGB-cards" id="list-<?php echo esc_attr( $key ); ?>">
+				<h2 class="AGB-cards__title" id="<?php echo esc_attr( $key ); ?>"> 	–– <?php echo $cat; ?></h2>
 				<?php if ( $no_woo ) : ?>
 					<p class="AGB-cards__info"><?php _e( 'WooCommerce is not activated on this website.', 'advanced-gutenberg-blocks' ); ?></p>
 				<?php endif; ?>

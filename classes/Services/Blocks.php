@@ -142,7 +142,7 @@ abstract class Blocks {
 
 	public static function get_native_blocks() {
 		return array(
-			__( 'Common', 'advanced-gutenberg-blocks' ) => array(
+			'common' => array(
 				'paragraph' => array(
 					'id' => 'core/paragraph',
 					'name' => __( 'Paragraph', 'advanced-gutenberg-blocks' ),
@@ -215,7 +215,7 @@ abstract class Blocks {
 				),
 			),
 
-			__( 'Formatting' ) => array(
+			'formatting'  => array(
 
 				'code' => array(
 					'id' => 'core/code',
@@ -261,7 +261,7 @@ abstract class Blocks {
 				),
 			),
 
-			__( 'Layout' ) => array(
+			'layout' => array(
 
 				'media-text' => array(
 					'id' => 'core/media-text',
@@ -321,7 +321,7 @@ abstract class Blocks {
 				),
 			),
 
-			__( 'Widgets' ) => array(
+			'widgets'  => array(
 
 				'social-links' => array(
 					'id' => 'core/social-links',
@@ -367,7 +367,7 @@ abstract class Blocks {
 				),
 			),
 
-			__( 'Embed' ) => array(
+			'embed' => array(
 				'embed' => array(
 					'id' => 'core/embed',
 					'name' => 'Embed',

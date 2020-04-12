@@ -11,8 +11,8 @@
 		</h1>
 
 		<ul class="AGB-header__menu">
-			<?php foreach( $native_blocks as $cat => $blocks ): ?>
-				<li><a href="#<?php echo sanitize_title( $cat ); ?>"><?php echo $cat; ?></a></li>
+			<?php foreach( $native_categories as $key => $cat ): ?>
+				<li><a href="#<?php echo esc_attr( $key ); ?>"><?php echo $cat; ?></a></li>
 			<?php endforeach; ?>
 		</ul>
 
@@ -23,13 +23,13 @@
 
 	<main class="AGB-main" id="AGB-main">
 		<?php
-			foreach( $native_blocks as $cat => $blocks ):
+			foreach( $native_categories as $key => $cat ):
 		?>
-			<div class="AGB-cards" id="list-<?php echo sanitize_title( $cat ); ?>">
-				<h2 class="AGB-cards__title" id="<?php echo sanitize_title( $cat ); ?>"> –– <?php echo $cat; ?></h2>
+			<div class="AGB-cards" id="list-<?php echo esc_attr( $key ); ?>">
+				<h2 class="AGB-cards__title" id="<?php echo esc_attr( $key ); ?>"> –– <?php echo $cat; ?></h2>
 				<ul class="AGB-cards__list list">
 					<?php
-						foreach( $blocks as $block ):
+						foreach( $native_blocks[$key] as $block ):
 							$active = ! in_array( $block['id'], $disabled_blocks );
 					?>
 						<li class="AGB-card<?php if ( $active ) : ?> is-active<?php endif; ?>">
