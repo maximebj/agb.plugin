@@ -48,16 +48,16 @@ Advanced Gutenberg Blocks features a setting page with all the blocks where you 
 
 Don't want some of the blocks (from this plugin or the WP default ones) ? Disable them in one click from the blocks management page!
 
-= Tweak Editor settings = 
+= Tweak Editor settings =
 
-Customize a lot of settings within the editor without a line of code: 
+Customize a lot of settings within the editor without a line of code:
 
 * Customize Editor width (and wide blocks)
 * Customize default colors in palettes
 * Disable custom color button in palettes
 * Customize default font sizes
 * Disable custom font size option
-* Activate Wide blocks 
+* Activate Wide blocks
 * Activate default blocks stylesheet when theme doesn't handle blocks styles
 * Activate responsive embeds
 
@@ -75,17 +75,17 @@ Bring back your Tiny MCE buttons in the editor toolbar in a click to improve you
 
 Create your own blocks and register them in the Advanced Gutenberg Blocks settings page.
 
-= Built with performances in mind = 
+= Built with performances in mind =
 
-Don't worry about performances: only the needed scripts are loaded in frontend. 
+Don't worry about performances: only the needed scripts are loaded in frontend.
 
 = Contribute! =
 
 Help me making great blocks! Join the project on [Github](https://github.com/maximebj/Gutenberg-blocks)
 
-= Credits = 
+= Credits =
 
-This plugin uses the awesome [Create-Guten-Block](https://github.com/ahmadawais/create-guten-block) Boilerplate by Ahmad Awais! 
+This plugin uses the awesome [Create-Guten-Block](https://github.com/ahmadawais/create-guten-block) Boilerplate by Ahmad Awais!
 
 == Installation ==
 
@@ -111,6 +111,10 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 == Screenshots ==
 
 == Changelog ==
+
+= 1.9.9 (XX/04/2020) =
+* Added: newer editor blocks can now be disabled
+* Improved: missing strings in translation
 
 = 1.9.8 (12/04/2020) =
 * Fixed: Due to a bug on wp.org, translations for the blocks are defined directly on this plugin
@@ -182,7 +186,7 @@ Just throw me an e-mail at maxime [at] dysign . fr and let's get in touch!
 
 = 1.8.3 (22/01/2019) =
 
-Big update with a few new features but a lot of fixes. I've heard you on wp.org and Github! Thanks for your support.  
+Big update with a few new features but a lot of fixes. I've heard you on wp.org and Github! Thanks for your support.
 
 * French translation up to date
 * New: Code Block now supports plain text (Thanks to ronisbr)
@@ -226,7 +230,7 @@ Big update with a few new features but a lot of fixes. I've heard you on wp.org 
 
 = 1.7 (21/12/2018) =
 * New Block: Search and display GIFs from Giphy
-* New Block: Search and import images from Unsplash 
+* New Block: Search and import images from Unsplash
 * Fixed: Notice block icon bug
 
 = 1.6 (19/12/2018) =
@@ -243,7 +247,7 @@ Big update with a few new features but a lot of fixes. I've heard you on wp.org 
 * New Editor settings option: Customize fonts sizes and names in paragraph size selector
 * New Editor settings option: Disable custom font size option in paragraphs
 * New Editor settings option: Activate Wide blocks
-* New Editor settings option: Activate Editor blocks defaults stylesheet 
+* New Editor settings option: Activate Editor blocks defaults stylesheet
 * New Editor settings option: Activate responsive embeds
 * New in Notice Block: New styles variations available
 * New in Notice Block: Notices can display an icon
