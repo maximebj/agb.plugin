@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 abstract class Consts {
 
 	const PLUGIN_NAME = 'advanced-gutenberg-blocks';
-	const VERSION = '1.9.7';
+	const VERSION = '1.9.8';
 
 	// Plugin Path for includes
 	public static function get_path() {

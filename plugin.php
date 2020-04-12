@@ -6,7 +6,7 @@
  * Description: Awesome customizable blocks for the new WordPress Editor
  * Author: maximebj
  * Author URI: https://advanced-gutenberg-blocks.com/
- * Version: 1.9.7
+ * Version: 1.9.8
  * License: GPL2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: advanced-gutenberg-blocks
