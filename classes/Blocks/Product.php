@@ -84,7 +84,7 @@ class Product {
 
 		// This block needs the currency symbol
 		wp_localize_script(
-			Consts::BLOCKS_SCRIPT,
+			Consts::PLUGIN_NAME . '-editor',
 			'advancedGutenbergBlocksProduct',
 			array(
 				'currency' => get_woocommerce_currency_symbol(),

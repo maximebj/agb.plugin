@@ -57,7 +57,7 @@ class Summary {
     }
     
     wp_localize_script(
-			Consts::BLOCKS_SCRIPT,
+			Consts::PLUGIN_NAME . '-editor',
 			'advancedGutenbergBlocksSummary',
 			array(
         'title' =>  $title,

@@ -83,7 +83,7 @@ class AddToCart {
 
 		// This block needs the currency symbol
 		wp_localize_script(
-			Consts::BLOCKS_SCRIPT,
+			Consts::PLUGIN_NAME . '-editor',
 			'advancedGutenbergBlocksAddtocart',
 			array(
 				'currency' => get_woocommerce_currency_symbol(),

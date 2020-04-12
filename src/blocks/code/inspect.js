@@ -1,4 +1,3 @@
-import React from 'react'
 import Select from 'react-select'
 
 import { __ } from '@wordpress/i18n'

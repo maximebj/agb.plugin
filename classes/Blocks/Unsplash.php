@@ -48,7 +48,7 @@ class Unsplash {
 		}
 
 		wp_localize_script(
-			Consts::BLOCKS_SCRIPT,
+			Consts::PLUGIN_NAME . '-editor',
 			'advancedGutenbergBlocksUnsplash',
 			$data
 		);

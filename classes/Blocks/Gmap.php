@@ -94,7 +94,7 @@ class Gmap {
 		}
 
 		wp_localize_script(
-			Consts::BLOCKS_SCRIPT,
+			Consts::PLUGIN_NAME . '-editor',
 			'advancedGutenbergBlocksGmap',
 			$data
 		);
@@ -104,7 +104,7 @@ class Gmap {
 			wp_enqueue_script(
 				Consts::PLUGIN_NAME . '-gmap',
 				'https://maps.googleapis.com/maps/api/js?key=' . $api_key,
-				[ Consts::BLOCKS_SCRIPT ],
+				[ Consts::PLUGIN_NAME . '-editor' ],
         Consts::VERSION
 			);
 		}

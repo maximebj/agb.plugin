@@ -1,0 +1,636 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-04-12T14:53:46+00:00\n"
+"PO-Revision-Date: 2020-04-12 19:10+0200\n"
+"X-Generator: Poedit 2.3\n"
+"Last-Translator: Maxime BERNARD-JACQUET <maxime@dysign.fr>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr_FR\n"
+
+#: blocks.build.js:1
+msgid "Loading…"
+msgstr "Chargement"
+
+#: blocks.build.js:1
+msgid "Sorry, HTTPS is required to search Woo Products"
+msgstr ""
+"Désolé, HTTPS est obligatoire pour rechercher des produits WooCommerce"
+
+#: blocks.build.js:1
+msgid "No result"
+msgstr "Pas de résultat"
+
+#: blocks.build.js:1
+msgid "Type a product name"
+msgstr "Tapez le nom d’un produit"
+
+#: blocks.build.js:1
+msgid "Advice"
+msgstr "Conseil"
+
+#: blocks.build.js:1
+msgid "Information"
+msgstr "Information"
+
+#: blocks.build.js:1
+msgid "Warning"
+msgstr "Attention"
+
+#: blocks.build.js:1
+msgid "Avoid"
+msgstr "À éviter"
+
+#: blocks.build.js:1
+msgid "Notice"
+msgstr "Alerte"
+
+#: blocks.build.js:1
+msgid "Put forward a tips or a warning"
+msgstr "Affiche une astuce ou un avertissement"
+
+#: blocks.build.js:1
+msgid "warning"
+msgstr "avertissement"
+
+#: blocks.build.js:1
+msgid "information"
+msgstr "information"
+
+#: blocks.build.js:1
+msgid "tips"
+msgstr "astuce"
+
+#: blocks.build.js:1
+msgid "Top Line"
+msgstr "Ligne supérieure"
+
+#: blocks.build.js:1
+msgid "Full"
+msgstr "Plein"
+
+#: blocks.build.js:1
+msgid "Your tip/warning content"
+msgstr "Contenu de votre astuce/avertissement"
+
+#: blocks.build.js:1
+msgid "Customize"
+msgstr "Personnaliser"
+
+#: blocks.build.js:1
+msgid "Show icon"
+msgstr "Afficher l’icône"
+
+#: blocks.build.js:1
+msgid "Plugin"
+msgstr "Extension"
+
+#: blocks.build.js:1
+msgid "Display informations from a WordPress plugin"
+msgstr "Affiche les informations d’une extension WordPress"
+
+#: blocks.build.js:1
+msgid "Search for a plugin in the inspector"
+msgstr "Cherchez une extension à partir de l’inspecteur"
+
+#: blocks.build.js:1
+msgid "Choose a plugin"
+msgstr "Sélectionnez une extension"
+
+#: blocks.build.js:1
+msgid "⚠️ Error: Couldn't reach wp.org"
+msgstr "⚠️ Erreur : Impossible de joindre wp.org"
+
+#: blocks.build.js:1
+msgid "Type a plugin name "
+msgstr "Tapez le nom d’une extension "
+
+#: blocks.build.js:1
+msgid "By"
+msgstr "Par"
+
+#: blocks.build.js:1
+msgid "Active Installations"
+msgstr "Installations actives"
+
+#: blocks.build.js:1
+msgid "Plugin page"
+msgstr "Page officielle"
+
+#: blocks.build.js:1
+msgid "Loading plugin…"
+msgstr "Chargement de l’extension"
+
+#: blocks.build.js:1
+msgid "Advertisement"
+msgstr "Publicité"
+
+#: blocks.build.js:1
+msgid "ad"
+msgstr "pub"
+
+#: blocks.build.js:1
+msgid "advertising"
+msgstr "encart publicitaire"
+
+#: blocks.build.js:1
+msgid "banner"
+msgstr "bannièe"
+
+#: blocks.build.js:1
+msgid "An ad will be displayed here in front"
+msgstr "Une publicité sera affichée à cet emplacement sur le site"
+
+#: blocks.build.js:1
+msgid "Text + Ad"
+msgstr "Texte + Publicité"
+
+#: blocks.build.js:1
+msgid "Display a text on the left and a rectangle ad on the right"
+msgstr "Affiche un texte à gauche et une pub rectangulaire à droite"
+
+#: blocks.build.js:1
+msgid "publicity"
+msgstr "publicité"
+
+#: blocks.build.js:1
+msgid "Write text here"
+msgstr "Tapez votre texte ici"
+
+#: blocks.build.js:1
+msgid "Add to cart button"
+msgstr "Bouton ajouter au panier"
+
+#: blocks.build.js:1
+msgid "This button allow a customer to quickly add a product to cart"
+msgstr ""
+"Ce bouton permet à un client de mettre un produit au panier en un clic"
+
+#: blocks.build.js:1
+msgid "purchase"
+msgstr "acheter"
+
+#: blocks.build.js:1
+msgid "Add to cart"
+msgstr "Ajouter au panier"
+
+#: blocks.build.js:1
+msgid "Add"
+msgstr "Ajouter"
+
+#: blocks.build.js:1
+msgid "to cart"
+msgstr "au panier"
+
+#: blocks.build.js:1
+msgid "Search Product"
+msgstr "Chercher un produit"
+
+#: blocks.build.js:1
+msgid "Colors"
+msgstr "Couleurs"
+
+#: blocks.build.js:1
+msgid "Background Color"
+msgstr "Couleur de fond"
+
+#: blocks.build.js:1
+msgid "Icon"
+msgstr "Icône"
+
+#: blocks.build.js:1
+msgid "Display Icon?"
+msgstr "Afficher l’icône ?"
+
+#: blocks.build.js:1
+msgid "Website card preview"
+msgstr "Vignette aperçu de site"
+
+#: blocks.build.js:1
+msgid "Turn a simple url in a pretty card preview"
+msgstr "Transformez une simple URL en un bel aperçu"
+
+#: blocks.build.js:1
+msgid "url"
+msgstr "url"
+
+#: blocks.build.js:1
+msgid "link"
+msgstr "lien"
+
+#: blocks.build.js:1
+msgid "⚠️ You need to provide an API key in "
+msgstr "⚠️ Vous devez fournir une clé d’API dans "
+
+#: blocks.build.js:1
+msgid "Blocks > Installed Blocks > Card Preview"
+msgstr "Blocs > Gérer les blocs > Vignette d’aperçu de site"
+
+#: blocks.build.js:1
+msgid "Fetching website..."
+msgstr "Récupération du site…"
+
+#: blocks.build.js:1
+msgid "⚠️ Error: "
+msgstr "⚠️ Erreur :"
+
+#: blocks.build.js:1
+msgid "Paste URL here"
+msgstr "Copiez l’URL ici"
+
+#: blocks.build.js:1
+msgid "Product"
+msgstr "Produit"
+
+#: blocks.build.js:1
+msgid "Display WooCommerce Product in your post"
+msgstr "Affiche un produit WooCommerce dans votre article"
+
+#: blocks.build.js:1
+msgid "woocommerce"
+msgstr "woocommerce"
+
+#: blocks.build.js:1
+msgid "Search for a product in the inspector"
+msgstr "Cherchez un produit dans l’inspecteur"
+
+#: blocks.build.js:1
+msgid "Choose a product"
+msgstr "Choisissez un produit"
+
+#: blocks.build.js:1
+msgid "Price color"
+msgstr "Couleur du prix"
+
+#: blocks.build.js:1
+msgid "Button background color"
+msgstr "Couleur de fond du bouton"
+
+#: blocks.build.js:1
+msgid "Loading product…"
+msgstr "Chargement du produit…"
+
+#: blocks.build.js:1
+msgid "Post"
+msgstr "Publication"
+
+#: blocks.build.js:1
+msgid "Display a pretty post link (from any post type)"
+msgstr ""
+"Affiche un joli lien vers une publication (depuis n’importe quel type de "
+"publication)"
+
+#: blocks.build.js:1
+msgid "Search for a post in the inspector"
+msgstr "Cherchez une publication dans l’inspecteur"
+
+#: blocks.build.js:1
+msgid "Choose a post"
+msgstr "Choisissez une publication"
+
+#: blocks.build.js:1
+msgid "Show Image?"
+msgstr "Afficher l’image ?"
+
+#: blocks.build.js:1
+msgid "Show Author?"
+msgstr "Afficher l’auteur ?"
+
+#: blocks.build.js:1
+msgid "Show Category?"
+msgstr "Afficher la catégorie ?"
+
+#: blocks.build.js:1
+msgid "Post type"
+msgstr "Type de publication"
+
+#: blocks.build.js:1
+msgid "Type a post title"
+msgstr "Tapez le titre d’une publication"
+
+#: blocks.build.js:1
+msgid "In"
+msgstr "Dans"
+
+#: blocks.build.js:1
+msgid "Read more"
+msgstr "Lire la suite"
+
+#: blocks.build.js:1
+msgid "Loading post…"
+msgstr "Chargement de la publication…"
+
+#: blocks.build.js:1
+msgid "Testimonial"
+msgstr "Témoignage"
+
+#: blocks.build.js:1
+msgid "Display a testimonial with a picture, text, name and company"
+msgstr ""
+"Affiche un témoignage avec une image, un texte, un nom et l’entreprise"
+
+#: blocks.build.js:1
+msgid "review"
+msgstr "témoignage"
+
+#: blocks.build.js:1
+msgid "× Remove"
+msgstr "×  Retirer"
+
+#: blocks.build.js:1
+msgid "Select Image"
+msgstr "Choisir une image"
+
+#: blocks.build.js:1
+msgid "Write testimonial content here"
+msgstr "Écrivez le contenu du témoignage ici"
+
+#: blocks.build.js:1
+msgid "Matt Mullenweg"
+msgstr "Matt Mullenweg"
+
+#: blocks.build.js:1
+msgid "Automattic"
+msgstr "Automattic"
+
+#: blocks.build.js:1
+msgid "Show Company name?"
+msgstr "Afficher le nom de l’entreprise ?"
+
+#: blocks.build.js:1
+msgid "Google Map"
+msgstr "Google Map"
+
+#: blocks.build.js:1
+msgid "Display a customizable Google map"
+msgstr "Affiche une carte Google personnalisable "
+
+#: blocks.build.js:1
+msgid "gmap"
+msgstr "carte"
+
+#: blocks.build.js:1
+msgid "Blocks > Installed Blocks > Google Map"
+msgstr "Blocs > Gérer les blocs > Google Map"
+
+#: blocks.build.js:1
+msgid "Map options"
+msgstr "Options de la carte"
+
+#: blocks.build.js:1
+msgid "Marker Popup Title"
+msgstr "Titre de la bulle du marqueur"
+
+#: blocks.build.js:1
+msgid "My shop Name"
+msgstr "Mon magasin"
+
+#: blocks.build.js:1
+msgid "Zoom"
+msgstr "Zoom"
+
+#: blocks.build.js:1
+msgid "Height"
+msgstr "Hauteur"
+
+#: blocks.build.js:1
+msgid "Style"
+msgstr "Style"
+
+#: blocks.build.js:1
+msgid "Geocode was not successful for the following reason:"
+msgstr "Le géocoding n’a pas fonctionné pour la raison suivante :"
+
+#: blocks.build.js:1
+msgid "Address"
+msgstr "Adresse"
+
+#: blocks.build.js:1
+msgid "Type an address"
+msgstr "Tapez une adresse"
+
+#: blocks.build.js:1
+msgid "Click to tweet"
+msgstr "Cliquer pour tweeter"
+
+#: blocks.build.js:1
+msgid ""
+"Display a nice click to tweet box so your user can easily share your most "
+"meaningful sentences"
+msgstr ""
+"Afficher une zone «cliquer pour tweeter» afin que votre utilisateur "
+"puisse facilement partager les phrases les plus éloquentes"
+
+#: blocks.build.js:1
+msgid "Your tweetable content"
+msgstr "Votre contenu à Tweeter"
+
+#: blocks.build.js:1
+msgid "Hashtags"
+msgstr "Hastags"
+
+#: blocks.build.js:1
+msgid "Add some hashtags (optionnal)"
+msgstr "Ajouter des hashtags (facultatif)"
+
+#: blocks.build.js:1
+msgid "Comma separated values, don't add #"
+msgstr "Valeurs séparées par des virgules, sans ajouter #"
+
+#: blocks.build.js:1
+msgid "Table of contents"
+msgstr "Table des matières"
+
+#: blocks.build.js:1
+msgid "Display an auto generated, dynamic table of contents"
+msgstr "Afficher un sommaire généré automatiquement"
+
+#: blocks.build.js:1
+msgid "summary"
+msgstr "sommaire"
+
+#: blocks.build.js:1
+msgid "Ordered list"
+msgstr "Liste ordonnée"
+
+#: blocks.build.js:1
+msgid "Unordered list"
+msgstr "Liste à puces"
+
+#: blocks.build.js:1
+msgid "(No heading found yet)"
+msgstr "(Pas de titre pour le moment)"
+
+#: blocks.build.js:1
+msgid "Intro"
+msgstr "Intro"
+
+#: blocks.build.js:1
+msgid "Display a nice introduction text at the beginning of your post"
+msgstr "Afficher un texte d’introduction au début de votre article"
+
+#: blocks.build.js:1
+msgid "introduction"
+msgstr "introduction"
+
+#: blocks.build.js:1
+msgid "subhead"
+msgstr "sous-titre"
+
+#: blocks.build.js:1
+msgid "chapo"
+msgstr "chapo"
+
+#: blocks.build.js:1
+msgid "Your introduction here"
+msgstr "Votre introduction ici"
+
+#: blocks.build.js:1
+msgid "Giphy"
+msgstr "Giphy"
+
+#: blocks.build.js:1
+msgid "Search and insert a GIF from Giphy."
+msgstr "Insérez des GIF de Giphy."
+
+#: blocks.build.js:1
+msgid "gif"
+msgstr "gif"
+
+#: blocks.build.js:1
+msgid "Blocks > Manage Blocks > Giphy"
+msgstr "Blocs > Gérer les blocs > Giphy"
+
+#: blocks.build.js:1
+msgid "Fetching…"
+msgstr "Recherche…"
+
+#: blocks.build.js:1
+msgid "Search a GIF"
+msgstr "Cherchez un GIF"
+
+#: blocks.build.js:1
+msgid "or"
+msgstr "ou"
+
+#: blocks.build.js:1
+msgid "Trending"
+msgstr "Tendances"
+
+#: blocks.build.js:1
+msgid "More GIFs"
+msgstr "Plus de GIFs"
+
+#: blocks.build.js:1
+msgid "Unsplash"
+msgstr "Unsplash"
+
+#: blocks.build.js:1
+msgid "Find beautiful pictures from the best free photos stock"
+msgstr "Trouvez de magnifiques images du plus beau stock de photographies"
+
+#: blocks.build.js:1
+msgid "photo"
+msgstr "photo"
+
+#: blocks.build.js:1
+msgid "picture"
+msgstr "cliché"
+
+#: blocks.build.js:1
+msgid "image"
+msgstr "image"
+
+#: blocks.build.js:1
+msgid "Blocks > Manage Blocks > Unsplash"
+msgstr "Blocks > Gérer les blocs > Unsplash"
+
+#: blocks.build.js:1
+msgid "by"
+msgstr "par"
+
+#: blocks.build.js:1
+msgid "Uploading picture in media library, please wait…"
+msgstr "Téléversement de l’image, veillez patienter…"
+
+#: blocks.build.js:1
+msgid "Search a picture"
+msgstr "Chercher une image"
+
+#: blocks.build.js:1
+msgid "Random"
+msgstr "Aléatoire"
+
+#: blocks.build.js:1
+msgid "More images"
+msgstr "Plus d'images"
+
+#: blocks.build.js:1
+msgid "Code"
+msgstr "Code"
+
+#: blocks.build.js:1
+msgid "Syntax highlighting with custom themes for every languages."
+msgstr ""
+"Affichage de code source avec prise en charge de différents langages."
+
+#: blocks.build.js:1
+msgid "highlight"
+msgstr "code"
+
+#: blocks.build.js:1
+msgid "syntax"
+msgstr "syntaxe"
+
+#: blocks.build.js:1
+msgid "Settings"
+msgstr "Réglages"
+
+#: blocks.build.js:1
+msgid "Language"
+msgstr "Langage"
+
+#: blocks.build.js:1
+msgid "File name"
+msgstr "Nom du fichier"
+
+#: blocks.build.js:1
+msgid " /my/optionnal/file/name.ext"
+msgstr "/mon/fichier/optionnel.ext"
+
+#: blocks.build.js:1
+msgid "Auto wrap long lines"
+msgstr "Retour à la ligne automatique"
+
+#: blocks.build.js:1
+msgid "Show lines numbers"
+msgstr "Afficher le numéro des lignes"
+
+#: blocks.build.js:1
+msgid "Start line"
+msgstr "Ligne de départ"
+
+#: blocks.build.js:1
+msgid "Highlight Lines"
+msgstr "Surligner les lignes"
+
+#: blocks.build.js:1
+msgid "End line"
+msgstr "Fin de ligne"
+
+#: formats.build.js:1
+msgid "Remove formatting"
+msgstr "Supprimer le formattage"
+
+#: formats.build.js:1
+msgid "Subscript"
+msgstr "Indice"
+
+#: formats.build.js:1
+msgid "Superscript"
+msgstr "Exposant"

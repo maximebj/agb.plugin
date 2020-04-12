@@ -125,7 +125,7 @@ class Post {
 		}
 		
 		wp_localize_script(
-			Consts::BLOCKS_SCRIPT,
+			Consts::PLUGIN_NAME . '-editor',
 			'advancedGutenbergBlocksPost',
 			array(
 				'types' => json_encode( $types ),

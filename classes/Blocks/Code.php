@@ -59,7 +59,7 @@ class Code {
 	public function editor_assets() {
 
 		wp_localize_script(
-			Consts::BLOCKS_SCRIPT,
+			Consts::PLUGIN_NAME . '-editor',
 			'advancedGutenbergBlocksCode',
 			array(
 				'themes' => $this->get_theme_list(),

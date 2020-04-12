@@ -46,7 +46,7 @@ class Card {
 		}
 
 		wp_localize_script(
-			Consts::BLOCKS_SCRIPT,
+			Consts::PLUGIN_NAME . '-editor',
 			'advancedGutenbergBlocksOpenGraph',
 			$data
 		);
