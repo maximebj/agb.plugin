@@ -1,5 +1,5 @@
 import Geocoder from "./geocoder"
-import StyleSelector from "./styleselector"
+import StyleSelector from "./styleSelector"
 
 import { __ } from '@wordpress/i18n'
 const { Component } = wp.element
