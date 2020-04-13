@@ -29,7 +29,7 @@ class Settings {
 	public function add_admin_menu() {
 
 		global $submenu;
-    
+
 		add_submenu_page(
 			Consts::PLUGIN_NAME,
 			__( 'Manage Blocks' , 'advanced-gutenberg-blocks' ),
@@ -141,6 +141,7 @@ class Settings {
 	public function disable_blocks_page() {
 
 		$native_blocks = Blocks::get_native_blocks();
+		$native_categories = Blocks::get_native_blocks_categories();
 		$disabled_blocks = Blocks::get_disabled_blocks();
 
 		require_once Consts::get_path() . 'admin/templates/disable_blocks.php';
