@@ -4,11 +4,6 @@ namespace AdvancedGutenbergBlocks;
 
 defined( 'ABSPATH' ) || exit;
 
-use AdvancedGutenbergBlocks\Helpers\Consts;
-use AdvancedGutenbergBlocks\Helpers\Dashicons;
-
-use AdvancedGutenbergBlocks\Services\Blocks;
-
 use AdvancedGutenbergBlocks\WP\Installer;
 use AdvancedGutenbergBlocks\WP\Admin;
 use AdvancedGutenbergBlocks\WP\Gutenberg;
