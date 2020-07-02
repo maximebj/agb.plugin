@@ -1,7 +1,7 @@
 <?php defined( 'ABSPATH' ) || exit; ?>
 <div class="AGB-form__setting">
   <div class="AGB-form__label is-required">
-    <label for="advanced-gutenberg-blocks-twitter-username"><?php _e( 'Username', 'advanced-gutenberg-blocks' ); ?></label>
+    <label for="advanced-gutenberg-blocks-twitter-username"><?php esc_html__( 'Username', 'advanced-gutenberg-blocks' ); ?></label>
   </div>
 
   <div class="AGB-form__field">
@@ -9,4 +9,4 @@
   </div>
 </div>
 
-<p class="AGB-form__help"><?php _e( 'Provide your Twitter username (without @).', 'advanced-gutenberg-blocks' ); ?></p>
+<p class="AGB-form__help"><?php esc_html__( 'Provide your Twitter username (without @).', 'advanced-gutenberg-blocks' ); ?></p>

@@ -9,7 +9,7 @@
 	<header class="AGB-header">
 		<img src="<?php echo Consts::get_url() . 'admin/img/logo.svg' ?>" alt="Advanced Gutenberg Blocks Logo">
 		<h1>
-			<?php _e( 'Advanced Gutenberg Blocks', 'advanced-gutenberg-blocks' ); ?>
+			<?php esc_html__( 'Advanced Gutenberg Blocks', 'advanced-gutenberg-blocks' ); ?>
 		</h1>
 
 		<ul class="AGB-header__menu">
@@ -19,7 +19,7 @@
 		</ul>
 
 		<div class="AGB-header__search">
-			<input type="text" id="search-blocks" placeholder="<?php _e( 'Start typing to filter…', 'advanced-gutenberg-blocks' ); ?>">
+			<input type="text" id="search-blocks" placeholder="<?php esc_html__( 'Start typing to filter…', 'advanced-gutenberg-blocks' ); ?>">
 		</div>
 	</header>
 
@@ -32,7 +32,7 @@
 			<div class="AGB-cards" id="list-<?php echo esc_attr( $key ); ?>">
 				<h2 class="AGB-cards__title" id="<?php echo esc_attr( $key ); ?>"> 	–– <?php echo $cat; ?></h2>
 				<?php if ( $no_woo ) : ?>
-					<p class="AGB-cards__info"><?php _e( 'WooCommerce is not activated on this website.', 'advanced-gutenberg-blocks' ); ?></p>
+					<p class="AGB-cards__info"><?php esc_html__( 'WooCommerce is not activated on this website.', 'advanced-gutenberg-blocks' ); ?></p>
 				<?php endif; ?>
 				<ul class="AGB-cards__list list<?php if ($no_woo): ?> is-disabled<?php endif; ?>">
 					<?php
@@ -52,7 +52,7 @@
 									<?php echo $block['name']; ?>
 
 									<?php if( ! $block['available'] ): ?>
-										<small><?php _e( '[Soon]', 'advanced-gutenberg-blocks' ); ?></small>
+										<small><?php esc_html__( '[Soon]', 'advanced-gutenberg-blocks' ); ?></small>
 									<?php endif; ?>
 								</div>
 
@@ -81,7 +81,7 @@
 							<div class="AGB-card__actions">
 								<?php if( $block['available'] ): ?>
 									<a href="#" class="AGB-button js-open-modal" data-block="<?php echo sanitize_title( $block['id'] ); ?>">
-										<?php _e( 'Configure Block', 'advanced-gutenberg-blocks' ); ?>
+										<?php esc_html__( 'Configure Block', 'advanced-gutenberg-blocks' ); ?>
 									</a>
 								<?php endif; ?>
 							</div>
@@ -121,7 +121,7 @@
 
 						<div class="AGB-modal__cols__left">
 
-							<p class="AGB-modal__subtitle"><?php _e( 'Description', 'advanced-gutenberg-blocks' ); ?></p>
+							<p class="AGB-modal__subtitle"><?php esc_html__( 'Description', 'advanced-gutenberg-blocks' ); ?></p>
 							<p><?php echo $block['description']; ?></p>
 
 							<?php if( array_key_exists( 'credits_callback', $block ) and $block['credits_callback'] ): ?>
@@ -130,22 +130,22 @@
 								</div>
 							<?php endif; ?>
 
-							<p class="AGB-modal__subtitle"><?php _e( 'Options', 'advanced-gutenberg-blocks' ); ?></p>
+							<p class="AGB-modal__subtitle"><?php esc_html__( 'Options', 'advanced-gutenberg-blocks' ); ?></p>
 							<?php if( array_key_exists( 'options_callback', $block ) and $block['options_callback'] ): ?>
 								<div class="AGB-modal__form AGB-form">
 									<?php call_user_func( $block['options_callback'] ); ?>
 								</div>
 								<div class="AGB-modal__action">
-									<input type="submit" class="AGB-submit" value="<?php _e( 'Save Changes', 'advanced-gutenberg-blocks' ); ?>">
+									<input type="submit" class="AGB-submit" value="<?php esc_html__( 'Save Changes', 'advanced-gutenberg-blocks' ); ?>">
 								</div>
 
 							<?php else: ?>
-								<p><?php _e( 'No settings for this block.', 'advanced-gutenberg-blocks'); ?></p>
+								<p><?php esc_html__( 'No settings for this block.', 'advanced-gutenberg-blocks'); ?></p>
 							<?php endif; ?>
 						</div>
 
 						<div class="AGB-modal__cols__right">
-							<p class="AGB-modal__subtitle"><?php _e('Preview', 'advanced-gutenberg-blocks' ); ?></p>
+							<p class="AGB-modal__subtitle"><?php esc_html__('Preview', 'advanced-gutenberg-blocks' ); ?></p>
 
 							<?php if( array_key_exists( 'preview_image', $block ) and $block['preview_image'] ): ?>
 								<img src="<?php echo $block['preview_image']; ?>" alt="<?php sprintf( __( '%s example', 'advanced-gutenberg-blocks' ), $block['name'] ); ?>">

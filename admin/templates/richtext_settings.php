@@ -4,21 +4,21 @@
 ?>
 <div class="wrap">
   
-  <h1><?php _e( 'Rich Text Tools', 'advanced-gutenberg-blocks' ); ?></h1>
+  <h1><?php esc_html__( 'Rich Text Tools', 'advanced-gutenberg-blocks' ); ?></h1>
 
   <form method="post" action="options.php">
     <?php settings_fields( 'advanced-gutenberg-blocks-richtext-settings' ); ?>
     <?php do_settings_sections( 'advanced-gutenberg-blocks-richtext-settings' ); ?>
 
     <p>
-      <?php _e( "Add useful buttons to the RichText toolbar. Bring back the ones you loved from TinyMCE.", 'advanced-gutenberg-blocks' ); ?>
+      <?php esc_html__( "Add useful buttons to the RichText toolbar. Bring back the ones you loved from TinyMCE.", 'advanced-gutenberg-blocks' ); ?>
     </p>
 
     <table class="form-table">
 
       <tr>
         <th scope="row">
-          <?php _e( 'Toolbar buttons', 'advanced-gutenberg-blocks' ); ?>
+          <?php esc_html__( 'Toolbar buttons', 'advanced-gutenberg-blocks' ); ?>
         </th>
         <td>
           <p>
@@ -34,7 +34,7 @@
                   } 
                 ?>              
               >
-              <?php _e( 'Superscript button', 'advanced-gutenberg-blocks' ); ?>
+              <?php esc_html__( 'Superscript button', 'advanced-gutenberg-blocks' ); ?>
             </label>
           </p>
           <p>
@@ -50,7 +50,7 @@
                   } 
                 ?>
               >
-              <?php _e( 'Subscript button', 'advanced-gutenberg-blocks' ); ?>
+              <?php esc_html__( 'Subscript button', 'advanced-gutenberg-blocks' ); ?>
             </label>
           </p>
           <p>
@@ -66,7 +66,7 @@
                   } 
                 ?>
               >
-              <?php _e( 'Remove formatting button', 'advanced-gutenberg-blocks' ); ?>
+              <?php esc_html__( 'Remove formatting button', 'advanced-gutenberg-blocks' ); ?>
             </label>
           </p>
           <p>
@@ -79,7 +79,7 @@
                 checked
                 disabled
               >
-              <?php _e( 'Color button', 'advanced-gutenberg-blocks' ); ?> <?php _e( '(native)', 'advanced-gutenberg-blocks' ); ?>
+              <?php esc_html__( 'Color button', 'advanced-gutenberg-blocks' ); ?> <?php esc_html__( '(native)', 'advanced-gutenberg-blocks' ); ?>
             </label>
           </p>
           <p>
@@ -92,7 +92,7 @@
                 checked
                 disabled
               >
-              <?php _e( 'Code button', 'advanced-gutenberg-blocks' ); ?> <?php _e( '(native)', 'advanced-gutenberg-blocks' ); ?>
+              <?php esc_html__( 'Code button', 'advanced-gutenberg-blocks' ); ?> <?php esc_html__( '(native)', 'advanced-gutenberg-blocks' ); ?>
             </label>
           </p>
           <p>
@@ -105,7 +105,7 @@
                 checked
                 disabled
               >
-              <?php _e( 'Strike through button', 'advanced-gutenberg-blocks' ); ?> <?php _e( '(native)', 'advanced-gutenberg-blocks' ); ?>
+              <?php esc_html__( 'Strike through button', 'advanced-gutenberg-blocks' ); ?> <?php esc_html__( '(native)', 'advanced-gutenberg-blocks' ); ?>
             </label>
           </p>
         </td>

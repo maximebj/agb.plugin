@@ -133,7 +133,7 @@ class AdvancedGutenbergBlocks {
 	public function compatibility_notice() {
 		?>
 		<div class="error notice is-dismissible">
-			<p><?php _e( 'Advanced Gutenberg Blocks requires WordPress 5.0 or Gutenberg plugin to be activated', 'advanced-gutenberg-blocks' ); ?></p>
+			<p><?php esc_html__( 'Advanced Gutenberg Blocks requires WordPress 5.0 or Gutenberg plugin to be activated', 'advanced-gutenberg-blocks' ); ?></p>
 		</div>
 		<?php
 	}

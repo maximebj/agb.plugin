@@ -7,7 +7,7 @@
 	<header class="AGB-header">
 		<img src="<?php echo Consts::get_url() . 'admin/img/logo.svg' ?>" alt="Advanced Gutenberg Blocks Logo">
 		<h1>
-			<?php _e( 'Advanced Gutenberg Blocks', 'advanced-gutenberg-blocks' ); ?>
+			<?php esc_html__( 'Advanced Gutenberg Blocks', 'advanced-gutenberg-blocks' ); ?>
 		</h1>
 
 		<ul class="AGB-header__menu">

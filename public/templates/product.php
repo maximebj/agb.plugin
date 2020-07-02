@@ -23,7 +23,7 @@
 		<p class="wp-block-advanced-gutenberg-blocks-product__actions">
 			<a class="wp-block-advanced-gutenberg-blocks-product__button" href="<?php echo $add_to_cart_url; ?>" style="background-color: <?php echo $attributes['buttonBackgroundColor']; ?>">
 				<span class="dashicons dashicons-cart"></span>
-				<?php _e( 'Add to cart', 'advanced-gutenberg-blocks' ); ?>
+				<?php esc_html__( 'Add to cart', 'advanced-gutenberg-blocks' ); ?>
 			</a>
 		</p>
 	</div>

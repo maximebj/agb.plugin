@@ -1,14 +1,14 @@
 <?php defined( 'ABSPATH' ) || exit; ?>
 <div class="wrap">
   
-  <h1><?php _e( 'Editor settings', 'advanced-gutenberg-blocks' ); ?></h1>
+  <h1><?php esc_html__( 'Editor settings', 'advanced-gutenberg-blocks' ); ?></h1>
 
   <form method="post" action="options.php">
     <?php settings_fields( 'advanced-gutenberg-blocks-editor-settings' ); ?>
     <?php do_settings_sections( 'advanced-gutenberg-blocks-editor-settings' ); ?>
 
     <p>
-      <?php _e( "If your theme doesn't handle some Editor features, you can activate them from here.", 'advanced-gutenberg-blocks' ); ?>
+      <?php esc_html__( "If your theme doesn't handle some Editor features, you can activate them from here.", 'advanced-gutenberg-blocks' ); ?>
     </p>
 
     <table class="form-table">
@@ -16,7 +16,7 @@
       <tr>
         <th scope="row">
           <label for="advanced-gutenberg-blocks_editor_width">
-            <?php _e( 'Editor Width', 'advanced-gutenberg-blocks' ); ?>
+            <?php esc_html__( 'Editor Width', 'advanced-gutenberg-blocks' ); ?>
           </label>
         </th>
         <td>
@@ -28,14 +28,14 @@
             value="<?php echo esc_attr( get_option( 'advanced-gutenberg-blocks_editor_width' ) ); ?>" 
             class="small-text"
           >
-          <p class="description"><?php _e( 'Editor custom width in px', 'advanced-gutenberg-blocks' ); ?></p>
+          <p class="description"><?php esc_html__( 'Editor custom width in px', 'advanced-gutenberg-blocks' ); ?></p>
         </td>
       </tr>
 
       <tr>
         <th scope="row">
           <label for="advanced-gutenberg-blocks_editor_wide_width">
-            <?php _e( 'Editor Wide Blocks Width', 'advanced-gutenberg-blocks' ); ?>
+            <?php esc_html__( 'Editor Wide Blocks Width', 'advanced-gutenberg-blocks' ); ?>
           </label>
         </th>
         <td>
@@ -47,13 +47,13 @@
             value="<?php echo esc_attr( get_option( 'advanced-gutenberg-blocks_editor_wide_width' ) ); ?>" 
             class="small-text"
           >
-          <p class="description"><?php _e( 'Large blocks custom width in px', 'advanced-gutenberg-blocks' ); ?></p>
+          <p class="description"><?php esc_html__( 'Large blocks custom width in px', 'advanced-gutenberg-blocks' ); ?></p>
         </td>
       </tr>
 
             <tr>
         <th scope="row">
-          <?php _e( 'Blocks default styles', 'advanced-gutenberg-blocks' ); ?>
+          <?php esc_html__( 'Blocks default styles', 'advanced-gutenberg-blocks' ); ?>
         </th>
         <td>
           <label for="advanced-gutenberg-blocks_editor_default_styles">
@@ -64,14 +64,14 @@
               value="1" 
               <?php checked( 1, get_option( 'advanced-gutenberg-blocks_editor_default_styles' ) ); ?>
             >
-            <?php _e( 'Activate front stylesheet for default blocks styles', 'advanced-gutenberg-blocks' ); ?>
+            <?php esc_html__( 'Activate front stylesheet for default blocks styles', 'advanced-gutenberg-blocks' ); ?>
           </label>
         </td>
       </tr>
 
       <tr>
         <th scope="row">
-          <?php _e( 'Responsive Embeds', 'advanced-gutenberg-blocks' ); ?>
+          <?php esc_html__( 'Responsive Embeds', 'advanced-gutenberg-blocks' ); ?>
         </th>
         <td>
           <label for="advanced-gutenberg-blocks_editor_responsive_embeds">
@@ -82,14 +82,14 @@
               value="1" 
               <?php checked( 1, get_option( 'advanced-gutenberg-blocks_editor_responsive_embeds' ) ); ?>
             >
-            <?php _e( 'Activate responsive Embeds styles', 'advanced-gutenberg-blocks' ); ?>
+            <?php esc_html__( 'Activate responsive Embeds styles', 'advanced-gutenberg-blocks' ); ?>
           </label>
         </td>
       </tr>
 
       <tr>
         <th scope="row">
-          <?php _e( 'Wide Blocks', 'advanced-gutenberg-blocks' ); ?>
+          <?php esc_html__( 'Wide Blocks', 'advanced-gutenberg-blocks' ); ?>
         </th>
         <td>
           <label for="advanced-gutenberg-blocks_editor_wide_blocks">
@@ -100,21 +100,21 @@
               value="1" 
               <?php checked( 1, get_option( 'advanced-gutenberg-blocks_editor_wide_blocks' ) ); ?>
             >
-            <?php _e( 'Activate Wide blocks', 'advanced-gutenberg-blocks' ); ?>
+            <?php esc_html__( 'Activate Wide blocks', 'advanced-gutenberg-blocks' ); ?>
           </label>
         </td>
       </tr>
 
     </table>
 
-    <h2><?php _e( 'Colors', 'advanced-gutenberg-blocks' ); ?></h2>
+    <h2><?php esc_html__( 'Colors', 'advanced-gutenberg-blocks' ); ?></h2>
 
     <table class="form-table">
 
       <tr>
         <th scope="row">
           <label for="editor_width">
-            <?php _e('Custom color palette', 'advanced-gutenberg-blocks' ); ?>
+            <?php esc_html__('Custom color palette', 'advanced-gutenberg-blocks' ); ?>
           </label>
         </th>
         <td>
@@ -132,21 +132,21 @@
                 name="advanced-gutenberg-blocks_editor_colors[name][]" 
                 type="text" 
                 value="<?php echo esc_attr( $colors['name'][$key] ); ?>"
-                placeholder="<?php _e('Color name', 'advanced-gutenberg-blocks'); ?>"
+                placeholder="<?php esc_html__('Color name', 'advanced-gutenberg-blocks'); ?>"
               > 
-              <a href="#" class="AGB-remove-link js-remove-color"><?php _e( 'Remove', 'advanced-gutenberg-blocks' ); ?></a>
+              <a href="#" class="AGB-remove-link js-remove-color"><?php esc_html__( 'Remove', 'advanced-gutenberg-blocks' ); ?></a>
             </li>
             <?php endforeach; endif; ?>
           </ul>
           <p>
-            <button class="button js-add-color"><?php _e( 'Add Color', 'advanced-gutenberg-blocks' ); ?></button>
+            <button class="button js-add-color"><?php esc_html__( 'Add Color', 'advanced-gutenberg-blocks' ); ?></button>
           </p>
         </td>
       </tr>
 
       <tr>
         <th scope="row">
-          <?php _e( 'Custom color button', 'advanced-gutenberg-blocks' ); ?>
+          <?php esc_html__( 'Custom color button', 'advanced-gutenberg-blocks' ); ?>
         </th>
         <td>
           <label for="advanced-gutenberg-blocks_editor_custom_color">
@@ -157,20 +157,20 @@
               value="1" 
               <?php checked( 1, get_option( 'advanced-gutenberg-blocks_editor_custom_color' ) ); ?>
             >
-            <?php _e( 'Disable custom color button in Color Palette', 'advanced-gutenberg-blocks' ); ?>
+            <?php esc_html__( 'Disable custom color button in Color Palette', 'advanced-gutenberg-blocks' ); ?>
           </label>
         </td>
       </tr>
 
       </table>
 
-      <h2><?php _e( 'Font sizes', 'advanced-gutenberg-blocks' ); ?></h2>
+      <h2><?php esc_html__( 'Font sizes', 'advanced-gutenberg-blocks' ); ?></h2>
 
       <table class="form-table">
 
         <tr>
           <th scope="row">
-            <?php _e('Custom font sizes', 'advanced-gutenberg-blocks'); ?>
+            <?php esc_html__('Custom font sizes', 'advanced-gutenberg-blocks'); ?>
           </th>
           <td>
             <?php $sizes = get_option( 'advanced-gutenberg-blocks_editor_font_sizes' ); ?>
@@ -190,21 +190,21 @@
                   name="advanced-gutenberg-blocks_editor_font_sizes[name][]" 
                   type="text" 
                   value="<?php echo esc_attr( $sizes['name'][$key] ); ?>"
-                  placeholder="<?php _e('Size name (eg: Large)', 'advanced-gutenberg-blocks'); ?>"
+                  placeholder="<?php esc_html__('Size name (eg: Large)', 'advanced-gutenberg-blocks'); ?>"
                 >
-                <a href="#" class="AGB-remove-link js-remove-size"><?php _e( 'Remove', 'advanced-gutenberg-blocks' ); ?></a>
+                <a href="#" class="AGB-remove-link js-remove-size"><?php esc_html__( 'Remove', 'advanced-gutenberg-blocks' ); ?></a>
               </li>
               <?php endforeach; endif; ?>
             </ul>
             <p>
-              <button class="button js-add-size"><?php _e( 'Add Size', 'advanced-gutenberg-blocks' ); ?></button>
+              <button class="button js-add-size"><?php esc_html__( 'Add Size', 'advanced-gutenberg-blocks' ); ?></button>
             </p>
           </td>
         </tr>
 
       <tr>
         <th scope="row">
-          <?php _e( 'Custom font size input', 'advanced-gutenberg-blocks' ); ?>
+          <?php esc_html__( 'Custom font size input', 'advanced-gutenberg-blocks' ); ?>
         </th>
         <td>
           <label for="advanced-gutenberg-blocks_editor_custom_font_size">
@@ -215,7 +215,7 @@
               value="1" 
               <?php checked( 1, get_option( 'advanced-gutenberg-blocks_editor_custom_font_size' ) ); ?>
             >
-            <?php _e( 'Disable custom font size input in Paragraph Block', 'advanced-gutenberg-blocks' ); ?>
+            <?php esc_html__( 'Disable custom font size input in Paragraph Block', 'advanced-gutenberg-blocks' ); ?>
           </label>
         </td>
       </tr>
@@ -239,9 +239,9 @@
       name="advanced-gutenberg-blocks_editor_colors[name][]" 
       type="text" 
       value=""
-      placeholder="<?php _e('Color name', 'advanced-gutenberg-blocks'); ?>"
+      placeholder="<?php esc_html__('Color name', 'advanced-gutenberg-blocks'); ?>"
     > 
-    <a href="#" class="AGB-remove-link js-remove-color"><?php _e( 'Remove', 'advanced-gutenberg-blocks' ); ?></a>
+    <a href="#" class="AGB-remove-link js-remove-color"><?php esc_html__( 'Remove', 'advanced-gutenberg-blocks' ); ?></a>
   </li>
 </div>
 
@@ -260,8 +260,8 @@
       name="advanced-gutenberg-blocks_editor_font_sizes[name][]" 
       type="text" 
       value=""
-      placeholder="<?php _e('Size name (eg: Large)', 'advanced-gutenberg-blocks'); ?>"
+      placeholder="<?php esc_html__('Size name (eg: Large)', 'advanced-gutenberg-blocks'); ?>"
     >
-    <a href="#" class="AGB-remove-link js-remove-size"><?php _e( 'Remove', 'advanced-gutenberg-blocks' ); ?></a>
+    <a href="#" class="AGB-remove-link js-remove-size"><?php esc_html__( 'Remove', 'advanced-gutenberg-blocks' ); ?></a>
   </li>
 </div>

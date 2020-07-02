@@ -29,7 +29,7 @@
 			</p>
 			<p class="wp-block-advanced-gutenberg-blocks-plugin__active">
 				<span><?php echo $plugin['activeInstalls']; ?></span>
-				<?php _e( 'Active Installations', 'advanced-gutenberg-blocks' ) ?>
+				<?php esc_html__( 'Active Installations', 'advanced-gutenberg-blocks' ) ?>
 			</p>
 		</div>
 		<div class="wp-block-advanced-gutenberg-blocks-plugin__download">
@@ -37,7 +37,7 @@
 				href="<?php echo $plugin['downloadLink']; ?>"
 				target="_blank"
 				class="wp-block-advanced-gutenberg-blocks-plugin__button">
-					<?php _e( 'Plugin page', 'advanced-gutenberg-blocks' ) ?>
+					<?php esc_html__( 'Plugin page', 'advanced-gutenberg-blocks' ) ?>
 				</a>
 		</div>
 	</footer>
