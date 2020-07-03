@@ -18,37 +18,20 @@ export default class URLFetcher extends Component {
 
 		this.setState( { results: __( 'Fetching website...', 'advanced-gutenberg-blocks' ) } )
 
-		fetch(
-			`https://opengraph.io/api/1.0/site/${encodeURIComponent(url)}?app_id=${advancedGutenbergBlocksOpenGraph.apiKey}`
-		)
+		const ajaxUrl = new URL( advancedGutenbergBlocksOpenGraph.ajax_url )
+		ajaxUrl.searchParams.set( '_ajax_nonce', advancedGutenbergBlocksOpenGraph.nonce )
+		ajaxUrl.searchParams.set( 'action', 'agb_fetch_card' )
+		ajaxUrl.searchParams.set( 'url', url )
+
+		fetch( ajaxUrl )
 		.then( response => response.json() )
 		.then( response => {
 
-			if ( response.error ) {
-				this.setState( { results: __( "⚠️ Error: ", 'advanced-gutenberg-blocks' ) + response.error.message } )
-
-			} else if ( response.openGraph.error ) {
-
-				// Fallback for non OG datas
-				this.props.onChange( response.hybridGraph )
+			if ( ! response.success ) {
+				const message = response.data && response.data.message ? response.data.message : __( 'Unknown error' )
+				this.setState( { results: __( "⚠️ Error: ", 'advanced-gutenberg-blocks' ) + message } )
 			} else {
-
-				// Sometimes OG datas has no image, we get it on hybrid datas
-				if ( ! response.openGraph.image && response.hybridGraph.image ) {
-					response.openGraph.image = response.hybridGraph.image
-				}
-
-				// Sometimes OG datas has no description, we get it on hybrid datas
-				if ( ! response.openGraph.description && response.hybridGraph.description ) {
-					response.openGraph.description = response.hybridGraph.description
-				}
-
-				// Sometimes Og data provides an object of images
-				if( typeof response.openGraph.image === "object" ) {
-					response.openGraph.image = response.openGraph.image.url
-				}
-
-				this.props.onChange( response.openGraph )
+				this.props.onChange( response.data )
 			}
 
 		} )

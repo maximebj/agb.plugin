@@ -25,6 +25,7 @@ Download this folder in your plugins directory
 ```
 cd /wp-content/plugins/gutenberg-blocks/
 npm install
+composer install
 npm run
 ```
 

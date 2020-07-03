@@ -13,6 +13,7 @@ class Card {
 
 		// Register Hooks
 		add_action( 'enqueue_block_editor_assets', array( $this, 'editor_assets' ) );
+		add_action( 'wp_ajax_agb_fetch_card', array( $this, 'fetch_card' ) );
 
 		// Register Block in the plugin settings page
 		$args = array(
@@ -20,24 +21,18 @@ class Card {
 			'category' => 'apis',
 			'preview_image' => Consts::get_url().'admin/img/blocks/card.jpg',
 			'description' => __( "Do you like how Facebook, Twitter or Slack display a sweet preview to a website in a card? Don't be jealous, we've made the same for you in WordPress!", 'advanced-gutenberg-blocks' ),
-			'options_callback' => array( $this, 'settings' ),
-			'require' => __( 'This block requires an API key', 'advanced-gutenberg-blocks' ),
 		);
 
 		Blocks::register_block( 'advanced-gutenberg-blocks/card', __( 'Website card preview', 'advanced-gutenberg-blocks' ), $args );
-
-		// Register settings
-		Blocks::register_setting( 'advanced-gutenberg-blocks-opengraph-api-key' );
   }
-
-	public function settings() {
-		include Consts::get_path() . 'admin/templates/settings/card.php';
-	}
 
 	public function editor_assets() {
 		$api_key = get_option( 'advanced-gutenberg-blocks-opengraph-api-key' );
 
-		$data = array();
+		$data = array(
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'nonce' => wp_create_nonce( 'agb_card' ),
+		);
 
 		if ( $api_key == "" ) {
 			$data['error'] = 'noApiKey';
@@ -51,5 +46,26 @@ class Card {
 			$data
 		);
 
+	}
+
+	public function fetch_card() {
+		check_ajax_referer( 'agb_card' );
+
+		$url = $_GET['url'];
+
+		$embed = \Embed\Embed::create( $url );
+
+		wp_send_json_success( array(
+			'title' => $embed->title,
+			'description' => $embed->description,
+			'url' => $embed->url,
+			'type' => $embed->type,
+			'image' => $embed->image,
+			'imageWidth' => $embed->imageWidth,
+			'imageHeight' => $embed->imageHeight,
+			'authorName' => $embed->authorName,
+			'providerName' => $embed->providerName,
+			'providerIcons' => $embed->providerIcons,
+		) );
 	}
 }

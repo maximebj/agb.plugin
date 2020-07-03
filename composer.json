@@ -1,0 +1,5 @@
+{
+    "require": {
+        "embed/embed": "3.x"
+    }
+}
