@@ -30,7 +30,7 @@
     <?php esc_html__( 'Smooth scrolling', 'advanced-gutenberg-blocks' ); ?>
   </div>
   <div class="AGB-form__field">
-    <input type="checkbox" name="advanced-gutenberg-blocks-smooth-scrolling" id="advanced-gutenberg-blocks-smooth-scrolling" <?php echo $state; ?>>
+    <input type="checkbox" name="advanced-gutenberg-blocks-smooth-scrolling" id="advanced-gutenberg-blocks-smooth-scrolling" <?php echo esc_attr($state); ?>>
     <label for="advanced-gutenberg-blocks-smooth-scrolling"><?php esc_html__( 'Activate smooth scrolling', 'advanced-gutenberg-blocks' ); ?></label>
   </div>
 </div>
@@ -40,7 +40,7 @@
     <?php esc_html__( 'Folding', 'advanced-gutenberg-blocks' ); ?>
   </div>
   <div class="AGB-form__field">
-    <input type="checkbox" name="advanced-gutenberg-blocks-summary-folded" id="advanced-gutenberg-blocks-summary-folded" <?php echo $folded; ?>>
+    <input type="checkbox" name="advanced-gutenberg-blocks-summary-folded" id="advanced-gutenberg-blocks-summary-folded" <?php echo esc_attr($folded); ?>>
     <label for="advanced-gutenberg-blocks-summary-folded"><?php esc_html__( 'Folded by default', 'advanced-gutenberg-blocks' ); ?></label>
   </div>
 </div>

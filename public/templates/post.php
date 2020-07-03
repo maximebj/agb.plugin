@@ -1,7 +1,7 @@
 <?php defined( 'ABSPATH' ) || exit; ?>
-<div class="wp-block-advanced-gutenberg-blocks-post<?php echo $customClass; ?>">
+<div class="wp-block-advanced-gutenberg-blocks-post<?php echo esc_attr($customClass); ?>">
 	<?php if( $image ): ?>
-		<a href="<?php the_permalink(); ?>" class="wp-block-advanced-gutenberg-blocks-post__image" style="background-image: url('<?php echo $image; ?>')">
+		<a href="<?php the_permalink(); ?>" class="wp-block-advanced-gutenberg-blocks-post__image" style="background-image: url('<?php echo esc_url($image); ?>')">
 		</a>
 	<?php endif; ?>
 	<div class="wp-block-advanced-gutenberg-blocks-post__content">
@@ -11,10 +11,10 @@
 		<p class="wp-block-advanced-gutenberg-blocks-post__metas">
 			<em>
 				<?php if( $category ): ?>
-					<span> <?php esc_html__( 'In', 'advanced-gutenberg-blocks' ); ?> <?php echo $category; ?> </span>
+					<span> <?php esc_html__( 'In', 'advanced-gutenberg-blocks' ); ?> <?php echo esc_html($category); ?> </span>
 				<?php endif; ?>
 				<?php if( $author ): ?>
-					<span> <?php esc_html__( 'By', 'advanced-gutenberg-blocks' ); ?> <?php echo $author; ?> </span>
+					<span> <?php esc_html__( 'By', 'advanced-gutenberg-blocks' ); ?> <?php echo esc_html($author); ?> </span>
 				<?php endif; ?>
 			</em>
 		</p>

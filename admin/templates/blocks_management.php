@@ -14,7 +14,7 @@
 
 		<ul class="AGB-header__menu">
 			<?php foreach( $categories as $key => $cat ): ?>
-				<li><a href="#<?php echo esc_attr( $key ); ?>"><?php echo $cat; ?></a></li>
+				<li><a href="#<?php echo esc_attr( $key ); ?>"><?php echo esc_html($cat); ?></a></li>
 			<?php endforeach; ?>
 		</ul>
 
@@ -30,7 +30,7 @@
 				$no_woo = ( $key == "woo" and ! class_exists( 'WooCommerce' ) );
 		?>
 			<div class="AGB-cards" id="list-<?php echo esc_attr( $key ); ?>">
-				<h2 class="AGB-cards__title" id="<?php echo esc_attr( $key ); ?>"> 	–– <?php echo $cat; ?></h2>
+				<h2 class="AGB-cards__title" id="<?php echo esc_attr( $key ); ?>"> 	–– <?php echo esc_html($cat); ?></h2>
 				<?php if ( $no_woo ) : ?>
 					<p class="AGB-cards__info"><?php esc_html__( 'WooCommerce is not activated on this website.', 'advanced-gutenberg-blocks' ); ?></p>
 				<?php endif; ?>
@@ -45,11 +45,11 @@
 						<li class="AGB-card<?php if ( $active ) : ?> is-active<?php endif; ?>">
 							<header class="AGB-card__header">
 								<div class="AGB-card__icon">
-									<span class="dashicons <?php echo $block['icon']; ?>"></span>
+									<span class="dashicons <?php echo esc_html($block['icon']); ?>"></span>
 								</div>
 
 								<div class="AGB-card__title">
-									<?php echo $block['name']; ?>
+									<?php echo esc_html($block['name']); ?>
 
 									<?php if( ! $block['available'] ): ?>
 										<small><?php esc_html__( '[Soon]', 'advanced-gutenberg-blocks' ); ?></small>
@@ -61,9 +61,9 @@
 									<a
 										href="#"
 										class="AGB-switch js-AGB-toggle-state"
-										data-block="<?php echo $block['id']; ?>"
-										data-command=<?php echo ( $active ) ? 'disable' : 'enable'; ?>
-										data-invert-command=<?php echo ( !$active ) ? 'disable' : 'enable'; ?>
+										data-block="<?php echo esc_attr($block['id']); ?>"
+										data-command=<?php echo ( esc_attr($active) ) ? 'disable' : 'enable'; ?>
+										data-invert-command=<?php echo ( esc_attr(!$active) ) ? 'disable' : 'enable'; ?>
 									>
 									</a>
 									<?php endif; ?>
@@ -71,10 +71,10 @@
 							</header>
 
 							<div class="AGB-card__content">
-								<p><?php echo $block['description']; ?></p>
+								<p><?php echo esc_html($block['description']); ?></p>
 
 								<?php if( isset( $block['require'] ) ) : ?>
-									<p class="AGB-card__warning"><?php echo $block['require']; ?></p>
+									<p class="AGB-card__warning"><?php echo esc_html($block['require']); ?></p>
 								<?php endif; ?>
 							</div>
 
@@ -105,14 +105,14 @@
 				foreach( $registered_blocks as $block ):
 					$slug = sanitize_title( $block['id'] );
 			?>
-				<div class="AGB-modal__content<?php if( $modal == $slug ): ?> is-active<?php endif; ?>" id="modal-content-<?php echo $slug; ?>">
+				<div class="AGB-modal__content<?php if( $modal == $slug ): ?> is-active<?php endif; ?>" id="modal-content-<?php echo esc_attr($slug); ?>">
 					<header class="AGB-modal__header">
 						<div class="AGB-modal__icon">
-							<span class="dashicons <?php echo $block['icon']; ?>"></span>
+							<span class="dashicons <?php echo esc_attr($block['icon']); ?>"></span>
 						</div>
 
 						<div class="AGB-modal__title">
-							<?php echo $block['name']; ?>
+							<?php echo esc_html($block['name']); ?>
 						</div>
 
 					</header>
@@ -122,7 +122,7 @@
 						<div class="AGB-modal__cols__left">
 
 							<p class="AGB-modal__subtitle"><?php esc_html__( 'Description', 'advanced-gutenberg-blocks' ); ?></p>
-							<p><?php echo $block['description']; ?></p>
+							<p><?php echo esc_html($block['description']); ?></p>
 
 							<?php if( array_key_exists( 'credits_callback', $block ) and $block['credits_callback'] ): ?>
 								<div class="AGB-modal__credits">
@@ -148,7 +148,7 @@
 							<p class="AGB-modal__subtitle"><?php esc_html__('Preview', 'advanced-gutenberg-blocks' ); ?></p>
 
 							<?php if( array_key_exists( 'preview_image', $block ) and $block['preview_image'] ): ?>
-								<img src="<?php echo $block['preview_image']; ?>" alt="<?php sprintf( __( '%s example', 'advanced-gutenberg-blocks' ), $block['name'] ); ?>">
+								<img src="<?php echo esc_attr($block['preview_image']); ?>" alt="<?php sprintf( __( '%s example', 'advanced-gutenberg-blocks' ), $block['name'] ); ?>">
 							<?php endif; ?>
 						</div>
 					</div>

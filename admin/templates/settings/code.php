@@ -6,7 +6,7 @@
 
   <div class="AGB-form__field">
     <select name="advanced-gutenberg-blocks-code-theme">
-      <?php echo $select_html; ?>
+      <?php echo esc_html($select_html); ?>
     </select>
   </div>
 </div>

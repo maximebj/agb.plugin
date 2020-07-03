@@ -12,7 +12,7 @@
 
 		<ul class="AGB-header__menu">
 			<?php foreach( $native_categories as $key => $cat ): ?>
-				<li><a href="#<?php echo esc_attr( $key ); ?>"><?php echo $cat; ?></a></li>
+				<li><a href="#<?php echo esc_attr( $key ); ?>"><?php echo esc_html($cat); ?></a></li>
 			<?php endforeach; ?>
 		</ul>
 
@@ -26,7 +26,7 @@
 			foreach( $native_categories as $key => $cat ):
 		?>
 			<div class="AGB-cards" id="list-<?php echo esc_attr( $key ); ?>">
-				<h2 class="AGB-cards__title" id="<?php echo esc_attr( $key ); ?>"> –– <?php echo $cat; ?></h2>
+				<h2 class="AGB-cards__title" id="<?php echo esc_attr( $key ); ?>"> –– <?php echo esc_html($cat); ?></h2>
 				<ul class="AGB-cards__list list">
 					<?php
 						foreach( $native_blocks[$key] as $block ):
@@ -35,11 +35,11 @@
 						<li class="AGB-card<?php if ( $active ) : ?> is-active<?php endif; ?>">
 							<header class="AGB-card__header">
 								<div class="AGB-card__icon">
-									<?php echo $block['svg']; ?>
+									<?php echo esc_html($block['svg']); ?>
 								</div>
 
 								<div class="AGB-card__title">
-									<?php echo $block['name']; ?>
+									<?php echo esc_html($block['name']); ?>
 								</div>
 
 								<div class="AGB-card__switch">
@@ -47,9 +47,9 @@
 										<a
 											href="#"
 											class="AGB-switch js-AGB-toggle-state"
-											data-block="<?php echo $block['id']; ?>"
-											data-command=<?php echo ( $active ) ? 'disable' : 'enable'; ?>
-											data-invert-command=<?php echo ( !$active ) ? 'disable' : 'enable'; ?>
+											data-block="<?php echo esc_attr($block['id']); ?>"
+											data-command=<?php echo ( esc_attr($active) ) ? 'disable' : 'enable'; ?>
+											data-invert-command=<?php echo ( esc_attr(!$active) ) ? 'disable' : 'enable'; ?>
 										>
 										</a>
 									<?php endif; ?>
@@ -57,7 +57,7 @@
 							</header>
 
 							<div class="AGB-card__content">
-								<p><?php echo $block['description']; ?></p>
+								<p><?php echo esc_html($block['description']); ?></p>
 							</div>
 
 						</li>
