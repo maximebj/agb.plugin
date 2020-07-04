@@ -1,5 +1,4 @@
 /node_modules
+/deps
 /dev/node_modules
 .DS_Store
-vendor
-!vendor/codemirror
