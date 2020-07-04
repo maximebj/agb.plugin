@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
 
 use AdvancedGutenbergBlocks\AdvancedGutenbergBlocks;
 
-require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+require plugin_dir_path( __FILE__ ) . 'deps/autoload.php';
 require plugin_dir_path( __FILE__ ) . 'classes/AdvancedGutenbergBlocks.php';
 
 $AdvancedGutenbergBlocks = new AdvancedGutenbergBlocks();
