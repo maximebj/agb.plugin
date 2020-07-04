@@ -1,0 +1,10 @@
+{
+	"require": {
+		"embed/embed": "3.x"
+	},
+	"config": {
+		"vendor-dir": "deps/"
+	},
+	"optimize-autoloader": true,
+	"classmap-authoritative": true
+}
